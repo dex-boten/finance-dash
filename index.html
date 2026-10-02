@@ -2,1460 +2,605 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💰 דשבורד פיננסי | שקד</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>הפיננסים שלי</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --bg: #0f1117;
-  --card: #1a1f2e;
-  --card2: #212638;
-  --border: #2a3050;
-  --green: #00c875;
-  --red: #e44258;
-  --yellow: #ffcb00;
-  --blue: #579bfc;
-  --muted: #7b8099;
-  --text: #e8eaf0;
-  --purple: #9d50dd;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0f1117;--card:#1a1f2e;--card2:#212638;--border:#2a3050;
+  --green:#00c875;--red:#e44258;--yellow:#ffcb00;--blue:#579bfc;--purple:#9d50dd;
+  --text:#e8eaf0;--muted:#7b8099;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Heebo', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  direction: rtl;
-  min-height: 100vh;
-}
-
-/* ===== LOCK SCREEN ===== */
-#lockScreen {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.lock-box {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 48px 40px;
-  width: 360px;
-  max-width: 90vw;
-  text-align: center;
-}
-.lock-logo { font-size: 52px; margin-bottom: 12px; }
-.lock-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-.lock-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
-.lock-input {
-  width: 100%;
-  background: var(--card2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 16px;
-  font-family: 'Heebo', sans-serif;
-  font-size: 16px;
-  color: var(--text);
-  text-align: center;
-  outline: none;
-  margin-bottom: 14px;
-  direction: ltr;
-  transition: border-color 0.2s;
-}
-.lock-input:focus { border-color: var(--blue); }
-.lock-btn {
-  width: 100%;
-  background: var(--blue);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 14px;
-  font-family: 'Heebo', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.lock-btn:hover { opacity: 0.85; }
-.lock-error { color: var(--red); font-size: 13px; margin-top: 10px; min-height: 20px; }
-@keyframes shake {
-  0%,100% { transform: translateX(0); }
-  20% { transform: translateX(-10px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
-}
-.shake { animation: shake 0.4s ease; }
-
-/* ===== DASHBOARD ===== */
-#dashboard { display: none; min-height: 100vh; }
-
-/* ===== HEADER ===== */
-.header {
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
-  padding: 0 20px;
-  height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-title {
-  font-size: 17px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.lock-icon-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 14px;
-  color: var(--muted);
-  font-size: 13px;
-  cursor: pointer;
-  font-family: 'Heebo', sans-serif;
-  transition: all 0.2s;
-}
-.lock-icon-btn:hover { border-color: var(--blue); color: var(--blue); }
-
-/* ===== MONTH SELECTOR ===== */
-.month-selector {
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 16px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.month-selector::-webkit-scrollbar { display: none; }
-.month-pills {
-  display: flex;
-  gap: 7px;
-  min-width: max-content;
-  direction: ltr;
-}
-.month-pill {
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  font-family: 'Heebo', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s;
-}
-.month-pill:hover { border-color: var(--blue); color: var(--blue); }
-.month-pill.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: #fff;
-  font-weight: 700;
-}
-
-/* ===== TAB NAV ===== */
-.tab-nav {
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  direction: rtl;
-}
-.tab-nav::-webkit-scrollbar { display: none; }
-.tab-btn {
-  padding: 14px 18px;
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  font-family: 'Heebo', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-}
-.tab-btn:hover { color: var(--text); }
-.tab-btn.active {
-  color: var(--blue);
-  border-bottom-color: var(--blue);
-  font-weight: 700;
-}
-
-/* ===== CONTENT ===== */
-.tab-content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px 16px 60px;
-}
-.tab-pane { display: none; }
-.tab-pane.active { display: block; }
-
-/* ===== CARDS ===== */
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-.card-title {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 600;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-.card-value { font-size: 30px; font-weight: 800; }
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-@media (max-width: 580px) {
-  .grid-2 { grid-template-columns: 1fr; }
-  .card-value { font-size: 26px; }
-}
-
-/* ===== SECTION TITLE ===== */
-.section-title {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-/* ===== PROGRESS BARS ===== */
-.breakdown-item { margin-bottom: 14px; }
-.breakdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-  font-size: 14px;
-}
-.breakdown-name { font-weight: 600; }
-.breakdown-amount { color: var(--muted); font-size: 13px; }
-.progress-bar {
-  height: 6px;
-  background: var(--border);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.6s ease;
-}
-
-/* ===== COMPARE BADGE ===== */
-.compare-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-}
-.compare-up { background: rgba(228,66,88,0.15); color: var(--red); }
-.compare-down { background: rgba(0,200,117,0.15); color: var(--green); }
-.compare-same { background: rgba(123,128,153,0.15); color: var(--muted); }
-
-/* ===== INCOME TAB ===== */
-.income-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-}
-.income-row:last-child { border-bottom: none; }
-.income-label { font-size: 15px; font-weight: 500; }
-.income-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.income-pct {
-  font-size: 12px;
-  color: var(--muted);
-  background: var(--card2);
-  padding: 2px 9px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-.income-amount { font-size: 18px; font-weight: 700; color: var(--green); }
-.income-total-box {
-  background: linear-gradient(135deg, rgba(87,155,252,0.08), rgba(0,200,117,0.08));
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-.one-time-card {
-  background: var(--card2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-.badge-tag {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-.badge-blue-t { background: rgba(87,155,252,0.2); color: var(--blue); }
-.badge-green-t { background: rgba(0,200,117,0.2); color: var(--green); }
-.badge-red-t { background: rgba(228,66,88,0.2); color: var(--red); }
-.badge-yellow-t { background: rgba(255,203,0,0.18); color: var(--yellow); }
-
-/* ===== FIXED EXPENSES TAB ===== */
-.expense-group {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  margin-bottom: 12px;
-  overflow: hidden;
-}
-.expense-group-header {
-  padding: 14px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.15s;
-}
-.expense-group-header:hover { background: var(--card2); }
-.expense-group-title { font-size: 15px; font-weight: 600; }
-.expense-group-total { font-size: 16px; font-weight: 700; color: var(--blue); }
-.expense-group-body {
-  display: none;
-  border-top: 1px solid var(--border);
-}
-.expense-group-body.open { display: block; }
-.expense-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 11px 20px;
-  border-bottom: 1px solid rgba(42,48,80,0.5);
-}
-.expense-item:last-child { border-bottom: none; }
-.expense-item-name {
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-.expense-item-amount { font-size: 14px; font-weight: 600; flex-shrink: 0; }
-.chevron { transition: transform 0.25s; font-size: 12px; color: var(--muted); }
-.chevron.open { transform: rotate(180deg); }
-
-/* ===== TRANSACTIONS TAB ===== */
-.filter-bar {
-  display: flex;
-  gap: 7px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.filter-btn {
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  font-family: 'Heebo', sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.filter-btn:hover { border-color: var(--blue); color: var(--blue); }
-.filter-btn.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: #fff;
-  font-weight: 600;
-}
-.filter-select {
-  background: var(--card2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 6px 14px;
-  color: var(--text);
-  font-family: 'Heebo', sans-serif;
-  font-size: 13px;
-  outline: none;
-  cursor: pointer;
-  direction: rtl;
-}
-.tx-header {
-  display: grid;
-  grid-template-columns: 65px 1fr 110px 110px;
-  gap: 10px;
-  padding: 10px 16px;
-  font-size: 11px;
-  color: var(--muted);
-  font-weight: 700;
-  border-bottom: 1px solid var(--border);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-.tx-row {
-  display: grid;
-  grid-template-columns: 65px 1fr 110px 110px;
-  gap: 10px;
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(42,48,80,0.35);
-  align-items: center;
-  transition: background 0.12s;
-}
-.tx-row:last-child { border-bottom: none; }
-.tx-row:hover { background: rgba(33,38,56,0.7); }
-.tx-date { font-size: 12px; color: var(--muted); font-weight: 500; }
-.tx-name { font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.tx-amount {
-  font-size: 14px;
-  font-weight: 700;
-  text-align: left;
-  direction: ltr;
-  font-variant-numeric: tabular-nums;
-}
-.tx-amount.credit { color: var(--green); }
-.tx-amount.debit { color: var(--text); }
-.card-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 10px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-.badge-flycard { background: #1e3a5f; color: #579bfc; }
-.badge-hitechzone { background: #2d1b4e; color: #9d50dd; }
-.badge-max { background: #1a3d2e; color: #00c875; }
-.tx-footer {
-  padding: 12px 16px;
-  color: var(--muted);
-  font-size: 13px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.tx-footer-total { font-size: 15px; font-weight: 700; color: var(--text); }
-.no-tx {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-/* ===== CHART ===== */
-.chart-container {
-  position: relative;
-  height: 230px;
-  margin: 10px auto;
-}
-.chart-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-  justify-content: center;
-  margin-top: 10px;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.legend-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* ===== RECOMMENDATIONS ===== */
-.rec-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px 18px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  transition: opacity 0.3s;
-}
-.rec-card.done { opacity: 0.38; }
-.rec-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-.icon-red { background: rgba(228,66,88,0.18); }
-.icon-yellow { background: rgba(255,203,0,0.15); }
-.icon-blue { background: rgba(87,155,252,0.15); }
-.icon-green { background: rgba(0,200,117,0.15); }
-.rec-content { flex: 1; min-width: 0; }
-.rec-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.rec-desc { font-size: 13px; color: var(--muted); line-height: 1.4; }
-.rec-done-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 5px 12px;
-  color: var(--muted);
-  font-family: 'Heebo', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.rec-done-btn:hover { border-color: var(--green); color: var(--green); }
-.rec-card.done .rec-done-btn { border-color: var(--green); color: var(--green); background: rgba(0,200,117,0.08); }
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 24px 16px;
-  color: var(--muted);
-  font-size: 12px;
-  border-top: 1px solid var(--border);
-  margin-top: 20px;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 480px) {
-  .tx-header, .tx-row {
-    grid-template-columns: 55px 1fr 90px 90px;
-    gap: 6px;
-    padding: 10px 12px;
-  }
-  .tx-name { font-size: 12px; }
-  .tab-btn { padding: 12px 12px; font-size: 13px; }
-  .lock-box { padding: 36px 24px; }
-}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl}
+/* LOCK */
+#lock{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:999}
+.l-logo{font-size:52px}
+.l-title{font-size:26px;font-weight:800}
+.l-sub{font-size:13px;color:var(--muted)}
+.l-form{display:flex;flex-direction:column;gap:10px;width:260px}
+.l-input{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:16px;color:var(--text);font-family:'Heebo',sans-serif;text-align:center;letter-spacing:2px;outline:none}
+.l-input:focus{border-color:var(--blue)}
+.l-btn{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:700;font-family:'Heebo',sans-serif;cursor:pointer}
+.l-err{color:var(--red);font-size:13px;text-align:center;min-height:16px}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.shake{animation:shake .35s}
+/* APP */
+#app{display:none}
+.top-bar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.top-title{font-size:18px;font-weight:800}
+.lock-btn{background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Heebo',sans-serif}
+/* MONTH PILLS */
+.months-wrap{padding:12px 16px;overflow-x:auto;white-space:nowrap;background:var(--card);border-bottom:1px solid var(--border)}
+.month-pill{display:inline-block;padding:7px 14px;border-radius:20px;background:var(--card2);border:1px solid var(--border);color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;margin-left:6px;transition:.15s}
+.month-pill:last-child{margin-left:0}
+.month-pill.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+/* TABS */
+.tabs{display:flex;gap:0;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{flex:1;padding:12px 8px;border:none;background:transparent;color:var(--muted);font-family:'Heebo',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;min-width:70px}
+.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tc{display:none;padding:16px;max-width:900px;margin:0 auto}
+.tc.active{display:block}
+/* CARDS */
+.card{background:var(--card);border-radius:12px;padding:16px;margin-bottom:14px;border:1px solid var(--border)}
+.card-t{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.card-v{font-size:28px;font-weight:800}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+/* BADGES */
+.b{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
+.b-red{background:rgba(228,66,88,.15);color:var(--red);border:1px solid rgba(228,66,88,.3)}
+.b-yel{background:rgba(255,203,0,.12);color:var(--yellow);border:1px solid rgba(255,203,0,.25)}
+.b-grn{background:rgba(0,200,117,.12);color:var(--green);border:1px solid rgba(0,200,117,.25)}
+.b-blu{background:rgba(87,155,252,.12);color:var(--blue);border:1px solid rgba(87,155,252,.25)}
+/* PROGRESS */
+.pbar{background:var(--border);border-radius:8px;height:8px;overflow:hidden;margin:6px 0}
+.pfill{height:100%;border-radius:8px;transition:.4s}
+/* EXPENSE ROWS */
+.grp{margin-bottom:16px}
+.grp-hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--card2);border-radius:10px;cursor:pointer;font-weight:700}
+.grp-body{padding-top:4px}
+.erow{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-radius:8px}
+.erow:hover{background:var(--card2)}
+.el{display:flex;align-items:center;gap:10px}
+.eicon{width:30px;height:30px;border-radius:7px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.ename{font-size:14px;font-weight:500}
+.esub{font-size:11px;color:var(--muted);margin-top:1px}
+.er{display:flex;align-items:center;gap:8px}
+.eamt{font-size:14px;font-weight:700;min-width:65px;text-align:left}
+.dim{opacity:.4}
+/* CARD BADGES for transactions */
+.cb-fly{background:#1e3a5f;color:#579bfc;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:700;white-space:nowrap}
+.cb-htz{background:#2d1b4e;color:#9d50dd;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:700;white-space:nowrap}
+.cb-max{background:#1a3d2e;color:#00c875;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:700;white-space:nowrap}
+/* FILTER BAR */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.fb{padding:6px 14px;border-radius:20px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:'Heebo',sans-serif}
+.fb.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+select.fb{appearance:none;padding-right:14px}
+/* TRANSACTION LIST */
+.txn-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+.txn-row:last-child{border-bottom:none}
+.txn-left{display:flex;align-items:center;gap:10px}
+.txn-date{font-size:11px;color:var(--muted);min-width:42px}
+.txn-name{font-size:14px;font-weight:500}
+.txn-cat{font-size:11px;color:var(--muted);margin-top:1px}
+.txn-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.txn-amt{font-size:14px;font-weight:700;min-width:75px;text-align:left}
+.txn-total{display:flex;justify-content:space-between;padding:12px 0;border-top:2px solid var(--border);margin-top:8px;font-weight:700}
+/* REC CARDS */
+.rec{border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid;position:relative;transition:.2s}
+.rec.done{opacity:.35}
+.rec.done .rec-t{text-decoration:line-through}
+.r-red{background:rgba(228,66,88,.07);border-color:rgba(228,66,88,.3)}
+.r-yel{background:rgba(255,203,0,.07);border-color:rgba(255,203,0,.25)}
+.r-blu{background:rgba(87,155,252,.07);border-color:rgba(87,155,252,.25)}
+.r-grn{background:rgba(0,200,117,.07);border-color:rgba(0,200,117,.25)}
+.rec-t{font-size:15px;font-weight:700;margin-bottom:6px}
+.rec-b{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.rec-acts{display:flex;gap:8px;flex-wrap:wrap}
+.rbtn{padding:6px 14px;border-radius:7px;font-size:12px;font-weight:700;font-family:'Heebo',sans-serif;cursor:pointer;border:none}
+.rb-done{background:rgba(0,200,117,.15);color:var(--green);border:1px solid rgba(0,200,117,.3)}
+.rb-undo{background:var(--card2);color:var(--muted);border:1px solid var(--border)}
+.rb-keep{background:rgba(87,155,252,.12);color:var(--blue);border:1px solid rgba(87,155,252,.3)}
+.done-ck{position:absolute;top:14px;left:14px;font-size:16px}
+/* INCOME ROW */
+.irow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+.irow:last-child{border-bottom:none}
+.iamt{font-size:17px;font-weight:800;color:var(--green)}
+/* CHART */
+.ch-wrap{position:relative;height:180px;margin-top:12px}
+/* FOOTER */
+footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:11px;line-height:1.8}
+/* SUMMARY CHANGE */
+.chg-up{color:var(--red)}
+.chg-dn{color:var(--green)}
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- ===== LOCK SCREEN ===== -->
-<div id="lockScreen">
-  <div class="lock-box" id="lockBox">
-    <div class="lock-logo">🔐</div>
-    <div class="lock-title">דשבורד פיננסי</div>
-    <div class="lock-sub">שקד — 2026</div>
-    <input type="password" class="lock-input" id="lockInput" placeholder="סיסמה" autocomplete="current-password">
-    <button class="lock-btn" onclick="tryUnlock()">כניסה →</button>
-    <div class="lock-error" id="lockError"></div>
+<!-- LOCK -->
+<div id="lock">
+  <div class="l-logo">💰</div>
+  <div class="l-title">הפיננסים שלי</div>
+  <div class="l-sub">הכנס סיסמה</div>
+  <div class="l-form" id="lf">
+    <input class="l-input" id="pw" type="password" placeholder="••••••••••" autocomplete="off">
+    <div class="l-err" id="le"></div>
+    <button class="l-btn" onclick="unlock()">כניסה 🔓</button>
   </div>
 </div>
 
-<!-- ===== DASHBOARD ===== -->
-<div id="dashboard">
-
-  <!-- Header -->
-  <header class="header">
-    <div class="header-title">
-      <span>💰</span>
-      <span>שקד — דשבורד פיננסי</span>
-    </div>
-    <button class="lock-icon-btn" onclick="doLock()">🔒 נעל</button>
-  </header>
-
-  <!-- Month Selector -->
-  <div class="month-selector">
-    <div class="month-pills" id="monthPills"></div>
+<!-- APP -->
+<div id="app">
+  <div class="top-bar">
+    <div class="top-title">🤑 הפיננסים של שקד</div>
+    <button class="lock-btn" onclick="doLock()">🔒 נעל</button>
   </div>
 
-  <!-- Tab Navigation -->
-  <div class="tab-nav">
-    <button class="tab-btn active" data-tab="summary">סיכום</button>
-    <button class="tab-btn" data-tab="income">הכנסות</button>
-    <button class="tab-btn" data-tab="fixed">הוצאות קבועות</button>
-    <button class="tab-btn" data-tab="transactions">עסקאות</button>
-    <button class="tab-btn" data-tab="recs">💡 המלצות</button>
+  <!-- MONTH SELECTOR -->
+  <div class="months-wrap" id="months-wrap"></div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(0,this)">📊 סיכום</button>
+    <button class="tab" onclick="showTab(1,this)">📥 הכנסות</button>
+    <button class="tab" onclick="showTab(2,this)">🏠 קבוע</button>
+    <button class="tab" onclick="showTab(3,this)">🧾 עסקאות</button>
+    <button class="tab" onclick="showTab(4,this)">💡 המלצות</button>
   </div>
 
-  <!-- Tab Content -->
-  <div class="tab-content">
+  <div class="tc active" id="tc0"></div>
+  <div class="tc" id="tc1"></div>
+  <div class="tc" id="tc2"></div>
+  <div class="tc" id="tc3"></div>
+  <div class="tc" id="tc4"></div>
 
-    <!-- ===== TAB: סיכום ===== -->
-    <div class="tab-pane active" id="pane-summary">
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-title">הוצאות כרטיסי אשראי</div>
-          <div class="card-value" id="sum-total" style="color:var(--blue)">—</div>
-          <div style="font-size:13px;color:var(--muted);margin-top:5px;" id="sum-month-label"></div>
-          <div style="margin-top:12px;" id="sum-compare"></div>
-        </div>
-        <div class="card">
-          <div class="card-title">תקופה</div>
-          <div id="sum-month-full" style="font-size:20px;font-weight:800;margin-bottom:8px;"></div>
-          <div style="font-size:13px;color:var(--muted);">הוצאות CC בלבד</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:6px;">לא כולל הוצאות קבועות</div>
-        </div>
-      </div>
-
-      <!-- Card Breakdown -->
-      <div class="card">
-        <div class="section-title">💳 פירוט לפי כרטיס</div>
-        <div id="sum-breakdown"></div>
-      </div>
-
-      <!-- Category Donut -->
-      <div class="card">
-        <div class="section-title">📊 פירוט לפי קטגוריה</div>
-        <div class="chart-container">
-          <canvas id="catChart"></canvas>
-        </div>
-        <div class="chart-legend" id="catLegend"></div>
-      </div>
-    </div>
-
-    <!-- ===== TAB: הכנסות ===== -->
-    <div class="tab-pane" id="pane-income">
-      <div class="section-title">📥 הכנסות חודשיות קבועות</div>
-
-      <div class="card" style="margin-bottom:12px;">
-        <div class="income-row">
-          <div>
-            <div class="income-label">משכורת נטו</div>
-            <div class="income-sub">Intel Israel</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span class="income-pct">86%</span>
-            <span class="income-amount">19,963 ₪</span>
-          </div>
-        </div>
-        <div class="income-row">
-          <div>
-            <div class="income-label">השתתפות שכירות</div>
-            <div class="income-sub">שותף לדירה</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span class="income-pct">14%</span>
-            <span class="income-amount">3,250 ₪</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="income-total-box" style="margin-bottom:28px;">
-        <div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:5px;">סה"כ הכנסות חודשיות</div>
-          <div style="font-size:30px;font-weight:800;color:var(--green);">23,213 ₪</div>
-        </div>
-        <div style="font-size:36px;">💰</div>
-      </div>
-
-      <div class="section-title">⭐ הכנסות חד-פעמיות 2026</div>
-
-      <div class="one-time-card">
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:15px;font-weight:700;">מילואים — מאי 2026</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:3px;">פיצוי מילואים</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-          <span class="badge-tag badge-blue-t">מאי</span>
-          <span style="font-size:17px;font-weight:800;color:var(--green);">13,274 ₪</span>
-        </div>
-      </div>
-
-      <div class="one-time-card">
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:15px;font-weight:700;">ESPP — ספטמבר 2026</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:3px;">תוכנית רכישת מניות עובדים · רווח 6,329 ₪ (22%)</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-          <span class="badge-tag badge-green-t">+22%</span>
-          <span style="font-size:17px;font-weight:800;color:var(--green);">35,129 ₪</span>
-        </div>
-      </div>
-
-      <div class="one-time-card">
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:15px;font-weight:700;">החזר וילה — ספטמבר 2026</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:3px;">החזר הוצאות ממשתתפים</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-          <span class="badge-tag badge-blue-t">ספט׳</span>
-          <span style="font-size:17px;font-weight:800;color:var(--green);">7,250 ₪</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== TAB: הוצאות קבועות ===== -->
-    <div class="tab-pane" id="pane-fixed">
-
-      <div style="padding:14px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <div style="font-size:13px;color:var(--muted);">סה"כ הוצאות קבועות חודשיות</div>
-        <div style="font-size:22px;font-weight:800;color:var(--red);">19,613 ₪</div>
-      </div>
-
-      <!-- דיור -->
-      <div class="expense-group">
-        <div class="expense-group-header" onclick="toggleGroup(this)">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span>🏠</span><span class="expense-group-title">דיור</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span class="expense-group-total">6,852 ₪</span>
-            <span class="chevron">▼</span>
-          </div>
-        </div>
-        <div class="expense-group-body">
-          <div class="expense-item">
-            <span class="expense-item-name">שכירות</span>
-            <span class="expense-item-amount">5,500 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">ועד בית</span>
-            <span class="expense-item-amount">450 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">ארנונה</span>
-            <span class="expense-item-amount">650 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">ביטוח דירה</span>
-            <span class="expense-item-amount">252 ₪</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- חשבונות -->
-      <div class="expense-group">
-        <div class="expense-group-header" onclick="toggleGroup(this)">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span>📋</span><span class="expense-group-title">חשבונות</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span class="expense-group-total">~577 ₪</span>
-            <span class="chevron">▼</span>
-          </div>
-        </div>
-        <div class="expense-group-body">
-          <div class="expense-item">
-            <span class="expense-item-name">חשמל</span>
-            <span class="expense-item-amount">~220 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">מים</span>
-            <span class="expense-item-amount">~85 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">גז</span>
-            <span class="expense-item-amount">~55 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">אינטרנט — HOT</span>
-            <span class="expense-item-amount">99.90 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">פלאפון (קו שלי)</span>
-            <span class="expense-item-amount">~117 ₪</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- מנויים -->
-      <div class="expense-group">
-        <div class="expense-group-header" onclick="toggleGroup(this)">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span>📱</span><span class="expense-group-title">מנויים</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span class="expense-group-total">~263 ₪</span>
-            <span class="chevron">▼</span>
-          </div>
-        </div>
-        <div class="expense-group-body">
-          <div class="expense-item">
-            <span class="expense-item-name">YES / Sting+HBO</span>
-            <span class="expense-item-amount">99.80 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">Claude.AI Pro</span>
-            <span class="expense-item-amount">~62 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">Apple One / iCloud</span>
-            <span class="expense-item-amount">37.80 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">
-              Apple TV+
-              <span class="badge-tag badge-yellow-t">⚠️ חפיפה</span>
-            </span>
-            <span class="expense-item-amount">25.90 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">
-              פרטנר — קו אבא
-              <span class="badge-tag badge-red-t">❌ בזבוז</span>
-            </span>
-            <span class="expense-item-amount">30.16 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">סנסיו פאיימי</span>
-            <span class="expense-item-amount">~6 ₪</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ביטוחים -->
-      <div class="expense-group">
-        <div class="expense-group-header" onclick="toggleGroup(this)">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span>🛡️</span><span class="expense-group-title">ביטוחים</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span class="expense-group-total">~640 ₪</span>
-            <span class="chevron">▼</span>
-          </div>
-        </div>
-        <div class="expense-group-body">
-          <div class="expense-item">
-            <span class="expense-item-name">ביטוח בריאות</span>
-            <span class="expense-item-amount">~190 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">ביטוח רכב (מקיף + חובה)</span>
-            <span class="expense-item-amount">~185 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">
-              ביטוח חיים — מנורה
-              <span class="badge-tag badge-yellow-t">⚠️ כפול?</span>
-            </span>
-            <span class="expense-item-amount">~180 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">
-              ביטוח חיים — ביטוח ישיר
-              <span class="badge-tag badge-yellow-t">⚠️ כפול?</span>
-            </span>
-            <span class="expense-item-amount">~85 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">
-              ביטוח חובה — אופנוע
-              <span class="badge-tag badge-red-t">❌ חסר!</span>
-            </span>
-            <span class="expense-item-amount" style="color:var(--red);">—</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- כושר -->
-      <div class="expense-group">
-        <div class="expense-group-header" onclick="toggleGroup(this)">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span>💪</span><span class="expense-group-title">כושר</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span class="expense-group-total">520 ₪</span>
-            <span class="chevron">▼</span>
-          </div>
-        </div>
-        <div class="expense-group-body">
-          <div class="expense-item">
-            <span class="expense-item-name">אילי סנטר — מנוי חודשי</span>
-            <span class="expense-item-amount">520 ₪</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- חיסכון -->
-      <div class="expense-group">
-        <div class="expense-group-header" onclick="toggleGroup(this)">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span>🏦</span><span class="expense-group-title">חיסכון והשקעות</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span class="expense-group-total" style="color:var(--green)">10,761 ₪</span>
-            <span class="chevron">▼</span>
-          </div>
-        </div>
-        <div class="expense-group-body">
-          <div class="expense-item">
-            <span class="expense-item-name">קרן פנסיה</span>
-            <span class="expense-item-amount">3,500 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">קרן השתלמות</span>
-            <span class="expense-item-amount">1,800 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">ESPP (ניכוי 10%)</span>
-            <span class="expense-item-amount">2,000 ₪</span>
-          </div>
-          <div class="expense-item">
-            <span class="expense-item-name">חיסכון עצמי</span>
-            <span class="expense-item-amount">3,461 ₪</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== TAB: עסקאות ===== -->
-    <div class="tab-pane" id="pane-transactions">
-      <div class="filter-bar">
-        <button class="filter-btn active" data-card-filter="all" onclick="setCardFilter('all')">כל הכרטיסים</button>
-        <button class="filter-btn" data-card-filter="FlyCard" onclick="setCardFilter('FlyCard')">FlyCard</button>
-        <button class="filter-btn" data-card-filter="HiTechZone" onclick="setCardFilter('HiTechZone')">HiTechZone</button>
-        <button class="filter-btn" data-card-filter="Max" onclick="setCardFilter('Max')">Max</button>
-        <select class="filter-select" id="catFilter" onchange="renderTransactions()">
-          <option value="all">כל הקטגוריות</option>
-        </select>
-      </div>
-
-      <div class="card" style="padding:0;overflow:hidden;">
-        <div class="tx-header">
-          <span>תאריך</span>
-          <span>בית עסק</span>
-          <span style="text-align:left;direction:ltr;">סכום</span>
-          <span>כרטיס</span>
-        </div>
-        <div id="txList"></div>
-        <div class="tx-footer">
-          <span id="txCount" style="color:var(--muted);"></span>
-          <span class="tx-footer-total" id="txTotal"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== TAB: המלצות ===== -->
-    <div class="tab-pane" id="pane-recs">
-      <div id="recsList"></div>
-      <div style="margin-top:16px;padding:12px 16px;background:var(--card2);border-radius:10px;font-size:12px;color:var(--muted);text-align:center;">
-        סמן המלצות כ"טופל" כדי לעקוב אחר ההתקדמות
-      </div>
-    </div>
-
-  </div><!-- /tab-content -->
-
-  <footer>
-    <div>עודכן: אוקטובר 2026 | נבנה ע"י Dex 🎯</div>
-    <div style="margin-top:4px;">נתונים מאוחסנים מקומית בלבד</div>
-  </footer>
-
-</div><!-- /dashboard -->
+  <footer>עודכן: אוקטובר 2026 | נבנה ע״י Dex 🎯<br>נתונים מאוחסנים מקומית בדפדפן בלבד</footer>
+</div>
 
 <script>
-// ===== PASSWORD =====
-const PASS = 'Finance2026';
+// ── DATA ──────────────────────────────────────────────────────
+const PASS = '***';
 
-// ===== DATA =====
 const MONTHS = [
-  { key: '2025-12', label: 'דצמ׳ 25' },
-  { key: '2026-01', label: 'ינו׳ 26' },
-  { key: '2026-02', label: 'פבר׳ 26' },
-  { key: '2026-03', label: 'מרץ 26' },
-  { key: '2026-04', label: 'אפר׳ 26' },
-  { key: '2026-05', label: 'מאי 26' },
-  { key: '2026-06', label: 'יוני 26' },
-  { key: '2026-07', label: 'יולי 26' },
-  { key: '2026-08', label: 'אוג׳ 26' },
-  { key: '2026-09', label: 'ספט׳ 26' },
+  {id:'2025-12',l:'דצמ׳ 25',total:8166,fly:8166,htz:0,max:0,prev:null},
+  {id:'2026-01',l:'ינו׳ 26',total:12684,fly:12684,htz:0,max:0,prev:'2025-12'},
+  {id:'2026-02',l:'פבר׳ 26',total:10455,fly:10455,htz:0,max:0,prev:'2026-01'},
+  {id:'2026-03',l:'מרץ 26',total:7540,fly:4536,htz:3004,max:0,prev:'2026-02'},
+  {id:'2026-04',l:'אפר׳ 26',total:9643,fly:6577,htz:2819,max:247,prev:'2026-03'},
+  {id:'2026-05',l:'מאי 26',total:5717,fly:5314,htz:404,max:0,prev:'2026-04'},
+  {id:'2026-06',l:'יוני 26',total:8240,fly:2805,htz:5435,max:0,prev:'2026-05'},
+  {id:'2026-07',l:'יולי 26',total:8281,fly:2547,htz:5376,max:359,prev:'2026-06'},
+  {id:'2026-08',l:'אוג׳ 26',total:22304,fly:12235,htz:9653,max:416,prev:'2026-07'},
+  {id:'2026-09',l:'ספט׳ 26',total:18069,fly:15633,htz:1993,max:443,prev:'2026-08'},
 ];
 
-const MONTHLY_DATA = {
-  '2025-12': { label: 'דצמבר 2025', total: 8166, flycard: 8166, hitchzone: 0, max: 0 },
-  '2026-01': { label: 'ינואר 2026', total: 12684, flycard: 12684, hitchzone: 0, max: 0 },
-  '2026-02': { label: 'פברואר 2026', total: 10455, flycard: 10455, hitchzone: 0, max: 0 },
-  '2026-03': { label: 'מרץ 2026', total: 7540, flycard: 4536, hitchzone: 3004, max: 0 },
-  '2026-04': { label: 'אפריל 2026', total: 9643, flycard: 6577, hitchzone: 2819, max: 247 },
-  '2026-05': { label: 'מאי 2026', total: 5717, flycard: 5314, hitchzone: 404, max: 0 },
-  '2026-06': { label: 'יוני 2026', total: 8240, flycard: 2805, hitchzone: 5435, max: 0 },
-  '2026-07': { label: 'יולי 2026', total: 8281, flycard: 2547, hitchzone: 5376, max: 359 },
-  '2026-08': { label: 'אוגוסט 2026', total: 22304, flycard: 12235, hitchzone: 9653, max: 416 },
-  '2026-09': { label: 'ספטמבר 2026', total: 18069, flycard: 15633, hitchzone: 1993, max: 443 },
-};
-
-const TRANSACTIONS = [
-  // December 2025
-  { month:'2025-12', date:'2025-12-30', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2025-12', date:'2025-12-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2025-12', date:'2025-12-29', name:'YES', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2025-12', date:'2025-12-29', name:'APPLE.COM/BILL', amount:12.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2025-12', date:'2025-12-23', name:'חניון קצה השדרה', amount:28.33, card:'FlyCard', cat:'תחבורה' },
-  { month:'2025-12', date:'2025-12-19', name:'iwiw מתנות', amount:619.90, card:'FlyCard', cat:'שונות' },
-  { month:'2025-12', date:'2025-12-18', name:'חברת פרטנר', amount:36.30, card:'FlyCard', cat:'מנויים' },
-  { month:'2025-12', date:'2025-12-17', name:'פז Yellow', amount:72.44, card:'FlyCard', cat:'דלק' },
-  // January 2026
-  { month:'2026-01', date:'2026-01-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-01', date:'2026-01-29', name:'APPLE.COM/BILL', amount:12.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-01', date:'2026-01-27', name:'YES', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-01', date:'2026-01-25', name:'פז Yellow', amount:67.12, card:'FlyCard', cat:'דלק' },
-  { month:'2026-01', date:'2026-01-22', name:'BIT', amount:117.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-01', date:'2026-01-21', name:'TFL TRAVEL CH', amount:38.63, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-01', date:'2026-01-18', name:'חברת פרטנר', amount:30.16, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-01', date:'2026-01-17', name:'דלק קמעונאות', amount:127.12, card:'FlyCard', cat:'דלק' },
-  { month:'2026-01', date:'2026-01-16', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-01', date:'2026-01-08', name:'ABIE', amount:455.00, card:'FlyCard', cat:'מסעדות' },
-  { month:'2026-01', date:'2026-01-05', name:'חברת פרטנר', amount:29.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-01', date:'2026-01-03', name:'פז Yellow', amount:67.08, card:'FlyCard', cat:'דלק' },
-  // February 2026
-  { month:'2026-02', date:'2026-02-28', name:'APPLE.COM/BILL', amount:12.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-02', date:'2026-02-25', name:'YES', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-02', date:'2026-02-23', name:'פז Yellow', amount:71.19, card:'FlyCard', cat:'דלק' },
-  { month:'2026-02', date:'2026-02-23', name:'חניון אסותא', amount:70.08, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-02', date:'2026-02-20', name:'CATALONIA PLAZA - מלון ספרד', amount:958.77, card:'FlyCard', cat:'טיסות ומלונות' },
-  { month:'2026-02', date:'2026-02-20', name:'אחוזת החוף חניון', amount:80.00, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-02', date:'2026-02-19', name:'חברת פרטנר', amount:30.16, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-02', date:'2026-02-18', name:'PAYBOX', amount:50.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-02', date:'2026-02-16', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-02', date:'2026-02-09', name:'PASSPORTCARD - ספרד', amount:2.76, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-02', date:'2026-02-08', name:'BOLT', amount:73.89, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-02', date:'2026-02-07', name:'PASSPORTCARD - ספרד', amount:188.01, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-02', date:'2026-02-06', name:'PASSPORTCARD - ספרד', amount:181.92, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-02', date:'2026-02-05', name:'חברת פרטנר', amount:29.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-02', date:'2026-02-05', name:'PASSPORTCARD - ספרד', amount:127.64, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-02', date:'2026-02-01', name:'BOLT', amount:33.46, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-02', date:'2026-02-01', name:'PASSPORTCARD - ספרד', amount:1846.75, card:'FlyCard', cat:'ביטוח נסיעות' },
-  // March 2026
-  { month:'2026-03', date:'2026-03-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-03', date:'2026-03-29', name:'YES', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-03', date:'2026-03-28', name:'APPLE.COM/BILL', amount:12.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-03', date:'2026-03-27', name:'פז Yellow', amount:76.43, card:'FlyCard', cat:'דלק' },
-  { month:'2026-03', date:'2026-03-21', name:'דלק מנטה זיכרון יעקב', amount:99.94, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-03', date:'2026-03-20', name:'BIT', amount:50.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-03', date:'2026-03-19', name:'חברת פרטנר', amount:30.16, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-03', date:'2026-03-19', name:'CLAUDE.AI', amount:63.30, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-03', date:'2026-03-16', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-03', date:'2026-03-14', name:'תחנת דלק מיקה אילת', amount:168.35, card:'HiTechZone', cat:'דלק' },
-  // April 2026
-  { month:'2026-04', date:'2026-04-29', name:'YES', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-29', name:'חניון רויאל גארדן אילת', amount:105.00, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-04', date:'2026-04-29', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-28', name:'APPLE.COM/BILL', amount:12.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-27', name:'פנגו חשבונית', amount:37.88, card:'FlyCard', cat:'תחבורה' },
-  { month:'2026-04', date:'2026-04-26', name:'דלק מנטה משאבי שדה', amount:252.18, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-04', date:'2026-04-22', name:'BIT', amount:70.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-04', date:'2026-04-19', name:'חברת פרטנר', amount:30.16, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-19', name:'CLAUDE.AI', amount:61.14, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-17', name:'פז Yellow', amount:79.89, card:'FlyCard', cat:'דלק' },
-  { month:'2026-04', date:'2026-04-16', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-14', name:'CAPCUT', amount:2.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-04', date:'2026-04-12', name:'איוונטר כרטיסים', amount:160.00, card:'FlyCard', cat:'בידור' },
-  { month:'2026-04', date:'2026-04-10', name:'בהצדעה', amount:247.00, card:'Max', cat:'שונות' },
-  { month:'2026-04', date:'2026-04-08', name:'סופר יודה', amount:74.77, card:'FlyCard', cat:'קניות' },
-  { month:'2026-04', date:'2026-04-07', name:'בר הבלבוי', amount:270.00, card:'FlyCard', cat:'מסעדות' },
-  { month:'2026-04', date:'2026-04-05', name:'חברת פרטנר', amount:30.40, card:'FlyCard', cat:'מנויים' },
+const TXNS = [
+  // Dec 2025
+  {m:'2025-12',d:'29/12',name:'YES',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2025-12',d:'30/12',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2025-12',d:'18/12',name:'חברת פרטנר',amt:36.30,card:'FlyCard',cat:'מנויים'},
+  {m:'2025-12',d:'17/12',name:'פז Yellow',amt:72.44,card:'FlyCard',cat:'דלק'},
+  {m:'2025-12',d:'19/12',name:'iwiw מתנות',amt:619.90,card:'FlyCard',cat:'שונות'},
+  {m:'2025-12',d:'29/12',name:'APPLE.COM/BILL',amt:12.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2025-12',d:'30/12',name:'APPLE.COM/BILL',amt:11.90,card:'FlyCard',cat:'מנויים'},
+  // Jan 2026
+  {m:'2026-01',d:'03/01',name:'פז Yellow',amt:67.08,card:'FlyCard',cat:'דלק'},
+  {m:'2026-01',d:'05/01',name:'חברת פרטנר',amt:29.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-01',d:'08/01',name:'ABIE',amt:455.00,card:'FlyCard',cat:'מסעדות'},
+  {m:'2026-01',d:'16/01',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-01',d:'17/01',name:'דלק קמעונאות',amt:127.12,card:'FlyCard',cat:'דלק'},
+  {m:'2026-01',d:'18/01',name:'חברת פרטנר',amt:30.16,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-01',d:'22/01',name:'BIT',amt:117.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-01',d:'25/01',name:'פז Yellow',amt:67.12,card:'FlyCard',cat:'דלק'},
+  {m:'2026-01',d:'27/01',name:'YES',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-01',d:'29/01',name:'APPLE.COM/BILL',amt:12.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-01',d:'30/01',name:'APPLE.COM/BILL',amt:11.90,card:'FlyCard',cat:'מנויים'},
+  // Feb 2026 — Spain
+  {m:'2026-02',d:'01/02',name:'BOLT',amt:33.46,card:'FlyCard',cat:'תחבורה'},
+  {m:'2026-02',d:'05/02',name:'חברת פרטנר',amt:29.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-02',d:'08/02',name:'BOLT',amt:73.89,card:'FlyCard',cat:'תחבורה'},
+  {m:'2026-02',d:'16/02',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-02',d:'19/02',name:'חברת פרטנר',amt:30.16,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-02',d:'20/02',name:'CATALONIA PLAZA — מלון ספרד',amt:958.77,card:'FlyCard',cat:'טיסות ומלונות'},
+  {m:'2026-02',d:'23/02',name:'פז Yellow',amt:71.19,card:'FlyCard',cat:'דלק'},
+  {m:'2026-02',d:'25/02',name:'YES',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-02',d:'28/02',name:'APPLE.COM/BILL',amt:12.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-02',d:'01/02',name:'PassportCard — ספרד',amt:1846.75,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-02',d:'07/02',name:'PassportCard — ספרד',amt:188.01,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-02',d:'06/02',name:'PassportCard — ספרד',amt:745.80,card:'FlyCard',cat:'ביטוח נסיעות'},
+  // Mar 2026
+  {m:'2026-03',d:'14/03',name:'תחנת דלק אילת',amt:168.35,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-03',d:'16/03',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-03',d:'19/03',name:'חברת פרטנר',amt:30.16,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-03',d:'19/03',name:'CLAUDE.AI',amt:63.30,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-03',d:'19/03',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-03',d:'21/03',name:'דלק מנטה זיכרון יעקב',amt:99.94,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-03',d:'27/03',name:'פז Yellow',amt:76.43,card:'FlyCard',cat:'דלק'},
+  {m:'2026-03',d:'29/03',name:'YES',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-03',d:'30/03',name:'APPLE.COM/BILL',amt:24.80,card:'FlyCard',cat:'מנויים'},
+  // Apr 2026
+  {m:'2026-04',d:'05/04',name:'חברת פרטנר',amt:30.40,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-04',d:'07/04',name:'בר הבלבוי',amt:270.00,card:'FlyCard',cat:'מסעדות'},
+  {m:'2026-04',d:'10/04',name:'בהצדעה',amt:247.00,card:'Max',cat:'רכישות'},
+  {m:'2026-04',d:'12/04',name:'איוונטר כרטיסים',amt:160.00,card:'FlyCard',cat:'בידור'},
+  {m:'2026-04',d:'14/04',name:'CapCut',amt:2.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-04',d:'16/04',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-04',d:'17/04',name:'פז Yellow',amt:79.89,card:'FlyCard',cat:'דלק'},
+  {m:'2026-04',d:'19/04',name:'CLAUDE.AI',amt:61.14,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-04',d:'19/04',name:'חברת פרטנר',amt:30.16,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-04',d:'19/04',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-04',d:'22/04',name:'BIT',amt:70.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-04',d:'26/04',name:'דלק מנטה משאבי שדה',amt:252.18,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-04',d:'27/04',name:'פנגו',amt:37.88,card:'FlyCard',cat:'תחבורה'},
+  {m:'2026-04',d:'29/04',name:'YES',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-04',d:'29/04',name:'APPLE.COM/BILL',amt:24.80,card:'FlyCard',cat:'מנויים'},
   // May 2026
-  { month:'2026-05', date:'2026-05-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-30', name:'פז Yellow', amount:76.69, card:'FlyCard', cat:'דלק' },
-  { month:'2026-05', date:'2026-05-29', name:'BIT', amount:20.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-05', date:'2026-05-28', name:'BIT', amount:70.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-05', date:'2026-05-28', name:'APPLE.COM/BILL', amount:25.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-27', name:'YES', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-26', name:'פז Yellow', amount:235.56, card:'FlyCard', cat:'דלק' },
-  { month:'2026-05', date:'2026-05-25', name:'BIT', amount:65.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-05', date:'2026-05-21', name:'BIT', amount:120.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-05', date:'2026-05-19', name:'אילי סנטר', amount:520.00, card:'FlyCard', cat:'כושר' },
-  { month:'2026-05', date:'2026-05-19', name:'CLAUDE.AI', amount:59.45, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-18', name:'חברת פרטנר', amount:30.16, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-17', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-14', name:'APPLE.COM/BILL', amount:24.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-09', name:'פז Yellow', amount:74.62, card:'FlyCard', cat:'דלק' },
-  { month:'2026-05', date:'2026-05-07', name:'חברת פרטנר', amount:29.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-05', date:'2026-05-03', name:'BIT', amount:900.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-05', date:'2026-05-02', name:'פז Yellow', amount:120.73, card:'FlyCard', cat:'דלק' },
-  // June 2026
-  { month:'2026-06', date:'2026-06-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-06', date:'2026-06-29', name:'YES/Sting', amount:99.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-06', date:'2026-06-29', name:'APPLE.COM/BILL', amount:25.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-06', date:'2026-06-24', name:'BIT', amount:220.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-06', date:'2026-06-21', name:'בהצדעה (טלוויזיה - תשלום 1)', amount:359.00, card:'Max', cat:'רכישות' },
-  { month:'2026-06', date:'2026-06-20', name:'דלק מנטה זיכרון יעקב', amount:31.00, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-06', date:'2026-06-19', name:'אילי סנטר', amount:520.00, card:'FlyCard', cat:'כושר' },
-  { month:'2026-06', date:'2026-06-18', name:'חברת פרטנר', amount:30.16, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-06', date:'2026-06-17', name:'פז Yellow', amount:68.30, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-06', date:'2026-06-16', name:'HOT', amount:99.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-06', date:'2026-06-06', name:'חברת פרטנר', amount:29.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-06', date:'2026-06-05', name:'ביי-מי שוברי מתנה', amount:90.00, card:'FlyCard', cat:'שונות' },
-  { month:'2026-06', date:'2026-06-04', name:'קווי חופשה - קרואטיה', amount:2294.05, card:'HiTechZone', cat:'נסיעות' },
-  { month:'2026-06', date:'2026-06-03', name:'PAYBOX', amount:40.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-06', date:'2026-06-03', name:'BIT', amount:90.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-06', date:'2026-06-02', name:'Gett', amount:48.00, card:'HiTechZone', cat:'תחבורה' },
-  // July 2026
-  { month:'2026-07', date:'2026-07-31', name:'בהצדעה', amount:62.00, card:'Max', cat:'שונות' },
-  { month:'2026-07', date:'2026-07-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-07', date:'2026-07-29', name:'YES/Sting', amount:106.24, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-07', date:'2026-07-29', name:'APPLE.COM/BILL', amount:25.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-07', date:'2026-07-27', name:'PAYBOX', amount:230.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-07', date:'2026-07-26', name:'PAYBOX', amount:100.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-07', date:'2026-07-25', name:'PAYPAL', amount:84.90, card:'FlyCard', cat:'שונות' },
-  { month:'2026-07', date:'2026-07-24', name:'הכל בו לגן השקיה', amount:507.00, card:'HiTechZone', cat:'שונות' },
-  { month:'2026-07', date:'2026-07-20', name:'פז Yellow', amount:72.32, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-07', date:'2026-07-19', name:'אילי סנטר', amount:520.00, card:'FlyCard', cat:'כושר' },
-  { month:'2026-07', date:'2026-07-19', name:'חברת פרטנר', amount:30.16, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-07', date:'2026-07-16', name:'HOT', amount:99.90, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-07', date:'2026-07-16', name:'דלק מנטה רוקח', amount:9.50, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-07', date:'2026-07-10', name:'בהצדעה (טלוויזיה - תשלום 2)', amount:354.00, card:'Max', cat:'רכישות' },
-  { month:'2026-07', date:'2026-07-06', name:'חברת פרטנר', amount:29.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-07', date:'2026-07-04', name:'פז Yellow', amount:60.12, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-07', date:'2026-07-04', name:'קופת כרטיסים', amount:158.00, card:'FlyCard', cat:'בידור' },
-  { month:'2026-07', date:'2026-07-02', name:'גו אאוט כרטיסים', amount:252.00, card:'HiTechZone', cat:'בידור' },
-  // August 2026
-  { month:'2026-08', date:'2026-08-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-29', name:'YES/Sting', amount:149.70, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-29', name:'APPLE.COM/BILL', amount:25.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-26', name:'סנסיו פאיימי', amount:236.55, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-23', name:'PAYBOX', amount:1100.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-08', date:'2026-08-22', name:'פז Yellow', amount:72.21, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-08', date:'2026-08-19', name:'אילי סנטר', amount:520.00, card:'FlyCard', cat:'כושר' },
-  { month:'2026-08', date:'2026-08-18', name:'חברת פרטנר', amount:30.16, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-17', name:'PAYBOX', amount:240.00, card:'FlyCard', cat:'העברות' },
-  { month:'2026-08', date:'2026-08-16', name:'HOT', amount:99.90, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-16', name:'בהצדעה', amount:89.00, card:'Max', cat:'שונות' },
-  { month:'2026-08', date:'2026-08-10', name:'APPLE.COM החזר', amount:-34.90, card:'FlyCard', cat:'זיכויים' },
-  { month:'2026-08', date:'2026-08-10', name:'בהצדעה (טלוויזיה - תשלום 3)', amount:354.00, card:'Max', cat:'רכישות' },
-  { month:'2026-08', date:'2026-08-09', name:'WWW.INDIECAMPERS.COM - קרואטיה', amount:11065.70, card:'FlyCard', cat:'נסיעות' },
-  { month:'2026-08', date:'2026-08-09', name:'APPLE.COM eWeLink', amount:104.80, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-08', name:'AIRBNB - קרואטיה', amount:4200.00, card:'FlyCard', cat:'טיסות ומלונות' },
-  { month:'2026-08', date:'2026-08-05', name:'חברת פרטנר', amount:29.90, card:'Max', cat:'מנויים' },
-  { month:'2026-08', date:'2026-08-04', name:'LUFTHANSA - טיסה לקרואטיה', amount:1780.39, card:'FlyCard', cat:'טיסות ומלונות' },
-  { month:'2026-08', date:'2026-08-04', name:'פז Yellow', amount:78.68, card:'HiTechZone', cat:'דלק' },
-  // September 2026
-  { month:'2026-09', date:'2026-09-30', name:'APPLE.COM/BILL', amount:11.90, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-09', date:'2026-09-29', name:'YES/Sting', amount:174.60, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-09', date:'2026-09-26', name:'סנסיו פאיימי', amount:236.55, card:'FlyCard', cat:'מנויים' },
-  { month:'2026-09', date:'2026-09-25', name:'פז Yellow', amount:36.40, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-09', date:'2026-09-25', name:'מ. התחבורה פנגו', amount:23.00, card:'HiTechZone', cat:'תחבורה' },
-  { month:'2026-09', date:'2026-09-22', name:'PASSPORTCARD - קרואטיה', amount:600.39, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-21', name:'PASSPORTCARD - קרואטיה', amount:500.55, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-19', name:'אילי סנטר', amount:520.00, card:'FlyCard', cat:'כושר' },
-  { month:'2026-09', date:'2026-09-19', name:'PASSPORTCARD - קרואטיה', amount:573.07, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-19', name:'פספורטכארד שירותים', amount:390.35, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-18', name:'PASSPORTCARD - קרואטיה', amount:575.09, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-18', name:'חברת פרטנר', amount:30.16, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-09', date:'2026-09-17', name:'PASSPORTCARD - קרואטיה', amount:27.99, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-16', name:'PASSPORTCARD - קרואטיה', amount:686.86, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-16', name:'HOT', amount:99.90, card:'HiTechZone', cat:'מנויים' },
-  { month:'2026-09', date:'2026-09-15', name:'PASSPORTCARD - קרואטיה', amount:95.80, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-14', name:'PASSPORTCARD - קרואטיה', amount:335.47, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-13', name:'PASSPORTCARD - קרואטיה', amount:282.31, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-12', name:'PASSPORTCARD - קרואטיה', amount:34.44, card:'FlyCard', cat:'ביטוח נסיעות' },
-  { month:'2026-09', date:'2026-09-11', name:'דלק קמעונאות אלונים', amount:99.00, card:'FlyCard', cat:'דלק' },
-  { month:'2026-09', date:'2026-09-11', name:'פז Yellow', amount:72.48, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-09', date:'2026-09-10', name:'בהצדעה (טלוויזיה - תשלום 4)', amount:354.00, card:'Max', cat:'רכישות' },
-  { month:'2026-09', date:'2026-09-10', name:'בהצדעה', amount:89.00, card:'Max', cat:'שונות' },
-  { month:'2026-09', date:'2026-09-07', name:'פז Yellow', amount:277.60, card:'HiTechZone', cat:'דלק' },
-  { month:'2026-09', date:'2026-09-06', name:'חברת פרטנר', amount:29.90, card:'HiTechZone', cat:'מנויים' },
+  {m:'2026-05',d:'02/05',name:'פז Yellow',amt:120.73,card:'FlyCard',cat:'דלק'},
+  {m:'2026-05',d:'03/05',name:'BIT',amt:900.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-05',d:'07/05',name:'חברת פרטנר',amt:29.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-05',d:'09/05',name:'פז Yellow',amt:74.62,card:'FlyCard',cat:'דלק'},
+  {m:'2026-05',d:'17/05',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-05',d:'18/05',name:'חברת פרטנר',amt:30.16,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-05',d:'19/05',name:'CLAUDE.AI',amt:59.45,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-05',d:'19/05',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-05',d:'19/05',name:'BIT',amt:80.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-05',d:'26/05',name:'פז Yellow',amt:235.56,card:'FlyCard',cat:'דלק'},
+  {m:'2026-05',d:'27/05',name:'YES',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-05',d:'28/05',name:'BIT',amt:70.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-05',d:'28/05',name:'APPLE.COM/BILL',amt:37.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-05',d:'30/05',name:'פז Yellow',amt:76.69,card:'FlyCard',cat:'דלק'},
+  // Jun 2026
+  {m:'2026-06',d:'03/06',name:'BIT',amt:90.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-06',d:'04/06',name:'קווי חופשה — קרואטיה',amt:2294.05,card:'HiTechZone',cat:'נסיעות'},
+  {m:'2026-06',d:'06/06',name:'חברת פרטנר',amt:29.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-06',d:'10/07',name:'בהצדעה — טלוויזיה תשלום 1',amt:359.00,card:'Max',cat:'רכישות'},
+  {m:'2026-06',d:'16/06',name:'HOT',amt:99.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-06',d:'17/06',name:'פז Yellow',amt:68.30,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-06',d:'18/06',name:'חברת פרטנר',amt:30.16,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-06',d:'19/06',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-06',d:'20/06',name:'דלק מנטה זיכרון יעקב',amt:31.00,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-06',d:'24/06',name:'BIT',amt:220.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-06',d:'29/06',name:'YES/Sting',amt:99.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-06',d:'29/06',name:'APPLE.COM/BILL',amt:37.80,card:'FlyCard',cat:'מנויים'},
+  // Jul 2026
+  {m:'2026-07',d:'02/07',name:'גו אאוט כרטיסים',amt:252.00,card:'HiTechZone',cat:'בידור'},
+  {m:'2026-07',d:'04/07',name:'פז Yellow',amt:60.12,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-07',d:'04/07',name:'קופת כרטיסים',amt:158.00,card:'FlyCard',cat:'בידור'},
+  {m:'2026-07',d:'06/07',name:'חברת פרטנר',amt:29.90,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-07',d:'10/08',name:'בהצדעה — טלוויזיה תשלום 2',amt:354.00,card:'Max',cat:'רכישות'},
+  {m:'2026-07',d:'16/07',name:'HOT',amt:99.90,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-07',d:'19/07',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-07',d:'19/07',name:'חברת פרטנר',amt:30.16,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-07',d:'20/07',name:'פז Yellow',amt:72.32,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-07',d:'24/07',name:'הכל בו לגן',amt:507.00,card:'HiTechZone',cat:'שונות'},
+  {m:'2026-07',d:'26/07',name:'PAYBOX',amt:230.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-07',d:'29/07',name:'YES/Sting',amt:106.24,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-07',d:'29/07',name:'APPLE.COM/BILL',amt:37.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-07',d:'31/07',name:'בהצדעה',amt:62.00,card:'Max',cat:'שונות'},
+  // Aug 2026
+  {m:'2026-08',d:'04/08',name:'LUFTHANSA — טיסה קרואטיה',amt:1780.39,card:'FlyCard',cat:'טיסות ומלונות'},
+  {m:'2026-08',d:'04/08',name:'פז Yellow',amt:78.68,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-08',d:'05/08',name:'חברת פרטנר',amt:29.90,card:'Max',cat:'מנויים'},
+  {m:'2026-08',d:'08/08',name:'AIRBNB — קרואטיה',amt:4200.00,card:'FlyCard',cat:'טיסות ומלונות'},
+  {m:'2026-08',d:'09/08',name:'IndeCampers — קרואטיה',amt:11065.70,card:'FlyCard',cat:'נסיעות'},
+  {m:'2026-08',d:'09/08',name:'APPLE eWeLink שנתי',amt:104.80,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-08',d:'10/08',name:'APPLE החזר eWeLink',amt:-34.90,card:'FlyCard',cat:'זיכויים'},
+  {m:'2026-08',d:'10/09',name:'בהצדעה — טלוויזיה תשלום 3',amt:354.00,card:'Max',cat:'רכישות'},
+  {m:'2026-08',d:'16/08',name:'HOT',amt:99.90,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-08',d:'16/08',name:'בהצדעה',amt:89.00,card:'Max',cat:'שונות'},
+  {m:'2026-08',d:'17/08',name:'PAYBOX',amt:240.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-08',d:'18/08',name:'חברת פרטנר',amt:30.16,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-08',d:'19/08',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-08',d:'22/08',name:'פז Yellow',amt:72.21,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-08',d:'23/08',name:'PAYBOX',amt:1100.00,card:'FlyCard',cat:'העברות'},
+  {m:'2026-08',d:'26/08',name:'סנסיו פאיימי',amt:236.55,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-08',d:'29/08',name:'YES/Sting',amt:149.70,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-08',d:'29/08',name:'APPLE.COM/BILL',amt:37.80,card:'FlyCard',cat:'מנויים'},
+  // Sep 2026
+  {m:'2026-09',d:'06/09',name:'חברת פרטנר',amt:29.90,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-09',d:'07/09',name:'פז Yellow',amt:277.60,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-09',d:'10/09',name:'בהצדעה — טלוויזיה תשלום 4',amt:354.00,card:'Max',cat:'רכישות'},
+  {m:'2026-09',d:'10/09',name:'בהצדעה',amt:89.00,card:'Max',cat:'שונות'},
+  {m:'2026-09',d:'11/09',name:'דלק קמעונאות',amt:99.00,card:'FlyCard',cat:'דלק'},
+  {m:'2026-09',d:'11/09',name:'פז Yellow',amt:72.48,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-09',d:'12/09',name:'PassportCard — קרואטיה',amt:34.44,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'13/09',name:'PassportCard — קרואטיה',amt:282.31,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'14/09',name:'PassportCard — קרואטיה',amt:335.47,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'15/09',name:'PassportCard — קרואטיה',amt:95.80,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'16/09',name:'PassportCard — קרואטיה',amt:686.86,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'16/09',name:'HOT',amt:99.90,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-09',d:'17/09',name:'PassportCard — קרואטיה',amt:27.99,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'18/09',name:'PassportCard — קרואטיה',amt:575.09,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'18/09',name:'חברת פרטנר',amt:30.16,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-09',d:'19/09',name:'אילי סנטר',amt:520.00,card:'FlyCard',cat:'כושר'},
+  {m:'2026-09',d:'19/09',name:'PassportCard — קרואטיה',amt:963.42,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'21/09',name:'PassportCard — קרואטיה',amt:500.55,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'22/09',name:'PassportCard — קרואטיה',amt:600.39,card:'FlyCard',cat:'ביטוח נסיעות'},
+  {m:'2026-09',d:'25/09',name:'פז Yellow',amt:36.40,card:'HiTechZone',cat:'דלק'},
+  {m:'2026-09',d:'26/09',name:'סנסיו פאיימי',amt:236.55,card:'FlyCard',cat:'מנויים'},
+  {m:'2026-09',d:'29/09',name:'YES/Sting + VOD',amt:174.60,card:'HiTechZone',cat:'מנויים'},
+  {m:'2026-09',d:'30/09',name:'APPLE.COM/BILL',amt:11.90,card:'FlyCard',cat:'מנויים'},
 ];
 
-const RECOMMENDATIONS = [
-  { id:'rec1', priority:'red', icon:'🚨', title:'ביטוח חובה לאופנוע חסר!', desc:'ביטוח חובה לאופנוע לא נמצא בהוצאות — חובה חוקית! טפל בדחיפות.' },
-  { id:'rec2', priority:'red', icon:'🔴', title:'פרטנר קו אבא — 30.16 ₪/חודש', desc:'קו שאינו בשימושך. בטל וחסוך ~362 ₪/שנה.' },
-  { id:'rec3', priority:'yellow', icon:'⚠️', title:'Apple TV+ כפולה עם Sting+HBO', desc:'חפיפה של 25.90 ₪/חודש — Apple TV+ כלול ב-Sting. בחר אחד.' },
-  { id:'rec4', priority:'yellow', icon:'🍽️', title:'מסעדות — 145 ביקורים ב-10 חודשים', desc:'ממוצע של 1,555 ₪/חודש. שקול לצמצם לשלושה ביקורים בשבוע.' },
-  { id:'rec5', priority:'yellow', icon:'🍷', title:'יין ואלכוהול — ~200 ₪/חודש', desc:'הוצאה לא מסוקרת. שקול לתעד ולהגביל.' },
-  { id:'rec6', priority:'yellow', icon:'🛡️', title:'שני ביטוחי חיים במקביל', desc:'מנורה + ביטוח ישיר — בדוק כפילות. חסוך עד ~85 ₪/חודש.' },
-  { id:'rec7', priority:'blue', icon:'📈', title:'ESPP מחזור הבא', desc:'בדוק עם HR מתי מחזור ההרשמה הבא — תשואה של 22% בסבב האחרון!' },
-  { id:'rec8', priority:'green', icon:'✅', title:'תחזית 2027: עודף 6,393 ₪/חודש', desc:'בהנחה ללא הוצאות חריגות — מצב מצוין לחיסכון והשקעה.' },
+const RECS = [
+  {id:'moto',type:'red',t:'🏍 ביטוח חובה לאופנוע — חסר!',b:'נוסע ללא ביטוח חובה — לא חוקי. קנסות + ביטול רישיון.',btns:[{l:'✅ טופל',a:'done'}]},
+  {id:'dad',type:'red',t:'📱 פרטנר — קו של אבא על חשבונך',b:'30.16 ₪/חודש = 362 ₪/שנה. העבר את הקו לשם אבא.',btns:[{l:'✅ טופל',a:'done'}]},
+  {id:'apptv',type:'yellow',t:'📺 Apple TV+ — כפילות עם Sting+HBO',b:'25.90 ₪/חודש = 310 ₪/שנה. יש לך Sting+ עם HBO Max.',btns:[{l:'✅ בוטל',a:'done'},{l:'💾 שמרתי בכוונה',a:'keep'}]},
+  {id:'rest',type:'yellow',t:'🍽 מסעדות — כל יומיים בממוצע',b:'145 ביקורים ב-10 חודשים | ממוצע 1,555 ₪/חודש. הורדה ל-1,000 ₪ = 6,600 ₪/שנה.',btns:[{l:'✅ טופל',a:'done'}]},
+  {id:'wine',type:'yellow',t:'🍷 יין ואלכוהול — ~200 ₪/חודש',b:'מוסתר בקניות: מנו וינו + מנדל משקאות + Wine & More = 2,064 ₪/שנה.',btns:[{l:'✅ מודע',a:'done'}]},
+  {id:'ins',type:'yellow',t:'🛡 שני ביטוחי חיים במקביל',b:'מנורה מבטחים 280 ₪ + ביטוח ישיר 114 ₪ — שניהם "חיים". בדוק כפילות עם סוכן.',btns:[{l:'✅ טופל',a:'done'}]},
+  {id:'espp',type:'blue',t:'📈 ESPP — מחזור הבא',b:'אין מחזור ESPP צפוי בחצי שנה הקרובה. בדוק עם HR.',btns:[{l:'✅ בדקתי',a:'done'}]},
+  {id:'fore',type:'green',t:'✨ תחזית 2027 — מצב טוב',b:'עודף חודשי ~6,393 ₪ = ~76,700 ₪/שנה + ילין לפידות 30,288 + פנסיה מעסיק 71,088.',btns:[]},
 ];
 
-// ===== STATE =====
-let currentMonth = localStorage.getItem('fin-month') || '2026-09';
-let cardFilter = 'all';
-let catChart = null;
+// ── STATE ─────────────────────────────────────────────────────
+let selMonth = '2026-09';
+let chartInst = null;
+function gs(){try{return JSON.parse(localStorage.getItem('fin2')||'{}')}catch{return{}}}
+function ss(k,v){const s=gs();s[k]=v;localStorage.setItem('fin2',JSON.stringify(s))}
 
-// ===== LOCK =====
-document.getElementById('lockInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') tryUnlock();
-});
-
-function tryUnlock() {
-  const val = document.getElementById('lockInput').value;
-  if (val === PASS) {
-    document.getElementById('lockScreen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-    init();
+// ── AUTH ──────────────────────────────────────────────────────
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+function unlock(){
+  if(document.getElementById('pw').value===PASS){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('app').style.display='block';
+    initApp();
   } else {
-    const box = document.getElementById('lockBox');
-    document.getElementById('lockError').textContent = 'סיסמה שגויה — נסה שנית';
-    box.classList.remove('shake');
-    void box.offsetWidth;
-    box.classList.add('shake');
-    document.getElementById('lockInput').value = '';
-    setTimeout(() => box.classList.remove('shake'), 500);
+    document.getElementById('le').textContent='סיסמה שגויה, נסה שוב';
+    const f=document.getElementById('lf');
+    f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');
+    document.getElementById('pw').value='';
+  }
+}
+function doLock(){
+  document.getElementById('app').style.display='none';
+  document.getElementById('lock').style.display='flex';
+  document.getElementById('pw').value='';
+  document.getElementById('le').textContent='';
+}
+
+// ── TABS ──────────────────────────────────────────────────────
+function showTab(i,btn){
+  document.querySelectorAll('.tc').forEach((t,j)=>t.classList.toggle('active',j===i));
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',j===i));
+  if(i===0)renderSummary();
+  if(i===3)renderTxns();
+}
+
+// ── MONTHS ────────────────────────────────────────────────────
+function renderMonths(){
+  const w=document.getElementById('months-wrap');
+  w.innerHTML=MONTHS.map(m=>`<span class="month-pill${m.id===selMonth?' active':''}" onclick="selectMonth('${m.id}')">${m.l}</span>`).join('');
+}
+function selectMonth(id){
+  selMonth=id;renderMonths();
+  const activeTab=document.querySelector('.tab.active');
+  if(activeTab){
+    const idx=[...document.querySelectorAll('.tab')].indexOf(activeTab);
+    if(idx===0)renderSummary();
+    if(idx===3)renderTxns();
   }
 }
 
-function doLock() {
-  document.getElementById('dashboard').style.display = 'none';
-  document.getElementById('lockInput').value = '';
-  document.getElementById('lockError').textContent = '';
-  document.getElementById('lockScreen').style.display = 'flex';
-}
+// ── SUMMARY ───────────────────────────────────────────────────
+function renderSummary(){
+  const m=MONTHS.find(x=>x.id===selMonth);
+  const prev=m.prev?MONTHS.find(x=>x.id===m.prev):null;
+  const chg=prev?Math.round((m.total-prev.total)/prev.total*100):null;
+  const chgHtml=chg!=null?`<span class="${chg>0?'chg-up':'chg-dn'}">${chg>0?'▲':'▼'} ${Math.abs(chg)}% ממחודש קודם</span>`:'';
+  const cards=[{l:'FlyCard',v:m.fly,c:'#579bfc'},{l:'HiTechZone',v:m.htz,c:'#9d50dd'},{l:'Max',v:m.max,c:'#00c875'}].filter(c=>c.v>0);
+  const cardBars=cards.map(c=>{
+    const pct=Math.round(c.v/m.total*100);
+    return `<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${c.l}</span><span style="font-weight:700">${c.v.toLocaleString('he-IL')} ₪ (${pct}%)</span></div>
+      <div class="pbar"><div class="pfill" style="width:${pct}%;background:${c.c}"></div></div>
+    </div>`;
+  }).join('');
 
-// ===== INIT =====
-function init() {
-  renderMonthPills();
-  setupTabs();
-  renderSummary();
-  populateCatFilter();
-  renderTransactions();
-  renderRecommendations();
-  // Scroll active month pill into view
-  requestAnimationFrame(() => {
-    const active = document.querySelector('.month-pill.active');
-    if (active) active.scrollIntoView({ inline: 'center', behavior: 'smooth' });
-  });
-}
+  // Category donut from transactions of this month
+  const cats={};
+  TXNS.filter(t=>t.m===selMonth&&t.amt>0).forEach(t=>{cats[t.cat]=(cats[t.cat]||0)+t.amt});
+  const topCats=Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const catColors=['#579bfc','#00c875','#ffcb00','#e44258','#9d50dd','#7b8099'];
 
-// ===== MONTH PILLS =====
-function renderMonthPills() {
-  const container = document.getElementById('monthPills');
-  container.innerHTML = '';
-  MONTHS.forEach(m => {
-    const btn = document.createElement('button');
-    btn.className = 'month-pill' + (m.key === currentMonth ? ' active' : '');
-    btn.textContent = m.label;
-    btn.onclick = () => selectMonth(m.key);
-    container.appendChild(btn);
-  });
-}
+  document.getElementById('tc0').innerHTML=`
+  <div class="g2">
+    <div class="card">
+      <div class="card-t">סה"כ הוצאות CC</div>
+      <div class="card-v" style="color:var(--red)">${m.total.toLocaleString('he-IL')} ₪</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:6px">${m.l} ${chgHtml}</div>
+    </div>
+    <div class="card">
+      <div class="card-t">הכנסה חודשית</div>
+      <div class="card-v" style="color:var(--green)">23,213 ₪</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:6px">משכורת + השתתפות שכירות</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-t" style="margin-bottom:12px">פילוח לפי כרטיס</div>
+    ${cardBars}
+  </div>
+  <div class="card">
+    <div class="card-t" style="margin-bottom:8px">קטגוריות מובילות</div>
+    <div class="ch-wrap"><canvas id="cat-chart"></canvas></div>
+    <div style="margin-top:10px">
+      ${topCats.map((c,i)=>`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0">
+        <span><span style="color:${catColors[i]};margin-left:6px">●</span>${c[0]}</span>
+        <span style="font-weight:600">${Math.round(c[1]).toLocaleString('he-IL')} ₪</span>
+      </div>`).join('')}
+    </div>
+  </div>`;
 
-function selectMonth(key) {
-  currentMonth = key;
-  localStorage.setItem('fin-month', key);
-  renderMonthPills();
-  renderSummary();
-  renderTransactions();
-}
-
-// ===== TABS =====
-function setupTabs() {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.dataset.tab;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('pane-' + tab).classList.add('active');
-      if (tab === 'summary') renderSummary();
+  if(chartInst){chartInst.destroy();chartInst=null;}
+  const ctx=document.getElementById('cat-chart');
+  if(ctx&&topCats.length){
+    chartInst=new Chart(ctx,{
+      type:'doughnut',
+      data:{labels:topCats.map(c=>c[0]),datasets:[{data:topCats.map(c=>Math.round(c[1])),backgroundColor:catColors,borderWidth:0}]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.label}: ${c.raw.toLocaleString('he-IL')} ₪`}}}}
     });
-  });
-}
-
-// ===== SUMMARY =====
-function renderSummary() {
-  const d = MONTHLY_DATA[currentMonth];
-  if (!d) return;
-
-  document.getElementById('sum-total').textContent = fmtILS(d.total);
-  document.getElementById('sum-month-label').textContent = d.label;
-  document.getElementById('sum-month-full').textContent = d.label;
-
-  // Compare to previous
-  const keys = Object.keys(MONTHLY_DATA);
-  const idx = keys.indexOf(currentMonth);
-  const cmpEl = document.getElementById('sum-compare');
-  if (idx > 0) {
-    const prev = MONTHLY_DATA[keys[idx - 1]];
-    const pct = (d.total - prev.total) / prev.total * 100;
-    const up = pct > 0;
-    cmpEl.innerHTML = `<span class="compare-badge ${up ? 'compare-up' : 'compare-down'}">${up ? '↑' : '↓'} ${Math.abs(pct).toFixed(1)}% לעומת ${prev.label}</span>`;
-  } else {
-    cmpEl.innerHTML = '<span style="font-size:13px;color:var(--muted)">אין חודש קודם להשוואה</span>';
   }
-
-  // Card breakdown
-  const cards = [
-    { name: 'FlyCard', amount: d.flycard, color: '#579bfc' },
-    { name: 'HiTechZone', amount: d.hitchzone, color: '#9d50dd' },
-    { name: 'Max', amount: d.max, color: '#00c875' },
-  ];
-  document.getElementById('sum-breakdown').innerHTML = cards.map(c => {
-    const pct = d.total > 0 ? (c.amount / d.total * 100) : 0;
-    return `<div class="breakdown-item">
-      <div class="breakdown-header">
-        <span class="breakdown-name">${c.name}</span>
-        <span class="breakdown-amount">${fmtILS(c.amount)} (${pct.toFixed(1)}%)</span>
-      </div>
-      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${c.color}"></div></div>
-    </div>`;
-  }).join('');
-
-  renderCatChart();
 }
 
-function renderCatChart() {
-  const txs = TRANSACTIONS.filter(t => t.month === currentMonth && t.amount > 0);
-  const catMap = {};
-  txs.forEach(t => { catMap[t.cat] = (catMap[t.cat] || 0) + t.amount; });
-  const sorted = Object.entries(catMap).sort((a, b) => b[1] - a[1]);
-  const top = sorted.slice(0, 6);
-  const rest = sorted.slice(6).reduce((s, [, v]) => s + v, 0);
-  if (rest > 0) top.push(['אחר', rest]);
+// ── INCOME ────────────────────────────────────────────────────
+function renderIncome(){
+  document.getElementById('tc1').innerHTML=`
+  <div class="card">
+    <div class="card-t" style="margin-bottom:12px">הכנסה חודשית קבועה — סה"כ 23,213 ₪</div>
+    <div class="irow">
+      <div class="el"><div class="eicon">💼</div><div><div class="ename">משכורת נטו — monday.com</div><div class="esub">ללא ESPP</div></div></div>
+      <div><div class="iamt">19,963 ₪</div><div style="font-size:11px;color:var(--muted)">86%</div></div>
+    </div>
+    <div class="irow">
+      <div class="el"><div class="eicon">🏠</div><div><div class="ename">השתתפות שכירות</div><div class="esub">חלק בשכירות</div></div></div>
+      <div><div class="iamt">3,250 ₪</div><div style="font-size:11px;color:var(--muted)">14%</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-t" style="margin-bottom:12px">הכנסות חד-פעמיות 2026</div>
+    <div class="irow">
+      <div class="el"><div class="eicon">🎖</div><div><div class="ename">מענק מילואים — מאי</div></div></div>
+      <div class="iamt">13,274 ₪</div>
+    </div>
+    <div class="irow">
+      <div class="el"><div class="eicon">📈</div><div><div class="ename">ESPP — ספטמבר</div><div class="esub">השקעת 28,800 → קיבלת 35,129 | <span style="color:var(--green)">+6,329 ₪ רווח (22%)</span></div></div></div>
+      <div class="iamt">35,129 ₪</div>
+    </div>
+    <div class="irow">
+      <div class="el"><div class="eicon">🎪</div><div><div class="ename">החזר הוצאות וילה</div></div></div>
+      <div class="iamt">7,250 ₪</div>
+    </div>
+  </div>`;
+}
 
-  const labels = top.map(([k]) => k);
-  const values = top.map(([, v]) => v);
-  const colors = ['#579bfc', '#9d50dd', '#00c875', '#ffcb00', '#e44258', '#ff7f50', '#7b8099'];
+// ── FIXED ─────────────────────────────────────────────────────
+function grp(icon,label,total,items){
+  const id='g'+Math.random().toString(36).slice(2);
+  const rows=items.map(it=>`
+  <div class="erow ${it.dim?'dim':''}">
+    <div class="el"><div class="eicon">${it.icon||'•'}</div>
+      <div><div class="ename">${it.name}</div>${it.sub?`<div class="esub">${it.sub}</div>`:''}</div>
+    </div>
+    <div class="er">${it.badge||''}<div class="eamt ${it.red?'style="color:var(--red)"':''}">${it.amt}</div></div>
+  </div>`).join('');
+  return `<div class="grp">
+    <div class="grp-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+      <span>${icon} ${label}</span><span style="color:var(--muted);font-size:13px">${total}</span>
+    </div>
+    <div class="grp-body" id="${id}">${rows}</div>
+  </div>`;
+}
+function renderFixed(){
+  document.getElementById('tc2').innerHTML=
+    grp('🏠','דיור','6,852 ₪',[
+      {icon:'🏡',name:'שכירות',sub:'גלאי צילה | זכריה 6',amt:'6,500 ₪'},
+      {icon:'🏘',name:'ועד בית',amt:'100 ₪'},
+      {icon:'🏛',name:'ארנונה',sub:'ממוצע חודשי',amt:'~252 ₪'},
+    ])+
+    grp('⚡','חשבונות','~577 ₪',[
+      {icon:'💡',name:'חברת החשמל',sub:'קיץ ~700 | חורף ~250',amt:'~400 ₪'},
+      {icon:'💧',name:'מי אביבים',sub:'דו-חודשי',amt:'~77 ₪'},
+      {icon:'🌐',name:'HOT אינטרנט',sub:'1Gbps',amt:'99.90 ₪'},
+    ])+
+    grp('📱','מנויים','~263 ₪',[
+      {icon:'📺',name:'Sting+ עם HBO Max',amt:'149.70 ₪'},
+      {icon:'📱',name:'פרטנר — הקו שלי',amt:'29.90 ₪'},
+      {icon:'📱',name:'פרטנר — קו אבא',sub:'מיותר',amt:'30.16 ₪',badge:'<span class="b b-red">🔴 מיותר</span>'},
+      {icon:'🍎',name:'Apple TV+',sub:'שקול ביטול',amt:'25.90 ₪',badge:'<span class="b b-yel">⚠️</span>'},
+      {icon:'☁️',name:'iCloud 50GB',amt:'11.90 ₪'},
+    ])+
+    grp('🛡','ביטוחים','~640 ₪',[
+      {icon:'🛡',name:'מנורה מבטחים',sub:'חיים/בריאות',amt:'280 ₪'},
+      {icon:'🛡',name:'ביטוח ישיר',sub:'חיים',amt:'114 ₪'},
+      {icon:'🏥',name:'כללית תוספות',sub:'זהב + פלטינום + סיעוד',amt:'185 ₪'},
+      {icon:'🛡',name:'הפניקס חיים',amt:'19.50 ₪'},
+      {icon:'🏥',name:'סעוד הראל — כללית',amt:'40.84 ₪'},
+      {icon:'🏍',name:'ביטוח חובה אופנוע',sub:'טרם נרכש!',amt:'0 ₪',badge:'<span class="b b-red">🚨 חסר</span>'},
+    ])+
+    grp('💪','כושר','520 ₪',[
+      {icon:'🏋',name:'אילי סנטר',sub:'סטודיו אימונים',amt:'520 ₪'},
+    ])+
+    grp('💰','חיסכון חודשי','10,761 ₪',[
+      {icon:'📊',name:'ילין לפידות',sub:'קופת גמל להשקעה',amt:'2,524 ₪'},
+      {icon:'📊',name:'פנסיה עובד',sub:'מור פנסיה (מהתלוש)',amt:'2,313 ₪'},
+      {icon:'📊',name:'פנסיה מעסיק',sub:'לא יוצא ממך',amt:'5,924 ₪',dim:true},
+    ]);
+}
 
-  const ctx = document.getElementById('catChart').getContext('2d');
-  if (catChart) catChart.destroy();
-  catChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels,
-      datasets: [{
-        data: values,
-        backgroundColor: colors.slice(0, labels.length),
-        borderColor: '#1a1f2e',
-        borderWidth: 3,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          rtl: true,
-          callbacks: {
-            label: ctx => {
-              const total = values.reduce((a, b) => a + b, 0);
-              return ` ${ctx.label}: ${fmtILS(ctx.raw)} (${(ctx.raw / total * 100).toFixed(1)}%)`;
-            }
-          }
-        }
-      },
-      cutout: '62%',
-    }
-  });
+// ── TRANSACTIONS ──────────────────────────────────────────────
+let txnCard='all', txnCat='all';
+function renderTxns(){
+  const m=MONTHS.find(x=>x.id===selMonth);
+  let rows=TXNS.filter(t=>t.m===selMonth);
+  const cats=[...new Set(rows.map(t=>t.cat))].sort();
+  if(txnCard!=='all') rows=rows.filter(t=>t.card===txnCard);
+  if(txnCat!=='all') rows=rows.filter(t=>t.cat===txnCat);
+  rows=[...rows].sort((a,b)=>b.d.localeCompare(a.d));
+  const total=rows.reduce((s,t)=>s+t.amt,0);
 
-  document.getElementById('catLegend').innerHTML = labels.map((l, i) =>
-    `<div class="legend-item"><div class="legend-dot" style="background:${colors[i]}"></div><span>${l}</span></div>`
+  const catOpts=cats.map(c=>`<option value="${c}"${txnCat===c?' selected':''}>${c}</option>`).join('');
+  const cardBtns=['all','FlyCard','HiTechZone','Max'].map(c=>
+    `<button class="fb${txnCard===c?' on':''}" onclick="txnCard='${c}';renderTxns()">${c==='all'?'כל הכרטיסים':c}</button>`
   ).join('');
-}
 
-// ===== TRANSACTIONS =====
-function populateCatFilter() {
-  const cats = [...new Set(TRANSACTIONS.map(t => t.cat))].sort();
-  const sel = document.getElementById('catFilter');
-  sel.innerHTML = '<option value="all">כל הקטגוריות</option>' +
-    cats.map(c => `<option value="${c}">${c}</option>`).join('');
-}
-
-function setCardFilter(f) {
-  cardFilter = f;
-  document.querySelectorAll('[data-card-filter]').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.cardFilter === f);
-  });
-  renderTransactions();
-}
-
-function renderTransactions() {
-  const cf = document.getElementById('catFilter')?.value || 'all';
-  let txs = TRANSACTIONS.filter(t => t.month === currentMonth);
-  if (cardFilter !== 'all') txs = txs.filter(t => t.card === cardFilter);
-  if (cf !== 'all') txs = txs.filter(t => t.cat === cf);
-  txs.sort((a, b) => b.date.localeCompare(a.date));
-
-  const list = document.getElementById('txList');
-  if (txs.length === 0) {
-    list.innerHTML = '<div class="no-tx">אין עסקאות לחודש / לסינון זה</div>';
-    document.getElementById('txCount').textContent = '0 עסקאות';
-    document.getElementById('txTotal').textContent = '';
-    return;
-  }
-
-  list.innerHTML = txs.map(t => {
-    const isCredit = t.amount < 0;
-    const amtText = (isCredit ? '−' : '') + Math.abs(t.amount).toFixed(2) + ' ₪';
-    const badgeClass = t.card === 'FlyCard' ? 'badge-flycard' : t.card === 'HiTechZone' ? 'badge-hitechzone' : 'badge-max';
-    const d = new Date(t.date + 'T12:00:00');
-    const dateFmt = `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
-    return `<div class="tx-row">
-      <span class="tx-date">${dateFmt}</span>
-      <span class="tx-name" title="${t.name}">${t.name}</span>
-      <span class="tx-amount ${isCredit ? 'credit' : 'debit'}">${amtText}</span>
-      <span><span class="card-badge ${badgeClass}">${t.card}</span></span>
-    </div>`;
-  }).join('');
-
-  const total = txs.reduce((s, t) => s + t.amount, 0);
-  document.getElementById('txCount').textContent = `${txs.length} עסקאות`;
-  document.getElementById('txTotal').textContent = `סה"כ: ${total.toFixed(2)} ₪`;
-}
-
-// ===== RECOMMENDATIONS =====
-function renderRecommendations() {
-  const done = JSON.parse(localStorage.getItem('fin-recs-done') || '[]');
-  const iconClass = { red:'icon-red', yellow:'icon-yellow', blue:'icon-blue', green:'icon-green' };
-  document.getElementById('recsList').innerHTML = RECOMMENDATIONS.map(r => {
-    const isDone = done.includes(r.id);
-    return `<div class="rec-card ${isDone ? 'done' : ''}" id="${r.id}">
-      <div class="rec-icon ${iconClass[r.priority]}">${r.icon}</div>
-      <div class="rec-content">
-        <div class="rec-title">${r.title}</div>
-        <div class="rec-desc">${r.desc}</div>
+  const list=rows.length?rows.map(t=>{
+    const badge=t.card==='FlyCard'?'<span class="cb-fly">FlyCard</span>':t.card==='HiTechZone'?'<span class="cb-htz">HiTechZone</span>':'<span class="cb-max">Max</span>';
+    const col=t.amt<0?'color:var(--green)':'';
+    return `<div class="txn-row">
+      <div class="txn-left">
+        <div class="txn-date">${t.d}</div>
+        <div><div class="txn-name">${t.name}</div><div class="txn-cat">${t.cat}</div></div>
       </div>
-      <button class="rec-done-btn" onclick="toggleRec('${r.id}')">${isDone ? '✓ טופל' : 'טופל'}</button>
+      <div class="txn-right">${badge}<div class="txn-amt" style="${col}">${t.amt<0?'':''} ${t.amt.toLocaleString('he-IL',{minimumFractionDigits:2,maximumFractionDigits:2})} ₪</div></div>
+    </div>`;
+  }).join(''):`<div style="padding:30px;text-align:center;color:var(--muted)">אין עסקאות לבחירה זו</div>`;
+
+  document.getElementById('tc3').innerHTML=`
+  <div class="filter-bar">
+    ${cardBtns}
+    <select class="fb" onchange="txnCat=this.value;renderTxns()">
+      <option value="all"${txnCat==='all'?' selected':''}>כל הקטגוריות</option>
+      ${catOpts}
+    </select>
+  </div>
+  <div class="card" style="padding:0 16px">
+    ${list}
+    ${rows.length?`<div class="txn-total"><span>${rows.length} עסקאות</span><span>${total.toLocaleString('he-IL',{minimumFractionDigits:2})} ₪</span></div>`:''}
+  </div>`;
+}
+
+// ── RECOMMENDATIONS ───────────────────────────────────────────
+function renderRecs(){
+  const st=gs();
+  const tmap={red:'r-red',yellow:'r-yel',blue:'r-blu',green:'r-grn'};
+  document.getElementById('tc4').innerHTML=RECS.map(r=>{
+    const done=st['r-'+r.id]==='done';
+    const btns=r.btns.map(b=>`<button class="rbtn ${b.a==='done'?'rb-done':'rb-keep'}" onclick="recAct('${r.id}','${b.a}')">${b.l}</button>`).join('');
+    const undo=done?`<button class="rbtn rb-undo" onclick="recAct('${r.id}','undo')">↩ בטל</button>`:'';
+    return `<div class="rec ${tmap[r.type]} ${done?'done':''}" id="rc-${r.id}">
+      ${done?'<div class="done-ck">✅</div>':''}
+      <div class="rec-t">${r.t}</div>
+      <div class="rec-b">${r.b}</div>
+      <div class="rec-acts">${btns}${undo}</div>
     </div>`;
   }).join('');
 }
-
-function toggleRec(id) {
-  const done = JSON.parse(localStorage.getItem('fin-recs-done') || '[]');
-  const i = done.indexOf(id);
-  if (i >= 0) done.splice(i, 1); else done.push(id);
-  localStorage.setItem('fin-recs-done', JSON.stringify(done));
-  renderRecommendations();
+function recAct(id,a){
+  ss('r-'+id,a==='undo'?'':a);renderRecs();
 }
 
-// ===== ACCORDION =====
-function toggleGroup(header) {
-  const body = header.nextElementSibling;
-  const chevron = header.querySelector('.chevron');
-  const open = body.classList.toggle('open');
-  chevron.classList.toggle('open', open);
-}
-
-// ===== HELPERS =====
-function fmtILS(n) {
-  return Math.round(n).toLocaleString('he-IL') + ' ₪';
+// ── INIT ──────────────────────────────────────────────────────
+function initApp(){
+  renderMonths();
+  renderSummary();
+  renderIncome();
+  renderFixed();
+  renderRecs();
 }
 </script>
 </body>
