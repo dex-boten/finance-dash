@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הפיננסים שלי</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0f1117;--card:#1a1f2e;--card2:#212638;--border:#2a3050;
+    --green:#00c875;--red:#e44258;--yellow:#ffcb00;--blue:#579bfc;
+    --text:#e8eaf0;--muted:#7b8099;--white:#ffffff;
+  }
+  body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl}
+
+  /* LOCK SCREEN */
+  #lock-screen{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;gap:24px}
+  .lock-logo{font-size:48px;margin-bottom:8px}
+  .lock-title{font-size:28px;font-weight:800;color:var(--white)}
+  .lock-sub{font-size:14px;color:var(--muted);margin-top:-8px}
+  .lock-form{display:flex;flex-direction:column;gap:12px;width:280px}
+  .lock-input{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:16px;color:var(--text);font-family:'Heebo',sans-serif;text-align:center;letter-spacing:2px;outline:none;transition:.2s}
+  .lock-input:focus{border-color:var(--blue)}
+  .lock-btn{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:14px;font-size:16px;font-weight:700;font-family:'Heebo',sans-serif;cursor:pointer;transition:.2s}
+  .lock-btn:hover{opacity:.9}
+  .lock-error{color:var(--red);font-size:13px;text-align:center;min-height:18px}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+  .shake{animation:shake .4s ease}
+
+  /* MAIN APP */
+  #app{display:none;max-width:900px;margin:0 auto;padding:16px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:16px 0 20px}
+  .header-title{font-size:22px;font-weight:800}
+  .header-sub{font-size:13px;color:var(--muted);margin-top:2px}
+  .lock-out-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:'Heebo',sans-serif;display:flex;align-items:center;gap:6px}
+  .lock-out-btn:hover{color:var(--text);border-color:var(--muted)}
+
+  /* TABS */
+  .tabs{display:flex;gap:4px;background:var(--card);border-radius:12px;padding:4px;margin-bottom:20px;overflow-x:auto}
+  .tab{flex:1;padding:10px 8px;border:none;background:transparent;color:var(--muted);font-family:'Heebo',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border-radius:9px;transition:.2s;white-space:nowrap}
+  .tab.active{background:var(--card2);color:var(--text)}
+  .tab-content{display:none}
+  .tab-content.active{display:block}
+
+  /* CARDS */
+  .card{background:var(--card);border-radius:14px;padding:20px;margin-bottom:16px;border:1px solid var(--border)}
+  .card-title{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+  .card-value{font-size:32px;font-weight:800}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+
+  /* BADGES */
+  .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700}
+  .badge-red{background:rgba(228,66,88,.15);color:var(--red);border:1px solid rgba(228,66,88,.3)}
+  .badge-yellow{background:rgba(255,203,0,.12);color:var(--yellow);border:1px solid rgba(255,203,0,.25)}
+  .badge-green{background:rgba(0,200,117,.12);color:var(--green);border:1px solid rgba(0,200,117,.25)}
+  .badge-blue{background:rgba(87,155,252,.12);color:var(--blue);border:1px solid rgba(87,155,252,.25)}
+
+  /* PROGRESS BAR */
+  .progress-wrap{background:var(--border);border-radius:10px;height:10px;overflow:hidden;margin:8px 0}
+  .progress-fill{height:100%;border-radius:10px;transition:.5s}
+
+  /* EXPENSE ROWS */
+  .expense-group{margin-bottom:20px}
+  .group-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--card2);border-radius:10px;cursor:pointer;margin-bottom:2px;user-select:none}
+  .group-header-left{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+  .group-total{color:var(--muted);font-size:14px}
+  .group-body{padding:4px 0 8px}
+  .expense-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:8px;transition:.15s}
+  .expense-row:hover{background:var(--card2)}
+  .expense-left{display:flex;align-items:center;gap:10px;flex:1}
+  .expense-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:var(--card2)}
+  .expense-name{font-size:14px;font-weight:500}
+  .expense-sub{font-size:12px;color:var(--muted);margin-top:1px}
+  .expense-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .expense-amount{font-size:15px;font-weight:700;min-width:70px;text-align:left}
+  .grayed{opacity:.45}
+
+  /* VARIABLE EXPENSES */
+  .var-row{background:var(--card);border-radius:12px;padding:14px 16px;margin-bottom:10px;border:1px solid var(--border)}
+  .var-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;cursor:pointer}
+  .var-left{display:flex;align-items:center;gap:10px}
+  .var-name{font-size:15px;font-weight:700}
+  .var-avg{font-size:12px;color:var(--muted)}
+  .var-inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center}
+  .var-input-wrap{display:flex;flex-direction:column;gap:4px}
+  .var-label{font-size:11px;color:var(--muted);font-weight:600}
+  .var-input{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:15px;font-weight:700;color:var(--text);font-family:'Heebo',sans-serif;width:100%;outline:none;text-align:center}
+  .var-input.over20{border-color:var(--yellow);color:var(--yellow)}
+  .var-input.over50{border-color:var(--red);color:var(--red)}
+  .diff-label{font-size:13px;font-weight:700;text-align:center}
+  .merchants{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);display:none}
+  .merchants.open{display:block}
+  .merchant-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--muted)}
+  .merchant-insight{font-size:12px;color:var(--yellow);margin-top:6px;padding:8px;background:rgba(255,203,0,.07);border-radius:7px}
+
+  /* RECOMMENDATIONS */
+  .rec-card{border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid;position:relative;transition:.2s}
+  .rec-card.done{opacity:.4}
+  .rec-card.done .rec-title{text-decoration:line-through}
+  .rec-red{background:rgba(228,66,88,.07);border-color:rgba(228,66,88,.3)}
+  .rec-yellow{background:rgba(255,203,0,.07);border-color:rgba(255,203,0,.25)}
+  .rec-blue{background:rgba(87,155,252,.07);border-color:rgba(87,155,252,.25)}
+  .rec-green{background:rgba(0,200,117,.07);border-color:rgba(0,200,117,.25)}
+  .rec-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+  .rec-title{font-size:15px;font-weight:700}
+  .rec-body{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+  .rec-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .rec-btn{padding:6px 14px;border-radius:7px;font-size:12px;font-weight:700;font-family:'Heebo',sans-serif;cursor:pointer;border:none}
+  .rec-btn-done{background:rgba(0,200,117,.15);color:var(--green);border:1px solid rgba(0,200,117,.3)}
+  .rec-btn-undo{background:var(--card2);color:var(--muted);border:1px solid var(--border)}
+  .rec-btn-keep{background:rgba(87,155,252,.12);color:var(--blue);border:1px solid rgba(87,155,252,.3)}
+  .done-check{position:absolute;top:14px;left:14px;font-size:18px}
+
+  /* SAVINGS */
+  .savings-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+  .savings-row:last-child{border-bottom:none}
+  .savings-name{font-size:14px;font-weight:600}
+  .savings-sub{font-size:12px;color:var(--muted)}
+  .savings-amount{font-size:16px;font-weight:800}
+
+  /* INCOME ROWS */
+  .income-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+  .income-row:last-child{border-bottom:none}
+  .income-left{display:flex;align-items:center;gap:12px}
+  .income-amount{font-size:18px;font-weight:800;color:var(--green)}
+  .income-pct{font-size:12px;color:var(--muted)}
+  .pct-bar{width:120px;background:var(--border);border-radius:4px;height:5px}
+  .pct-fill{height:100%;border-radius:4px;background:var(--green)}
+
+  /* CHART */
+  .chart-wrap{position:relative;height:200px;margin-top:12px}
+
+  /* FOOTER */
+  footer{text-align:center;padding:32px 0 16px;color:var(--muted);font-size:12px;line-height:1.8}
+
+  @media(max-width:600px){
+    .grid2,.grid3{grid-template-columns:1fr}
+    .var-inputs{grid-template-columns:1fr}
+    header{flex-direction:column;align-items:flex-start;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock-screen">
+  <div class="lock-logo">💰</div>
+  <div class="lock-title">הפיננסים שלי</div>
+  <div class="lock-sub">אנא הכנס סיסמה להמשך</div>
+  <div class="lock-form" id="lock-form">
+    <input class="lock-input" type="password" id="pw-input" placeholder="••••••••••••" autocomplete="off">
+    <div class="lock-error" id="lock-error"></div>
+    <button class="lock-btn" onclick="tryUnlock()">כניסה</button>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app">
+  <header>
+    <div>
+      <div class="header-title">שלום שקד 👋</div>
+      <div class="header-sub">עודכן לאחרונה: אוקטובר 2026</div>
+    </div>
+    <button class="lock-out-btn" onclick="lockOut()">🔒 נעל</button>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('summary')">📊 סיכום</button>
+    <button class="tab" onclick="showTab('income')">📥 הכנסות</button>
+    <button class="tab" onclick="showTab('fixed')">🏠 קבוע</button>
+    <button class="tab" onclick="showTab('variable')">🛒 משתנה</button>
+    <button class="tab" onclick="showTab('recs')">💡 המלצות</button>
+  </div>
+
+  <!-- TAB 1: SUMMARY -->
+  <div id="tab-summary" class="tab-content active">
+    <div class="grid3">
+      <div class="card">
+        <div class="card-title">הכנסה חודשית</div>
+        <div class="card-value" style="color:var(--green)">23,213</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">₪ נטו</div>
+      </div>
+      <div class="card">
+        <div class="card-title">הוצאות קבועות</div>
+        <div class="card-value" style="color:var(--blue)">9,001</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">₪ / חודש</div>
+      </div>
+      <div class="card">
+        <div class="card-title">עודף חודשי</div>
+        <div class="card-value" style="color:var(--green)">+6,393</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">₪ ממוצע</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div>
+          <div class="card-title">ניצול תקציב חודשי</div>
+          <div style="font-size:13px;margin-top:2px">קבוע 9,001 + משתנה ~4,630 מתוך 23,213 ₪</div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:var(--yellow)">58%</div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-fill" style="width:58%;background:linear-gradient(90deg,var(--green),var(--yellow))"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div class="card-title">חיסכון שוטף החודש</div>
+        <div style="font-size:20px;font-weight:800;color:var(--blue)">4,837 ₪</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">ילין לפידות 2,524 ₪ + פנסיה עובד 2,313 ₪ — לא כולל פנסיה מעסיק</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:12px">הוצאות כרטיסי אשראי — 6 חודשים אחרונים</div>
+      <div class="chart-wrap">
+        <canvas id="hist-chart"></canvas>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center">אוגוסט וספטמבר גבוהים עקב טיול קרואטיה</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:12px">תחזית 2027</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:var(--card2);border-radius:10px;padding:14px">
+          <div style="font-size:12px;color:var(--muted)">עודף חודשי</div>
+          <div style="font-size:22px;font-weight:800;color:var(--green)">6,393 ₪</div>
+        </div>
+        <div style="background:var(--card2);border-radius:10px;padding:14px">
+          <div style="font-size:12px;color:var(--muted)">עודף שנתי</div>
+          <div style="font-size:22px;font-weight:800;color:var(--green)">76,700 ₪</div>
+        </div>
+        <div style="background:var(--card2);border-radius:10px;padding:14px">
+          <div style="font-size:12px;color:var(--muted)">ילין לפידות שנתי</div>
+          <div style="font-size:22px;font-weight:800;color:var(--blue)">30,288 ₪</div>
+        </div>
+        <div style="background:var(--card2);border-radius:10px;padding:14px">
+          <div style="font-size:12px;color:var(--muted)">פנסיה מעסיק שנתית</div>
+          <div style="font-size:22px;font-weight:800;color:var(--blue)">71,088 ₪</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: INCOME -->
+  <div id="tab-income" class="tab-content">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <div class="card-title">הכנסה חודשית קבועה</div>
+        <div style="font-size:24px;font-weight:800;color:var(--green)">23,213 ₪</div>
+      </div>
+
+      <div class="income-row">
+        <div class="income-left">
+          <div class="expense-icon">💼</div>
+          <div>
+            <div class="expense-name">משכורת נטו — monday.com</div>
+            <div class="expense-sub">ללא ניכוי ESPP</div>
+          </div>
+        </div>
+        <div style="text-align:left">
+          <div class="income-amount">19,963 ₪</div>
+          <div class="income-pct">86%</div>
+          <div class="pct-bar" style="margin-top:4px"><div class="pct-fill" style="width:86%"></div></div>
+        </div>
+      </div>
+
+      <div class="income-row">
+        <div class="income-left">
+          <div class="expense-icon">🏠</div>
+          <div>
+            <div class="expense-name">השתתפות שכירות</div>
+            <div class="expense-sub">חלק בשכירות הביתית</div>
+          </div>
+        </div>
+        <div style="text-align:left">
+          <div class="income-amount">3,250 ₪</div>
+          <div class="income-pct">14%</div>
+          <div class="pct-bar" style="margin-top:4px"><div class="pct-fill" style="width:14%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:16px">הכנסות חד-פעמיות ב-2026</div>
+
+      <div class="income-row">
+        <div class="income-left">
+          <div class="expense-icon">🎖</div>
+          <div>
+            <div class="expense-name">מענק מילואים</div>
+            <div class="expense-sub">מאי 2026</div>
+          </div>
+        </div>
+        <div class="income-amount">13,274 ₪</div>
+      </div>
+
+      <div class="income-row">
+        <div class="income-left">
+          <div class="expense-icon">📈</div>
+          <div>
+            <div class="expense-name">ESPP — פדיון</div>
+            <div class="expense-sub">ספטמבר 2026 | השקעת 28,800 → קיבלת 35,129 | <span style="color:var(--green)">+6,329 ₪ רווח (22%)</span></div>
+          </div>
+        </div>
+        <div class="income-amount">35,129 ₪</div>
+      </div>
+
+      <div class="income-row">
+        <div class="income-left">
+          <div class="expense-icon">🎪</div>
+          <div>
+            <div class="expense-name">החזר הוצאות וילה</div>
+            <div class="expense-sub">ספטמבר 2026 — ריכזת הוצאות עבור חברים</div>
+          </div>
+        </div>
+        <div class="income-amount">7,250 ₪</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:12px">תמהיל חיסכון חודשי (מהכיס שלך)</div>
+      <div class="chart-wrap" style="height:160px">
+        <canvas id="savings-chart"></canvas>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center">30% מהברוטו מהכיס שלך + 18% מהמעסיק = 48% סה"כ</div>
+    </div>
+  </div>
+
+  <!-- TAB 3: FIXED EXPENSES -->
+  <div id="tab-fixed" class="tab-content">
+
+    <!-- HOUSING -->
+    <div class="expense-group">
+      <div class="group-header" onclick="toggleGroup('housing')">
+        <div class="group-header-left"><span>🏠</span> דיור</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="group-total">6,852 ₪</div>
+          <span id="arr-housing">▼</span>
+        </div>
+      </div>
+      <div id="group-housing" class="group-body">
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏡</div><div><div class="expense-name">שכירות</div><div class="expense-sub">גלאי צילה | זכריה 6</div></div></div>
+          <div class="expense-right"><div class="expense-amount">6,500 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏘</div><div><div class="expense-name">ועד בית</div></div></div>
+          <div class="expense-right"><div class="expense-amount">100 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏛</div><div><div class="expense-name">ארנונה</div><div class="expense-sub">ממוצע חודשי (דו-חודשי)</div></div></div>
+          <div class="expense-right"><div class="expense-amount">~252 ₪</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UTILITIES -->
+    <div class="expense-group">
+      <div class="group-header" onclick="toggleGroup('util')">
+        <div class="group-header-left"><span>⚡</span> חשבונות</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="group-total">~577 ₪</div>
+          <span id="arr-util">▼</span>
+        </div>
+      </div>
+      <div id="group-util" class="group-body">
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">💡</div><div><div class="expense-name">חברת החשמל</div><div class="expense-sub">קיץ ~700 ₪ | חורף ~250 ₪</div></div></div>
+          <div class="expense-right"><div class="expense-amount">~400 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">💧</div><div><div class="expense-name">מי אביבים</div><div class="expense-sub">ממוצע חודשי (דו-חודשי)</div></div></div>
+          <div class="expense-right"><div class="expense-amount">~77 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🌐</div><div><div class="expense-name">HOT אינטרנט</div><div class="expense-sub">1Gbps סיב אופטי</div></div></div>
+          <div class="expense-right"><div class="expense-amount">99.90 ₪</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBSCRIPTIONS -->
+    <div class="expense-group">
+      <div class="group-header" onclick="toggleGroup('subs')">
+        <div class="group-header-left"><span>📱</span> מנויים</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="group-total">~263 ₪</div>
+          <span id="arr-subs">▼</span>
+        </div>
+      </div>
+      <div id="group-subs" class="group-body">
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">📺</div><div><div class="expense-name">Sting+ עם HBO Max</div></div></div>
+          <div class="expense-right"><div class="expense-amount">149.70 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">📱</div><div><div class="expense-name">פרטנר — הקו שלי</div></div></div>
+          <div class="expense-right"><div class="expense-amount">29.90 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">📱</div><div><div class="expense-name">פרטנר — קו אבא</div><div class="expense-sub">מיותר — להעביר לשם אבא</div></div></div>
+          <div class="expense-right"><span class="badge badge-red">🔴 מיותר</span><div class="expense-amount" style="color:var(--red)">30.16 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🍎</div><div><div class="expense-name">Apple TV+</div><div class="expense-sub">שקול ביטול — יש Sting+HBO</div></div></div>
+          <div class="expense-right"><span class="badge badge-yellow">⚠️</span><div class="expense-amount">25.90 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">☁️</div><div><div class="expense-name">iCloud 50GB</div></div></div>
+          <div class="expense-right"><div class="expense-amount">11.90 ₪</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSURANCE -->
+    <div class="expense-group">
+      <div class="group-header" onclick="toggleGroup('ins')">
+        <div class="group-header-left"><span>🛡</span> ביטוחים</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="group-total">~640 ₪</div>
+          <span id="arr-ins">▼</span>
+        </div>
+      </div>
+      <div id="group-ins" class="group-body">
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🛡</div><div><div class="expense-name">מנורה מבטחים — חיים/בריאות</div></div></div>
+          <div class="expense-right"><div class="expense-amount">280 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🛡</div><div><div class="expense-name">ביטוח ישיר — חיים</div></div></div>
+          <div class="expense-right"><div class="expense-amount">114 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏥</div><div><div class="expense-name">כללית — תוספות</div><div class="expense-sub">זהב + פלטינום + סיעוד</div></div></div>
+          <div class="expense-right"><div class="expense-amount">185 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🛡</div><div><div class="expense-name">הפניקס — חיים ובריאות</div></div></div>
+          <div class="expense-right"><div class="expense-amount">19.50 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏥</div><div><div class="expense-name">סעוד הראל — כללית</div></div></div>
+          <div class="expense-right"><div class="expense-amount">40.84 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏍</div><div><div class="expense-name">ביטוח חובה — אופנוע</div><div class="expense-sub">טרם נרכש!</div></div></div>
+          <div class="expense-right"><span class="badge badge-red">🚨 חסר</span><div class="expense-amount" style="color:var(--red)">0 ₪</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FITNESS -->
+    <div class="expense-group">
+      <div class="group-header" onclick="toggleGroup('fit')">
+        <div class="group-header-left"><span>💪</span> כושר</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="group-total">520 ₪</div>
+          <span id="arr-fit">▼</span>
+        </div>
+      </div>
+      <div id="group-fit" class="group-body">
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">🏋</div><div><div class="expense-name">אילי סנטר</div><div class="expense-sub">סטודיו אימונים</div></div></div>
+          <div class="expense-right"><div class="expense-amount">520 ₪</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVINGS -->
+    <div class="expense-group">
+      <div class="group-header" onclick="toggleGroup('save')">
+        <div class="group-header-left"><span>💰</span> חיסכון חודשי</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="group-total" style="color:var(--blue)">10,761 ₪</div>
+          <span id="arr-save">▼</span>
+        </div>
+      </div>
+      <div id="group-save" class="group-body">
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">📊</div><div><div class="expense-name">ילין לפידות</div><div class="expense-sub">קופת גמל להשקעה</div></div></div>
+          <div class="expense-right"><div class="expense-amount" style="color:var(--blue)">2,524 ₪</div></div>
+        </div>
+        <div class="expense-row">
+          <div class="expense-left"><div class="expense-icon">📊</div><div><div class="expense-name">פנסיה — עובד</div><div class="expense-sub">מור פנסיה (מנוכה מהתלוש)</div></div></div>
+          <div class="expense-right"><div class="expense-amount" style="color:var(--blue)">2,313 ₪</div></div>
+        </div>
+        <div class="expense-row grayed">
+          <div class="expense-left"><div class="expense-icon">📊</div><div><div class="expense-name">פנסיה — מעסיק</div><div class="expense-sub">לא יוצא ממך — בונה עושר</div></div></div>
+          <div class="expense-right"><div class="expense-amount" style="color:var(--muted)">5,924 ₪</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: VARIABLE EXPENSES -->
+  <div id="tab-variable" class="tab-content">
+    <div style="font-size:13px;color:var(--muted);margin-bottom:16px">הכנס את הסכום בפועל החודש — הצבע ישתנה אם תחרוג מהממוצע</div>
+
+    <div id="var-container"></div>
+  </div>
+
+  <!-- TAB 5: RECOMMENDATIONS -->
+  <div id="tab-recs" class="tab-content">
+    <div id="recs-container"></div>
+  </div>
+
+  <footer>
+    עודכן: אוקטובר 2026 | נבנה ע"י Dex 🎯<br>
+    <span style="font-size:11px">נתונים מאוחסנים מקומית בדפדפן בלבד — לא יוצאים לשום שרת</span>
+  </footer>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const VARIABLE_CATEGORIES = [
+  {
+    id:'restaurants',icon:'🍽',name:'מסעדות ובארים',avg:1555,
+    merchants:[
+      {name:'Wolt',avg:131},{name:'Santi TLV',avg:220},{name:'אוזריה',avg:78},
+      {name:'ABIE',avg:66},{name:'ורמוטריה',avg:60}
+    ],
+    insight:'145 ביקורים ב-10 חודשים = כמעט כל יומיים. הורדה ל-1,000 ₪ = חיסכון 6,600 ₪/שנה.'
+  },
+  {
+    id:'grocery',icon:'🛒',name:'קניות אוכל',avg:1162,
+    merchants:[
+      {name:'יודה סופר',avg:273},{name:'אושר עד',avg:133},
+      {name:'מנו וינו (יין)',avg:194},{name:'טוני בוצ\'ר',avg:127},{name:'מנדל משקאות',avg:66}
+    ],
+    insight:'~200 ₪/חודש על יין ואלכוהול מוסתר בתוך קניות.'
+  },
+  {
+    id:'therapy',icon:'🧠',name:'טיפול — שיטת סאטיה',avg:1400,
+    merchants:[{name:'אמילי מגנאגי',avg:1400}],
+    insight:'420 ₪/מפגש | ממוצע 3.3 מפגשים/חודש'
+  },
+  {
+    id:'fuel',icon:'⛽',name:'דלק',avg:200,
+    merchants:[{name:'פז Yellow',avg:168},{name:'דלק מנטה',avg:32}],
+    insight:'כולל מילוי מזדמן לרכב של שותפה.'
+  },
+  {
+    id:'fashion',icon:'👗',name:'אופנה',avg:368,merchants:[],insight:''
+  },
+  {
+    id:'home',icon:'🏡',name:'בית וריהוט',avg:509,merchants:[],insight:''
+  },
+  {
+    id:'entertainment',icon:'🎭',name:'בידור ואירועים',avg:500,
+    merchants:[{name:'Gett',avg:119},{name:'גו אאוט',avg:50}],insight:''
+  },
+  {
+    id:'pet',icon:'🐱',name:'סוניה (BigPet)',avg:97,merchants:[{name:'BigPet',avg:97}],insight:'אוכל לחתולה 🐾'}
+];
+
+const RECOMMENDATIONS = [
+  {
+    id:'moto-ins',type:'red',title:'🏍 ביטוח חובה לאופנוע — חסר!',
+    body:'נוסע ללא ביטוח חובה — זה לא חוקי. קנסות + ביטול רישיון. טפל בהקדם.',
+    btns:[{label:'✅ טופלתי',action:'done'}]
+  },
+  {
+    id:'partner-dad',type:'red',title:'📱 פרטנר — קו אבא על חשבונך',
+    body:'30.16 ₪/חודש = 362 ₪/שנה. העבר את הקו לשם אבא.',
+    btns:[{label:'✅ טופלתי',action:'done'}]
+  },
+  {
+    id:'apple-tv',type:'yellow',title:'📺 Apple TV+ — כפילות עם Sting+HBO',
+    body:'25.90 ₪/חודש = 310 ₪/שנה. יש לך Sting+ עם HBO Max. האם באמת צריך שניהם?',
+    btns:[{label:'✅ ביטלתי',action:'done'},{label:'💾 שומר',action:'keep'}]
+  },
+  {
+    id:'restaurants',type:'yellow',title:'🍽 מסעדות: 145 ביקורים ב-10 חודשים',
+    body:'ממוצע 1,555 ₪/חודש. הורדה ל-1,000 ₪ = חיסכון 6,600 ₪/שנה.',
+    btns:[{label:'✅ מודע ועובד על זה',action:'done'}]
+  },
+  {
+    id:'wine',type:'yellow',title:'🍷 יין ואלכוהול: ~200 ₪/חודש',
+    body:'מוסתר בקטגוריית קניות. מנו וינו + מנדל + Wine & More = 2,064 ₪/שנה.',
+    btns:[{label:'✅ מודע',action:'done'}]
+  },
+  {
+    id:'espp-next',type:'blue',title:'📈 ESPP — מחזור הבא',
+    body:'אין מחזור ESPP צפוי בחצי השנה הקרובה. בדוק עם HR מתי המחזור הבא.',
+    btns:[{label:'✅ בדקתי',action:'done'}]
+  },
+  {
+    id:'insurance',type:'yellow',title:'🛡 שני ביטוחי חיים במקביל',
+    body:'מנורה מבטחים 280 ₪ + ביטוח ישיר 114 ₪ — שניהם עם "חיים". שווי לבדוק כפילות עם סוכן.',
+    btns:[{label:'✅ בדקתי',action:'done'}]
+  },
+  {
+    id:'forecast',type:'green',title:'✨ תחזית 2027 — מצב טוב',
+    body:'ללא הוצאות חריגות: עודף ~6,393 ₪/חודש = ~76,700 ₪/שנה. בנוסף: ילין לפידות 30,288 + פנסיה מעסיק 71,088.',
+    btns:[]
+  }
+];
+
+// ============================================================
+// STATE (localStorage)
+// ============================================================
+function getState(){
+  try{return JSON.parse(localStorage.getItem('fin-state')||'{}')}
+  catch{return {}}
+}
+function setState(key,val){
+  const s=getState();s[key]=val;
+  localStorage.setItem('fin-state',JSON.stringify(s));
+}
+
+// ============================================================
+// AUTH
+// ============================================================
+const PASS='Finance2026';
+document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock()});
+
+function tryUnlock(){
+  const v=document.getElementById('pw-input').value;
+  if(v===PASS){
+    document.getElementById('lock-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    initApp();
+  } else {
+    const f=document.getElementById('lock-form');
+    document.getElementById('lock-error').textContent='סיסמה שגויה, נסה שוב';
+    f.classList.remove('shake');
+    void f.offsetWidth;
+    f.classList.add('shake');
+    document.getElementById('pw-input').value='';
+  }
+}
+
+function lockOut(){
+  document.getElementById('app').style.display='none';
+  document.getElementById('lock-screen').style.display='flex';
+  document.getElementById('pw-input').value='';
+  document.getElementById('lock-error').textContent='';
+}
+
+// ============================================================
+// TABS
+// ============================================================
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ============================================================
+// GROUPS
+// ============================================================
+function toggleGroup(id){
+  const el=document.getElementById('group-'+id);
+  const arr=document.getElementById('arr-'+id);
+  const hidden=el.style.display==='none';
+  el.style.display=hidden?'block':'none';
+  arr.textContent=hidden?'▼':'▶';
+}
+
+// ============================================================
+// CHARTS
+// ============================================================
+function initCharts(){
+  // Historical CC spend
+  const ctx1=document.getElementById('hist-chart').getContext('2d');
+  new Chart(ctx1,{
+    type:'bar',
+    data:{
+      labels:['אפריל','מאי','יוני','יולי','אוגוסט ☀️','ספטמבר'],
+      datasets:[{
+        data:[9396,5717,8240,7922,21888,17626],
+        backgroundColor:['#579bfc','#579bfc','#579bfc','#579bfc','#e44258','#e44258'],
+        borderRadius:6
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw.toLocaleString('he-IL')} ₪`}}},
+      scales:{
+        x:{ticks:{color:'#7b8099',font:{family:'Heebo',size:11}},grid:{display:false}},
+        y:{ticks:{color:'#7b8099',font:{family:'Heebo',size:10},callback:v=>`${(v/1000).toFixed(0)}K`},grid:{color:'#2a3050'}}
+      }
+    }
+  });
+
+  // Savings pie
+  const ctx2=document.getElementById('savings-chart').getContext('2d');
+  new Chart(ctx2,{
+    type:'doughnut',
+    data:{
+      labels:['ESPP (הפסקה)','פנסיה עובד','ילין לפידות','פנסיה מעסיק'],
+      datasets:[{
+        data:[4800,2313,2524,5924],
+        backgroundColor:['#ffcb00','#579bfc','#00c875','#2a3050'],
+        borderWidth:0
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'right',labels:{color:'#7b8099',font:{family:'Heebo',size:11},boxWidth:12}},
+        tooltip:{callbacks:{label:c=>`${c.label}: ${c.raw.toLocaleString('he-IL')} ₪`}}
+      }
+    }
+  });
+}
+
+// ============================================================
+// VARIABLE EXPENSES
+// ============================================================
+function initVariable(){
+  const container=document.getElementById('var-container');
+  const state=getState();
+
+  container.innerHTML=VARIABLE_CATEGORIES.map(cat=>{
+    const saved=state['var-'+cat.id]||'';
+    return `
+    <div class="var-row">
+      <div class="var-top" onclick="toggleMerchants('${cat.id}')">
+        <div class="var-left">
+          <span style="font-size:20px">${cat.icon}</span>
+          <div>
+            <div class="var-name">${cat.name}</div>
+            <div class="var-avg">ממוצע היסטורי: ${cat.avg.toLocaleString('he-IL')} ₪/חודש</div>
+          </div>
+        </div>
+        <span style="color:var(--muted);font-size:12px">▼</span>
+      </div>
+      <div class="var-inputs">
+        <div class="var-input-wrap">
+          <div class="var-label">סכום בפועל החודש (₪)</div>
+          <input class="var-input" id="var-input-${cat.id}" type="number" value="${saved}" placeholder="0"
+            oninput="updateVar('${cat.id}',${cat.avg})">
+        </div>
+        <div style="text-align:center">
+          <div class="var-label">מול ממוצע</div>
+          <div class="diff-label" id="var-diff-${cat.id}">${saved?calcDiff(Number(saved),cat.avg):'—'}</div>
+        </div>
+      </div>
+      <div class="merchants" id="merch-${cat.id}">
+        ${cat.merchants.length?`
+          <div style="font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600">ספקים היסטוריים:</div>
+          ${cat.merchants.map(m=>`<div class="merchant-row"><span>${m.name}</span><span>${m.avg.toLocaleString('he-IL')} ₪ ממוצע</span></div>`).join('')}
+        `:''}
+        ${cat.insight?`<div class="merchant-insight">💡 ${cat.insight}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function calcDiff(actual,avg){
+  if(!actual)return '—';
+  const diff=actual-avg;
+  const pct=Math.round((diff/avg)*100);
+  if(pct>50)return `<span style="color:var(--red)">+${pct}% 🔴</span>`;
+  if(pct>20)return `<span style="color:var(--yellow)">+${pct}% ⚠️</span>`;
+  if(pct<-10)return `<span style="color:var(--green)">${pct}% ✅</span>`;
+  return `<span style="color:var(--muted)">${pct>0?'+':''}${pct}%</span>`;
+}
+
+function updateVar(id,avg){
+  const val=Number(document.getElementById('var-input-'+id).value)||0;
+  const inp=document.getElementById('var-input-'+id);
+  const pct=val&&avg?(val-avg)/avg*100:0;
+  inp.className='var-input'+(pct>50?' over50':pct>20?' over20':'');
+  document.getElementById('var-diff-'+id).innerHTML=val?calcDiff(val,avg):'—';
+  setState('var-'+id,val);
+}
+
+function toggleMerchants(id){
+  const el=document.getElementById('merch-'+id);
+  el.classList.toggle('open');
+}
+
+// ============================================================
+// RECOMMENDATIONS
+// ============================================================
+function initRecs(){
+  const container=document.getElementById('recs-container');
+  const state=getState();
+
+  const typeMap={red:'rec-red',yellow:'rec-yellow',blue:'rec-blue',green:'rec-green'};
+
+  container.innerHTML=RECOMMENDATIONS.map(rec=>{
+    const done=state['rec-'+rec.id]==='done';
+    const kept=state['rec-'+rec.id]==='keep';
+    return `
+    <div class="rec-card ${typeMap[rec.type]} ${done?'done':''}" id="rec-${rec.id}">
+      ${done?'<div class="done-check">✅</div>':''}
+      <div class="rec-header">
+        <div class="rec-title">${rec.title}</div>
+      </div>
+      <div class="rec-body">${rec.body}</div>
+      <div class="rec-actions" id="rec-actions-${rec.id}">
+        ${rec.btns.map(b=>`<button class="rec-btn rec-btn-${b.action==='done'?'done':'keep'}" onclick="recAction('${rec.id}','${b.action}')">${b.label}</button>`).join('')}
+        ${done?`<button class="rec-btn rec-btn-undo" onclick="recAction('${rec.id}','undo')">↩ בטל</button>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function recAction(id,action){
+  if(action==='undo')setState('rec-'+id,'');
+  else setState('rec-'+id,action);
+  initRecs();
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function initApp(){
+  initCharts();
+  initVariable();
+  initRecs();
+}
+</script>
+</body>
+</html>
