@@ -58,8 +58,9 @@ body.light .l-title{background:linear-gradient(135deg,var(--blue),var(--purple))
 .mc-arrow:hover{border-color:var(--blue);color:var(--blue)}
 .mc-center{display:flex;flex-direction:column;align-items:center;gap:4px}
 .mc-name{font-size:18px;font-weight:900;color:var(--text);letter-spacing:-.3px;min-width:100px;text-align:center}
-.mc-select{background:var(--card2);border:1px solid var(--border);border-radius:20px;color:var(--muted);font-size:11px;font-weight:700;font-family:'Heebo',sans-serif;padding:3px 10px;cursor:pointer;outline:none;text-align:center}
-.mc-select:focus{border-color:var(--blue)}
+.mc-select{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);min-width:160px;background:var(--card);border:1px solid var(--border);border-radius:14px;color:var(--text);font-size:14px;font-weight:700;font-family:'Heebo',sans-serif;padding:6px 0;cursor:pointer;outline:none;z-index:500;display:none;box-shadow:0 8px 32px rgba(0,0,0,.4);direction:rtl;max-height:200px;overflow-y:auto}
+.mc-select.open{display:block}
+.mc-select option{padding:8px 16px}
 
 /* ═══ LAYOUT ═══ */
 .layout{display:flex;flex-direction:row;min-height:calc(100vh - 112px)}
@@ -305,20 +306,18 @@ body.light .l-title{background:linear-gradient(135deg,var(--blue),var(--purple))
     </div>
     <div class="topbar-right">
       <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="החלף מצב תצוגה">🌙</button>
-      <button class="profile-btn" onclick="switchTab('profile','sb-profile')">
-        <img src="https://dex-boten.github.io/finance-dash/profile.jpg" onerror="this.textContent='👤';this.removeAttribute('src')" id="profile-avatar" alt="פרופיל" style="width:32px;height:32px;border-radius:50%;object-fit:cover">
-      </button>
+      <button class="profile-btn" onclick="switchTab('profile','sb-profile')" id="profile-avatar">👤</button>
     </div>
   </div>
 
   <!-- Month carousel -->
   <div class="month-carousel">
-    <button class="mc-arrow" onclick="stepMonth(1)">&#8250;</button>
+    <button class="mc-arrow" onclick="stepMonth(-1)">‹</button>
     <div class="mc-center">
-      <div class="mc-name" id="mc-name" onclick="document.getElementById('mc-select').size=document.getElementById('mc-select').size>1?1:5" style="cursor:pointer">טוען... <span style="font-size:12px;color:var(--muted)">&#9660;</span></div>
-      <select class="mc-select" id="mc-select" onchange="selMonth(this.value);this.size=1" style="position:absolute;opacity:0;pointer-events:none" size="1"></select>
+      <div class="mc-name" id="mc-name" onclick="toggleMonthDD()" style="cursor:pointer">טוען... <span style="font-size:11px;color:var(--muted)">&#9660;</span></div>
+      <select class="mc-select" id="mc-select" onchange="selMonth(this.value);closeMonthDD()"></select>
     </div>
-    <button class="mc-arrow" onclick="stepMonth(-1)">&#8249;</button>
+    <button class="mc-arrow" onclick="stepMonth(1)">›</button>
   </div>
 
   <!-- Layout wrapper -->
@@ -522,6 +521,19 @@ function stepMonth(dir) {
   const i = months.indexOf(selectedMonth);
   const next = i - dir; // RTL: right arrow = older month
   if (next >= 0 && next < months.length) selMonth(months[next]);
+}
+function toggleMonthDD() {
+  const sel = document.getElementById('mc-select');
+  sel.classList.toggle('open');
+  // Close when clicking outside
+  if (sel.classList.contains('open')) {
+    setTimeout(() => document.addEventListener('click', function handler(e) {
+      if (!e.target.closest('.mc-center')) { sel.classList.remove('open'); document.removeEventListener('click', handler); }
+    }), 50);
+  }
+}
+function closeMonthDD() {
+  document.getElementById('mc-select').classList.remove('open');
 }
 function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
