@@ -62,10 +62,10 @@ body.light .l-title{background:linear-gradient(135deg,var(--blue),var(--purple))
 .mc-select:focus{border-color:var(--blue)}
 
 /* ═══ LAYOUT ═══ */
-.layout{display:flex;flex-direction:row-reverse;min-height:calc(100vh - 112px)}
+.layout{display:flex;flex-direction:row;min-height:calc(100vh - 112px)}
 
 /* ═══ SIDEBAR ═══ */
-.sidebar{width:var(--sb-w);background:var(--card);border-right:1px solid var(--border);position:sticky;top:112px;height:calc(100vh - 112px);display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;z-index:99}
+.sidebar{width:var(--sb-w);background:var(--card);border-left:1px solid var(--border);position:sticky;top:112px;height:calc(100vh - 112px);display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;z-index:99;order:2}
 .sb-items{display:flex;flex-direction:column;gap:2px;padding:10px 6px}
 .sb-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border:none;border-radius:12px;background:transparent;color:var(--muted);cursor:pointer;font-family:'Heebo',sans-serif;transition:.15s;width:100%}
 .sb-btn:hover{background:var(--card2);color:var(--text2)}
@@ -102,6 +102,9 @@ body.light .l-title{background:linear-gradient(135deg,var(--blue),var(--purple))
 .topbar{background:rgba(26,31,46,.95);border-bottom:1px solid var(--border);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;backdrop-filter:blur(16px)}
 .topbar-left{display:flex;align-items:center;gap:10px}
 .topbar-logo{font-size:20px}
+.topbar-right{display:flex;align-items:center;gap:8px}
+.profile-btn{background:var(--card2);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;overflow:hidden;padding:0;transition:.2s}
+.profile-btn:hover{border-color:var(--blue)}
 .topbar-title{font-size:16px;font-weight:800;color:var(--text)}
 .topbar-badge{background:rgba(87,155,252,.15);border:1px solid rgba(87,155,252,.25);color:var(--blue);border-radius:20px;padding:3px 11px;font-size:11px;font-weight:700}
 .lock-btn{background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:9px;padding:6px 14px;font-size:12px;cursor:pointer;font-family:'Heebo',sans-serif;transition:.15s;white-space:nowrap}
@@ -297,20 +300,25 @@ body.light .l-title{background:linear-gradient(135deg,var(--blue),var(--purple))
   <!-- Top bar -->
   <div class="topbar">
     <div class="topbar-left">
-      <span class="topbar-logo">M</span>
+      <span class="topbar-logo">💰</span>
       <span class="topbar-title">Moneya?</span>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="החלף מצב תצוגה">🌙</button>
+    <div class="topbar-right">
+      <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="החלף מצב תצוגה">🌙</button>
+      <button class="profile-btn" onclick="switchTab('profile','sb-profile')">
+        <img src="https://dex-boten.github.io/finance-dash/profile.jpg" onerror="this.textContent='👤';this.removeAttribute('src')" id="profile-avatar" alt="פרופיל" style="width:32px;height:32px;border-radius:50%;object-fit:cover">
+      </button>
+    </div>
   </div>
 
   <!-- Month carousel -->
   <div class="month-carousel">
-    <button class="mc-arrow" onclick="stepMonth(-1)">&#8250;</button>
+    <button class="mc-arrow" onclick="stepMonth(1)">&#8250;</button>
     <div class="mc-center">
-      <div class="mc-name" id="mc-name">טוען...</div>
-      <select class="mc-select" id="mc-select" onchange="selMonth(this.value)"></select>
+      <div class="mc-name" id="mc-name" onclick="document.getElementById('mc-select').size=document.getElementById('mc-select').size>1?1:5" style="cursor:pointer">טוען... <span style="font-size:12px;color:var(--muted)">&#9660;</span></div>
+      <select class="mc-select" id="mc-select" onchange="selMonth(this.value);this.size=1" style="position:absolute;opacity:0;pointer-events:none" size="1"></select>
     </div>
-    <button class="mc-arrow" onclick="stepMonth(1)">&#8249;</button>
+    <button class="mc-arrow" onclick="stepMonth(-1)">&#8249;</button>
   </div>
 
   <!-- Layout wrapper -->
@@ -608,12 +616,8 @@ function rOverview() {
   el.innerHTML = `
     <!-- HERO -->
     <div class="hero">
-      <div class="hero-lbl">${isCurrent ? 'בטוח להוציא החודש' : 'עודף / גירעון סופי'}</div>
+      <div class="hero-lbl">${isCurrent ? 'בטוח להוציא החודש' : (remaining>=0 ? 'רווח' : 'הפסד')}</div>
       <div class="hero-amt ${remaining>=0?'pos':'neg'}">${remaining>=0?'+':''}${fmtShekel(remaining)}</div>
-      <div class="hero-sub">
-        הכנסה ${fmtShekel(INCOME)} &nbsp;•&nbsp; הוצאות קבועות ${fmtShekel(FIXED)}<br>
-        ${isCurrent ? `הוצאת עד כה ${fmtShekel(spent)} מתוך ${fmtShekel(SAFE)} תקציב גמיש` : `סה"כ הוצאות גמישות: ${fmtShekel(spent)}`}
-      </div>
     </div>
 
     <!-- PACE BAR -->
@@ -633,26 +637,19 @@ function rOverview() {
       </div>
       <div class="pace-insight">${paceText}</div>
     </div>
-    ` : `<div class="pace"><div class="pace-insight">${paceText}</div></div>`}
+    ` : ``}
 
-    <!-- 3 SUMMARY CARDS -->
-    <div class="g3">
+    <!-- 2 SUMMARY CARDS -->
+    <div class="g2">
       <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">💵 הכנסה</div>
+        <div class="clabel">💵 הכנסה חודשית</div>
         <div class="cval" style="font-size:21px;color:var(--green)">${fmtShekel(INCOME)}</div>
-        <div class="csub">+ ${fmtShekel(FIXED)} קבוע</div>
+        <div class="csub">${fmtShekel(FIXED)} הוצאות קבועות</div>
       </div>
       <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">💸 הוצאות</div>
+        <div class="clabel">💸 הוצאות גמישות</div>
         <div class="cval" style="font-size:21px;color:var(--red)">${fmtShekel(spent)}</div>
-        <div class="csub">גמישות החודש</div>
-      </div>
-      <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">${remaining>=0?'✅ נשאר':'❌ גירעון'}</div>
-        <div class="cval" style="font-size:21px;color:${remaining>=0?'var(--green)':'var(--red)'}">
-          ${remaining>=0?'+':''}${fmtShekel(remaining)}
-        </div>
-        <div class="csub">מ-${fmtShekel(SAFE)} תקציב</div>
+        <div class="csub">מתוך ${fmtShekel(SAFE)} תקציב</div>
       </div>
     </div>
 
@@ -699,19 +696,15 @@ function rCategories() {
   const mt = getMonthTxns(selectedMonth);
   const cats = byCat(mt);
 
-  const entries = Object.entries(cats)
-    .map(([cat, list]) => ({
+  // Always show ALL categories alphabetically, 0 if no spending
+  const entries = Object.keys(CM)
+    .map(cat => ({
       cat,
-      m: CM[cat] || {i:'📦',l:cat,b:0,c:'#7b8099'},
-      list: list.sort((a,b) => b.amount - a.amount),
-      total: sumT(list),
+      m: CM[cat],
+      list: (cats[cat] || []).sort((a,b) => b.amount - a.amount),
+      total: sumT(cats[cat] || []),
     }))
-    .sort((a,b) => b.total - a.total);
-
-  if (!entries.length) {
-    el.innerHTML = '<div class="empty">אין הוצאות בחודש זה 🎉</div>';
-    return;
-  }
+    .sort((a,b) => a.m.l.localeCompare(b.m.l, 'he'));
 
   const totalSpent = entries.reduce((s,c) => s+c.total, 0);
 
@@ -791,31 +784,67 @@ function rTrends() {
 
   // Insights
   const maxM = mTotals.reduce((mx,x) => x.total>mx.total?x:mx, mTotals[0]);
+  const minM = mTotals.reduce((mn,x) => x.total<mn.total?x:mn, mTotals[0]);
   const avgM = mTotals.reduce((s,m)=>s+m.total,0) / mTotals.length;
+  const totalAllTime = mTotals.reduce((s,m)=>s+m.total,0);
 
-  // Fastest growing cat (last 2 full months, excluding current partial)
+  // Fastest growing cat
   const fullMonths = months.filter(m => m !== months[months.length-1]);
-  let fastCat = null;
+  let fastCat = null; let fastPct = 0;
   if (fullMonths.length >= 2) {
     const lm = fullMonths[fullMonths.length-1];
     const pm = fullMonths[fullMonths.length-2];
     const lc = byCat(getMonthTxns(lm));
     const pc = byCat(getMonthTxns(pm));
-    let best = 0;
     for (const c of Object.keys(lc)) {
       const cur = sumT(lc[c]||[]);
       const prev = sumT(pc[c]||[]);
       if (prev > 50) {
         const g = (cur-prev)/prev;
-        if (g > best) { best = g; fastCat = c; }
+        if (g > fastPct) { fastPct = g; fastCat = c; }
       }
     }
   }
 
+  // Most improving cat (biggest drop)
+  let dropCat = null; let dropPct = 0;
+  if (fullMonths.length >= 2) {
+    const lm = fullMonths[fullMonths.length-1];
+    const pm = fullMonths[fullMonths.length-2];
+    const lc = byCat(getMonthTxns(lm));
+    const pc = byCat(getMonthTxns(pm));
+    for (const c of Object.keys(pc)) {
+      const cur = sumT(lc[c]||[]);
+      const prev = sumT(pc[c]||[]);
+      if (prev > 100) {
+        const g = (prev-cur)/prev;
+        if (g > dropPct) { dropPct = g; dropCat = c; }
+      }
+    }
+  }
+
+  // Monthly income = INCOME (fixed) - can extend later
+  const incomeData = mTotals.map(() => INCOME);
+
+  // Trend line checkboxes
+  const trendChecks = `
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;cursor:pointer">
+        <input type="checkbox" id="cb-expenses" checked onchange="updateTrendLines()" style="accent-color:#579bfc"> הוצאות
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;cursor:pointer">
+        <input type="checkbox" id="cb-income" checked onchange="updateTrendLines()" style="accent-color:#00c875"> הכנסות
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;cursor:pointer">
+        <input type="checkbox" id="cb-balance" onchange="updateTrendLines()" style="accent-color:#ffcb00"> עודף/גירעון
+      </label>
+    </div>`;
+
   el.innerHTML = `
     <div class="chartcard">
-      <div class="chart-title">📈 הוצאות חודשיות</div>
-      <div class="chart-sub">סך הוצאות לפי חודש (לא כולל הוצאות קבועות)</div>
+      <div class="chart-title">📈 טרנד חודשי</div>
+      <div class="chart-sub">הוצאות לעומת הכנסות</div>
+      ${trendChecks}
       <div class="chart-wrap"><canvas id="ch-monthly"></canvas></div>
     </div>
     <div class="chartcard">
@@ -830,51 +859,95 @@ function rTrends() {
         <div class="chip-note">${fmtShekel(maxM.total)}</div>
       </div>
       <div class="chip">
+        <div class="chip-lbl">🎉 החודש הזול ביותר</div>
+        <div class="chip-val">${minM.lbl}</div>
+        <div class="chip-note">${fmtShekel(minM.total)}</div>
+      </div>
+      <div class="chip">
         <div class="chip-lbl">📊 ממוצע חודשי</div>
         <div class="chip-val">${fmtShekel(avgM)}</div>
         <div class="chip-note">מ-${mTotals.length} חודשים</div>
       </div>
+      <div class="chip">
+        <div class="chip-lbl">💸 סה"כ הוצאות 2026</div>
+        <div class="chip-val">${fmtShekel(totalAllTime)}</div>
+        <div class="chip-note">מתחילת השנה</div>
+      </div>
       ${fastCat ? `<div class="chip">
-        <div class="chip-lbl">📈 גדלה הכי מהר</div>
+        <div class="chip-lbl">📈 צומחת הכי מהר</div>
         <div class="chip-val">${CM[fastCat]?.i||''} ${CM[fastCat]?.l||fastCat}</div>
-        <div class="chip-note">לעומת חודש קודם</div>
+        <div class="chip-note">+${Math.round(fastPct*100)}% לעומת חודש קודם</div>
+      </div>` : ''}
+      ${dropCat ? `<div class="chip">
+        <div class="chip-lbl">👍 צמצום הכי טוב</div>
+        <div class="chip-val">${CM[dropCat]?.i||''} ${CM[dropCat]?.l||dropCat}</div>
+        <div class="chip-note">-${Math.round(dropPct*100)}% לעומת חודש קודם</div>
       </div>` : ''}
       <div class="chip">
-        <div class="chip-lbl">🏆 הקטגוריה הגדולה ביותר</div>
+        <div class="chip-lbl">🏆 קטגוריה מובילה</div>
         <div class="chip-val">${CM[top5[0]]?.i||''} ${CM[top5[0]]?.l||top5[0]}</div>
         <div class="chip-note">${fmtShekel(catTot[top5[0]])} סה"כ</div>
       </div>
     </div>
   `;
 
-  // Line chart
+  // Line chart — RTL (reverse labels)
   killChart('monthly');
   const c1 = document.getElementById('ch-monthly').getContext('2d');
   const gradient = c1.createLinearGradient(0, 0, 0, 280);
   gradient.addColorStop(0, 'rgba(87,155,252,.25)');
   gradient.addColorStop(1, 'rgba(87,155,252,.0)');
+  const balanceData = mTotals.map(m => INCOME - m.total);
   charts['monthly'] = new Chart(c1, {
     type: 'line',
     data: {
-      labels: mTotals.map(m=>m.lbl),
-      datasets: [{
-        label: 'הוצאות',
-        data: mTotals.map(m=>m.total),
-        borderColor: '#579bfc',
-        backgroundColor: gradient,
-        fill: true,
-        tension: 0.4,
-        pointBackgroundColor: '#579bfc',
-        pointBorderColor: '#0f1117',
-        pointBorderWidth: 2,
-        pointRadius: 5,
-        pointHoverRadius: 8,
-      }]
+      labels: [...mTotals.map(m=>m.lbl)].reverse(),
+      datasets: [
+        {
+          id: 'expenses',
+          label: 'הוצאות',
+          data: [...mTotals.map(m=>m.total)].reverse(),
+          borderColor: '#579bfc',
+          backgroundColor: gradient,
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#579bfc',
+          pointBorderColor: '#0f1117',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          hidden: false,
+        },
+        {
+          id: 'income',
+          label: 'הכנסות',
+          data: [...incomeData].reverse(),
+          borderColor: '#00c875',
+          backgroundColor: 'transparent',
+          fill: false,
+          tension: 0,
+          pointRadius: 0,
+          borderDash: [6,4],
+          hidden: false,
+        },
+        {
+          id: 'balance',
+          label: 'עודף/גירעון',
+          data: [...balanceData].reverse(),
+          borderColor: '#ffcb00',
+          backgroundColor: 'transparent',
+          fill: false,
+          tension: 0.4,
+          pointRadius: 3,
+          hidden: true,
+        }
+      ]
     },
     options: {
       ...chartDefaults(),
       plugins: {
         ...chartDefaults().plugins,
+        legend: { display: true, position: 'bottom', labels: { color: '#7b8099', font: { family: 'Heebo', size: 11 } } },
         tooltip: {
           backgroundColor: '#1a1f2e',
           borderColor: '#2a3050',
@@ -925,6 +998,20 @@ function rTrends() {
       }
     }
   });
+}
+
+function updateTrendLines() {
+  const ch = charts['monthly'];
+  if (!ch) return;
+  const showExp = document.getElementById('cb-expenses')?.checked;
+  const showInc = document.getElementById('cb-income')?.checked;
+  const showBal = document.getElementById('cb-balance')?.checked;
+  ch.data.datasets.forEach(ds => {
+    if (ds.id === 'expenses') ds.hidden = !showExp;
+    if (ds.id === 'income')   ds.hidden = !showInc;
+    if (ds.id === 'balance')  ds.hidden = !showBal;
+  });
+  ch.update();
 }
 
 // ══════════════════════════════════════════════════
