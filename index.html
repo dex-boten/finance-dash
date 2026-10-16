@@ -252,7 +252,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
     <button class="tbtn" onclick="switchTab('trends',this)">📈 טרנדים</button>
     <button class="tbtn" onclick="switchTab('subscriptions',this)">🔁 מנויים</button>
     <button class="tbtn" onclick="switchTab('recommendations',this)">💡 המלצות</button>
-    <button class="tbtn" onclick="switchTab('import',this)">⬆️ ייבוא</button>
+    <button class="tbtn" onclick="switchTab('import',this)">⬆ ייבוא</button>
   </div>
 
   <!-- Tab pages -->
@@ -275,21 +275,21 @@ const SAFE   = INCOME - FIXED; // 9950
 const MONTH_HE = {'01':'ינואר','02':'פברואר','03':'מרץ','04':'אפריל','05':'מאי','06':'יוני','07':'יולי','08':'אוגוסט','09':'ספטמבר','10':'אוקטובר','11':'נובמבר','12':'דצמבר'};
 
 const CM = {
-  restaurants: {i:'🍽️',l:'מסעדות',b:1500,c:'#e44258'},
+  restaurants: {i:'🍽',l:'מסעדות',b:1500,c:'#e44258'},
   grocery:     {i:'🛒',l:'סופר',b:1200,c:'#00c875'},
   transport:   {i:'🚗',l:'תחבורה',b:900,c:'#579bfc'},
-  travel:      {i:'✈️',l:'נסיעות',b:3000,c:'#9d50dd'},
+  travel:      {i:'✈',l:'נסיעות',b:3000,c:'#9d50dd'},
   entertainment:{i:'🎭',l:'בידור',b:700,c:'#ffcb00'},
   subscriptions:{i:'📱',l:'מנויים',b:600,c:'#579bfc'},
   health:      {i:'💊',l:'בריאות',b:500,c:'#00c875'},
   fashion:     {i:'👗',l:'אופנה',b:700,c:'#e44258'},
   home:        {i:'🏠',l:'בית',b:600,c:'#9d50dd'},
-  insurance:   {i:'🛡️',l:'ביטוח',b:500,c:'#7b8099'},
+  insurance:   {i:'🛡',l:'ביטוח',b:500,c:'#7b8099'},
   tech:        {i:'💻',l:'טכנולוגיה',b:300,c:'#579bfc'},
   other:       {i:'📦',l:'אחר',b:500,c:'#7b8099'},
   energy:      {i:'⚡',l:'חשמל',b:250,c:'#ffcb00'},
   transfers:   {i:'💸',l:'העברות',b:0,c:'#7b8099'},
-  institutions:{i:'🏛️',l:'מוסדות',b:400,c:'#7b8099'},
+  institutions:{i:'🏛',l:'מוסדות',b:400,c:'#7b8099'},
   events:      {i:'🎪',l:'אירועים',b:300,c:'#ffcb00'},
   equipment:   {i:'🔧',l:'ציוד',b:300,c:'#7b8099'},
   hotel:       {i:'🏨',l:'מלון',b:0,c:'#9d50dd'},
@@ -297,7 +297,7 @@ const CM = {
   kids:        {i:'👶',l:'ילדים',b:200,c:'#ffcb00'},
   education:   {i:'📚',l:'חינוך',b:200,c:'#579bfc'},
   beauty:      {i:'💄',l:'יופי',b:200,c:'#e44258'},
-  charity:     {i:'❤️',l:'צדקה',b:100,c:'#e44258'},
+  charity:     {i:'❤',l:'צדקה',b:100,c:'#e44258'},
 };
 
 const CHART_COLORS = ['#e44258','#579bfc','#9d50dd','#00c875','#ffcb00','#fd79a8','#74b9ff','#00cec9','#a29bfe'];
@@ -314,8 +314,8 @@ let charts = {};
 // ══════════════════════════════════════════════════
 // UTILS
 // ══════════════════════════════════════════════════
-const ₪ = n => '₪' + Math.abs(Math.round(n)).toLocaleString('he-IL');
-const ₪s = n => (n>=0?'+':'-') + '₪' + Math.abs(Math.round(n)).toLocaleString('he-IL');
+const fmtShekel = n => '₪' + Math.abs(Math.round(n)).toLocaleString('he-IL');
+const fmtShekelSigned = n => (n>=0?'+':'-') + '₪' + Math.abs(Math.round(n)).toLocaleString('he-IL');
 
 function mLabel(m) {
   const [y,mo] = m.split('-');
@@ -461,10 +461,10 @@ function rOverview() {
     if (pctB < pctM * 0.6) paceText = '✅ מדהים! קצב הוצאות נמוך בהרבה מהצפי.';
     else if (pctB < pctM * 0.9) paceText = '👍 קצב טוב — תמשיך כך!';
     else if (pctB < pctM * 1.1) paceText = '👌 קצב תקין — בגבולות התקציב.';
-    else if (pctB < pctM * 1.3) paceText = '⚠️ קצב מעט גבוה — שים לב לשארית החודש.';
+    else if (pctB < pctM * 1.3) paceText = '⚠ קצב מעט גבוה — שים לב לשארית החודש.';
     else paceText = '🚨 קצב גבוה משמעותית — מומלץ לצמצם.';
   } else {
-    paceText = `חודש שהסתיים — סה"כ ${₪(spent)} הוצאות (${Math.round(pctB*100)}% מהתקציב)`;
+    paceText = `חודש שהסתיים — סה"כ ${fmtShekel(spent)} הוצאות (${Math.round(pctB*100)}% מהתקציב)`;
   }
 
   // MoM comparison
@@ -491,7 +491,7 @@ function rOverview() {
         return `<div class="mom-row">
           <div class="mom-cat">${m.i} ${m.l}</div>
           <div class="mom-r">
-            <span class="mom-amt">${₪(cur)}</span>
+            <span class="mom-amt">${fmtShekel(cur)}</span>
             <span class="badge ${cls}">${arr}${lbl}</span>
           </div>
         </div>`;
@@ -502,10 +502,10 @@ function rOverview() {
     <!-- HERO -->
     <div class="hero">
       <div class="hero-lbl">${isCurrent ? 'בטוח להוציא החודש' : 'עודף / גירעון סופי'}</div>
-      <div class="hero-amt ${remaining>=0?'pos':'neg'}">${remaining>=0?'+':''}${₪(remaining)}</div>
+      <div class="hero-amt ${remaining>=0?'pos':'neg'}">${remaining>=0?'+':''}${fmtShekel(remaining)}</div>
       <div class="hero-sub">
-        הכנסה ${₪(INCOME)} &nbsp;•&nbsp; הוצאות קבועות ${₪(FIXED)}<br>
-        ${isCurrent ? `הוצאת עד כה ${₪(spent)} מתוך ${₪(SAFE)} תקציב גמיש` : `סה"כ הוצאות גמישות: ${₪(spent)}`}
+        הכנסה ${fmtShekel(INCOME)} &nbsp;•&nbsp; הוצאות קבועות ${fmtShekel(FIXED)}<br>
+        ${isCurrent ? `הוצאת עד כה ${fmtShekel(spent)} מתוך ${fmtShekel(SAFE)} תקציב גמיש` : `סה"כ הוצאות גמישות: ${fmtShekel(spent)}`}
       </div>
     </div>
 
@@ -513,7 +513,7 @@ function rOverview() {
     ${isCurrent ? `
     <div class="pace">
       <div class="pace-hd">
-        <span class="pace-title">⏱️ קצב הוצאות</span>
+        <span class="pace-title">⏱ קצב הוצאות</span>
         <span class="pace-day">יום ${dayElapsed} מתוך ${dim}</span>
       </div>
       <div class="pace-track">
@@ -532,20 +532,20 @@ function rOverview() {
     <div class="g3">
       <div class="card" style="margin:0;text-align:center">
         <div class="clabel">💵 הכנסה</div>
-        <div class="cval" style="font-size:21px;color:var(--green)">${₪(INCOME)}</div>
-        <div class="csub">+ ${₪(FIXED)} קבוע</div>
+        <div class="cval" style="font-size:21px;color:var(--green)">${fmtShekel(INCOME)}</div>
+        <div class="csub">+ ${fmtShekel(FIXED)} קבוע</div>
       </div>
       <div class="card" style="margin:0;text-align:center">
         <div class="clabel">💸 הוצאות</div>
-        <div class="cval" style="font-size:21px;color:var(--red)">${₪(spent)}</div>
+        <div class="cval" style="font-size:21px;color:var(--red)">${fmtShekel(spent)}</div>
         <div class="csub">גמישות החודש</div>
       </div>
       <div class="card" style="margin:0;text-align:center">
         <div class="clabel">${remaining>=0?'✅ נשאר':'❌ גירעון'}</div>
         <div class="cval" style="font-size:21px;color:${remaining>=0?'var(--green)':'var(--red)'}">
-          ${remaining>=0?'+':''}${₪(remaining)}
+          ${remaining>=0?'+':''}${fmtShekel(remaining)}
         </div>
-        <div class="csub">מ-${₪(SAFE)} תקציב</div>
+        <div class="csub">מ-${fmtShekel(SAFE)} תקציב</div>
       </div>
     </div>
 
@@ -556,17 +556,17 @@ function rOverview() {
       <div class="f-items">
         <div class="f-item">
           <div class="f-lbl">צפי הוצאות</div>
-          <div class="f-val" style="color:${projected>SAFE?'var(--red)':'var(--text)'}">${₪(projected)}</div>
+          <div class="f-val" style="color:${projected>SAFE?'var(--red)':'var(--text)'}">${fmtShekel(projected)}</div>
         </div>
         <div class="f-item">
           <div class="f-lbl">צפי עודף/גירעון</div>
           <div class="f-val" style="color:${projRemain>=0?'var(--green)':'var(--red)'}">
-            ${projRemain>=0?'+':''}${₪(projRemain)}
+            ${projRemain>=0?'+':''}${fmtShekel(projRemain)}
           </div>
         </div>
         <div class="f-item">
           <div class="f-lbl">ממוצע יומי</div>
-          <div class="f-val">${dayElapsed>0?₪(dailyRate):'-'}<span style="font-size:12px;font-weight:400;color:var(--muted)">/יום</span></div>
+          <div class="f-val">${dayElapsed>0?fmtShekel(dailyRate):'-'}<span style="font-size:12px;font-weight:400;color:var(--muted)">/יום</span></div>
         </div>
         <div class="f-item">
           <div class="f-lbl">ימים שנותרו</div>
@@ -612,7 +612,7 @@ function rCategories() {
     <div class="card" style="margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">
       <div>
         <div class="clabel">סה"כ הוצאות</div>
-        <div class="cval" style="color:var(--red)">${₪(totalSpent)}</div>
+        <div class="cval" style="color:var(--red)">${fmtShekel(totalSpent)}</div>
       </div>
       <div style="text-align:left">
         <div class="clabel">קטגוריות</div>
@@ -629,10 +629,10 @@ function rCategories() {
         const rem = m.b - total;
         const bColor = rem < 0 ? 'var(--red)' : pct > 80 ? 'var(--yellow)' : 'var(--green)';
         const rCls = rem < 0 ? 'over' : pct > 80 ? 'warn' : m.b > 0 ? 'ok' : 'no';
-        const rTxt = m.b <= 0 ? 'ללא תקציב' : rem >= 0 ? `נשאר: ${₪(rem)}` : `חריגה: ${₪(-rem)}`;
+        const rTxt = m.b <= 0 ? 'ללא תקציב' : rem >= 0 ? `נשאר: ${fmtShekel(rem)}` : `חריגה: ${fmtShekel(-rem)}`;
         const txHTML = list.slice(0, 15).map(t =>
           `<div class="txn">
-            <span class="txn-amt">${₪(t.amount)}</span>
+            <span class="txn-amt">${fmtShekel(t.amount)}</span>
             <span class="txn-name" title="${t.name}">${t.name}</span>
             <span class="txn-date">${t.date.slice(5)}</span>
           </div>`
@@ -641,10 +641,10 @@ function rCategories() {
           <div class="catcard" id="cc-${cat}" onclick="toggleCat('${cat}')">
             <div class="ci">${m.i}</div>
             <div class="cn">${m.l}</div>
-            <div class="ca">${₪(total)}</div>
+            <div class="ca">${fmtShekel(total)}</div>
             ${m.b > 0 ? `
             <div class="cpbar"><div class="cpfill" style="width:${pct.toFixed(1)}%;background:${bColor}"></div></div>
-            <div class="cplabels"><span style="color:${bColor}">${Math.round(pct)}%</span><span>${₪(m.b)}</span></div>
+            <div class="cplabels"><span style="color:${bColor}">${Math.round(pct)}%</span><span>${fmtShekel(m.b)}</span></div>
             ` : ''}
             <div class="cremain ${rCls}">${rTxt}</div>
             <div class="cexpand" id="cx-${cat}">
@@ -720,11 +720,11 @@ function rTrends() {
       <div class="chip">
         <div class="chip-lbl">📅 החודש היקר ביותר</div>
         <div class="chip-val">${maxM.lbl}</div>
-        <div class="chip-note">${₪(maxM.total)}</div>
+        <div class="chip-note">${fmtShekel(maxM.total)}</div>
       </div>
       <div class="chip">
         <div class="chip-lbl">📊 ממוצע חודשי</div>
-        <div class="chip-val">${₪(avgM)}</div>
+        <div class="chip-val">${fmtShekel(avgM)}</div>
         <div class="chip-note">מ-${mTotals.length} חודשים</div>
       </div>
       ${fastCat ? `<div class="chip">
@@ -735,7 +735,7 @@ function rTrends() {
       <div class="chip">
         <div class="chip-lbl">🏆 הקטגוריה הגדולה ביותר</div>
         <div class="chip-val">${CM[top5[0]]?.i||''} ${CM[top5[0]]?.l||top5[0]}</div>
-        <div class="chip-note">${₪(catTot[top5[0]])} סה"כ</div>
+        <div class="chip-note">${fmtShekel(catTot[top5[0]])} סה"כ</div>
       </div>
     </div>
   `;
@@ -774,7 +774,7 @@ function rTrends() {
           borderWidth: 1,
           titleColor: '#e8eaf0',
           bodyColor: '#a8b0c8',
-          callbacks: { label: ctx => ' ' + ₪(ctx.raw) }
+          callbacks: { label: ctx => ' ' + fmtShekel(ctx.raw) }
         }
       }
     }
@@ -809,7 +809,7 @@ function rTrends() {
           borderWidth: 1,
           titleColor: '#e8eaf0',
           bodyColor: '#a8b0c8',
-          callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ₪(ctx.raw) }
+          callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + fmtShekel(ctx.raw) }
         }
       },
       scales: {
@@ -862,7 +862,7 @@ function rSubscriptions() {
     'AMAZON': '📦',
     'GOOGLE': '🔍',
     'כללית': '🏥',
-    'ארנונה': '🏙️',
+    'ארנונה': '🏙',
     'מים': '💧',
   };
   function getIcon(name) {
@@ -883,11 +883,11 @@ function rSubscriptions() {
         <div>
           <div class="subname">${r.name}</div>
           <div class="submeta">הופיע ב-${r.months} חודשים • עדכון אחרון: ${r.lastDate}</div>
-          ${r.anomaly ? `<div class="subflag">⚠️ גבוה מהממוצע (${₪(r.lastAmt)} מול ${₪(r.avg)})</div>` : ''}
+          ${r.anomaly ? `<div class="subflag">⚠ גבוה מהממוצע (${fmtShekel(r.lastAmt)} מול ${fmtShekel(r.avg)})</div>` : ''}
         </div>
       </div>
       <div class="subright">
-        <div class="subamt">${₪(r.avg)}</div>
+        <div class="subamt">${fmtShekel(r.avg)}</div>
         <div class="subfreq">ממוצע/חודש</div>
       </div>
     </div>
@@ -897,12 +897,12 @@ function rSubscriptions() {
     <div class="g2" style="margin-bottom:14px">
       <div class="card" style="margin:0;text-align:center">
         <div class="clabel">💸 סה"כ מנויים/חודש</div>
-        <div class="cval" style="color:var(--red)">${₪(totalMonthly)}</div>
+        <div class="cval" style="color:var(--red)">${fmtShekel(totalMonthly)}</div>
         <div class="csub">מזוהה אוטומטית</div>
       </div>
       <div class="card" style="margin:0;text-align:center">
         <div class="clabel">📅 עלות שנתית</div>
-        <div class="cval" style="color:var(--red)">${₪(annualTotal)}</div>
+        <div class="cval" style="color:var(--red)">${fmtShekel(annualTotal)}</div>
         <div class="csub">${recurring.length} מנויים</div>
       </div>
     </div>
@@ -940,11 +940,11 @@ function rRec() {
 
   const recs = [
     {
-      icon:'🍽️', bg:'rgba(228,66,88,.12)',
+      icon:'🍽', bg:'rgba(228,66,88,.12)',
       title: `אכלת בחוץ ${restCount} פעמים ב-2026`,
       text: `ממוצע ${Math.round(restAvg)}₪ לביקור. הורדה ל-100 ביקורים = חיסכון אסטרונומי.<br>
              מסעדות בשכונה, בישול עם חברים פעמיים נוספות בשבוע, או Wolt אחת פחות.`,
-      save: `חיסכון ~${₪(restSave)}/שנה`,
+      save: `חיסכון ~${fmtShekel(restSave)}/שנה`,
     },
     {
       icon:'📡', bg:'rgba(87,155,252,.12)',
