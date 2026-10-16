@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#579bfc"/>
+      <stop offset="50%" style="stop-color:#9d50dd"/>
+      <stop offset="100%" style="stop-color:#e44258"/>
+    </linearGradient>
+    <linearGradient id="coin-g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700"/>
+      <stop offset="100%" style="stop-color:#f0a500"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.4)"/>
+    </filter>
+  </defs>
+  <!-- Dark rounded square -->
+  <rect x="4" y="4" width="192" height="192" rx="44" fill="#1a1f2e"/>
+  <rect x="4" y="4" width="192" height="192" rx="44" fill="none" stroke="url(#g3)" stroke-width="2.5"/>
+  <!-- M bold -->
+  <text x="96" y="125" text-anchor="middle" font-family="Heebo, Arial Black, sans-serif" font-weight="900" font-size="100" fill="white">M</text>
+  <!-- Underline gradient bar -->
+  <rect x="30" y="140" width="140" height="6" rx="3" fill="url(#g3)"/>
+  <!-- Coin circle (bigger, replaces dot) -->
+  <circle cx="153" cy="52" r="22" fill="url(#coin-g)" filter="url(#shadow)"/>
+  <!-- Coin inner ring -->
+  <circle cx="153" cy="52" r="18" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- "Ya" text on coin -->
+  <text x="153" y="58" text-anchor="middle" font-family="Heebo, Arial, sans-serif" font-weight="800" font-size="15" fill="#7a4800">Ya</text>
+</svg>
