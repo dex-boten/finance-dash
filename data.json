@@ -5413,156 +5413,81 @@
     "2026-10"
   ],
   "summary": {
-    "2026-01": {
-      "total": 13341.38,
+    "2026-10": {
+      "total": 384.0,
       "by_cat": {
-        "energy": 261.32,
-        "equipment": 98.36,
-        "fashion": 223.92,
-        "grocery": 777.07,
-        "health": 589.32,
-        "home": 200.0,
-        "institutions": 1171.28,
-        "insurance": 706.67,
-        "other": 99.32,
-        "restaurants": 5190.7,
-        "subscriptions": 284.56,
-        "tech": 107.92,
-        "transport": 175.3,
-        "travel": 3455.64
+        "health": 354.0,
+        "restaurants": 30.0
       },
       "by_card": {
-        "FlyCard": 13341.38
+        "Max": 354.0,
+        "FlyCard": 30.0
       },
-      "count": 82
+      "count": 2
     },
-    "2026-02": {
-      "total": 10366.07,
+    "2026-09": {
+      "total": 20122.68,
       "by_cat": {
-        "energy": 531.67,
-        "entertainment": 520.0,
-        "grocery": 1134.16,
-        "health": 260.48,
-        "home": 113.0,
-        "institutions": 11.5,
-        "insurance": 475.01,
-        "other": 452.57,
-        "restaurants": 614.0,
-        "subscriptions": 336.51,
-        "transport": 211.97,
-        "travel": 5705.2
+        "home": 669.0,
+        "grocery": 2671.19,
+        "subscriptions": 346.46,
+        "restaurants": 693.27,
+        "insurance": 424.18,
+        "institutions": 516.95,
+        "energy": 485.48,
+        "transport": 6513.42,
+        "health": 554.61,
+        "travel": 5219.76,
+        "entertainment": 942.0,
+        "tech": 104.88,
+        "fashion": 897.48,
+        "other": 84.0
       },
       "by_card": {
-        "FlyCard": 10366.07
+        "FlyCard": 17786.91,
+        "HiTechZone": 1981.77,
+        "Max": 354.0
       },
-      "count": 83
+      "count": 104
     },
-    "2026-03": {
-      "total": 8098.4,
+    "2026-08": {
+      "total": 21022.47,
       "by_cat": {
-        "education": 85.0,
-        "energy": 498.23,
-        "entertainment": 767.0,
-        "fashion": 30.0,
-        "grocery": 1049.07,
-        "health": 299.66,
-        "home": 436.0,
-        "institutions": 827.96,
-        "insurance": 408.74,
-        "other": 171.8,
-        "restaurants": 1966.94,
-        "subscriptions": 410.97,
-        "tech": 80.58,
-        "travel": 1066.45
+        "home": 239.9,
+        "subscriptions": 452.26,
+        "energy": 897.85,
+        "grocery": 783.37,
+        "transport": 4638.98,
+        "insurance": 421.5,
+        "restaurants": 3121.38,
+        "travel": 8875.92,
+        "health": 783.31,
+        "entertainment": 529.0,
+        "tech": 200.0,
+        "other": 79.0
       },
       "by_card": {
-        "FlyCard": 4846.96,
-        "HiTechZone": 3004.44,
-        "Max": 247.0
+        "FlyCard": 10926.95,
+        "HiTechZone": 9652.52,
+        "Max": 443.0
       },
-      "count": 67
-    },
-    "2026-04": {
-      "total": 8079.99,
-      "by_cat": {
-        "energy": 1030.97,
-        "entertainment": 961.91,
-        "equipment": 285.0,
-        "fashion": 936.1,
-        "grocery": 848.72,
-        "health": 580.42,
-        "home": 470.2,
-        "insurance": 406.38,
-        "other": 296.0,
-        "restaurants": 1649.7,
-        "subscriptions": 349.1,
-        "tech": 227.61,
-        "transport": 37.88
-      },
-      "by_card": {
-        "FlyCard": 5546.0,
-        "HiTechZone": 2533.99
-      },
-      "count": 69
-    },
-    "2026-05": {
-      "total": 6093.45,
-      "by_cat": {
-        "energy": 507.6,
-        "entertainment": 559.5,
-        "grocery": 1927.93,
-        "health": 215.11,
-        "home": 207.0,
-        "institutions": 515.51,
-        "insurance": 412.83,
-        "other": 102.0,
-        "restaurants": 1178.88,
-        "subscriptions": 396.99,
-        "transport": 70.1
-      },
-      "by_card": {
-        "FlyCard": 5689.95,
-        "HiTechZone": 403.5
-      },
-      "count": 58
-    },
-    "2026-06": {
-      "total": 7374.56,
-      "by_cat": {
-        "energy": 797.67,
-        "entertainment": 1033.4,
-        "fashion": 880.9,
-        "grocery": 1159.62,
-        "health": 163.09,
-        "home": 722.0,
-        "institutions": 8.0,
-        "insurance": 420.37,
-        "other": 294.0,
-        "restaurants": 1002.55,
-        "subscriptions": 297.56,
-        "transport": 595.4
-      },
-      "by_card": {
-        "FlyCard": 2454.5,
-        "HiTechZone": 4920.06
-      },
-      "count": 64
+      "count": 60
     },
     "2026-07": {
       "total": 7776.9,
       "by_cat": {
-        "energy": 141.94,
-        "entertainment": 1351.0,
         "fashion": 562.84,
-        "grocery": 956.58,
-        "health": 474.49,
-        "home": 687.71,
-        "institutions": 515.13,
-        "insurance": 420.37,
         "other": 307.72,
-        "restaurants": 1322.0,
+        "home": 687.71,
+        "health": 895.49,
         "subscriptions": 304.0,
+        "restaurants": 1322.0,
+        "insurance": 420.37,
+        "institutions": 515.13,
+        "grocery": 956.58,
         "tech": 99.0,
+        "energy": 141.94,
+        "entertainment": 930.0,
         "transport": 617.12,
         "travel": 17.0
       },
@@ -5571,67 +5496,142 @@
         "HiTechZone": 5375.63,
         "Max": 421.0
       },
+      "count": 68
+    },
+    "2026-06": {
+      "total": 7374.56,
+      "by_cat": {
+        "subscriptions": 297.56,
+        "fashion": 880.9,
+        "energy": 797.67,
+        "insurance": 420.37,
+        "entertainment": 1033.4,
+        "restaurants": 1002.55,
+        "institutions": 8.0,
+        "grocery": 1159.62,
+        "health": 163.09,
+        "transport": 595.4,
+        "other": 294.0,
+        "home": 722.0
+      },
+      "by_card": {
+        "FlyCard": 2454.5,
+        "HiTechZone": 4920.06
+      },
+      "count": 67
+    },
+    "2026-05": {
+      "total": 6093.45,
+      "by_cat": {
+        "grocery": 1927.93,
+        "other": 102.0,
+        "restaurants": 1178.88,
+        "energy": 507.6,
+        "subscriptions": 396.99,
+        "home": 207.0,
+        "insurance": 412.83,
+        "institutions": 515.51,
+        "entertainment": 559.5,
+        "transport": 70.1,
+        "health": 215.11
+      },
+      "by_card": {
+        "FlyCard": 5689.95,
+        "HiTechZone": 403.5
+      },
       "count": 65
     },
-    "2026-08": {
-      "total": 21022.47,
+    "2026-04": {
+      "total": 8079.99,
       "by_cat": {
-        "energy": 897.85,
-        "entertainment": 972.0,
-        "grocery": 783.37,
-        "health": 340.31,
-        "home": 239.9,
-        "insurance": 421.5,
-        "other": 79.0,
-        "restaurants": 3121.38,
-        "subscriptions": 452.26,
-        "tech": 200.0,
-        "transport": 4638.98,
-        "travel": 8875.92
+        "grocery": 848.72,
+        "subscriptions": 349.1,
+        "energy": 1030.97,
+        "other": 296.0,
+        "tech": 227.61,
+        "insurance": 406.38,
+        "fashion": 936.1,
+        "transport": 37.88,
+        "health": 580.42,
+        "restaurants": 1649.7,
+        "entertainment": 961.91,
+        "home": 470.2,
+        "equipment": 285.0
       },
       "by_card": {
-        "FlyCard": 10926.95,
-        "HiTechZone": 9652.52,
-        "Max": 443.0
+        "FlyCard": 5546.0,
+        "HiTechZone": 2533.99
       },
-      "count": 56
+      "count": 71
     },
-    "2026-09": {
-      "total": 20122.68,
+    "2026-03": {
+      "total": 8098.4,
       "by_cat": {
-        "energy": 485.48,
-        "entertainment": 1296.0,
-        "fashion": 897.48,
-        "grocery": 2671.19,
-        "health": 200.61,
-        "home": 669.0,
-        "institutions": 516.95,
-        "insurance": 424.18,
-        "other": 84.0,
-        "restaurants": 693.27,
-        "subscriptions": 346.46,
-        "tech": 104.88,
-        "transport": 6513.42,
-        "travel": 5219.76
+        "subscriptions": 410.97,
+        "other": 171.8,
+        "restaurants": 1966.94,
+        "insurance": 408.74,
+        "grocery": 1049.07,
+        "energy": 498.23,
+        "institutions": 827.96,
+        "tech": 80.58,
+        "health": 546.66,
+        "education": 85.0,
+        "entertainment": 520.0,
+        "travel": 1066.45,
+        "home": 436.0,
+        "fashion": 30.0
       },
       "by_card": {
-        "FlyCard": 17786.91,
-        "HiTechZone": 1981.77,
-        "Max": 354.0
+        "FlyCard": 4846.96,
+        "HiTechZone": 3004.44,
+        "Max": 247.0
       },
-      "count": 103
+      "count": 68
     },
-    "2026-10": {
-      "total": 384.0,
+    "2026-02": {
+      "total": 10366.07,
       "by_cat": {
-        "entertainment": 354.0,
-        "restaurants": 30.0
+        "restaurants": 614.0,
+        "subscriptions": 336.51,
+        "grocery": 1134.16,
+        "home": 113.0,
+        "insurance": 475.01,
+        "institutions": 11.5,
+        "energy": 531.67,
+        "health": 260.48,
+        "other": 452.57,
+        "travel": 5705.2,
+        "entertainment": 520.0,
+        "transport": 211.97
       },
       "by_card": {
-        "FlyCard": 30.0,
-        "Max": 354.0
+        "FlyCard": 10366.07
       },
-      "count": 2
+      "count": 84
+    },
+    "2026-01": {
+      "total": 13341.38,
+      "by_cat": {
+        "other": 99.32,
+        "travel": 3455.64,
+        "tech": 107.92,
+        "subscriptions": 284.56,
+        "grocery": 777.07,
+        "insurance": 706.67,
+        "health": 589.32,
+        "restaurants": 5190.7,
+        "institutions": 1171.28,
+        "energy": 261.32,
+        "home": 200.0,
+        "fashion": 223.92,
+        "equipment": 98.36,
+        "transport": 175.3
+      },
+      "by_card": {
+        "FlyCard": 13341.38
+      },
+      "count": 85
     }
   },
   "generated": "2026-10-18T19:26:08",
@@ -5639,5 +5639,60 @@
     "FlyCard",
     "HiTechZone",
     "Max"
+  ],
+  "income": [
+    {
+      "month": "2026-01",
+      "amount": 15210,
+      "source": "salary",
+      "note": "ממוצע"
+    },
+    {
+      "month": "2026-02",
+      "amount": 15210,
+      "source": "salary"
+    },
+    {
+      "month": "2026-03",
+      "amount": 15210,
+      "source": "salary"
+    },
+    {
+      "month": "2026-04",
+      "amount": 15210,
+      "source": "salary"
+    },
+    {
+      "month": "2026-05",
+      "amount": 15210,
+      "source": "salary"
+    },
+    {
+      "month": "2026-06",
+      "amount": 15210,
+      "source": "salary"
+    },
+    {
+      "month": "2026-07",
+      "amount": 15210,
+      "source": "salary"
+    },
+    {
+      "month": "2026-08",
+      "amount": 50339,
+      "source": "salary+ESPP",
+      "note": "15,210 + 35,129 ESPP"
+    },
+    {
+      "month": "2026-09",
+      "amount": 17734,
+      "source": "salary",
+      "note": "שקד אישר"
+    },
+    {
+      "month": "2026-10",
+      "amount": 15210,
+      "source": "salary"
+    }
   ]
 }

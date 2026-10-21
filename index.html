@@ -506,7 +506,7 @@ button,a{font-family:inherit}
 'use strict';
 
 // ── CONFIG ──────────────────────────────────────────────
-const INCOME = 15210;
+// INCOME is now loaded dynamically from DATA.income per month
 const RENT   = 6700; // rent 6500 + ועד בית 200
 
 const BUDGETS = {
@@ -685,19 +685,21 @@ function renderDash() {
 
   document.getElementById('partialBadge').classList.toggle('hidden', !isPartial);
 
-  // Safe-to-spend
-  const fixedCommitted = RENT + [...FIXED_CATS].reduce((s,c)=>s+(BUDGETS[c]||0),0);
-  const varSpent       = VAR_CATS.reduce((s,c)=>s+(bycat[c]||0),0);
-  const safe           = INCOME - fixedCommitted - varSpent;
+  // Safe-to-spend — income from data, actual total spending
+  const monthIncome = (DATA.income||[]).find(i=>i.month===month)?.amount || 0;
+  const totalSpent  = mdata.total || 0; // from precomputed summary, excludes transfers
+  const fixedSpent  = [...FIXED_CATS].reduce((s,c)=>s+(bycat[c]||0),0);
+  const varSpent    = VAR_CATS.reduce((s,c)=>s+(bycat[c]||0),0);
+  const safe        = monthIncome - totalSpent;
 
   const heroAmtEl = document.getElementById('heroAmt');
   heroAmtEl.textContent = f(Math.abs(safe));
   heroAmtEl.className = 'hero-amount ' + (safe>=0?'pos':'neg');
   document.getElementById('heroEye').textContent = safe>=0 ? 'בטוח להוציא החודש' : '⚠️ חרגת מהתקציב ב';
   document.getElementById('heroSub').innerHTML =
-    `הוצאת <strong>${f(varSpent)}</strong> על הוצאות משתנות החודש`;
+    `הוצאת <strong>${f(totalSpent)}</strong> החודש`;
   document.getElementById('heroFormula').innerHTML =
-    `הכנסה ${f(INCOME)} − קבועות ${f(fixedCommitted)} − משתנות ${f(varSpent)}`;
+    `הכנסה ${f(monthIncome)} − הוצאות ${f(totalSpent)}`;
 
   // Pace (current month only)
   const paceCard   = document.getElementById('paceCard');
@@ -731,7 +733,7 @@ function renderDash() {
 
     const dailyRate = dayNow > 0 ? totalSp / dayNow : 0;
     const projected = dailyRate * dInMo;
-    const projSafe  = INCOME - fixedCommitted - (varSpent / dayNow * dInMo);
+    const projSafe  = monthIncome - (totalSpent / dayNow * dInMo);
     document.getElementById('forecastTxt').innerHTML =
       `בקצב הזה תוציא <strong>${f(projected)}</strong> החודש · ` +
       (projSafe>=0
