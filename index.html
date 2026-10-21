@@ -2,1297 +2,1060 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Moneya? מה נהיה?</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1117">
+<title>דשבורד פיננסי — שקד 2026</title>
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* ── VARIABLES ── */
 :root{
-  --bg:#0f1117;--card:#1a1f2e;--card2:#212638;--border:#2a3050;
-  --green:#00c875;--red:#e44258;--yellow:#ffcb00;--blue:#579bfc;--purple:#9d50dd;
-  --text:#e8eaf0;--muted:#7b8099;--text2:#a8b0c8;
-  --sb-w:72px;
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;
+  --green:#00c875;--gdim:rgba(0,200,117,.12);--gbdr:rgba(0,200,117,.2);
+  --yellow:#f6b330;--ydim:rgba(246,179,48,.12);--ybdr:rgba(246,179,48,.25);
+  --red:#e44258;--rdim:rgba(228,66,88,.12);--rbdr:rgba(228,66,88,.25);
+  --blue:#4d90fe;
+  --text:#e8eaf6;--muted:#8891b4;--muted2:#5c6490;
+  --r:16px;--r2:10px;
+  /* Safe area (iPhone notch/home indicator) */
+  --safe-b:env(safe-area-inset-bottom,0px);
 }
-body.light{
-  --bg:#f0f2f8;--card:#ffffff;--card2:#f5f7fc;--border:#dde2f0;
-  --text:#1a1f2e;--muted:#8892b0;--text2:#4a5568;
-}
+
+/* ── RESET ── */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl;font-size:14px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:-apple-system,'Segoe UI',Arial,sans-serif;
+  min-height:100vh;overflow-x:hidden;
+  /* bottom padding: bottom-nav (56px) + safe area */
+  padding-bottom:calc(56px + var(--safe-b));
+}
+img,svg{max-width:100%}
+button,a{font-family:inherit}
 
-/* ═══ LIGHT MODE OVERRIDES ═══ */
-body.light .topbar{background:rgba(255,255,255,.95);border-color:var(--border)}
-body.light .hero{background:linear-gradient(145deg,#f0f4ff,#e8eeff);border-color:rgba(87,155,252,.3)}
-body.light .month-carousel{background:var(--card);border-color:var(--border)}
-body.light .sidebar{background:var(--card);border-color:var(--border)}
-body.light .l-title{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ── HEADER ── */
+.hdr{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:12px 16px;position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;gap:10px;
+  /* Ensure safe-area at top (notch) */
+  padding-top:max(12px, env(safe-area-inset-top,12px));
+}
+.hdr-logo{font-size:20px;flex-shrink:0}
+.hdr-title{font-size:16px;font-weight:700;white-space:nowrap}
+.hdr-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.hdr-spacer{flex:1;min-width:0}
 
-/* ═══ LOCK ═══ */
-#lock{position:fixed;inset:0;background:radial-gradient(ellipse at 60% 40%,#141929 0%,#0f1117 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:1000}
-.l-glow{position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(87,155,252,.12) 0%,transparent 70%);pointer-events:none}
-.l-logo{font-size:60px;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1;filter:drop-shadow(0 0 24px rgba(87,155,252,.5));animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.l-title{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px}
-.l-sub{font-size:13px;color:var(--muted);margin-top:-6px}
-.l-form{display:flex;flex-direction:column;gap:10px;width:290px;margin-top:10px}
-.l-input{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:15px 20px;font-size:20px;color:var(--text);font-family:'Heebo',sans-serif;text-align:center;letter-spacing:5px;outline:none;transition:.2s;width:100%}
-.l-input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(87,155,252,.1)}
-.l-btn{background:linear-gradient(135deg,var(--blue),#7b5cfc);color:#fff;border:none;border-radius:14px;padding:15px;font-size:15px;font-weight:800;font-family:'Heebo',sans-serif;cursor:pointer;transition:.2s;letter-spacing:.3px}
-.l-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(87,155,252,.4)}
-.l-btn:active{transform:translateY(0)}
-.l-err{color:var(--red);font-size:12px;text-align:center;min-height:18px;font-weight:600}
-@keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-10px)}30%{transform:translateX(10px)}45%{transform:translateX(-7px)}60%{transform:translateX(7px)}75%{transform:translateX(-4px)}90%{transform:translateX(4px)}}
-.shake{animation:shake .5s cubic-bezier(.36,.07,.19,.97)}
+/* ── MONTH NAV ROW (sticky below header) ── */
+.mnav{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 16px;background:var(--bg);
+  position:sticky;top:55px;z-index:100;
+  border-bottom:1px solid rgba(46,51,80,.5);
+}
+.mnav.hidden{display:none}
+.mnav-btn{
+  background:var(--surface);border:1px solid var(--border);color:var(--text);
+  width:40px;height:40px;min-width:40px;border-radius:50%;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;flex-shrink:0;
+}
+.mnav-btn:hover{background:var(--surface2)}
+.mnav-btn:disabled{opacity:.3;cursor:default}
+.mnav-label{font-size:17px;font-weight:700;min-width:120px;text-align:center}
 
-/* ═══ APP ═══ */
-#app{display:none}
+/* ── BOTTOM NAV ── */
+.bnav{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--surface);border-top:1px solid var(--border);
+  display:flex;z-index:200;
+  padding-bottom:var(--safe-b);
+}
+.bnav-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:8px 2px;border:none;background:none;color:var(--muted);
+  font-size:10px;gap:3px;transition:color .2s;min-height:56px;
+}
+.bnav-btn .ico{font-size:18px;line-height:1}
+.bnav-btn.active{color:var(--green)}
 
-/* ═══ THEME TOGGLE ═══ */
-.theme-toggle{background:var(--card2);border:1px solid var(--border);border-radius:10px;width:36px;height:36px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0}
-.theme-toggle:hover{border-color:var(--blue)}
-
-/* ═══ MONTH CAROUSEL ═══ */
-.month-carousel{display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;background:var(--card);border-bottom:1px solid var(--border)}
-.mc-arrow{background:var(--card2);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;color:var(--text);display:flex;align-items:center;justify-content:center;transition:.15s;font-family:serif;flex-shrink:0}
-.mc-arrow:hover{border-color:var(--blue);color:var(--blue)}
-.mc-center{display:flex;flex-direction:column;align-items:center;gap:4px}
-.mc-name{font-size:18px;font-weight:900;color:var(--text);letter-spacing:-.3px;min-width:100px;text-align:center}
-.mc-select{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);min-width:160px;background:var(--card);border:1px solid var(--border);border-radius:14px;color:var(--text);font-size:14px;font-weight:700;font-family:'Heebo',sans-serif;padding:6px 0;cursor:pointer;outline:none;z-index:500;display:none;box-shadow:0 8px 32px rgba(0,0,0,.4);direction:rtl;max-height:200px;overflow-y:auto}
-.mc-select.open{display:block}
-.mc-select option{padding:8px 16px}
-
-/* ═══ LAYOUT ═══ */
-.layout{display:flex;flex-direction:row;min-height:calc(100vh - 112px)}
-
-/* ═══ SIDEBAR ═══ */
-.sidebar{width:var(--sb-w);background:var(--card);border-left:1px solid var(--border);position:fixed;right:0;top:112px;height:calc(100vh - 112px);display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;z-index:99}
-.sb-items{display:flex;flex-direction:column;gap:2px;padding:10px 6px}
-.sb-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border:none;border-radius:12px;background:transparent;color:var(--muted);cursor:pointer;font-family:'Heebo',sans-serif;transition:.15s;width:100%}
-.sb-btn:hover{background:var(--card2);color:var(--text2)}
-.sb-btn.active{background:rgba(87,155,252,.15);color:var(--blue)}
-.sb-icon{font-size:20px;line-height:1}
-.sb-lbl{font-size:9.5px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
-.sb-logout{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 4px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'Heebo',sans-serif;font-size:14px;transition:.15s;width:100%;border-top:1px solid var(--border);margin:0}
-.sb-logout:hover{color:var(--red)}
-
-/* ═══ MAIN CONTENT ═══ */
-.main-content{flex:1;overflow-x:hidden;padding-right:var(--sb-w)}
-
-/* ═══ PROFILE ═══ */
-.profile-header{text-align:center;padding:28px 16px 20px}
-.profile-photo{width:80px;height:80px;border-radius:50%;background:var(--card2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px;cursor:pointer}
-.profile-name{font-size:20px;font-weight:900}
-.profile-role{font-size:12px;color:var(--muted);margin-top:3px}
-.settings-group{background:var(--card);border:1px solid var(--border);border-radius:16px;margin:0 16px 16px;overflow:hidden}
-.sg-row{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:.15s}
-.sg-row:last-child{border-bottom:none}
-.sg-row:hover{background:var(--card2)}
-.sg-icon{font-size:18px;flex-shrink:0;width:24px;text-align:center}
-.sg-label{font-size:13px;color:var(--muted);flex-shrink:0;min-width:120px}
-.sg-val{font-size:13px;font-weight:700;flex:1;text-align:left}
-.sg-chevron{font-size:18px;color:var(--border);flex-shrink:0}
-
-@media(max-width:600px){
-  .sidebar{width:54px;right:0}
-  .sb-lbl{font-size:8px}
-  :root{--sb-w:54px}
+/* ── HERO ── */
+.hero{
+  margin:14px 14px 0;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:22px 18px;text-align:center;
+}
+.hero-eyebrow{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.hero-amount{
+  /* Responsive: 32px on small phones, scales with viewport, max 52px */
+  font-size:clamp(32px,11vw,52px);
+  font-weight:800;line-height:1.05;transition:color .3s;
+  /* Prevent overflow on very long numbers */
+  word-break:break-all;
+}
+.hero-amount.pos{color:var(--green)}
+.hero-amount.neg{color:var(--red)}
+.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5}
+.hero-sub strong{color:var(--text)}
+.hero-formula{
+  font-size:11px;color:var(--muted2);margin-top:8px;padding-top:8px;
+  border-top:1px solid var(--border);line-height:1.6;
 }
 
-/* ═══ TOP BAR ═══ */
-.topbar{background:rgba(26,31,46,.95);border-bottom:1px solid var(--border);padding:11px 18px;display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;backdrop-filter:blur(16px)}
-.topbar-left{display:flex;align-items:center;gap:10px}
-.topbar-logo{font-size:20px}
-.topbar-right{display:flex;align-items:center;gap:8px}
-.profile-btn{background:var(--card2);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;overflow:hidden;padding:0;transition:.2s}
-.profile-btn:hover{border-color:var(--blue)}
-.topbar-title{font-size:16px;font-weight:800;color:var(--text)}
-.topbar-badge{background:rgba(87,155,252,.15);border:1px solid rgba(87,155,252,.25);color:var(--blue);border-radius:20px;padding:3px 11px;font-size:11px;font-weight:700}
-.lock-btn{background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:9px;padding:6px 14px;font-size:12px;cursor:pointer;font-family:'Heebo',sans-serif;transition:.15s;white-space:nowrap}
-.lock-btn:hover{border-color:var(--red);color:var(--red)}
+/* ── PACE BAR ── */
+.pace{
+  margin:10px 14px 0;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r2);padding:14px 16px;
+}
+.pace-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px}
+.pace-text{font-size:13px;line-height:1.5;flex:1}
+.badge{
+  font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;
+  white-space:nowrap;flex-shrink:0;
+}
+.badge.ok{background:var(--gdim);color:var(--green)}
+.badge.warn{background:var(--ydim);color:var(--yellow)}
+.badge.over{background:var(--rdim);color:var(--red)}
+/* RTL-aware progress bars: position from start (right in RTL) */
+.pace-track{
+  position:relative;height:8px;background:var(--surface2);border-radius:4px;
+  overflow:hidden;/* prevent fill from escaping */
+}
+.pace-bar{
+  position:absolute;top:0;right:0;bottom:0;border-radius:4px;
+  transition:width .5s ease;max-width:100%;/* RTL: grows from right */
+}
+.pace-bar-t{background:var(--muted2)}
+.pace-bar-s{transition:width .5s ease,background .3s ease}
+.pace-legs{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:5px}
 
-/* ═══ MONTHS ═══ */
-.months-bar{padding:9px 16px;overflow-x:auto;white-space:nowrap;background:var(--card);border-bottom:1px solid var(--border);-webkit-overflow-scrolling:touch}
-.months-bar::-webkit-scrollbar{height:2px}
-.months-bar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-.mpill{display:inline-flex;align-items:center;padding:6px 14px;border-radius:20px;background:transparent;border:1px solid var(--border);color:var(--muted);font-size:11.5px;font-weight:700;cursor:pointer;margin-left:6px;transition:.15s;font-family:'Heebo',sans-serif;white-space:nowrap}
-.mpill:last-child{margin-left:0}
-.mpill:hover{border-color:var(--blue);color:var(--blue)}
-.mpill.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 2px 14px rgba(87,155,252,.35)}
+/* ── FORECAST ── */
+.forecast{
+  margin:10px 14px 0;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r2);padding:12px 16px;display:flex;align-items:flex-start;
+  gap:10px;font-size:13px;line-height:1.5;
+}
+.forecast .ico{font-size:18px;flex-shrink:0;margin-top:1px}
 
-/* ═══ TABS ═══ */
-.tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:57px;z-index:100;-webkit-overflow-scrolling:touch}
-.tabs::-webkit-scrollbar{display:none}
-.tbtn{flex:1;padding:11px 6px;border:none;background:transparent;color:var(--muted);font-family:'Heebo',sans-serif;font-size:11.5px;font-weight:700;cursor:pointer;border-bottom:2.5px solid transparent;white-space:nowrap;min-width:62px;transition:.15s;letter-spacing:.1px}
-.tbtn:hover{color:var(--text2)}
-.tbtn.active{color:var(--blue);border-bottom-color:var(--blue)}
+/* ── STAT ROW ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 14px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:10px 8px;text-align:center}
+.stat-v{font-size:clamp(14px,4vw,18px);font-weight:700}
+.stat-l{font-size:10px;color:var(--muted);margin-top:2px}
 
-/* ═══ TAB PAGES ═══ */
-.tpage{display:none;padding:16px;max-width:980px;margin:0 auto;padding-bottom:48px}
-.tpage.active{display:block}
+/* ── SECTION HEADER ── */
+.sec-hdr{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:16px 14px 8px}
 
-/* ═══ CARDS ═══ */
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px}
-.clabel{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
-.cval{font-size:26px;font-weight:800;line-height:1.1}
-.csub{font-size:12px;color:var(--muted);margin-top:4px}
+/* ── CATEGORY GRID ── */
+.cat-grid{display:grid;gap:10px;padding:0 14px;
+  grid-template-columns:1fr 1fr; /* 2 col default (mobile) */
+}
+@media(min-width:480px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:768px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
 
-/* ═══ HERO ═══ */
-.hero{background:linear-gradient(145deg,#1a1f2e 0%,#1c2240 100%);border:1px solid rgba(87,155,252,.2);border-radius:20px;padding:32px 24px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(87,155,252,.08) 0%,transparent 70%);pointer-events:none}
-.hero-lbl{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-.hero-amt{font-size:58px;font-weight:900;line-height:1;letter-spacing:-2px;transition:color .3s}
-.hero-amt.pos{color:var(--green);text-shadow:0 0 40px rgba(0,200,117,.2)}
-.hero-amt.neg{color:var(--red);text-shadow:0 0 40px rgba(228,66,88,.2)}
-.hero-sub{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.6}
+.cat-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:14px;cursor:pointer;transition:border-color .15s,transform .1s;
+  min-height:110px;display:flex;flex-direction:column;
+  /* Ensure touch target */
+  -webkit-user-select:none;user-select:none;
+}
+.cat-card:active{transform:scale(.97)}
+.cat-card:hover{border-color:var(--muted2)}
+.cat-card-hd{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.cat-emoji{font-size:18px;flex-shrink:0}
+.cat-name{font-size:11px;font-weight:600;color:var(--muted);line-height:1.2}
+.cat-amount{font-size:clamp(16px,5vw,20px);font-weight:700;margin-bottom:2px}
+.cat-budget-txt{font-size:10px;color:var(--muted);margin-bottom:7px;flex:1}
+.progress-track{height:4px;background:var(--surface2);border-radius:2px;overflow:hidden;margin-bottom:7px}
+.progress-fill{height:100%;border-radius:2px;transition:width .5s ease;max-width:100%}
+.cat-foot{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.rem{font-size:10px;font-weight:600;line-height:1.3}
+.rem.ok{color:var(--green)} .rem.warn{color:var(--yellow)} .rem.over{color:var(--red)} .rem.none{color:var(--muted)}
+.mom{font-size:10px;flex-shrink:0}
+.mom.up{color:var(--red)} .mom.dn{color:var(--green)} .mom.flat{color:var(--muted)}
 
-/* ═══ GRIDS ═══ */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:14px}
-@media(max-width:460px){.g3{grid-template-columns:1fr 1fr}}
+/* ── DRILL-DOWN MODAL ── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:400;display:flex;align-items:flex-end}
+.modal-bg.hidden{display:none}
+.modal{
+  background:var(--surface);border-radius:var(--r) var(--r) 0 0;
+  width:100%;max-height:80vh;display:flex;flex-direction:column;
+  padding-bottom:var(--safe-b);
+}
+.modal-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.modal-hdr h3{font-size:16px;font-weight:700}
+.modal-close{
+  background:var(--surface2);border:none;color:var(--muted);
+  width:36px;height:36px;min-width:36px;border-radius:50%;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+.modal-body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 20px 12px;flex:1}
+.txn-row{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:8px;
+  padding:12px 0;border-bottom:1px solid var(--border);
+}
+.txn-row:last-child{border-bottom:none}
+.txn-left{flex:1;min-width:0}
+.txn-name{font-size:13px;font-weight:500;word-break:break-word}
+.txn-meta{font-size:11px;color:var(--muted);margin-top:2px}
+.txn-right{text-align:left;flex-shrink:0}
+.txn-amount{font-size:14px;font-weight:700}
+.txn-card{font-size:10px;color:var(--muted2);margin-top:2px}
+.modal-footer{text-align:center;padding:12px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--border);flex-shrink:0}
 
-/* ═══ PACE BAR ═══ */
-.pace{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px}
-.pace-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.pace-title{font-size:13px;font-weight:800}
-.pace-day{font-size:12px;color:var(--muted)}
-.pace-track{position:relative;height:14px;background:var(--card2);border-radius:14px;overflow:hidden;direction:ltr}
-.pace-fill{height:100%;border-radius:14px;transition:width .8s cubic-bezier(.22,1,.36,1);position:relative}
-.pace-marker{position:absolute;top:0;bottom:0;width:2px;z-index:2;transition:right .8s}
-.pace-marker::before{content:attr(data-pct);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:800;color:var(--yellow);white-space:nowrap;font-family:'Heebo',sans-serif}
-.pace-labels{display:flex;justify-content:space-between;margin-top:7px;font-size:11px}
-.pace-insight{margin-top:10px;padding:8px 12px;background:var(--card2);border-radius:10px;font-size:12px;color:var(--text2)}
+/* ── SUBSCRIPTIONS TAB ── */
+.subs-hero{
+  margin:14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+}
+.subs-total{font-size:clamp(22px,7vw,28px);font-weight:700}
+.subs-lbl{font-size:11px;color:var(--muted)}
+.subs-annual{font-size:12px;color:var(--muted);margin-top:2px}
+.subs-right{text-align:left;flex-shrink:0}
+.subs-budget-val{font-size:18px;font-weight:700}
+.subs-note{font-size:11px;margin-top:2px}
 
-/* ═══ SECTION TITLE ═══ */
-.stitle{font-size:14px;font-weight:800;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.sub-cards{padding:0 14px;display:flex;flex-direction:column;gap:10px}
+.sub-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
+.sub-card-top{display:flex;align-items:flex-start;gap:12px}
+.sub-icon{width:44px;height:44px;background:var(--surface2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.sub-info{flex:1;min-width:0}
+.sub-name{font-size:14px;font-weight:600}
+.sub-cat{font-size:11px;color:var(--muted);margin-top:1px}
+.sub-price-row{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-top:6px}
+.sub-monthly{font-size:clamp(15px,4.5vw,18px);font-weight:700}
+.sub-annual{font-size:11px;color:var(--muted)}
+.anomaly{
+  margin-top:8px;background:var(--ydim);border:1px solid var(--ybdr);
+  border-radius:8px;padding:8px 12px;font-size:12px;color:var(--yellow);line-height:1.4;
+}
+.saving{
+  margin-top:8px;background:var(--gdim);border:1px solid var(--gbdr);
+  border-radius:8px;padding:8px 12px;font-size:12px;color:var(--green);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:8px;
+}
+.saving-txt{flex:1;line-height:1.4}
+.saving-btn{
+  background:var(--green);color:#000;border:none;border-radius:6px;
+  padding:6px 12px;font-size:11px;font-weight:700;white-space:nowrap;
+  text-decoration:none;display:inline-block;flex-shrink:0;
+  /* Ensure touch target */
+  min-height:30px;display:flex;align-items:center;
+}
 
-/* ═══ MOM ROWS ═══ */
-.mom-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(42,48,80,.5)}
-.mom-row:last-child{border-bottom:none}
-.mom-cat{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
-.mom-r{display:flex;align-items:center;gap:8px}
-.mom-amt{font-size:13px;font-weight:700}
-.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:800}
-.bg{background:rgba(0,200,117,.12);color:var(--green)}
-.br{background:rgba(228,66,88,.12);color:var(--red)}
-.by{background:rgba(255,203,0,.12);color:var(--yellow)}
-.bm{background:rgba(123,128,153,.12);color:var(--muted)}
+.card-divider{
+  font-size:11px;color:var(--muted2);font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;padding:14px 14px 8px;
+}
 
-/* ═══ FORECAST ═══ */
-.forecast{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px}
-.f-items{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}
-.f-item{flex:1;min-width:100px}
-.f-lbl{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:3px}
-.f-val{font-size:18px;font-weight:800}
+/* ── RECOMMENDATIONS ── */
+.rec-summary{
+  margin:14px;background:linear-gradient(135deg,rgba(0,200,117,.06),rgba(77,144,254,.06));
+  border:1px solid rgba(0,200,117,.15);border-radius:var(--r);padding:18px;
+}
+.rec-summary h2{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.rec-pot-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rec-pot{text-align:center}
+.rec-pot .val{font-size:clamp(20px,6vw,24px);font-weight:700;color:var(--green)}
+.rec-pot .lbl{font-size:11px;color:var(--muted);margin-top:2px}
 
-/* ═══ CAT GRID ═══ */
-.catgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px}
-@media(min-width:600px){.catgrid{grid-template-columns:repeat(3,1fr)}}
-.catcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;cursor:pointer;transition:.15s border-color,.15s box-shadow;position:relative;overflow:hidden}
-.catcard:hover{border-color:rgba(87,155,252,.5);box-shadow:0 4px 24px rgba(87,155,252,.08)}
-.catcard.open{border-color:var(--blue)}
-.ci{font-size:26px;margin-bottom:7px;line-height:1}
-.cn{font-size:12px;font-weight:700;color:var(--text2);margin-bottom:2px}
-.ca{font-size:20px;font-weight:900;margin-bottom:8px;color:var(--text)}
-.cpbar{height:5px;background:var(--card2);border-radius:5px;overflow:hidden;margin-bottom:4px}
-.cpfill{height:100%;border-radius:5px;transition:width .6s}
-.cplabels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
-.cremain{font-size:11px;font-weight:700;margin-top:5px}
-.cremain.ok{color:var(--green)}
-.cremain.warn{color:var(--yellow)}
-.cremain.over{color:var(--red)}
-.cremain.no{color:var(--muted)}
-.cexpand{display:none;margin-top:10px;border-top:1px solid var(--border);padding-top:10px}
-.cexpand.open{display:block}
-.txn{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(42,48,80,.4);gap:6px}
-.txn:last-child{border-bottom:none}
-.txn-amt{font-size:12px;font-weight:800;color:var(--red);white-space:nowrap;flex-shrink:0}
-.txn-name{font-size:11.5px;color:var(--text2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px}
-.txn-date{font-size:10px;color:var(--muted);white-space:nowrap;flex-shrink:0}
-.cexpand-hd{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.rec-cards{padding:0 14px;display:flex;flex-direction:column;gap:10px}
+.rec-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.rec-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.rec-badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rec-badge.quick{background:rgba(0,200,117,.12)}
+.rec-badge.medium{background:rgba(246,179,48,.12)}
+.rec-badge.big{background:rgba(228,66,88,.12)}
+.rec-content{flex:1;min-width:0}
+.rec-title{font-size:14px;font-weight:700;margin-bottom:3px}
+.rec-detail{font-size:13px;color:var(--muted);line-height:1.6}
+.rec-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;margin-top:6px}
+.rec-tag.easy{background:var(--gdim);color:var(--green)}
+.rec-tag.medium{background:var(--ydim);color:var(--yellow)}
+.rec-tag.hard{background:var(--rdim);color:var(--red)}
+.rec-saving{
+  background:var(--gdim);border:1px solid var(--gbdr);border-radius:8px;
+  padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+  flex-wrap:wrap;
+}
+.rec-saving-txt{font-size:13px;flex:1}
+.rec-saving-txt strong{color:var(--green);font-size:15px}
+.rec-action-btn{
+  background:var(--surface2);border:1px solid var(--border);color:var(--text);
+  border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;
+  white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;
+  min-height:36px;
+}
 
-/* ═══ CHARTS ═══ */
-.chartcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px}
-.chart-title{font-size:14px;font-weight:800;margin-bottom:4px}
-.chart-sub{font-size:11px;color:var(--muted);margin-bottom:14px}
-.chart-wrap{position:relative;height:220px}
-@media(min-width:600px){.chart-wrap{height:280px}}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-.chip{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;flex:1;min-width:160px}
-.chip-lbl{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.chip-val{font-size:16px;font-weight:800}
-.chip-note{font-size:11px;color:var(--muted);margin-top:2px}
+/* ── ASSETS ── */
+.asset-intro{
+  margin:14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px;text-align:center;
+}
+.asset-intro .ico{font-size:42px;margin-bottom:10px}
+.asset-intro h2{font-size:16px;font-weight:700;margin-bottom:6px}
+.asset-intro p{font-size:13px;color:var(--muted);line-height:1.6}
+.asset-list{padding:0 14px;display:flex;flex-direction:column;gap:10px}
+.asset-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.asset-card-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
+.asset-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.asset-info{flex:1}
+.asset-name{font-size:14px;font-weight:600}
+.asset-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+.asset-field label{font-size:11px;color:var(--muted);display:block;margin-bottom:4px}
+.asset-field input{
+  background:var(--surface2);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;color:var(--text);font-size:15px;font-family:inherit;
+  width:100%;outline:none;transition:border-color .2s;
+  /* Ensure min touch height */
+  min-height:44px;
+}
+.asset-field input:focus{border-color:var(--green)}
+.asset-total-card{
+  margin:14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px;text-align:center;
+}
+.asset-total-v{font-size:clamp(24px,8vw,32px);font-weight:700;color:var(--green)}
+.asset-total-l{font-size:12px;color:var(--muted);margin-top:4px}
 
-/* ═══ SUBSCRIPTIONS ═══ */
-.subrow{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(42,48,80,.5)}
-.subrow:last-child{border-bottom:none}
-.subleft{display:flex;align-items:center;gap:12px}
-.subicon{width:40px;height:40px;border-radius:12px;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.subname{font-size:14px;font-weight:800}
-.submeta{font-size:11px;color:var(--muted);margin-top:2px}
-.subright{text-align:left;flex-shrink:0}
-.subamt{font-size:17px;font-weight:900;color:var(--text)}
-.subfreq{font-size:11px;color:var(--muted)}
-.subflag{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;background:rgba(255,203,0,.12);color:var(--yellow)}
+/* ── PARTIAL BADGE ── */
+.partial-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--ydim);color:var(--yellow);border:1px solid var(--ybdr);
+  border-radius:20px;padding:5px 12px;font-size:11px;font-weight:600;
+  margin:10px 14px 0;
+}
 
-/* ═══ RECOMMENDATIONS ═══ */
-.reccard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:12px;display:flex;gap:14px;transition:.15s box-shadow}
-.reccard:hover{box-shadow:0 6px 24px rgba(0,0,0,.3)}
-.recicon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.recbody{flex:1}
-.rectitle{font-size:14px;font-weight:900;margin-bottom:5px}
-.rectext{font-size:13px;color:var(--text2);line-height:1.55}
-.recsave{display:inline-block;margin-top:9px;padding:3px 11px;border-radius:20px;background:rgba(0,200,117,.12);color:var(--green);font-size:12px;font-weight:800}
-.recaction{display:inline-block;margin-top:9px;margin-right:8px;padding:6px 14px;border-radius:9px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer;font-family:'Heebo',sans-serif;border:none;transition:.15s}
-.recaction:hover{background:#4a8ef5}
+/* ── UTILITY ── */
+.hidden{display:none!important}
 
-/* ═══ IMPORT ═══ */
-.dropzone{border:2px dashed var(--border);border-radius:18px;padding:44px 24px;text-align:center;cursor:pointer;transition:.2s;margin-bottom:16px}
-.dropzone:hover,.dropzone.drag{border-color:var(--blue);background:rgba(87,155,252,.04)}
-.dz-icon{font-size:52px;margin-bottom:14px}
-.dz-title{font-size:16px;font-weight:800;margin-bottom:6px}
-.dz-sub{font-size:13px;color:var(--muted);line-height:1.6}
-.dz-btn{display:inline-block;margin-top:18px;background:linear-gradient(135deg,var(--blue),#7b5cfc);color:#fff;border:none;border-radius:11px;padding:11px 24px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;transition:.15s}
-.dz-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(87,155,252,.35)}
-.bankguide{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:12px}
-.bankguide h3{font-size:14px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.bstep{display:flex;gap:10px;margin-bottom:9px;font-size:13px;color:var(--text2);align-items:flex-start}
-.bstep:last-child{margin-bottom:0}
-.bnum{width:22px;height:22px;min-width:22px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px}
-.statusrow{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13px}
-.statusval{font-weight:800;color:var(--green)}
-
-/* ═══ MISC ═══ */
-.empty{text-align:center;padding:36px;color:var(--muted);font-size:13px}
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;gap:14px}
-.spin{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite}
-@keyframes sp{to{transform:rotate(360deg)}}
-.divider{height:1px;background:var(--border);margin:14px 0}
-
-/* ═══ RESPONSIVE ═══ */
-@media(max-width:480px){
-  .hero-amt{font-size:44px}
-  .g3{grid-template-columns:1fr 1fr}
-  .tbtn{font-size:11px;padding:10px 5px;min-width:54px}
-  .catcard .ca{font-size:17px}
-  .reccard{flex-direction:column;gap:10px}
-  .recicon{width:38px;height:38px;font-size:18px}
+/* ── LARGER SCREENS ── */
+@media(min-width:768px){
+  .hero{margin:16px}
+  .pace,.forecast,.stats,.sec-hdr,.cat-grid,.sub-cards,.rec-summary,.rec-cards,
+  .asset-list,.asset-total-card,.asset-intro,.subs-hero,.card-divider,.partial-badge
+  {margin-left:16px;margin-right:16px;padding-left:20px;padding-right:20px}
+  .cat-grid,.sub-cards,.rec-cards,.asset-list{padding:0 16px}
+  .hero-amount{font-size:52px}
 }
 </style>
 </head>
 <body>
 
-<!-- ════════════ LOCK SCREEN ════════════ -->
-<div id="lock">
-  <div class="l-glow"></div>
-  <div class="l-logo">M</div>
-  <div class="l-title">Moneya? מה נהיה?</div>
-  <div class="l-sub">הכנס סיסמה להמשך</div>
-  <div class="l-form" id="lform">
-    <input type="password" id="pwd" class="l-input" placeholder="••••••••" autocomplete="off"
-      onkeydown="if(event.key==='Enter')tryLogin()">
-    <button class="l-btn" onclick="tryLogin()">כניסה 🔓</button>
-    <div class="l-err" id="lerr"></div>
+<!-- ── HEADER ── -->
+<div class="hdr">
+  <div class="hdr-logo">💰</div>
+  <div>
+    <div class="hdr-title">דשבורד פיננסי</div>
+    <div class="hdr-sub">שקד חורגין · 2026</div>
   </div>
 </div>
 
-<!-- ════════════ APP ════════════ -->
-<div id="app">
-  <!-- Top bar -->
-  <div class="topbar">
-    <div class="topbar-left">
-      <img src="./logo.svg" style="width:32px;height:32px;border-radius:8px" alt="Moneya">
-      <span class="topbar-title">Moneya?</span>
+<!-- ── MONTH NAV ROW (hidden on tabs 3+4) ── -->
+<div class="mnav" id="mnavRow">
+  <button class="mnav-btn" id="prevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
+  <div class="mnav-label" id="monthLabel" aria-live="polite">—</div>
+  <button class="mnav-btn" id="nextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB 0 — DASHBOARD                              -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab0">
+
+  <div class="partial-badge hidden" id="partialBadge">⚠️ נתונים חלקיים — חיוב נסגר ב-10 לחודש הבא</div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow" id="heroEye">בטוח להוציא</div>
+    <div class="hero-amount pos" id="heroAmt">—</div>
+    <div class="hero-sub" id="heroSub"></div>
+    <div class="hero-formula" id="heroFormula"></div>
+  </div>
+
+  <!-- Pace -->
+  <div class="pace" id="paceCard">
+    <div class="pace-head">
+      <div class="pace-text" id="paceText"></div>
+      <div class="badge" id="paceBadge"></div>
     </div>
-    <div class="topbar-right">
-      <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="החלף מצב תצוגה">🌙</button>
-      <button class="profile-btn" onclick="switchTab('profile','sb-profile')" id="profile-avatar">👤</button>
+    <div class="pace-track">
+      <div class="pace-bar pace-bar-t" id="pbt"></div>
+      <div class="pace-bar pace-bar-s" id="pbs"></div>
+    </div>
+    <div class="pace-legs">
+      <span id="paceL">זמן</span>
+      <span id="paceR">תקציב</span>
     </div>
   </div>
 
-  <!-- Month carousel -->
-  <div class="month-carousel">
-    <button class="mc-arrow" onclick="stepMonth(-1)">‹</button>
-    <div class="mc-center">
-      <div class="mc-name" id="mc-name" onclick="toggleMonthDD()" style="cursor:pointer">טוען... <span style="font-size:11px;color:var(--muted)">&#9660;</span></div>
-      <select class="mc-select" id="mc-select" onchange="selMonth(this.value);closeMonthDD()"></select>
-    </div>
-    <button class="mc-arrow" onclick="stepMonth(1)">›</button>
+  <!-- Forecast -->
+  <div class="forecast" id="forecastRow">
+    <div class="ico">🔮</div>
+    <span id="forecastTxt"></span>
   </div>
 
-  <!-- Layout wrapper -->
-  <div class="layout">
-    <!-- Right sidebar navbar -->
-    <nav class="sidebar" id="sidebar">
-      <div class="sb-items">
-        <button class="sb-btn active" id="sb-overview" onclick="switchTab('overview','sb-overview')"><span class="sb-icon">📊</span><span class="sb-lbl">סקירה</span></button>
-        <button class="sb-btn" id="sb-categories" onclick="switchTab('categories','sb-categories')"><span class="sb-icon">📂</span><span class="sb-lbl">קטגוריות</span></button>
-        <button class="sb-btn" id="sb-trends" onclick="switchTab('trends','sb-trends')"><span class="sb-icon">📈</span><span class="sb-lbl">טרנדים</span></button>
-        <button class="sb-btn" id="sb-subscriptions" onclick="switchTab('subscriptions','sb-subscriptions')"><span class="sb-icon">🔁</span><span class="sb-lbl">מנויים</span></button>
-        <button class="sb-btn" id="sb-recommendations" onclick="switchTab('recommendations','sb-recommendations')"><span class="sb-icon">💡</span><span class="sb-lbl">המלצות</span></button>
-        <button class="sb-btn" id="sb-profile" onclick="switchTab('profile','sb-profile')"><span class="sb-icon">👤</span><span class="sb-lbl">פרופיל</span></button>
-        <button class="sb-btn" id="sb-import" onclick="switchTab('import','sb-import')"><span class="sb-icon">⬆</span><span class="sb-lbl">ייבוא</span></button>
-      </div>
-      <button class="sb-logout" onclick="lockApp()">🚪<span class="sb-lbl">התנתק</span></button>
-    </nav>
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="stat-v" id="sv0">—</div><div class="stat-l">עסקאות</div></div>
+    <div class="stat"><div class="stat-v" id="sv1">—</div><div class="stat-l">סה"כ</div></div>
+    <div class="stat"><div class="stat-v" id="sv2">—</div><div class="stat-l">vs תקציב</div></div>
+  </div>
 
-    <!-- Main content -->
-    <main class="main-content">
-      <div id="t-overview"        class="tpage active"><div class="loading"><div class="spin"></div><span style="color:var(--muted);font-size:13px">טוען נתונים...</span></div></div>
-      <div id="t-categories"      class="tpage"><div class="loading"><div class="spin"></div></div></div>
-      <div id="t-trends"          class="tpage"><div class="loading"><div class="spin"></div></div></div>
-      <div id="t-subscriptions"   class="tpage"><div class="loading"><div class="spin"></div></div></div>
-      <div id="t-recommendations" class="tpage"><div class="loading"><div class="spin"></div></div></div>
-      <div id="t-import"          class="tpage"><div class="loading"><div class="spin"></div></div></div>
-      <div id="t-profile"         class="tpage">
-        <div class="profile-header">
-          <div class="profile-photo">📷</div>
-          <div class="profile-name">שקד חורגין</div>
-          <div class="profile-role">PMM · monday.com</div>
-        </div>
-        <div class="settings-group">
-          <div class="sg-row"><span class="sg-icon">💳</span><span class="sg-label">כרטיסי אשראי</span><span class="sg-val">FlyCard (....3371), Max</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">🏦</span><span class="sg-label">חשבון בנק</span><span class="sg-val">בנק הפועלים</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">🏍</span><span class="sg-label">רכב</span><span class="sg-val">אופנוע SR3</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">🏠</span><span class="sg-label">כתובת</span><span class="sg-val">זכריה 6/2, תל אביב</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">💰</span><span class="sg-label">הכנסה חודשית</span><span class="sg-val">17,734 ₪</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">🛡</span><span class="sg-label">ביטוח בריאות</span><span class="sg-val">כללית זהב + פלטינום</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">💊</span><span class="sg-label">פנסיה</span><span class="sg-val">מור מבטחים</span><span class="sg-chevron">›</span></div>
-          <div class="sg-row"><span class="sg-icon">📱</span><span class="sg-label">טלפון</span><span class="sg-val">Partner 054-664-9898</span><span class="sg-chevron">›</span></div>
-        </div>
-      </div>
-    </main>
+  <div class="sec-hdr">קטגוריות — מבט מהיר</div>
+  <div class="cat-grid" id="dashGrid"></div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB 1 — CATEGORIES                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab1" class="hidden">
+  <div class="sec-hdr" style="padding-top:14px">כל הקטגוריות</div>
+  <p style="padding:0 14px;font-size:12px;color:var(--muted);margin-bottom:10px">לחץ על קטגוריה לרשימת עסקאות</p>
+  <div class="cat-grid" id="catGrid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB 2 — SUBSCRIPTIONS                         -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab2" class="hidden">
+
+  <div class="subs-hero">
+    <div>
+      <div class="subs-lbl">סה"כ מנויים חודשיים</div>
+      <div class="subs-total" id="subsTotal">—</div>
+      <div class="subs-annual" id="subsAnnual"></div>
+    </div>
+    <div class="subs-right">
+      <div class="subs-lbl">תקציב</div>
+      <div class="subs-budget-val">650₪</div>
+      <div class="subs-note" id="subsNote"></div>
+    </div>
+  </div>
+
+  <div class="card-divider">📱 מנויים דיגיטליים</div>
+  <div class="sub-cards" id="digitalList"></div>
+
+  <div class="card-divider" style="margin-top:4px">🏋️ שירותים קבועים</div>
+  <div class="sub-cards" id="fixedList"></div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB 3 — RECOMMENDATIONS                       -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab3" class="hidden">
+
+  <div class="rec-summary">
+    <h2>פוטנציאל חיסכון שנתי</h2>
+    <div class="rec-pot-grid">
+      <div class="rec-pot"><div class="val">~13,200₪</div><div class="lbl">חיסכון אפשרי / שנה</div></div>
+      <div class="rec-pot"><div class="val" style="color:var(--yellow)">6</div><div class="lbl">הזדמנויות</div></div>
+    </div>
+  </div>
+  <div class="rec-cards" id="recList"></div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB 4 — ASSETS                                -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab4" class="hidden">
+
+  <div class="asset-intro">
+    <div class="ico">📊</div>
+    <h2>נכסים ותיק השקעות</h2>
+    <p>הזן את ערכי הנכסים שלך ידנית.<br>הערכים נשמרים על המכשיר.</p>
+  </div>
+  <div class="asset-list" id="assetList"></div>
+  <div class="asset-total-card">
+    <div class="asset-total-v" id="assetTotal">0₪</div>
+    <div class="asset-total-l">שווי נכסים כולל (ידני)</div>
+  </div>
+
+</div>
+
+<!-- ── DRILL-DOWN MODAL ── -->
+<div class="modal-bg hidden" id="txnModal" onclick="modalBgClick(event)">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-hdr">
+      <h3 id="modalTitle">עסקאות</h3>
+      <button class="modal-close" onclick="closeModal()" aria-label="סגור">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
   </div>
 </div>
 
+<!-- ── BOTTOM NAV ── -->
+<nav class="bnav" aria-label="ניווט">
+  <button class="bnav-btn active" onclick="setTab(0)" aria-label="ראשי"><span class="ico">🏠</span>ראשי</button>
+  <button class="bnav-btn" onclick="setTab(1)" aria-label="קטגוריות"><span class="ico">📊</span>קטגוריות</button>
+  <button class="bnav-btn" onclick="setTab(2)" aria-label="מנויים"><span class="ico">📱</span>מנויים</button>
+  <button class="bnav-btn" onclick="setTab(3)" aria-label="המלצות"><span class="ico">💡</span>המלצות</button>
+  <button class="bnav-btn" onclick="setTab(4)" aria-label="נכסים"><span class="ico">🏦</span>נכסים</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════ -->
 <script>
-// ══════════════════════════════════════════════════
-// CONSTANTS
-// ══════════════════════════════════════════════════
-const INCOME = 17734;
-const FIXED  = 7784;
-const SAFE   = INCOME - FIXED; // 9950
+'use strict';
 
-const MONTH_HE = {'01':'ינואר','02':'פברואר','03':'מרץ','04':'אפריל','05':'מאי','06':'יוני','07':'יולי','08':'אוגוסט','09':'ספטמבר','10':'אוקטובר','11':'נובמבר','12':'דצמבר'};
+// ── CONFIG ──────────────────────────────────────────────
+const INCOME = 15210;
+const RENT   = 6700; // rent 6500 + ועד בית 200
 
-const CM = {
-  restaurants: {i:'🍽',l:'מסעדות',b:1500,c:'#e44258'},
-  grocery:     {i:'🛒',l:'סופר',b:1200,c:'#00c875'},
-  transport:   {i:'🚗',l:'תחבורה',b:900,c:'#579bfc'},
-  travel:      {i:'✈',l:'נסיעות',b:3000,c:'#9d50dd'},
-  entertainment:{i:'🎭',l:'בידור',b:700,c:'#ffcb00'},
-  subscriptions:{i:'📱',l:'מנויים',b:600,c:'#579bfc'},
-  health:      {i:'💊',l:'בריאות',b:500,c:'#00c875'},
-  fashion:     {i:'👗',l:'אופנה',b:700,c:'#e44258'},
-  home:        {i:'🏠',l:'בית',b:600,c:'#9d50dd'},
-  insurance:   {i:'🛡',l:'ביטוח',b:500,c:'#7b8099'},
-  tech:        {i:'💻',l:'טכנולוגיה',b:300,c:'#579bfc'},
-  other:       {i:'📦',l:'אחר',b:500,c:'#7b8099'},
-  energy:      {i:'⚡',l:'חשמל',b:250,c:'#ffcb00'},
-  transfers:   {i:'💸',l:'העברות',b:0,c:'#7b8099'},
-  institutions:{i:'🏛',l:'מוסדות',b:400,c:'#7b8099'},
-  events:      {i:'🎪',l:'אירועים',b:300,c:'#ffcb00'},
-  equipment:   {i:'🔧',l:'ציוד',b:300,c:'#7b8099'},
-  hotel:       {i:'🏨',l:'מלון',b:0,c:'#9d50dd'},
-  pet:         {i:'🐾',l:'חיות מחמד',b:200,c:'#00c875'},
-  kids:        {i:'👶',l:'ילדים',b:200,c:'#ffcb00'},
-  education:   {i:'📚',l:'חינוך',b:200,c:'#579bfc'},
-  beauty:      {i:'💄',l:'יופי',b:200,c:'#e44258'},
-  charity:     {i:'❤',l:'צדקה',b:100,c:'#e44258'},
+const BUDGETS = {
+  restaurants:1200, grocery:900, transport:200, fashion:300, entertainment:400,
+  health:400, tech:200, insurance:700, institutions:300, subscriptions:650,
+  energy:200, home:300, travel:0, other:0, transfers:0,
 };
 
-const CHART_COLORS = ['#e44258','#579bfc','#9d50dd','#00c875','#ffcb00','#fd79a8','#74b9ff','#00cec9','#a29bfe'];
+const FIXED_CATS = new Set(['subscriptions','insurance','institutions','energy']);
+const VAR_CATS   = ['restaurants','grocery','transport','fashion','entertainment','health','tech','home','other'];
 
-// ══════════════════════════════════════════════════
-// STATE
-// ══════════════════════════════════════════════════
-let txns = [];
-let months = [];
-let selectedMonth = '';
-let activeTab = 'overview';
-let charts = {};
+const CAT = {
+  restaurants:  {he:'מסעדות',      em:'🍽️'},
+  grocery:      {he:'קניות סופר',  em:'🛒'},
+  transport:    {he:'תחבורה',      em:'🚗'},
+  fashion:      {he:'אופנה',       em:'👗'},
+  entertainment:{he:'בידור',       em:'🎬'},
+  health:       {he:'בריאות',      em:'💊'},
+  tech:         {he:'טכנולוגיה',   em:'💻'},
+  insurance:    {he:'ביטוחים',     em:'🛡️'},
+  institutions: {he:'מוסדות',      em:'🏛️'},
+  subscriptions:{he:'מנויים',      em:'📱'},
+  home:         {he:'בית',         em:'🏠'},
+  energy:       {he:'חשמל ומים',   em:'⚡'},
+  travel:       {he:'נסיעות',      em:'✈️'},
+  other:        {he:'שונות',       em:'📦'},
+};
 
-// ══════════════════════════════════════════════════
-// UTILS
-// ══════════════════════════════════════════════════
-const fmtShekel = n => '₪' + Math.abs(Math.round(n)).toLocaleString('he-IL');
-const fmtShekelSigned = n => (n>=0?'+':'-') + '₪' + Math.abs(Math.round(n)).toLocaleString('he-IL');
+const HE_MO = ['','ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
 
-function mLabel(m) {
-  const [y,mo] = m.split('-');
-  return MONTH_HE[mo] + (y !== '2026' ? ' \'' + y.slice(2) : '');
-}
-function daysInMonth(m) {
-  const [y,mo] = m.split('-').map(Number);
-  return new Date(y, mo, 0).getDate();
-}
-function todayDay() { return new Date().getDate(); }
-function getMonthTxns(m) { return txns.filter(t => t.month === m); }
-function sumT(arr) { return arr.reduce((s,t) => s + t.amount, 0); }
-function byCat(arr) {
-  const map = {};
-  for (const t of arr) { (map[t.cat] = map[t.cat] || []).push(t); }
-  return map;
-}
-function killChart(id) {
-  if (charts[id]) { charts[id].destroy(); delete charts[id]; }
-}
-function chartDefaults() {
-  return {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { color: 'rgba(42,48,80,.5)' }, ticks: { color: '#7b8099', font: { family: 'Heebo', size: 11 } } },
-      y: { grid: { color: 'rgba(42,48,80,.5)' }, ticks: { color: '#7b8099', font: { family: 'Heebo', size: 11 }, callback: v => '₪' + v.toLocaleString('he-IL') }, beginAtZero: true },
-    }
-  };
-}
+const DIGITAL_SUBS = [
+  {names:['HOT'],               label:'HOT Internet',         icon:'📡', monthly:99.90,  cat:'אינטרנט',
+   alt:'בזק מציע 69₪/חודש — חיסכון ~370₪/שנה', altUrl:'https://www.bezeq.co.il/internet/'},
+  {names:['YES'],               label:'Sting+ / HBO Max',     icon:'🎬', monthly:149.70, cat:'טלוויזיה', alt:null},
+  {names:['חברת פרטנר תקשורת'],label:'פרטנר סלולר',          icon:'📞', monthly:29.90,  cat:'סלולר', alt:null},
+  {names:['APPLE.COM/BILL'],    label:'Apple (iCloud + TV+)', icon:'🍎', monthly:37.80,  cat:'טכנולוגיה', alt:null},
+  {names:['CLAUDE.AI','ANTHROPIC'],label:'Claude.ai / Anthropic',icon:'🤖',monthly:63,  cat:'AI', alt:null},
+  {names:['AIRALO','NUMERO ESIM'],label:'eSIM (נסיעות)',      icon:'🌍', monthly:null,   cat:'תקשורת נסיעות', alt:null},
+];
 
-// ══════════════════════════════════════════════════
-// LOCK
-// ══════════════════════════════════════════════════
-function tryLogin() {
-  const v = document.getElementById('pwd').value;
-  if (v === 'Shaked2026') {
-    document.getElementById('lock').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    loadData();
-  } else {
-    const f = document.getElementById('lform');
-    const e = document.getElementById('lerr');
-    e.textContent = '❌ סיסמה שגויה — נסה שוב';
-    f.classList.remove('shake');
-    void f.offsetWidth;
-    f.classList.add('shake');
-    setTimeout(() => { e.textContent = ''; }, 2500);
-  }
-}
-function lockApp() {
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('lock').style.display = 'flex';
-  document.getElementById('pwd').value = '';
-}
+const FIXED_SVCS = [
+  {name:'כללית (ביטוח בריאות)', icon:'💊', monthly:185, cat:'ביטוח בריאות', alt:null},
+  {name:'אילי סנטר',            icon:'🏋️', monthly:520, cat:'כושר / טיפולים',
+   alt:'520₪/חודש = 6,240₪/שנה — האם הסכום תואם את מה שאתה מקבל?', altUrl:null},
+];
 
-// ══════════════════════════════════════════════════
-// DATA
-// ══════════════════════════════════════════════════
-async function loadData() {
+const RECS = [
+  {icon:'📡',badge:'quick',tag:'easy',
+   title:'HOT Internet — עבור לבזק',
+   detail:'HOT גובים 99.90₪/חודש לאינטרנט גיגה. בזק מציע 69₪/חודש לאותה מהירות. שיחת 15 דקות.',
+   saving:370, period:'שנה', actionLabel:'השג הצעה', actionUrl:'https://www.bezeq.co.il/internet/'},
+  {icon:'🍽️',badge:'medium',tag:'medium',
+   title:'מסעדות — הורד לכל 3 ימים',
+   detail:'145 ביקורים בשנה — כל יומיים. ממוצע 107₪/ביקור. הורד ל-100 ביקור/שנה (כל 3.6 ימים).',
+   saving:4800, period:'שנה', actionLabel:null, actionUrl:null},
+  {icon:'🏋️',badge:'medium',tag:'medium',
+   title:'כפל כושר — שמור אחד',
+   detail:'אילי סנטר 520₪ + בהצדעה ~120₪/חודש = 640₪. בחר אחד מהם.',
+   saving:1440, period:'שנה (מינימום)', actionLabel:null, actionUrl:null},
+  {icon:'🛵',badge:'quick',tag:'easy',
+   title:'Wolt — הגבל ל-200₪/חודש',
+   detail:'Wolt עלה ~1,180₪ בשנה האחרונה. קבע מגבלה של 200₪/חודש (2,400₪/שנה).',
+   saving:960, period:'שנה', actionLabel:null, actionUrl:null},
+  {icon:'🍷',badge:'medium',tag:'medium',
+   title:'אלכוהול — עשה אותו גלוי',
+   detail:'מנו וינו + מנדל + Wine and More = ~2,064₪/שנה (172₪/חודש). מוסתר תחת "קניות סופר".',
+   saving:600, period:'שנה (יעד: 120₪/חודש)', actionLabel:null, actionUrl:null},
+  {icon:'🛡️',badge:'medium',tag:'easy',
+   title:'ביטוחים — בדוק כפילויות',
+   detail:'מנורה מבטחים + ביטוח ישיר = ~350₪/חודש. שיחת ייעוץ עשויה לחשוף כיסויים חופפים.',
+   saving:1200, period:'שנה (הערכה)', actionLabel:'בדוק כיסויים', actionUrl:null},
+];
+
+const ASSETS_CFG = [
+  {name:'קופ"ג להשקעה — ילין לפידות', icon:'📈', cat:'חיסכון', desc:'הפקדה: 2,524₪/חודש', key:'gogem'},
+  {name:'קרן השתלמות — פניקס אקסלנס',  icon:'🌱', cat:'חיסכון', desc:'ניהול מעביד', key:'keren'},
+  {name:'ESPP — מניות monday.com',      icon:'💹', cat:'השקעות', desc:'מחזור מרץ-אוג 2026: 35,129₪', key:'espp'},
+  {name:'פיקדון / חיסכון רגיל',          icon:'🏦', cat:'מזומן',  desc:'הזן יתרה ידנית', key:'bank'},
+];
+
+// ── STATE ────────────────────────────────────────────────
+let DATA=null, TXNS=[], SUM={}, MONTHS=[];
+let curTab=0, curIdx=0, ROLLOVER={};
+
+// ── NUMBER FORMAT ─────────────────────────────────────────
+// Safe formatter: uses regex for thousands (works on all iOS/Android)
+function f(n, dec=0) {
+  const abs = Math.abs(n);
+  const str = dec > 0 ? abs.toFixed(dec) : String(Math.round(abs));
+  // Add thousand separators
+  const parts = str.split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.') + '₪';
+}
+function pct(n) { return Math.round(n) + '%'; }
+
+// ── INIT ─────────────────────────────────────────────────
+async function init() {
   try {
-    const res = await fetch('./data.json');
-    const data = await res.json();
-    txns = data.transactions;
-    months = [...new Set(txns.map(t => t.month))].sort();
-    selectedMonth = months[months.length - 1];
-    boot();
+    DATA   = await (await fetch('data.json')).json();
+    TXNS   = DATA.transactions;
+    SUM    = DATA.summary;
+    MONTHS = DATA.months.filter(m => m >= '2026-01');
+    curIdx = MONTHS.length - 1;
+    computeRollovers();
+    renderRecs();
+    renderAssets();
+    setupAssets();
+    render();
   } catch(e) {
+    document.getElementById('heroAmt').textContent = 'שגיאה בטעינה';
     console.error(e);
-    document.getElementById('t-overview').innerHTML = '<div class="empty">❌ שגיאה בטעינת הנתונים.<br>ודא ש-data.json נמצא באותה תיקייה.</div>';
   }
 }
 
-function boot() {
-  buildMonthCarousel();
-  renderTab();
-  // Restore theme
-  if (localStorage.getItem('moneya-theme') === 'light') {
-    document.body.classList.add('light');
-    document.getElementById('theme-btn').textContent = '☀️';
+// ── ROLLOVERS ────────────────────────────────────────────
+function computeRollovers() {
+  ROLLOVER = {};
+  const carry = {};
+  for (const month of MONTHS) {
+    ROLLOVER[month] = {};
+    const bycat = SUM[month]?.by_cat || {};
+    const newCarry = {};
+    for (const [cat, budget] of Object.entries(BUDGETS)) {
+      if (budget <= 0 || FIXED_CATS.has(cat)) continue;
+      const rolled    = carry[cat] || 0;
+      const effective = budget + rolled;
+      const spent     = bycat[cat] || 0;
+      ROLLOVER[month][cat] = {rolled, effective};
+      // Cap rollover to 1 month's budget to avoid snowball
+      newCarry[cat] = Math.min(Math.max(0, effective - spent), budget);
+    }
+    Object.assign(carry, newCarry);
   }
 }
 
-// ══════════════════════════════════════════════════
-// MONTH CAROUSEL
-// ══════════════════════════════════════════════════
-function buildMonthCarousel() {
-  const sel = document.getElementById('mc-select');
-  sel.innerHTML = months.map(m =>
-    `<option value="${m}"${m===selectedMonth?' selected':''}>${mLabel(m)}</option>`
-  ).join('');
-  document.getElementById('mc-name').textContent = mLabel(selectedMonth);
-}
-function selMonth(m) {
-  selectedMonth = m;
-  document.getElementById('mc-name').textContent = mLabel(m);
-  document.getElementById('mc-select').value = m;
-  renderTab();
-}
-function stepMonth(dir) {
-  const i = months.indexOf(selectedMonth);
-  const next = i - dir; // RTL: right arrow = older month
-  if (next >= 0 && next < months.length) selMonth(months[next]);
-}
-function toggleMonthDD() {
-  const sel = document.getElementById('mc-select');
-  sel.classList.toggle('open');
-  // Close when clicking outside
-  if (sel.classList.contains('open')) {
-    setTimeout(() => document.addEventListener('click', function handler(e) {
-      if (!e.target.closest('.mc-center')) { sel.classList.remove('open'); document.removeEventListener('click', handler); }
-    }), 50);
+// ── ROUTING ──────────────────────────────────────────────
+function setTab(idx) {
+  curTab = idx;
+  document.querySelectorAll('.bnav-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  for (let i = 0; i < 5; i++) {
+    document.getElementById('tab'+i).classList.toggle('hidden', i!==idx);
   }
-}
-function closeMonthDD() {
-  document.getElementById('mc-select').classList.remove('open');
-}
-function toggleTheme() {
-  const isLight = document.body.classList.toggle('light');
-  document.getElementById('theme-btn').textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('moneya-theme', isLight ? 'light' : 'dark');
+  // Month nav: only show on tabs 0-2
+  document.getElementById('mnavRow').classList.toggle('hidden', idx >= 3);
+  render();
 }
 
-// ══════════════════════════════════════════════════
-// TAB SWITCHING
-// ══════════════════════════════════════════════════
-function switchTab(name, btnId) {
-  activeTab = name;
-  document.querySelectorAll('.sb-btn').forEach(b => b.classList.remove('active'));
-  const btn = typeof btnId === 'string' ? document.getElementById(btnId) : btnId;
-  if (btn) btn.classList.add('active');
-  document.querySelectorAll('.tpage').forEach(el => el.classList.remove('active'));
-  document.getElementById('t-'+name).classList.add('active');
-  renderTab();
-}
-function renderTab() {
-  ({overview:rOverview, categories:rCategories, trends:rTrends, subscriptions:rSubscriptions, recommendations:rRec, import:rImport, profile:()=>{}})[activeTab]?.();
+function changeMonth(delta) {
+  curIdx = Math.max(0, Math.min(MONTHS.length-1, curIdx+delta));
+  render();
 }
 
-// ══════════════════════════════════════════════════
-// TAB 1 — OVERVIEW
-// ══════════════════════════════════════════════════
-function rOverview() {
-  const el = document.getElementById('t-overview');
-  const mt = getMonthTxns(selectedMonth);
-  const spent = sumT(mt);
-  const remaining = SAFE - spent;
-  const isCurrent = selectedMonth === months[months.length - 1];
+function render() {
+  if (!DATA) return;
+  const month = MONTHS[curIdx];
+  const [yr, mo] = month.split('-').map(Number);
+  document.getElementById('monthLabel').textContent = HE_MO[mo] + ' ' + yr;
+  document.getElementById('prevBtn').disabled = curIdx === 0;
+  document.getElementById('nextBtn').disabled = curIdx === MONTHS.length-1;
+  if (curTab === 0) renderDash();
+  if (curTab === 1) renderCats();
+  if (curTab === 2) renderSubs();
+}
 
-  const dim = daysInMonth(selectedMonth);
-  const dayElapsed = isCurrent ? todayDay() : dim;
-  const pctM = dayElapsed / dim;
-  const pctB = Math.min(1, spent / SAFE);
+// ── TAB 0: DASHBOARD ─────────────────────────────────────
+function renderDash() {
+  const month  = MONTHS[curIdx];
+  const [yr, mo] = month.split('-').map(Number);
+  const mdata  = SUM[month] || {total:0, by_cat:{}, count:0};
+  const bycat  = mdata.by_cat || {};
 
-  // Pace bar color
-  let paceColor = 'var(--green)';
-  if (pctB > pctM * 1.3) paceColor = 'var(--red)';
-  else if (pctB > pctM * 1.1) paceColor = 'var(--yellow)';
+  const today  = new Date();
+  const isNow  = yr===today.getFullYear() && mo===today.getMonth()+1;
+  const isPartial = month === '2026-10';
 
-  // Forecast
-  const dailyRate = dayElapsed > 0 ? spent / dayElapsed : 0;
-  const projected = dailyRate * dim;
-  const projRemain = SAFE - projected;
+  document.getElementById('partialBadge').classList.toggle('hidden', !isPartial);
 
-  // Pace insight
-  let paceText = '';
-  if (isCurrent) {
-    if (pctB < pctM * 0.6) paceText = '✅ מדהים! קצב הוצאות נמוך בהרבה מהצפי.';
-    else if (pctB < pctM * 0.9) paceText = '👍 קצב טוב — תמשיך כך!';
-    else if (pctB < pctM * 1.1) paceText = '👌 קצב תקין — בגבולות התקציב.';
-    else if (pctB < pctM * 1.3) paceText = '⚠ קצב מעט גבוה — שים לב לשארית החודש.';
-    else paceText = '🚨 קצב גבוה משמעותית — מומלץ לצמצם.';
+  // Safe-to-spend
+  const fixedCommitted = RENT + [...FIXED_CATS].reduce((s,c)=>s+(BUDGETS[c]||0),0);
+  const varSpent       = VAR_CATS.reduce((s,c)=>s+(bycat[c]||0),0);
+  const safe           = INCOME - fixedCommitted - varSpent;
+
+  const heroAmtEl = document.getElementById('heroAmt');
+  heroAmtEl.textContent = f(Math.abs(safe));
+  heroAmtEl.className = 'hero-amount ' + (safe>=0?'pos':'neg');
+  document.getElementById('heroEye').textContent = safe>=0 ? 'בטוח להוציא החודש' : '⚠️ חרגת מהתקציב ב';
+  document.getElementById('heroSub').innerHTML =
+    `הוצאת <strong>${f(varSpent)}</strong> על הוצאות משתנות החודש`;
+  document.getElementById('heroFormula').innerHTML =
+    `הכנסה ${f(INCOME)} − קבועות ${f(fixedCommitted)} − משתנות ${f(varSpent)}`;
+
+  // Pace (current month only)
+  const paceCard   = document.getElementById('paceCard');
+  const fcRow      = document.getElementById('forecastRow');
+  if (isNow) {
+    paceCard.style.display = '';
+    fcRow.style.display    = '';
+
+    const dInMo    = new Date(yr, mo, 0).getDate();
+    const dayNow   = today.getDate();
+    const timePct  = dayNow / dInMo * 100;
+    const totalBud = Object.values(BUDGETS).filter(x=>x>0).reduce((a,b)=>a+b,0);
+    const totalSp  = mdata.total || 0;
+    const spendPct = totalBud > 0 ? totalSp / totalBud * 100 : 0;
+    const ratio    = timePct > 0 ? spendPct / timePct : 0;
+    const status   = ratio > 1.15 ? 'over' : ratio > 1.0 ? 'warn' : 'ok';
+
+    document.getElementById('paceText').innerHTML =
+      `עברו <strong>${pct(timePct)}</strong> מהחודש · הוצאת <strong>${pct(spendPct)}</strong> מהתקציב`;
+    const bdgEl = document.getElementById('paceBadge');
+    bdgEl.textContent = status==='over'?'🚨 חריגה':status==='warn'?'⚠️ קצב מהיר':'✅ קצב טוב';
+    bdgEl.className = 'badge '+status;
+
+    document.getElementById('pbt').style.width = pct(Math.min(timePct,100));
+    const pbsEl = document.getElementById('pbs');
+    pbsEl.style.width      = pct(Math.min(spendPct,100));
+    pbsEl.style.background = status==='over'?'var(--red)':status==='warn'?'var(--yellow)':'var(--green)';
+
+    document.getElementById('paceL').textContent = `יום ${dayNow}/${dInMo}`;
+    document.getElementById('paceR').textContent = `${f(totalSp)} / ${f(totalBud)}`;
+
+    const dailyRate = dayNow > 0 ? totalSp / dayNow : 0;
+    const projected = dailyRate * dInMo;
+    const projSafe  = INCOME - fixedCommitted - (varSpent / dayNow * dInMo);
+    document.getElementById('forecastTxt').innerHTML =
+      `בקצב הזה תוציא <strong>${f(projected)}</strong> החודש · ` +
+      (projSafe>=0
+        ? `"בטוח להוציא" צפוי: <strong style="color:var(--green)">${f(projSafe)}</strong>`
+        : `צפי חריגה: <strong style="color:var(--red)">${f(Math.abs(projSafe))}</strong>`);
   } else {
-    paceText = `חודש שהסתיים — סה"כ ${fmtShekel(spent)} הוצאות (${Math.round(pctB*100)}% מהתקציב)`;
+    paceCard.style.display = 'none';
+    fcRow.style.display    = 'none';
   }
 
-  // MoM comparison
-  const mi = months.indexOf(selectedMonth);
-  const prevM = mi > 0 ? months[mi - 1] : null;
-  const prevT = prevM ? getMonthTxns(prevM) : [];
-  const prevCats = byCat(prevT);
-  const curCats = byCat(mt);
+  // Stats
+  const totBudAll = Object.values(BUDGETS).filter(x=>x>0).reduce((a,b)=>a+b,0);
+  document.getElementById('sv0').textContent = mdata.count || 0;
+  document.getElementById('sv1').textContent = f(mdata.total||0);
+  document.getElementById('sv2').textContent = totBudAll>0 ? pct((mdata.total||0)/totBudAll*100) : '—';
 
-  const allCats = [...new Set([...Object.keys(curCats), ...Object.keys(prevCats)])];
-  const momItems = allCats
-    .map(cat => ({cat, cur: sumT(curCats[cat]||[]), prev: sumT(prevCats[cat]||[])}))
-    .filter(x => x.cur > 0)
-    .sort((a,b) => b.cur - a.cur);
+  buildCatGrid('dashGrid', month, true);
+}
 
-  const momHTML = prevM
-    ? momItems.map(({cat,cur,prev}) => {
-        const m = CM[cat] || {i:'📦',l:cat};
-        const chg = prev > 0 ? (cur-prev)/prev*100 : null;
-        const up = chg !== null ? cur > prev : false;
-        const cls = chg === null ? 'bm' : (up ? 'br' : 'bg');
-        const lbl = chg === null ? 'חדש' : (Math.abs(Math.round(chg)) + '%');
-        const arr = chg === null ? '' : (up ? '↑' : '↓');
-        return `<div class="mom-row">
-          <div class="mom-cat">${m.i} ${m.l}</div>
-          <div class="mom-r">
-            <span class="mom-amt">${fmtShekel(cur)}</span>
-            <span class="badge ${cls}">${arr}${lbl}</span>
-          </div>
-        </div>`;
-      }).join('') || '<div class="empty">אין הוצאות בחודש זה</div>'
-    : '<div class="empty">אין חודש קודם</div>';
+// ── TAB 1: CATEGORIES ────────────────────────────────────
+function renderCats() {
+  buildCatGrid('catGrid', MONTHS[curIdx], false);
+}
+
+// ── SHARED: CATEGORY GRID ────────────────────────────────
+function buildCatGrid(gridId, month, compact) {
+  const grid  = document.getElementById(gridId);
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  const prevM  = MONTHS[curIdx-1] || null;
+  const bycat  = SUM[month]?.by_cat   || {};
+  const pbycat = prevM ? SUM[prevM]?.by_cat || {} : {};
+  const roller = ROLLOVER[month] || {};
+
+  const cats = Object.keys(bycat)
+    .filter(c => c!=='transfers' && (bycat[c]||0) > 0.5)
+    .sort((a,b) => {
+      const ba=BUDGETS[a]||0, bb=BUDGETS[b]||0;
+      if (ba>0 && bb===0) return -1;
+      if (ba===0 && bb>0) return 1;
+      return (bycat[b]||0)-(bycat[a]||0);
+    });
+
+  const show = compact ? cats.slice(0,8) : cats;
+
+  for (const cat of show) {
+    const spend     = bycat[cat] || 0;
+    const meta      = CAT[cat] || {he:cat, em:'📦'};
+    const budget    = BUDGETS[cat] || 0;
+    const eff       = budget>0 ? (roller[cat]?.effective || budget) : 0;
+    const rolled    = roller[cat]?.rolled || 0;
+    const prevSpend = pbycat[cat] || 0;
+
+    // Progress fill (capped at 100% visual, but we show real % in text)
+    let fillPct=0, fillClr='var(--green)';
+    if (eff > 0) {
+      fillPct = Math.min(spend/eff*100, 100);
+      fillClr = fillPct>=100 ? 'var(--red)' : fillPct>=80 ? 'var(--yellow)' : 'var(--green)';
+    }
+
+    // Remaining text
+    let remHtml;
+    if (eff > 0) {
+      const rem = eff - spend;
+      const cls = rem>=0 ? (fillPct>=80?'warn':'ok') : 'over';
+      remHtml = `<span class="rem ${cls}">${rem>=0 ? 'נשאר '+f(rem) : 'חריגה '+f(-rem)}</span>`;
+    } else {
+      remHtml = `<span class="rem none">ללא תקציב</span>`;
+    }
+
+    // MoM
+    let momHtml = '';
+    if (prevSpend > 5) {
+      const d   = (spend-prevSpend)/prevSpend*100;
+      const cls = d>10?'up':d<-10?'dn':'flat';
+      const arr = d>10?'↑':d<-10?'↓':'→';
+      momHtml = `<span class="mom ${cls}">${arr}${Math.round(Math.abs(d))}%</span>`;
+    }
+
+    // Rollover note (full-view only)
+    const rollNote = (!compact && rolled>0 && !FIXED_CATS.has(cat))
+      ? `<span style="color:var(--blue);font-size:10px"> +${f(rolled)} גלגול</span>` : '';
+
+    const card = document.createElement('div');
+    card.className = 'cat-card';
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.onclick = () => openModal(cat, month);
+    card.onkeydown = e => e.key==='Enter' && openModal(cat, month);
+    card.innerHTML = `
+      <div class="cat-card-hd"><span class="cat-emoji">${meta.em}</span><span class="cat-name">${meta.he}</span></div>
+      <div class="cat-amount">${f(spend)}</div>
+      <div class="cat-budget-txt">${eff>0 ? 'מתוך '+f(eff)+rollNote : 'ללא יעד'}</div>
+      ${eff>0 ? `<div class="progress-track"><div class="progress-fill" style="width:${fillPct.toFixed(1)}%;background:${fillClr}"></div></div>` : ''}
+      <div class="cat-foot">${remHtml}${momHtml}</div>
+    `;
+    grid.appendChild(card);
+  }
+
+  if (!grid.children.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:36px 0">אין נתונים לחודש זה</div>`;
+  }
+}
+
+// ── MODAL ─────────────────────────────────────────────────
+function openModal(cat, month) {
+  const meta = CAT[cat] || {he:cat, em:'📦'};
+  const txns = TXNS.filter(t => t.cat===cat && t.month===month)
+                   .sort((a,b) => b.date.localeCompare(a.date));
+
+  document.getElementById('modalTitle').textContent = meta.em + ' ' + meta.he;
+
+  const body = document.getElementById('modalBody');
+  if (!txns.length) {
+    body.innerHTML = `<div style="text-align:center;color:var(--muted);padding:36px 0">אין עסקאות</div>`;
+  } else {
+    body.innerHTML = txns.map(t => `
+      <div class="txn-row">
+        <div class="txn-left">
+          <div class="txn-name">${t.name}</div>
+          <div class="txn-meta">${t.date} · ${t.card}</div>
+        </div>
+        <div class="txn-right">
+          <div class="txn-amount">${f(t.amount)}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  const total = txns.reduce((s,t)=>s+t.amount, 0);
+  document.getElementById('modalFooter').innerHTML = txns.length
+    ? `${txns.length} עסקאות · סה"כ <strong>${f(total)}</strong>`
+    : '';
+
+  document.getElementById('txnModal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('txnModal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function modalBgClick(e) {
+  if (e.target === document.getElementById('txnModal')) closeModal();
+}
+
+// ── TAB 2: SUBSCRIPTIONS ─────────────────────────────────
+function renderSubs() {
+  if (!DATA) return;
+  const month = MONTHS[curIdx];
+
+  function getMonthActual(names) {
+    return TXNS.filter(t => t.month===month && names.some(n=>t.name.includes(n)))
+               .reduce((s,t)=>s+t.amount, 0);
+  }
+  function getAvg(names) {
+    const vals = MONTHS.map(m =>
+      TXNS.filter(t=>t.month===m && names.some(n=>t.name.includes(n)))
+          .reduce((s,t)=>s+t.amount, 0)
+    ).filter(x=>x>0);
+    return vals.length ? vals.reduce((a,b)=>a+b)/vals.length : 0;
+  }
+
+  const digitTotal = DIGITAL_SUBS.reduce((s,x)=>s+(x.monthly||0), 0);
+  const fixdTotal  = FIXED_SVCS.reduce((s,x)=>s+(x.monthly||0), 0);
+  const grand      = digitTotal + fixdTotal;
+  const budget     = 650;
+
+  document.getElementById('subsTotal').textContent  = f(grand) + '/חודש';
+  document.getElementById('subsAnnual').textContent = f(Math.round(grand*12)) + ' לשנה';
+
+  const over = grand - budget;
+  const noteEl = document.getElementById('subsNote');
+  noteEl.style.color = over>0?'var(--red)':'var(--green)';
+  noteEl.textContent = over>0
+    ? `⚠ חריגה ${f(over)} (כולל שירותים קבועים)`
+    : `✓ נשאר ${f(-over)} (כולל שירותים קבועים)`;
+
+  // Digital subs
+  const dList = document.getElementById('digitalList');
+  dList.innerHTML = '';
+  for (const s of DIGITAL_SUBS) {
+    const actual = getMonthActual(s.names);
+    const avg    = getAvg(s.names);
+    const anomaly = avg>0 && actual>0 && Math.abs(actual-avg)/avg>0.1;
+    dList.appendChild(buildSubCard(s.label, s.icon, s.monthly, s.cat, s.alt, s.altUrl, anomaly?actual:null, avg));
+  }
+
+  // Fixed services
+  const fList = document.getElementById('fixedList');
+  fList.innerHTML = '';
+  for (const s of FIXED_SVCS) {
+    fList.appendChild(buildSubCard(s.name, s.icon, s.monthly, s.cat, s.alt, s.altUrl, null, null));
+  }
+}
+
+function buildSubCard(name, icon, monthly, cat, alt, altUrl, anomalyAmt, avg) {
+  const el = document.createElement('div');
+  el.className = 'sub-card';
+
+  const mStr = monthly!=null ? f(monthly,2)+'/חודש' : 'משתנה';
+  const aStr = monthly!=null ? f(Math.round(monthly*12))+'/שנה' : '';
+
+  let anomHtml = '';
+  if (anomalyAmt!=null && avg>0) {
+    const delta = ((anomalyAmt-avg)/avg*100).toFixed(0);
+    const sign  = delta>0?'+':'';
+    anomHtml = `<div class="anomaly">⚠️ חיוב חריג החודש: ${f(anomalyAmt)} (ממוצע ${f(avg,0)}, ${sign}${delta}%)</div>`;
+  }
+
+  let altHtml = '';
+  if (alt) {
+    altHtml = `
+      <div class="saving">
+        <span class="saving-txt">💡 ${alt}</span>
+        ${altUrl ? `<a href="${altUrl}" target="_blank" rel="noopener" class="saving-btn">השג הצעה</a>` : ''}
+      </div>`;
+  }
 
   el.innerHTML = `
-    <!-- HERO -->
-    <div class="hero">
-      <div class="hero-lbl">${isCurrent ? 'בטוח להוציא החודש' : (remaining>=0 ? 'רווח' : 'הפסד')}</div>
-      <div class="hero-amt ${remaining>=0?'pos':'neg'}">${remaining>=0?'+':''}${fmtShekel(remaining)}</div>
-    </div>
-
-    <!-- PACE BAR -->
-    ${isCurrent ? `
-    <div class="pace">
-      <div class="pace-hd">
-        <span class="pace-title">⏱ קצב הוצאות</span>
-        <span class="pace-day">יום ${dayElapsed} מתוך ${dim}</span>
-      </div>
-      <div class="pace-track">
-        <div class="pace-fill" style="width:${Math.round(pctB*100)}%;background:${paceColor}"></div>
-        <div class="pace-marker" style="right:${100-Math.round(pctM*100)}%;background:rgba(255,203,0,.4);width:2px;position:absolute;top:0;bottom:0" data-pct="${Math.round(pctM*100)}%"></div>
-      </div>
-      <div class="pace-labels">
-        <span style="font-weight:800;color:${paceColor}">${Math.round(pctB*100)}% מהתקציב</span>
-        <span style="color:var(--yellow)">${Math.round(pctM*100)}% מהחודש עבר</span>
-      </div>
-      <div class="pace-insight">${paceText}</div>
-    </div>
-    ` : ``}
-
-    <!-- 2 SUMMARY CARDS -->
-    <div class="g2">
-      <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">💵 הכנסה חודשית</div>
-        <div class="cval" style="font-size:21px;color:var(--green)">${fmtShekel(INCOME)}</div>
-        <div class="csub">${fmtShekel(FIXED)} הוצאות קבועות</div>
-      </div>
-      <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">💸 הוצאות גמישות</div>
-        <div class="cval" style="font-size:21px;color:var(--red)">${fmtShekel(spent)}</div>
-        <div class="csub">מתוך ${fmtShekel(SAFE)} תקציב</div>
-      </div>
-    </div>
-
-    <!-- FORECAST -->
-    ${isCurrent ? `
-    <div class="forecast">
-      <div class="stitle" style="margin-bottom:8px">📡 תחזית לסוף החודש</div>
-      <div class="f-items">
-        <div class="f-item">
-          <div class="f-lbl">צפי הוצאות</div>
-          <div class="f-val" style="color:${projected>SAFE?'var(--red)':'var(--text)'}">${fmtShekel(projected)}</div>
+    <div class="sub-card-top">
+      <div class="sub-icon">${icon}</div>
+      <div class="sub-info">
+        <div class="sub-name">${name}</div>
+        <div class="sub-cat">${cat}</div>
+        <div class="sub-price-row">
+          <span class="sub-monthly">${mStr}</span>
+          ${aStr ? `<span class="sub-annual">${aStr}</span>` : ''}
         </div>
-        <div class="f-item">
-          <div class="f-lbl">צפי עודף/גירעון</div>
-          <div class="f-val" style="color:${projRemain>=0?'var(--green)':'var(--red)'}">
-            ${projRemain>=0?'+':''}${fmtShekel(projRemain)}
-          </div>
-        </div>
-        <div class="f-item">
-          <div class="f-lbl">ממוצע יומי</div>
-          <div class="f-val">${dayElapsed>0?fmtShekel(dailyRate):'-'}<span style="font-size:12px;font-weight:400;color:var(--muted)">/יום</span></div>
-        </div>
-        <div class="f-item">
-          <div class="f-lbl">ימים שנותרו</div>
-          <div class="f-val">${dim - dayElapsed}</div>
-        </div>
+        ${anomHtml}
+        ${altHtml}
       </div>
-    </div>
-    ` : ''}
-
-    <!-- MOM COMPARISON -->
-    ${prevM ? `
-    <div class="stitle">📊 לעומת ${mLabel(prevM)}</div>
-    <div class="card">${momHTML}</div>
-    ` : ''}
-  `;
-}
-
-// ══════════════════════════════════════════════════
-// TAB 2 — CATEGORIES
-// ══════════════════════════════════════════════════
-function rCategories() {
-  const el = document.getElementById('t-categories');
-  const mt = getMonthTxns(selectedMonth);
-  const cats = byCat(mt);
-
-  // Always show ALL categories alphabetically, 0 if no spending
-  const entries = Object.keys(CM)
-    .map(cat => ({
-      cat,
-      m: CM[cat],
-      list: (cats[cat] || []).sort((a,b) => b.amount - a.amount),
-      total: sumT(cats[cat] || []),
-    }))
-    .sort((a,b) => a.m.l.localeCompare(b.m.l, 'he'));
-
-  const totalSpent = entries.reduce((s,c) => s+c.total, 0);
-
-  el.innerHTML = `
-    <div class="card" style="margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <div class="clabel">סה"כ הוצאות</div>
-        <div class="cval" style="color:var(--red)">${fmtShekel(totalSpent)}</div>
-      </div>
-      <div style="text-align:left">
-        <div class="clabel">קטגוריות</div>
-        <div class="cval">${entries.length}</div>
-      </div>
-      <div style="text-align:left">
-        <div class="clabel">עסקאות</div>
-        <div class="cval">${getMonthTxns(selectedMonth).length}</div>
-      </div>
-    </div>
-    <div class="catgrid">
-      ${entries.map(({cat,m,list,total}) => {
-        const pct = m.b > 0 ? Math.min(100, total/m.b*100) : 0;
-        const rem = m.b - total;
-        const bColor = rem < 0 ? 'var(--red)' : pct > 80 ? 'var(--yellow)' : 'var(--green)';
-        const rCls = rem < 0 ? 'over' : pct > 80 ? 'warn' : m.b > 0 ? 'ok' : 'no';
-        const rTxt = m.b <= 0 ? 'ללא תקציב' : rem >= 0 ? `נשאר: ${fmtShekel(rem)}` : `חריגה: ${fmtShekel(-rem)}`;
-        const txHTML = list.slice(0, 15).map(t =>
-          `<div class="txn">
-            <span class="txn-amt">${fmtShekel(t.amount)}</span>
-            <span class="txn-name" title="${t.name}">${t.name}</span>
-            <span class="txn-date">${t.date.slice(5)}</span>
-          </div>`
-        ).join('') + (list.length > 15 ? `<div style="font-size:10px;color:var(--muted);padding:6px 0;text-align:center">+ עוד ${list.length-15} עסקאות</div>` : '');
-        return `
-          <div class="catcard" id="cc-${cat}" onclick="toggleCat('${cat}')">
-            <div class="ci">${m.i}</div>
-            <div class="cn">${m.l}</div>
-            <div class="ca">${fmtShekel(total)}</div>
-            ${m.b > 0 ? `
-            <div class="cpbar"><div class="cpfill" style="width:${pct.toFixed(1)}%;background:${bColor}"></div></div>
-            <div class="cplabels"><span style="color:${bColor}">${Math.round(pct)}%</span><span>${fmtShekel(m.b)}</span></div>
-            ` : ''}
-            <div class="cremain ${rCls}">${rTxt}</div>
-            <div class="cexpand" id="cx-${cat}">
-              <div class="cexpand-hd">${list.length} עסקאות</div>
-              ${txHTML}
-            </div>
-          </div>`;
-      }).join('')}
-    </div>
-  `;
-}
-
-function toggleCat(cat) {
-  const cx = document.getElementById('cx-'+cat);
-  const cc = document.getElementById('cc-'+cat);
-  if (!cx) return;
-  const open = cx.classList.toggle('open');
-  cc.classList.toggle('open', open);
-}
-
-// ══════════════════════════════════════════════════
-// TAB 3 — TRENDS
-// ══════════════════════════════════════════════════
-function rTrends() {
-  const el = document.getElementById('t-trends');
-
-  // Monthly totals
-  const mTotals = months.map(m => ({ m, lbl: mLabel(m), total: sumT(getMonthTxns(m)) }));
-
-  // Top 5 cats overall
-  const catTot = {};
-  txns.forEach(t => { catTot[t.cat] = (catTot[t.cat]||0) + t.amount; });
-  const top5 = Object.entries(catTot).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c])=>c);
-
-  // Last 6 months
-  const last6 = months.slice(-6);
-
-  // Insights
-  const maxM = mTotals.reduce((mx,x) => x.total>mx.total?x:mx, mTotals[0]);
-  const minM = mTotals.reduce((mn,x) => x.total<mn.total?x:mn, mTotals[0]);
-  const avgM = mTotals.reduce((s,m)=>s+m.total,0) / mTotals.length;
-  const totalAllTime = mTotals.reduce((s,m)=>s+m.total,0);
-
-  // Fastest growing cat
-  const fullMonths = months.filter(m => m !== months[months.length-1]);
-  let fastCat = null; let fastPct = 0;
-  if (fullMonths.length >= 2) {
-    const lm = fullMonths[fullMonths.length-1];
-    const pm = fullMonths[fullMonths.length-2];
-    const lc = byCat(getMonthTxns(lm));
-    const pc = byCat(getMonthTxns(pm));
-    for (const c of Object.keys(lc)) {
-      const cur = sumT(lc[c]||[]);
-      const prev = sumT(pc[c]||[]);
-      if (prev > 50) {
-        const g = (cur-prev)/prev;
-        if (g > fastPct) { fastPct = g; fastCat = c; }
-      }
-    }
-  }
-
-  // Most improving cat (biggest drop)
-  let dropCat = null; let dropPct = 0;
-  if (fullMonths.length >= 2) {
-    const lm = fullMonths[fullMonths.length-1];
-    const pm = fullMonths[fullMonths.length-2];
-    const lc = byCat(getMonthTxns(lm));
-    const pc = byCat(getMonthTxns(pm));
-    for (const c of Object.keys(pc)) {
-      const cur = sumT(lc[c]||[]);
-      const prev = sumT(pc[c]||[]);
-      if (prev > 100) {
-        const g = (prev-cur)/prev;
-        if (g > dropPct) { dropPct = g; dropCat = c; }
-      }
-    }
-  }
-
-  // Monthly income = INCOME (fixed) - can extend later
-  const incomeData = mTotals.map(() => INCOME);
-
-  // Trend line checkboxes
-  const trendChecks = `
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
-      <label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;cursor:pointer">
-        <input type="checkbox" id="cb-expenses" checked onchange="updateTrendLines()" style="accent-color:#579bfc"> הוצאות
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;cursor:pointer">
-        <input type="checkbox" id="cb-income" checked onchange="updateTrendLines()" style="accent-color:#00c875"> הכנסות
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;cursor:pointer">
-        <input type="checkbox" id="cb-balance" onchange="updateTrendLines()" style="accent-color:#ffcb00"> עודף/גירעון
-      </label>
     </div>`;
-
-  el.innerHTML = `
-    <div class="chartcard">
-      <div class="chart-title">📈 טרנד חודשי</div>
-      <div class="chart-sub">הוצאות לעומת הכנסות</div>
-      ${trendChecks}
-      <div class="chart-wrap"><canvas id="ch-monthly"></canvas></div>
-    </div>
-    <div class="chartcard">
-      <div class="chart-title">📊 Top 5 קטגוריות — 6 חודשים אחרונים</div>
-      <div class="chart-sub">מצטבר לפי קטגוריה</div>
-      <div class="chart-wrap"><canvas id="ch-cats"></canvas></div>
-    </div>
-    <div class="chips">
-      <div class="chip">
-        <div class="chip-lbl">📅 החודש היקר ביותר</div>
-        <div class="chip-val">${maxM.lbl}</div>
-        <div class="chip-note">${fmtShekel(maxM.total)}</div>
-      </div>
-      <div class="chip">
-        <div class="chip-lbl">🎉 החודש הזול ביותר</div>
-        <div class="chip-val">${minM.lbl}</div>
-        <div class="chip-note">${fmtShekel(minM.total)}</div>
-      </div>
-      <div class="chip">
-        <div class="chip-lbl">📊 ממוצע חודשי</div>
-        <div class="chip-val">${fmtShekel(avgM)}</div>
-        <div class="chip-note">מ-${mTotals.length} חודשים</div>
-      </div>
-      <div class="chip">
-        <div class="chip-lbl">💸 סה"כ הוצאות 2026</div>
-        <div class="chip-val">${fmtShekel(totalAllTime)}</div>
-        <div class="chip-note">מתחילת השנה</div>
-      </div>
-      ${fastCat ? `<div class="chip">
-        <div class="chip-lbl">📈 צומחת הכי מהר</div>
-        <div class="chip-val">${CM[fastCat]?.i||''} ${CM[fastCat]?.l||fastCat}</div>
-        <div class="chip-note">+${Math.round(fastPct*100)}% לעומת חודש קודם</div>
-      </div>` : ''}
-      ${dropCat ? `<div class="chip">
-        <div class="chip-lbl">👍 צמצום הכי טוב</div>
-        <div class="chip-val">${CM[dropCat]?.i||''} ${CM[dropCat]?.l||dropCat}</div>
-        <div class="chip-note">-${Math.round(dropPct*100)}% לעומת חודש קודם</div>
-      </div>` : ''}
-      <div class="chip">
-        <div class="chip-lbl">🏆 קטגוריה מובילה</div>
-        <div class="chip-val">${CM[top5[0]]?.i||''} ${CM[top5[0]]?.l||top5[0]}</div>
-        <div class="chip-note">${fmtShekel(catTot[top5[0]])} סה"כ</div>
-      </div>
-    </div>
-  `;
-
-  // Line chart — RTL (reverse labels)
-  killChart('monthly');
-  const c1 = document.getElementById('ch-monthly').getContext('2d');
-  const gradient = c1.createLinearGradient(0, 0, 0, 280);
-  gradient.addColorStop(0, 'rgba(87,155,252,.25)');
-  gradient.addColorStop(1, 'rgba(87,155,252,.0)');
-  const balanceData = mTotals.map(m => INCOME - m.total);
-  charts['monthly'] = new Chart(c1, {
-    type: 'line',
-    data: {
-      labels: [...mTotals.map(m=>m.lbl)].reverse(),
-      datasets: [
-        {
-          id: 'expenses',
-          label: 'הוצאות',
-          data: [...mTotals.map(m=>m.total)].reverse(),
-          borderColor: '#579bfc',
-          backgroundColor: gradient,
-          fill: true,
-          tension: 0.4,
-          pointBackgroundColor: '#579bfc',
-          pointBorderColor: '#0f1117',
-          pointBorderWidth: 2,
-          pointRadius: 5,
-          pointHoverRadius: 8,
-          hidden: false,
-        },
-        {
-          id: 'income',
-          label: 'הכנסות',
-          data: [...incomeData].reverse(),
-          borderColor: '#00c875',
-          backgroundColor: 'transparent',
-          fill: false,
-          tension: 0,
-          pointRadius: 0,
-          borderDash: [6,4],
-          hidden: false,
-        },
-        {
-          id: 'balance',
-          label: 'עודף/גירעון',
-          data: [...balanceData].reverse(),
-          borderColor: '#ffcb00',
-          backgroundColor: 'transparent',
-          fill: false,
-          tension: 0.4,
-          pointRadius: 3,
-          hidden: true,
-        }
-      ]
-    },
-    options: {
-      ...chartDefaults(),
-      plugins: {
-        ...chartDefaults().plugins,
-        legend: { display: true, position: 'bottom', labels: { color: '#7b8099', font: { family: 'Heebo', size: 11 } } },
-        tooltip: {
-          backgroundColor: '#1a1f2e',
-          borderColor: '#2a3050',
-          borderWidth: 1,
-          titleColor: '#e8eaf0',
-          bodyColor: '#a8b0c8',
-          callbacks: { label: ctx => ' ' + fmtShekel(ctx.raw) }
-        }
-      }
-    }
-  });
-
-  // Bar chart
-  killChart('cats');
-  const c2 = document.getElementById('ch-cats').getContext('2d');
-  charts['cats'] = new Chart(c2, {
-    type: 'bar',
-    data: {
-      labels: last6.map(mLabel),
-      datasets: top5.map((cat,i) => ({
-        label: (CM[cat]?.l||cat),
-        data: last6.map(m => sumT(getMonthTxns(m).filter(t=>t.cat===cat))),
-        backgroundColor: CHART_COLORS[i],
-        borderRadius: 4,
-        borderSkipped: false,
-      }))
-    },
-    options: {
-      ...chartDefaults(),
-      plugins: {
-        legend: {
-          display: true,
-          position: 'bottom',
-          labels: { color:'#7b8099', font:{family:'Heebo',size:11}, padding:12, boxWidth:12, boxHeight:12 }
-        },
-        tooltip: {
-          backgroundColor: '#1a1f2e',
-          borderColor: '#2a3050',
-          borderWidth: 1,
-          titleColor: '#e8eaf0',
-          bodyColor: '#a8b0c8',
-          callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + fmtShekel(ctx.raw) }
-        }
-      },
-      scales: {
-        x: { stacked: true, grid:{color:'rgba(42,48,80,.5)'}, ticks:{color:'#7b8099',font:{family:'Heebo',size:11}} },
-        y: { stacked: true, grid:{color:'rgba(42,48,80,.5)'}, ticks:{color:'#7b8099',font:{family:'Heebo',size:11},callback:v=>'₪'+v.toLocaleString('he-IL')}, beginAtZero:true },
-      }
-    }
-  });
+  return el;
 }
 
-function updateTrendLines() {
-  const ch = charts['monthly'];
-  if (!ch) return;
-  const showExp = document.getElementById('cb-expenses')?.checked;
-  const showInc = document.getElementById('cb-income')?.checked;
-  const showBal = document.getElementById('cb-balance')?.checked;
-  ch.data.datasets.forEach(ds => {
-    if (ds.id === 'expenses') ds.hidden = !showExp;
-    if (ds.id === 'income')   ds.hidden = !showInc;
-    if (ds.id === 'balance')  ds.hidden = !showBal;
-  });
-  ch.update();
-}
-
-// ══════════════════════════════════════════════════
-// TAB 4 — SUBSCRIPTIONS (auto-detect)
-// ══════════════════════════════════════════════════
-function rSubscriptions() {
-  const el = document.getElementById('t-subscriptions');
-
-  // Auto-detect: merchants appearing in 3+ months
-  const byName = {};
-  for (const t of txns) {
-    if (!byName[t.name]) byName[t.name] = [];
-    byName[t.name].push(t);
+// ── TAB 3: RECOMMENDATIONS ───────────────────────────────
+function renderRecs() {
+  const list = document.getElementById('recList');
+  list.innerHTML = '';
+  for (const r of RECS) {
+    const tagTxt = r.tag==='easy'?'⚡ קל ומהיר':r.tag==='medium'?'🎯 שינוי קטן':'💪 מאמץ גדול';
+    const card   = document.createElement('div');
+    card.className = 'rec-card';
+    card.innerHTML = `
+      <div class="rec-top">
+        <div class="rec-badge ${r.badge}">${r.icon}</div>
+        <div class="rec-content">
+          <div class="rec-title">${r.title}</div>
+          <div class="rec-detail">${r.detail}</div>
+          <span class="rec-tag ${r.tag}">${tagTxt}</span>
+        </div>
+      </div>
+      <div class="rec-saving">
+        <div class="rec-saving-txt">חיסכון: <strong>${f(r.saving)}</strong> <span style="color:var(--muted);font-size:11px">/ ${r.period}</span></div>
+        ${r.actionLabel
+          ? (r.actionUrl
+              ? `<a href="${r.actionUrl}" target="_blank" rel="noopener" class="rec-action-btn">${r.actionLabel}</a>`
+              : `<button class="rec-action-btn" disabled>${r.actionLabel}</button>`)
+          : ''}
+      </div>`;
+    list.appendChild(card);
   }
+}
 
-  const recurring = Object.entries(byName)
-    .filter(([, list]) => {
-      const ms = new Set(list.map(t=>t.month));
-      return ms.size >= 3 && list[0].amount > 10; // appears in 3+ months, > 10₪
-    })
-    .map(([name, list]) => {
-      const amounts = list.map(t=>t.amount).filter(a=>a>0);
-      const avg = amounts.reduce((s,a)=>s+a,0) / amounts.length;
-      const last = list.sort((a,b)=>b.date.localeCompare(a.date))[0];
-      const anomaly = last.amount > avg * 1.15;
-      return { name, avg, lastAmt: last.amount, lastDate: last.date, months: new Set(list.map(t=>t.month)).size, anomaly };
-    })
-    .sort((a,b) => b.avg - a.avg);
-
-  // Enrich with icons
-  const icons = {
-    'HOT': '📡',
-    'YES': '📺',
-    'פרטנר': '📞',
-    'אילי סנטר': '💪',
-    'סנסיו': '💪',
-    'APPLE': '🍎',
-    'CLAUDE': '🤖',
-    'CLAUDE.AI': '🤖',
-    'SPOTIFY': '🎵',
-    'NETFLIX': '🎬',
-    'AMAZON': '📦',
-    'GOOGLE': '🔍',
-    'כללית': '🏥',
-    'ארנונה': '🏙',
-    'מים': '💧',
-  };
-  function getIcon(name) {
-    const nameUpper = name.toUpperCase();
-    for (const [key, ico] of Object.entries(icons)) {
-      if (nameUpper.includes(key.toUpperCase()) || name.includes(key)) return ico;
-    }
-    return '🔄';
+// ── TAB 4: ASSETS ────────────────────────────────────────
+function renderAssets() {
+  const list = document.getElementById('assetList');
+  list.innerHTML = '';
+  for (const a of ASSETS_CFG) {
+    const card = document.createElement('div');
+    card.className = 'asset-card';
+    card.innerHTML = `
+      <div class="asset-card-top">
+        <div class="asset-icon">${a.icon}</div>
+        <div class="asset-info">
+          <div class="asset-name">${a.name}</div>
+          <div class="asset-desc">${a.cat} · ${a.desc}</div>
+        </div>
+      </div>
+      <div class="asset-field">
+        <label for="a_${a.key}">ערך נוכחי (₪)</label>
+        <input type="number" inputmode="decimal" id="a_${a.key}"
+               placeholder="הזן ₪..." autocomplete="off"
+               oninput="updateAssets()">
+      </div>`;
+    list.appendChild(card);
   }
-
-  const totalMonthly = recurring.reduce((s,r) => s+r.avg, 0);
-  const annualTotal = totalMonthly * 12;
-
-  const rowsHTML = recurring.map(r => `
-    <div class="subrow">
-      <div class="subleft">
-        <div class="subicon">${getIcon(r.name)}</div>
-        <div>
-          <div class="subname">${r.name}</div>
-          <div class="submeta">הופיע ב-${r.months} חודשים • עדכון אחרון: ${r.lastDate}</div>
-          ${r.anomaly ? `<div class="subflag">⚠ גבוה מהממוצע (${fmtShekel(r.lastAmt)} מול ${fmtShekel(r.avg)})</div>` : ''}
-        </div>
-      </div>
-      <div class="subright">
-        <div class="subamt">${fmtShekel(r.avg)}</div>
-        <div class="subfreq">ממוצע/חודש</div>
-      </div>
-    </div>
-  `).join('');
-
-  el.innerHTML = `
-    <div class="g2" style="margin-bottom:14px">
-      <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">💸 סה"כ מנויים/חודש</div>
-        <div class="cval" style="color:var(--red)">${fmtShekel(totalMonthly)}</div>
-        <div class="csub">מזוהה אוטומטית</div>
-      </div>
-      <div class="card" style="margin:0;text-align:center">
-        <div class="clabel">📅 עלות שנתית</div>
-        <div class="cval" style="color:var(--red)">${fmtShekel(annualTotal)}</div>
-        <div class="csub">${recurring.length} מנויים</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="stitle">🔁 תשלומים חוזרים מזוהים</div>
-      ${rowsHTML || '<div class="empty">לא זוהו מנויים</div>'}
-    </div>
-
-    <div class="card" style="background:rgba(0,200,117,.04);border-color:rgba(0,200,117,.2)">
-      <div class="stitle" style="color:var(--green)">💡 חיסכון פוטנציאלי</div>
-      <div style="font-size:13px;line-height:1.9;color:var(--text2)">
-        <div>• <strong style="color:var(--text)">Bezeq במקום HOT</strong> — חיסכון ~<strong style="color:var(--green)">240₪/שנה</strong></div>
-        <div>• <strong style="color:var(--text)">YES VOD (89₪) במקום YES (149₪)</strong> — חיסכון ~<strong style="color:var(--green)">720₪/שנה</strong></div>
-        <div>• <strong style="color:var(--text)">ביטול כפל מנויי כושר</strong> — חיסכון ~<strong style="color:var(--green)">2,835₪/שנה</strong></div>
-        <div style="margin-top:10px;padding:10px;background:rgba(0,200,117,.08);border-radius:10px;font-weight:800;color:var(--green);font-size:14px">
-          🎯 סה"כ פוטנציאל: ~3,795₪/שנה
-        </div>
-      </div>
-    </div>
-  `;
 }
 
-// ══════════════════════════════════════════════════
-// TAB 5 — RECOMMENDATIONS
-// ══════════════════════════════════════════════════
-function rRec() {
-  const el = document.getElementById('t-recommendations');
-
-  // Compute actual stats
-  const restT = txns.filter(t=>t.cat==='restaurants');
-  const restCount = restT.length;
-  const restAvg = restT.length > 0 ? sumT(restT)/restT.length : 0;
-  const restSave = Math.round((restCount - 100) * restAvg);
-
-  const recs = [
-    {
-      icon:'🍽', bg:'rgba(228,66,88,.12)',
-      title: `אכלת בחוץ ${restCount} פעמים ב-2026`,
-      text: `ממוצע ${Math.round(restAvg)}₪ לביקור. הורדה ל-100 ביקורים = חיסכון אסטרונומי.<br>
-             מסעדות בשכונה, בישול עם חברים פעמיים נוספות בשבוע, או Wolt אחת פחות.`,
-      save: `חיסכון ~${fmtShekel(restSave)}/שנה`,
-    },
-    {
-      icon:'📡', bg:'rgba(87,155,252,.12)',
-      title: 'HOT אינטרנט: 99.90₪/חודש',
-      text: 'Bezeq מציע מהירות דומה ב-79₪/חודש. המעבר פשוט ולא כרוך בעלות.<br>מתאים לדיירים בתל-אביב — תשתית זמינה.',
-      save: 'חיסכון ~240₪/שנה',
-      link: 'https://bezeq.co.il',
-      linkTxt: '🔍 השוואת מחירים',
-    },
-    {
-      icon:'📺', bg:'rgba(157,80,221,.12)',
-      title: 'Sting+HBO: עלה ל-149.70₪ (מ-99.80₪)',
-      text: 'כלומר 50₪/חודש יותר ממה שהיית רגיל לשלם — 600₪/שנה עלייה!<br>YES VOD בסיסי: 89₪/חודש. אפשרות חיסכון ריאלית.',
-      save: 'חיסכון 240-720₪/שנה',
-      link: 'https://yes.co.il',
-      linkTxt: '🔍 צור קשר עם YES',
-    },
-    {
-      icon:'💪', bg:'rgba(0,200,117,.1)',
-      title: 'אילי סנטר 520₪ + סנסיו (פאיימי) 237₪ = 757₪/חודש על כושר!',
-      text: 'זה 9,084₪ לשנה — אחד המנויים הכי יקרים בקטגוריה. בחר מנוי אחד מצוין במקום שניים בינוניים.',
-      save: 'חיסכון ~2,840₪/שנה',
-    },
-    {
-      icon:'🍷', bg:'rgba(255,203,0,.1)',
-      title: 'יין ואלכוהול — מנו וינו, מנדל, ועוד',
-      text: 'ביקורים תכופים בחנויות יין בתל-אביב. שקול להצטרף למועדון יין (10-15% הנחה) או לרכוש ארגז במחיר סיטונאי.',
-      save: 'חיסכון ~400-800₪/שנה',
-    },
-    {
-      icon:'🚗', bg:'rgba(87,155,252,.1)',
-      title: 'תחבורה: 6,536₪ בספטמבר, 4,639₪ באוגוסט',
-      text: 'חודשיים יקרים מאד בתחבורה (ייתכן נסיעות לחו"ל/טיסות). בחן מה מהווה תשלום חד-פעמי (ביטוח, רישיון) לעומת הוצאה חוזרת.',
-      save: '⚡ כדאי לבדוק',
-    },
-  ];
-
-  const totalSave = '~9,500₪/שנה';
-
-  el.innerHTML = `
-    <div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,rgba(0,200,117,.07),rgba(87,155,252,.07));border-color:rgba(0,200,117,.2)">
-      <div style="font-size:13px;font-weight:800;margin-bottom:4px;color:var(--green)">🎯 פוטנציאל חיסכון כולל</div>
-      <div class="cval" style="font-size:34px;color:var(--green)">${totalSave}</div>
-      <div class="csub">בהטמעת כל ההמלצות — בלי לוותר על שום דבר חשוב</div>
-    </div>
-
-    ${recs.map(r => `
-      <div class="reccard">
-        <div class="recicon" style="background:${r.bg}">${r.icon}</div>
-        <div class="recbody">
-          <div class="rectitle">${r.title}</div>
-          <div class="rectext">${r.text}</div>
-          <span class="recsave">💰 ${r.save}</span>
-          ${r.link ? `<a href="${r.link}" target="_blank" class="recaction">${r.linkTxt}</a>` : ''}
-        </div>
-      </div>
-    `).join('')}
-  `;
+function setupAssets() {
+  let hasAny = false;
+  for (const a of ASSETS_CFG) {
+    const v = localStorage.getItem('ast_'+a.key);
+    if (v) {
+      const el = document.getElementById('a_'+a.key);
+      if (el) { el.value = v; hasAny = true; }
+    }
+  }
+  updateAssets();
 }
 
-// ══════════════════════════════════════════════════
-// TAB 6 — IMPORT
-// ══════════════════════════════════════════════════
-function rImport() {
-  const el = document.getElementById('t-import');
-
-  const sorted = [...txns].sort((a,b) => b.date.localeCompare(a.date));
-  const latestDate = sorted[0]?.date || '—';
-  const earliest = [...txns].sort((a,b) => a.date.localeCompare(b.date))[0]?.date || '—';
-  const cards = [...new Set(txns.map(t=>t.card))];
-  const catCount = [...new Set(txns.map(t=>t.cat))].length;
-
-  el.innerHTML = `
-    <!-- Data status -->
-    <div class="card" style="background:rgba(0,200,117,.05);border-color:rgba(0,200,117,.2);margin-bottom:14px">
-      <div style="color:var(--green);font-weight:800;font-size:14px;margin-bottom:10px">✅ נתונים טעונים בהצלחה</div>
-      <div class="statusrow"><span style="color:var(--muted)">סך עסקאות</span><span class="statusval">${txns.length.toLocaleString('he-IL')}</span></div>
-      <div class="statusrow"><span style="color:var(--muted)">טווח תאריכים</span><span class="statusval" style="font-size:12px">${earliest} ← ${latestDate}</span></div>
-      <div class="statusrow"><span style="color:var(--muted)">חודשים</span><span class="statusval">${months.length}</span></div>
-      <div class="statusrow"><span style="color:var(--muted)">כרטיסים</span><span class="statusval">${cards.join(' + ')}</span></div>
-      <div class="statusrow"><span style="color:var(--muted)">קטגוריות</span><span class="statusval">${catCount}</span></div>
-    </div>
-
-    <!-- Drop zone -->
-    <div class="dropzone" id="dropzone"
-      ondragover="event.preventDefault();this.classList.add('drag')"
-      ondragleave="this.classList.remove('drag')"
-      ondrop="handleDrop(event)">
-      <div class="dz-icon">📂</div>
-      <div class="dz-title">גרור קובץ Excel / CSV לכאן</div>
-      <div class="dz-sub">
-        ייבוא ישיר מהבנק או מחברת האשראי<br>
-        <span style="font-size:11px;color:var(--muted)">תומך ב: .xlsx &nbsp;•&nbsp; .xls &nbsp;•&nbsp; .csv</span>
-      </div>
-      <button class="dz-btn" onclick="document.getElementById('finput').click()">📁 בחר קובץ</button>
-      <input type="file" id="finput" accept=".xlsx,.xls,.csv" style="display:none" onchange="handleFile(this)">
-    </div>
-
-    <!-- Bank guides -->
-    <div class="bankguide">
-      <h3>🏦 בנק הפועלים</h3>
-      <div class="bstep"><div class="bnum">1</div>כנס לאפליקציה / אתר הפועלים</div>
-      <div class="bstep"><div class="bnum">2</div>חשבונות ← תנועות ← בחר תאריכים</div>
-      <div class="bstep"><div class="bnum">3</div>לחץ "ייצוא לאקסל" → הורד קובץ</div>
-      <div class="bstep"><div class="bnum">4</div>גרור את הקובץ לאזור למעלה</div>
-    </div>
-
-    <div class="bankguide">
-      <h3>💳 FlyCard / Max / ישראכרד</h3>
-      <div class="bstep"><div class="bnum">1</div>כנס לאתר הכרטיס שלך</div>
-      <div class="bstep"><div class="bnum">2</div>עסקאות ← בחר טווח תאריכים</div>
-      <div class="bstep"><div class="bnum">3</div>לחץ "ייצוא" → בחר CSV או Excel</div>
-      <div class="bstep"><div class="bnum">4</div>גרור את הקובץ לאזור למעלה</div>
-    </div>
-
-    <div class="card" style="border-color:rgba(87,155,252,.2);background:rgba(87,155,252,.04)">
-      <div style="font-size:13px;font-weight:800;margin-bottom:8px">🔒 פרטיות ואבטחה</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.7">
-        כל הנתונים נשמרים <strong style="color:var(--text)">מקומית בלבד</strong> על המחשב שלך.<br>
-        אין שרת, אין ענן, אין שיתוף מידע. הכסף שלך נשאר בינך לבין עצמך. 🔐
-      </div>
-    </div>
-  `;
+function updateAssets() {
+  let total = 0;
+  for (const a of ASSETS_CFG) {
+    const el = document.getElementById('a_'+a.key);
+    if (el) {
+      const v = parseFloat(el.value) || 0;
+      total += v;
+      if (el.value) localStorage.setItem('ast_'+a.key, el.value);
+      else localStorage.removeItem('ast_'+a.key);
+    }
+  }
+  document.getElementById('assetTotal').textContent = f(total);
 }
 
-function handleDrop(ev) {
-  ev.preventDefault();
-  document.getElementById('dropzone').classList.remove('drag');
-  const file = ev.dataTransfer.files[0];
-  if (file) showImportMsg(file.name);
-}
-function handleFile(inp) {
-  if (inp.files[0]) showImportMsg(inp.files[0].name);
-}
-function showImportMsg(name) {
-  alert(`📁 קובץ: ${name}\n\nתכונת הייבוא בפיתוח — בקרוב תוכל לייבא ישירות!\n\nבינתיים: המר לפורמט JSON ועדכן את data.json.`);
-}
+// ── KEYBOARD: close modal on Escape ──────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key==='Escape') closeModal();
+});
 
-// ══════════════════════════════════════════════════
-// ENTRY POINT
-// ══════════════════════════════════════════════════
-document.getElementById('pwd').focus();
+// ── START ─────────────────────────────────────────────────
+init();
 </script>
 </body>
 </html>

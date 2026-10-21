@@ -1,3428 +1,13 @@
 {
   "transactions": [
     {
-      "date": "2026-04-08",
-      "month": "2026-04",
-      "name": "סופר יודה אפליקציה",
-      "amount": 74.77,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "בר הבלבוי",
-      "amount": 270.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "גוד פארם",
-      "amount": 108.5,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "CARREFOUR כיכר דיזנגוף ת\"א-יציל",
-      "amount": 12.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "NUMERO ESIM",
-      "amount": 97.61,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-04-06",
-      "month": "2026-04",
-      "name": "bigpet",
-      "amount": 165.0,
-      "card": "FlyCard",
-      "cat": "pet"
-    },
-    {
-      "date": "2026-04-03",
-      "month": "2026-04",
-      "name": "סופר יודה אפליקציה",
-      "amount": 73.59,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-02",
-      "month": "2026-04",
-      "name": "WOLT",
-      "amount": 149.9,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-31",
-      "month": "2026-03",
-      "name": "ANTHROPIC",
-      "amount": 16.11,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-03-30",
-      "month": "2026-03",
-      "name": "ANTHROPIC",
-      "amount": 16.11,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-03-30",
-      "month": "2026-03",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-03-29",
-      "month": "2026-03",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-03-29",
-      "month": "2026-03",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 19.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-03-28",
-      "month": "2026-03",
-      "name": "סופר יודה אפליקציה",
-      "amount": 56.14,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-28",
-      "month": "2026-03",
-      "name": "APPLE.COM/BILL",
-      "amount": 12.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-03-27",
-      "month": "2026-03",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 76.43,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-03-26",
-      "month": "2026-03",
-      "name": "עיריית ת\"א -יפו ארנונה",
-      "amount": 499.96,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-03-26",
-      "month": "2026-03",
-      "name": "ANTHROPIC",
-      "amount": 16.03,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-03-25",
-      "month": "2026-03",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 113.23,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-03-25",
-      "month": "2026-03",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 8.0,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-03-25",
-      "month": "2026-03",
-      "name": "דמי כרטיס",
-      "amount": 38.9,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-03-24",
-      "month": "2026-03",
-      "name": "סופר יודה אפליקציה",
-      "amount": 100.48,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-24",
-      "month": "2026-03",
-      "name": "בררת משפט טלאול",
-      "amount": 320.0,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-03-24",
-      "month": "2026-03",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 276.51,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-03-23",
-      "month": "2026-03",
-      "name": "סעוד הראל- כללית",
-      "amount": 40.47,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-03-23",
-      "month": "2026-03",
-      "name": "עמותת תובנה",
-      "amount": 85.0,
-      "card": "FlyCard",
-      "cat": "education"
-    },
-    {
-      "date": "2026-03-23",
-      "month": "2026-03",
-      "name": "שרותי בריאות כללית",
-      "amount": 104.39,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-03-20",
-      "month": "2026-03",
-      "name": "BIT",
-      "amount": 50.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-03-19",
-      "month": "2026-03",
-      "name": "CLAUDE.AI SUBSCRIPTION",
-      "amount": 63.3,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-03-19",
-      "month": "2026-03",
-      "name": "אילי סנטר",
-      "amount": 520.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-03-19",
-      "month": "2026-03",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-03-18",
-      "month": "2026-03",
-      "name": "סופר יודה אפליקציה",
-      "amount": 82.38,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-16",
-      "month": "2026-03",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-03-12",
-      "month": "2026-03",
-      "name": "העברת חיובים מחשבון לחשבון",
-      "amount": 739.82,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-08-06",
-      "month": "2026-08",
-      "name": "צאקולי",
-      "amount": 363.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-08-04",
-      "month": "2026-08",
-      "name": "הייטקזון - מתנות ואתר",
-      "amount": 79.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-08-02",
-      "month": "2026-08",
-      "name": "PAYBOX",
-      "amount": 300.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-07-31",
-      "month": "2026-07",
-      "name": "PAYPAL *REVOLVE",
-      "amount": 359.65,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2026-07-30",
-      "month": "2026-07",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-07-29",
-      "month": "2026-07",
-      "name": "APPLE.COM/BILL",
-      "amount": 25.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-07-27",
-      "month": "2026-07",
-      "name": "PAYPAL *REVOLVE",
-      "amount": 203.19,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2026-07-27",
-      "month": "2026-07",
-      "name": "PAYBOX",
-      "amount": 230.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-07-26",
-      "month": "2026-07",
-      "name": "סנסיו בע\"מ-פאיימי",
-      "amount": 236.55,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-07-26",
-      "month": "2026-07",
-      "name": "דמי כרטיס",
-      "amount": 0.0,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-07-26",
-      "month": "2026-07",
-      "name": "PAYBOX",
-      "amount": 100.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-07-25",
-      "month": "2026-07",
-      "name": "PAYPAL *AISGECOMMER",
-      "amount": 45.82,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-07-25",
-      "month": "2026-07",
-      "name": "PAYPAL *AISGECOMMER",
-      "amount": 84.9,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-07-19",
-      "month": "2026-07",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 285.71,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-07-19",
-      "month": "2026-07",
-      "name": "אילי סנטר",
-      "amount": 520.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-07-16",
-      "month": "2026-07",
-      "name": "Gett",
-      "amount": 68.6,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-07-16",
-      "month": "2026-07",
-      "name": "Gett",
-      "amount": 12.0,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-07-06",
-      "month": "2026-07",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 29.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-02-09",
-      "month": "2026-02",
-      "name": "BOLT.EUO2602090731",
-      "amount": 149.27,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-02-08",
-      "month": "2026-02",
-      "name": "BOLT.EUO2602081551",
-      "amount": 73.89,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-02-08",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 22.12,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-08",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 99.53,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-07",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 188.01,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-07",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 16.59,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-07",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 34.1,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 42.17,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 181.92,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 33.18,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "SUPERMERCADO PICASSO 2",
-      "amount": 7.47,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 170.68,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 29.42,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 11.0,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 194.35,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-06",
-      "month": "2026-02",
-      "name": "BAR CURTIS",
-      "amount": 90.06,
-      "card": "FlyCard",
-      "cat": "events"
-    },
-    {
-      "date": "2026-02-05",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 127.64,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-05",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 18.96,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-05",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 10.94,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-04",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 20.42,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-04",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 4.74,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-04",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 36.47,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-03",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 42.96,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-03",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 10.92,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-03",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 70.49,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-03",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 8.09,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-02",
-      "month": "2026-02",
-      "name": "קווי חופשה בע\"מ",
-      "amount": 141.88,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-02",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 58.36,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-02",
-      "month": "2026-02",
-      "name": "EL TALLER",
-      "amount": 14.08,
-      "card": "FlyCard",
-      "cat": "events"
-    },
-    {
-      "date": "2026-02-01",
-      "month": "2026-02",
-      "name": "קווי חופשה בע\"מ",
-      "amount": 871.8,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-01",
-      "month": "2026-02",
-      "name": "BOLT.EUO2602010805",
-      "amount": 33.46,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-02-01",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 59.83,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-01",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 1846.75,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-31",
-      "month": "2026-01",
-      "name": "BOLT.EUO2601311406",
-      "amount": 36.47,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-01-31",
-      "month": "2026-01",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 369.35,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 19.13,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 128.16,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 184.68,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 66.0,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 1502.57,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "AIRALO",
-      "amount": 69.32,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "CATALONIA PLAZA ESPANA",
-      "amount": 958.77,
-      "card": "FlyCard",
-      "cat": "hotel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "פספורטכארד ישראל סוכנות לביטוח כללי 2014",
-      "amount": 118.81,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-01-30",
-      "month": "2026-01",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-01-29",
-      "month": "2026-01",
-      "name": "CARREFOUR CITY פנקס- יציל",
-      "amount": 152.7,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-29",
-      "month": "2026-01",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 276.77,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-01-29",
-      "month": "2026-01",
-      "name": "APPLE.COM/BILL",
-      "amount": 12.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-01-28",
-      "month": "2026-01",
-      "name": "סופרפארם ארלוזורוב 220",
-      "amount": 29.9,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-28",
-      "month": "2026-01",
-      "name": "שה ויוי",
-      "amount": 30.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-28",
-      "month": "2026-01",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 19.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-01-27",
-      "month": "2026-01",
-      "name": "ישיר-ביטוח",
-      "amount": 297.56,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-01-27",
-      "month": "2026-01",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 113.34,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-01-27",
-      "month": "2026-01",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-01-26",
-      "month": "2026-01",
-      "name": "SMOKED ROOM",
-      "amount": -1815.25,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-26",
-      "month": "2026-01",
-      "name": "עיריית ת\"א -יפו ארנונה",
-      "amount": 485.78,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-01-25",
-      "month": "2026-01",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 67.12,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-01-25",
-      "month": "2026-01",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 35.5,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-01-25",
-      "month": "2026-01",
-      "name": "דמי כרטיס",
-      "amount": 38.9,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-01-23",
-      "month": "2026-01",
-      "name": "lenuL לונל",
-      "amount": 398.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-23",
-      "month": "2026-01",
-      "name": "ג'נטלמן-דיזנגוף סנטר",
-      "amount": 200.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-01-23",
-      "month": "2026-01",
-      "name": "SHORT STORY דיזנגוף 173 תל אביב-גמא",
-      "amount": 223.92,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2026-01-23",
-      "month": "2026-01",
-      "name": "סביח פרישמן",
-      "amount": 101.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-23",
-      "month": "2026-01",
-      "name": "קפה בלפור",
-      "amount": 39.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "סעוד הראל- כללית",
-      "amount": 40.51,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "BIT",
-      "amount": 117.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "WH Smith Stansted",
-      "amount": 98.36,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "Zettle_*Artist Cafe",
-      "amount": 177.69,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "שרותי בריאות כללית",
-      "amount": 104.49,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "MCDONALDS",
-      "amount": 2.15,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-22",
-      "month": "2026-01",
-      "name": "MCDONALDS",
-      "amount": 36.01,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-21",
-      "month": "2026-01",
-      "name": "TFL TRAVEL CH",
-      "amount": 38.63,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-01-21",
-      "month": "2026-01",
-      "name": "SQ *BLANK STREET UK LI",
-      "amount": 16.04,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-21",
-      "month": "2026-01",
-      "name": "MCDONALDS",
-      "amount": 15.52,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-20",
-      "month": "2026-01",
-      "name": "TFL TRAVEL CH",
-      "amount": 69.54,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-01-20",
-      "month": "2026-01",
-      "name": "SAINSBURYS S/MKTS",
-      "amount": 239.61,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-20",
-      "month": "2026-01",
-      "name": "BOOTS THE CHEMISTS",
-      "amount": 48.72,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-20",
-      "month": "2026-01",
-      "name": "Chozen Noodle",
-      "amount": 55.26,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-20",
-      "month": "2026-01",
-      "name": "SPICE OF LIFE",
-      "amount": 62.85,
-      "card": "FlyCard",
-      "cat": "events"
-    },
-    {
-      "date": "2026-01-19",
-      "month": "2026-01",
-      "name": "The Devonshire",
-      "amount": 70.28,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-19",
-      "month": "2026-01",
-      "name": "AIRALO",
-      "amount": 38.6,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-01-19",
-      "month": "2026-01",
-      "name": "קפה קפה טרמינל 3 נתב\"ג בע",
-      "amount": 40.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-18",
-      "month": "2026-01",
-      "name": "ורמוטריה",
-      "amount": 343.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-18",
-      "month": "2026-01",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-01-17",
-      "month": "2026-01",
-      "name": "קפה אירופה",
-      "amount": 100.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-17",
-      "month": "2026-01",
-      "name": "דלק קמעונאות השחר",
-      "amount": 91.22,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-01-17",
-      "month": "2026-01",
-      "name": "דלק קמעונאות השחר",
-      "amount": 35.9,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-01-17",
-      "month": "2026-01",
-      "name": "מקדונלד'ס GOOGLE PAY/APPLE",
-      "amount": 84.0,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "mizumi",
-      "amount": 188.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "Gett",
-      "amount": 52.8,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "WOLT",
-      "amount": 67.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "WOLT",
-      "amount": 125.8,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "לבובסקי",
-      "amount": 86.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-01-16",
-      "month": "2026-01",
-      "name": "SUF",
-      "amount": 305.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-14",
-      "month": "2026-01",
-      "name": "מרכז לגביית קנסות",
-      "amount": 650.0,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-01-14",
-      "month": "2026-01",
-      "name": "סופר יודה ישעיהו פינת ירמיהו",
-      "amount": 48.38,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-12",
-      "month": "2026-01",
-      "name": "א.א. כיף בע\"מ-ביצ'יקלטה",
-      "amount": 158.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-10",
-      "month": "2026-01",
-      "name": "LIME*2 RIDES BIVT",
-      "amount": 24.0,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-01-10",
-      "month": "2026-01",
-      "name": "סופר-פארם נמל-תל אביב 205",
-      "amount": 13.9,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-09",
-      "month": "2026-01",
-      "name": "סופר באבא",
-      "amount": 23.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-09",
-      "month": "2026-01",
-      "name": "סופר יודה אפליקציה",
-      "amount": 92.81,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-09",
-      "month": "2026-01",
-      "name": "איציק ורותי",
-      "amount": 45.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-09",
-      "month": "2026-01",
-      "name": "גוד פארם",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-09",
-      "month": "2026-01",
-      "name": "איי.אם.פי.אם",
-      "amount": 19.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-06",
-      "month": "2026-01",
-      "name": "שרותי בריאות כללית",
-      "amount": 40.0,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-05",
-      "month": "2026-01",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 29.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-01-08",
-      "month": "2026-01",
-      "name": "ABIE",
-      "amount": 455.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-08",
-      "month": "2026-01",
-      "name": "Gett",
-      "amount": 47.5,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-01-08",
-      "month": "2026-01",
-      "name": "העברה ב BIT בנה\"פ",
-      "amount": 2.1,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-01-07",
-      "month": "2026-01",
-      "name": "חומוס חמודות",
-      "amount": 20.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-06",
-      "month": "2026-01",
-      "name": "גוד פארם בע\"מ",
-      "amount": 299.9,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-01-04",
-      "month": "2026-01",
-      "name": "סופר יודה אפליקציה",
-      "amount": 105.67,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-03",
-      "month": "2026-01",
-      "name": "SMOKED ROOM",
-      "amount": 1898.95,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-03",
-      "month": "2026-01",
-      "name": "רולדין ויולה",
-      "amount": 12.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-03",
-      "month": "2026-01",
-      "name": "אצל מנש",
-      "amount": 42.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-03",
-      "month": "2026-01",
-      "name": "טיב טעם רשתות מזא\"ה",
-      "amount": 95.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-01-03",
-      "month": "2026-01",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 67.08,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-01-02",
-      "month": "2026-01",
-      "name": "גוצ'ה רמת החייל",
-      "amount": 280.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-01-01",
-      "month": "2026-01",
-      "name": "העברה ב BIT בנה\"פ",
-      "amount": 1000.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-01-01",
-      "month": "2026-01",
-      "name": "Gett",
-      "amount": 51.0,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2025-12-31",
-      "month": "2025-12",
-      "name": "סביח פרישמן אבן גבירול",
-      "amount": 25.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-30",
-      "month": "2025-12",
-      "name": "רובע בר יין",
-      "amount": 105.0,
-      "card": "FlyCard",
-      "cat": "events"
-    },
-    {
-      "date": "2025-12-30",
-      "month": "2025-12",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-29",
-      "month": "2025-12",
-      "name": "vlt.ose",
-      "amount": 237.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-29",
-      "month": "2025-12",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-29",
-      "month": "2025-12",
-      "name": "מי אביבים הוראת קבע",
-      "amount": 181.44,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2025-12-29",
-      "month": "2025-12",
-      "name": "סופר יודה אפליקציה",
-      "amount": 50.99,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-29",
-      "month": "2025-12",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 19.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2025-12-29",
-      "month": "2025-12",
-      "name": "APPLE.COM/BILL",
-      "amount": 12.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-28",
-      "month": "2025-12",
-      "name": "ישיר-ביטוח",
-      "amount": 297.56,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2025-12-28",
-      "month": "2025-12",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 113.34,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2025-12-28",
-      "month": "2025-12",
-      "name": "אם בי בורגר אבן גבירול",
-      "amount": 76.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-26",
-      "month": "2025-12",
-      "name": "ורמוטריה",
-      "amount": 255.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-25",
-      "month": "2025-12",
-      "name": "עיריית ת\"א -יפו ארנונה",
-      "amount": 505.34,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2025-12-24",
-      "month": "2025-12",
-      "name": "ABIE",
-      "amount": 54.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-24",
-      "month": "2025-12",
-      "name": "DOWNTOWN RAMEN",
-      "amount": 151.8,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-24",
-      "month": "2025-12",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 276.77,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2025-12-23",
-      "month": "2025-12",
-      "name": "חניון קצה השדרה",
-      "amount": 28.33,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2025-12-23",
-      "month": "2025-12",
-      "name": "חברת החשמל לישראל בע\"מ",
-      "amount": 477.59,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2025-12-23",
-      "month": "2025-12",
-      "name": "סעוד הראל- כללית",
-      "amount": 40.51,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2025-12-23",
-      "month": "2025-12",
-      "name": "שרותי בריאות כללית",
-      "amount": 104.49,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2025-12-22",
-      "month": "2025-12",
-      "name": "זארה TLV",
-      "amount": -149.9,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2025-12-20",
-      "month": "2025-12",
-      "name": "קפה דינצי",
-      "amount": 15.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-19",
-      "month": "2025-12",
-      "name": "אי אם פי אם דיזנגוף 136 ת\"א",
-      "amount": 14.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-19",
-      "month": "2025-12",
-      "name": "iwiw מתנות באשראי",
-      "amount": 619.9,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2025-12-18",
-      "month": "2025-12",
-      "name": "זארה TLV",
-      "amount": 300.8,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2025-12-18",
-      "month": "2025-12",
-      "name": "בולונזרי 96",
-      "amount": 13.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-18",
-      "month": "2025-12",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 36.3,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-17",
-      "month": "2025-12",
-      "name": "מסעדת בבר",
-      "amount": 177.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-17",
-      "month": "2025-12",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 72.44,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2025-12-16",
-      "month": "2025-12",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-15",
-      "month": "2025-12",
-      "name": "מכבסת המלאכים",
-      "amount": 85.0,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2025-12-15",
-      "month": "2025-12",
-      "name": "סופר יודה אפליקציה",
-      "amount": 37.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-14",
-      "month": "2025-12",
-      "name": "לחמים אבן גבירול",
-      "amount": 59.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-13",
-      "month": "2025-12",
-      "name": "LA TIGRE",
-      "amount": 73.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-13",
-      "month": "2025-12",
-      "name": "כרם אמפורה בעמ",
-      "amount": 151.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-13",
-      "month": "2025-12",
-      "name": "קפה דינצי",
-      "amount": 59.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-12",
-      "month": "2025-12",
-      "name": "ג'ירף נודל בר ת\"א",
-      "amount": 100.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-12",
-      "month": "2025-12",
-      "name": "אמה בייקרי",
-      "amount": 28.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-12",
-      "month": "2025-12",
-      "name": "סביח פרישמן אבן גבירול",
-      "amount": 42.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2025-12-12",
-      "month": "2025-12",
-      "name": "Gett",
-      "amount": 93.7,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2025-12-10",
-      "month": "2025-12",
-      "name": "נעם הפרי",
-      "amount": 67.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2025-12-07",
-      "month": "2025-12",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 27.85,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-07-04",
-      "month": "2026-07",
-      "name": "קופת כרטיסים",
-      "amount": 158.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-07-03",
-      "month": "2026-07",
-      "name": "Gett",
-      "amount": 85.3,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-07-03",
-      "month": "2026-07",
-      "name": "Gett",
-      "amount": 89.4,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-06-30",
-      "month": "2026-06",
-      "name": "BIT",
-      "amount": 220.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-06-30",
-      "month": "2026-06",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-06-29",
-      "month": "2026-06",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-06-29",
-      "month": "2026-06",
-      "name": "APPLE.COM/BILL",
-      "amount": 25.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-06-28",
-      "month": "2026-06",
-      "name": "מי אביבים הוראת קבע",
-      "amount": 165.93,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-06-28",
-      "month": "2026-06",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 20.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-06-25",
-      "month": "2026-06",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 114.66,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-06-25",
-      "month": "2026-06",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 8.0,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-06-25",
-      "month": "2026-06",
-      "name": "דמי כרטיס",
-      "amount": 0.0,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-06-24",
-      "month": "2026-06",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 285.71,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-06-23",
-      "month": "2026-06",
-      "name": "סעוד הראל- כללית",
-      "amount": 40.98,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-06-23",
-      "month": "2026-06",
-      "name": "שרותי בריאות כללית",
-      "amount": 105.71,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-06-19",
-      "month": "2026-06",
-      "name": "אילי סנטר",
-      "amount": 520.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-06-18",
-      "month": "2026-06",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-06-18",
-      "month": "2026-06",
-      "name": "חברת החשמל לישראל בע\"מ",
-      "amount": 532.44,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-06-16",
-      "month": "2026-06",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-06-11",
-      "month": "2026-06",
-      "name": "קרן מגי",
-      "amount": 50.0,
-      "card": "FlyCard",
-      "cat": "charity"
-    },
-    {
-      "date": "2026-06-10",
-      "month": "2026-06",
-      "name": "סיבוס פלאקסי",
-      "amount": 4.55,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-06-07",
-      "month": "2026-06",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 29.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-06-05",
-      "month": "2026-06",
-      "name": "ביי-מי שוברי מתנה",
-      "amount": 90.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-06-04",
-      "month": "2026-06",
-      "name": "סופר יודה אפליקציה",
-      "amount": 132.53,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-06-03",
-      "month": "2026-06",
-      "name": "שוק רוטשילד",
-      "amount": 14.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-06-03",
-      "month": "2026-06",
-      "name": "PAYBOX",
-      "amount": 40.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-06-03",
-      "month": "2026-06",
-      "name": "BIT",
-      "amount": 90.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-06-02",
-      "month": "2026-06",
-      "name": "סופר יודה אפליקציה",
-      "amount": 44.43,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-06-01",
-      "month": "2026-06",
-      "name": "סופר באבא",
-      "amount": 28.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-31",
-      "month": "2026-05",
-      "name": "דיזי שופ",
-      "amount": 5.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-31",
-      "month": "2026-05",
-      "name": "ראלי וויס-מפעל הפיס",
-      "amount": 66.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-05-31",
-      "month": "2026-05",
-      "name": "טוני ווספה גבעתיים",
-      "amount": 14.28,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-30",
-      "month": "2026-05",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 76.69,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-05-30",
-      "month": "2026-05",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-29",
-      "month": "2026-05",
-      "name": "WHAT THE FICUS TLV",
-      "amount": 105.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-05-29",
-      "month": "2026-05",
-      "name": "BIT",
-      "amount": 20.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-05-29",
-      "month": "2026-05",
-      "name": "ראלי וויס-מפעל הפיס",
-      "amount": 36.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-05-29",
-      "month": "2026-05",
-      "name": "סופר יודה אפליקציה",
-      "amount": 10.25,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-28",
-      "month": "2026-05",
-      "name": "BIT",
-      "amount": 70.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-05-28",
-      "month": "2026-05",
-      "name": "חומוס אסלי",
-      "amount": 40.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-28",
-      "month": "2026-05",
-      "name": "צאקולי",
-      "amount": 22.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-28",
-      "month": "2026-05",
-      "name": "צאקולי",
-      "amount": 18.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-28",
-      "month": "2026-05",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 20.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-05-28",
-      "month": "2026-05",
-      "name": "APPLE.COM/BILL",
-      "amount": 25.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-27",
-      "month": "2026-05",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-27",
-      "month": "2026-05",
-      "name": "עיריית ת\"א -יפו ארנונה",
-      "amount": 499.51,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-05-26",
-      "month": "2026-05",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 235.56,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-05-26",
-      "month": "2026-05",
-      "name": "הפול ביטוח חובה",
-      "amount": -2209.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 16.0,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "BIT",
-      "amount": 65.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 114.98,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "BIRD* PENDING.BIRD.CO",
-      "amount": 14.8,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "דמי כרטיס",
-      "amount": 0.0,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "LIME*2 RIDES BIVT",
-      "amount": 27.4,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-05-25",
-      "month": "2026-05",
-      "name": "BIRD* PENDING.BIRD.CO",
-      "amount": 24.7,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-05-24",
-      "month": "2026-05",
-      "name": "התיאלנדית בסמטת סיני",
-      "amount": 253.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-24",
-      "month": "2026-05",
-      "name": "סעוד הראל- כללית",
-      "amount": 41.1,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-05-24",
-      "month": "2026-05",
-      "name": "שרותי בריאות כללית",
-      "amount": 106.01,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-05-24",
-      "month": "2026-05",
-      "name": "ישיר-ביטוח",
-      "amount": -322.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-05-24",
-      "month": "2026-05",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 277.85,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-05-23",
-      "month": "2026-05",
-      "name": "סופר באבא",
-      "amount": 8.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-23",
-      "month": "2026-05",
-      "name": "סופר יודה אפליקציה",
-      "amount": 111.91,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-22",
-      "month": "2026-05",
-      "name": "WOLT",
-      "amount": 154.8,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-22",
-      "month": "2026-05",
-      "name": "סופר באבא",
-      "amount": 7.2,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-21",
-      "month": "2026-05",
-      "name": "BIT",
-      "amount": 120.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-05-19",
-      "month": "2026-05",
-      "name": "BIT",
-      "amount": 80.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-05-19",
-      "month": "2026-05",
-      "name": "CLAUDE.AI SUBSCRIPTION",
-      "amount": 59.45,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-19",
-      "month": "2026-05",
-      "name": "אילי סנטר",
-      "amount": 520.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-05-18",
-      "month": "2026-05",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-17",
-      "month": "2026-05",
-      "name": "FAT COW",
-      "amount": 10.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-17",
-      "month": "2026-05",
-      "name": "אושר עד תל אביב",
-      "amount": 1326.28,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-17",
-      "month": "2026-05",
-      "name": "מפגש הפלאפל התימני",
-      "amount": 18.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-17",
-      "month": "2026-05",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-16",
-      "month": "2026-05",
-      "name": "סופר יודה אפליקציה",
-      "amount": 28.87,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-16",
-      "month": "2026-05",
-      "name": "אמה בייקרי",
-      "amount": 28.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-15",
-      "month": "2026-05",
-      "name": "WOLT",
-      "amount": 43.9,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-14",
-      "month": "2026-05",
-      "name": "העברה ב BIT בנה\"פ",
-      "amount": 900.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-05-14",
-      "month": "2026-05",
-      "name": "LIME*RIDE BIVT",
-      "amount": 9.3,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-05-14",
-      "month": "2026-05",
-      "name": "APPLE.COM/BILL",
-      "amount": 24.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-05-11",
-      "month": "2026-05",
-      "name": "קורן דוג ישראל",
-      "amount": 40.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-11",
-      "month": "2026-05",
-      "name": "בראנץ' קייטרינג",
-      "amount": 40.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-10",
-      "month": "2026-05",
-      "name": "סיבוס פלאקסי",
-      "amount": 242.9,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-09",
-      "month": "2026-05",
-      "name": "סופר באבא",
-      "amount": 8.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-09",
-      "month": "2026-05",
-      "name": "סופר יודה אפליקציה",
-      "amount": 71.36,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-09",
-      "month": "2026-05",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 74.62,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-05-09",
-      "month": "2026-05",
-      "name": "קוהי גרופ בע\"מ",
-      "amount": 125.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-05-08",
-      "month": "2026-05",
-      "name": "ש.א טאגור סנטר בע\"מ",
-      "amount": 102.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-05-08",
-      "month": "2026-05",
-      "name": "גוד פארם",
-      "amount": 68.0,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-05-07",
-      "month": "2026-05",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 29.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-03-07",
-      "month": "2026-03",
-      "name": "מנו וינו פנחס רוזן",
-      "amount": 109.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-07",
-      "month": "2026-03",
-      "name": "קרוט",
-      "amount": 106.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-06",
-      "month": "2026-03",
-      "name": "סופר יודה אפליקציה",
-      "amount": 66.42,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-06",
-      "month": "2026-03",
-      "name": "זט.אס.אינטרנשיונל אגינסי",
-      "amount": 436.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-03-06",
-      "month": "2026-03",
-      "name": "קלמנטינה פירות וירקות",
-      "amount": 15.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-06",
-      "month": "2026-03",
-      "name": "סטייל תכשיטים",
-      "amount": 30.0,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2026-03-06",
-      "month": "2026-03",
-      "name": "מינימרקט קרן בע\"מ",
-      "amount": 69.26,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-06",
-      "month": "2026-03",
-      "name": "הפלאפל של ממר",
-      "amount": 18.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-05",
-      "month": "2026-03",
-      "name": "סופר יודה אפליקציה",
-      "amount": 62.09,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-03",
-      "month": "2026-03",
-      "name": "טוני בוצ'רי",
-      "amount": 14.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-03",
-      "month": "2026-03",
-      "name": "סופר יודה אפליקציה",
-      "amount": 20.1,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-02",
-      "month": "2026-03",
-      "name": "טוני בוצ'רי",
-      "amount": 43.6,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-01",
-      "month": "2026-03",
-      "name": "אלמה מרקט דיזינגוף 253",
-      "amount": 48.75,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-28",
-      "month": "2026-02",
-      "name": "אמה בייקרי",
-      "amount": 48.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-28",
-      "month": "2026-02",
-      "name": "APPLE.COM/BILL",
-      "amount": 12.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-02-27",
-      "month": "2026-02",
-      "name": "סופר יודה אפליקציה",
-      "amount": 38.1,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-27",
-      "month": "2026-02",
-      "name": "סופר יודה אפליקציה",
-      "amount": 204.42,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-27",
-      "month": "2026-02",
-      "name": "מקדונלדס נמל תל אביב",
-      "amount": 24.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-27",
-      "month": "2026-02",
-      "name": "טוני בוצ'רי",
-      "amount": 145.7,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-27",
-      "month": "2026-02",
-      "name": "מנו וינו דיזינגוף",
-      "amount": 197.82,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-27",
-      "month": "2026-02",
-      "name": "קפה קיוסק",
-      "amount": 30.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-26",
-      "month": "2026-02",
-      "name": "bigpet",
-      "amount": 18.0,
-      "card": "FlyCard",
-      "cat": "pet"
-    },
-    {
-      "date": "2026-02-26",
-      "month": "2026-02",
-      "name": "הפניקס ביטוח",
-      "amount": 67.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-02-25",
-      "month": "2026-02",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 11.5,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-02-25",
-      "month": "2026-02",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-02-25",
-      "month": "2026-02",
-      "name": "דמי כרטיס",
-      "amount": 38.9,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-02-25",
-      "month": "2026-02",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 19.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-02-24",
-      "month": "2026-02",
-      "name": "קרוט",
-      "amount": 73.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 71.19,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 113.02,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "סעוד הראל- כללית",
-      "amount": 40.39,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "שרותי בריאות כללית",
-      "amount": 104.19,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "מרקט משקאות TEKRAM",
-      "amount": 10.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "חניון אסותא",
-      "amount": 70.08,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-02-23",
-      "month": "2026-02",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 275.99,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-02-22",
-      "month": "2026-02",
-      "name": "קווי חופשה בע\"מ",
-      "amount": 1280.37,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-21",
-      "month": "2026-02",
-      "name": "מנו וינו דיזינגוף",
-      "amount": 170.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-20",
-      "month": "2026-02",
-      "name": "WHAT THE FICUS TLV",
-      "amount": 60.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-02-20",
-      "month": "2026-02",
-      "name": "טוני בוצ'רי",
-      "amount": 114.3,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-20",
-      "month": "2026-02",
-      "name": "קיוסק קקל",
-      "amount": 56.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-20",
-      "month": "2026-02",
-      "name": "אילי סנטר",
-      "amount": 520.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-02-19",
-      "month": "2026-02",
-      "name": "LA SHUK A LA BAR",
-      "amount": 58.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-19",
-      "month": "2026-02",
-      "name": "שניט",
-      "amount": 34.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-19",
-      "month": "2026-02",
-      "name": "שניט",
-      "amount": 76.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-19",
-      "month": "2026-02",
-      "name": "CLAUDE.AI SUBSCRIPTION",
-      "amount": 63.85,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-02-19",
-      "month": "2026-02",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-02-18",
-      "month": "2026-02",
-      "name": "מנו וינו דיזינגוף",
-      "amount": 109.9,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-18",
-      "month": "2026-02",
-      "name": "PAYBOX",
-      "amount": 50.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-02-17",
-      "month": "2026-02",
-      "name": "בית קפה התחתית בע\"מ",
-      "amount": 91.0,
-      "card": "FlyCard",
-      "cat": "events"
-    },
-    {
-      "date": "2026-02-16",
-      "month": "2026-02",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-02-15",
-      "month": "2026-02",
-      "name": "HATACO",
-      "amount": 138.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-15",
-      "month": "2026-02",
-      "name": "חברת החשמל לישראל בע\"מ",
-      "amount": 460.48,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-02-14",
-      "month": "2026-02",
-      "name": "סופר יודה אפליקציה",
-      "amount": 46.37,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-14",
-      "month": "2026-02",
-      "name": "קפה יודפת",
-      "amount": 47.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-13",
-      "month": "2026-02",
-      "name": "דיזנהום הכל לבית בע\"מ",
-      "amount": 35.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-02-12",
-      "month": "2026-02",
-      "name": "אחוזת החוף - חניון בני דן",
-      "amount": 80.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-02-12",
-      "month": "2026-02",
-      "name": "סופר יודה אפליקציה",
-      "amount": 90.08,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-02-11",
-      "month": "2026-02",
-      "name": "Gett",
-      "amount": 62.7,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-02-11",
-      "month": "2026-02",
-      "name": "קפה קיוסק",
-      "amount": 30.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-02-10",
-      "month": "2026-02",
-      "name": "גוד פארם בע\"מ",
-      "amount": 31.9,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-02-09",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 2.76,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-09",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 50.32,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-07",
-      "month": "2026-02",
-      "name": "PASSPORTCARD FINANCIAL",
-      "amount": 18.43,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-02-05",
-      "month": "2026-02",
-      "name": "שרותי בריאות כללית",
-      "amount": 84.0,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-02-05",
-      "month": "2026-02",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 29.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-05-05",
-      "month": "2026-05",
-      "name": "סופר יודה אפליקציה",
-      "amount": 74.76,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-05-05",
-      "month": "2026-05",
-      "name": "Gett",
-      "amount": 33.4,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-05-04",
-      "month": "2026-05",
-      "name": "ANTHROPIC",
-      "amount": 15.08,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-05-03",
-      "month": "2026-05",
-      "name": "BIT",
-      "amount": 900.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-05-02",
-      "month": "2026-05",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 120.73,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-04-30",
-      "month": "2026-04",
-      "name": "דוכן גן שמואל",
-      "amount": 80.24,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-29",
-      "month": "2026-04",
-      "name": "APPLE.COM/BILL",
-      "amount": 11.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-29",
-      "month": "2026-04",
-      "name": "אלון חוצה ישראל נען מזרח",
-      "amount": 122.7,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-04-29",
-      "month": "2026-04",
-      "name": "YES",
-      "amount": 99.8,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-29",
-      "month": "2026-04",
-      "name": "חניון רויאל גארדן אילת",
-      "amount": 105.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-04-28",
-      "month": "2026-04",
-      "name": "ג'וי מובייל מרכז שלום",
-      "amount": 90.0,
-      "card": "FlyCard",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-04-28",
-      "month": "2026-04",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 19.0,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-04-28",
-      "month": "2026-04",
-      "name": "APPLE.COM/BILL",
-      "amount": 12.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-27",
-      "month": "2026-04",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 113.67,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-04-27",
-      "month": "2026-04",
-      "name": "מי אביבים הוראת קבע",
-      "amount": 89.56,
-      "card": "FlyCard",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-04-27",
-      "month": "2026-04",
-      "name": "פנגו חשבונית חודשית",
-      "amount": 37.88,
-      "card": "FlyCard",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-04-26",
-      "month": "2026-04",
-      "name": "דמי כרטיס",
-      "amount": 38.9,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-04-25",
-      "month": "2026-04",
-      "name": "WOLT",
-      "amount": 371.9,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-24",
-      "month": "2026-04",
-      "name": "קרוט",
-      "amount": 90.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-24",
-      "month": "2026-04",
-      "name": "מנורה מבטחים-חיים/בריאות",
-      "amount": 273.71,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-04-22",
-      "month": "2026-04",
-      "name": "BIT",
-      "amount": 70.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-04-21",
-      "month": "2026-04",
-      "name": "סופר יודה אפליקציה",
-      "amount": 17.85,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-20",
-      "month": "2026-04",
-      "name": "סעוד הראל- כללית",
-      "amount": 40.63,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-04-20",
-      "month": "2026-04",
-      "name": "שרותי בריאות כללית",
-      "amount": 104.79,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-04-19",
-      "month": "2026-04",
-      "name": "סופר יודה אפליקציה",
-      "amount": 9.99,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-19",
-      "month": "2026-04",
-      "name": "PAYBOX",
-      "amount": 1000.0,
-      "card": "FlyCard",
-      "cat": "transfers"
-    },
-    {
-      "date": "2026-04-19",
-      "month": "2026-04",
-      "name": "CLAUDE.AI SUBSCRIPTION",
-      "amount": 61.14,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-19",
-      "month": "2026-04",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-19",
-      "month": "2026-04",
-      "name": "אילי סנטר",
-      "amount": 520.0,
-      "card": "FlyCard",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-04-18",
-      "month": "2026-04",
-      "name": "WOLT",
-      "amount": 117.9,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-18",
-      "month": "2026-04",
-      "name": "סופר יודה אפליקציה",
-      "amount": 46.5,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "LA SHUK RESTAURANT",
-      "amount": 76.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 79.89,
-      "card": "FlyCard",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "סופר יודה אפליקציה",
-      "amount": 96.88,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "דיזנהום הכל לבית בע\"מ",
-      "amount": 39.5,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "גרובשטיין- קום רות בע\"מ",
-      "amount": 80.0,
-      "card": "FlyCard",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "יעד פירזול 4891 בעמ\"",
-      "amount": 158.8,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-04-16",
-      "month": "2026-04",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-15",
-      "month": "2026-04",
-      "name": "חברת החשמל לישראל בע\"מ",
-      "amount": 486.64,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-04-15",
-      "month": "2026-04",
-      "name": "דמי כרטיס",
-      "amount": -77.8,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-04-14",
-      "month": "2026-04",
-      "name": "פיצה ברוקלין",
-      "amount": 26.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-14",
-      "month": "2026-04",
-      "name": "APPLE.COM/BILL",
-      "amount": 2.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-04-13",
-      "month": "2026-04",
-      "name": "קפה אחד העם",
-      "amount": 16.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-12",
-      "month": "2026-04",
-      "name": "איוונטר כרטיסים בע\"מ",
-      "amount": 160.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-04-11",
-      "month": "2026-04",
-      "name": "היי ביז בע\"מ",
-      "amount": 58.0,
-      "card": "FlyCard",
-      "cat": "other"
-    },
-    {
-      "date": "2026-04-10",
-      "month": "2026-04",
-      "name": "WHAT THE FICUS TLV",
-      "amount": 85.0,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-04-10",
-      "month": "2026-04",
-      "name": "ג'י.די.בי מעוז אביב",
-      "amount": 140.0,
-      "card": "FlyCard",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-10",
-      "month": "2026-04",
-      "name": "קרולינה למקה-גמא",
-      "amount": 299.9,
-      "card": "FlyCard",
-      "cat": "health"
-    },
-    {
-      "date": "2026-04-10",
-      "month": "2026-04",
-      "name": "הום סנטר עשה זאת בעצמך",
-      "amount": 21.9,
-      "card": "FlyCard",
-      "cat": "home"
-    },
-    {
-      "date": "2026-04-09",
-      "month": "2026-04",
-      "name": "TERMINAL X",
-      "amount": 169.7,
-      "card": "FlyCard",
-      "cat": "fashion"
-    },
-    {
-      "date": "2026-04-05",
-      "month": "2026-04",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.4,
-      "card": "FlyCard",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-09-30",
-      "month": "2026-09",
-      "name": "המכולה ריהוט גן ומחסני גי",
-      "amount": 0.0,
-      "card": "FlyCard",
-      "cat": "home"
+      "date": "2026-10-11",
+      "month": "2026-10",
+      "name": "בהצדעה",
+      "amount": 354.0,
+      "card": "Max",
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
     },
     {
       "date": "2026-10-01",
@@ -3431,6 +16,14 @@
       "amount": 30.0,
       "card": "FlyCard",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-09-30",
+      "month": "2026-09",
+      "name": "המכולה ריהוט גן ומחסני גי",
+      "amount": 669.0,
+      "card": "FlyCard",
+      "cat": "home"
     },
     {
       "date": "2026-09-30",
@@ -3449,12 +42,28 @@
       "cat": "subscriptions"
     },
     {
-      "date": "2026-09-27",
+      "date": "2026-09-30",
       "month": "2026-09",
-      "name": "דמי כרטיס",
-      "amount": 0.0,
-      "card": "FlyCard",
-      "cat": "equipment"
+      "name": "שומשום בר בריא",
+      "amount": 16.29,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-09-28",
+      "month": "2026-09",
+      "name": "YES",
+      "amount": 174.6,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-09-28",
+      "month": "2026-09",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 20.0,
+      "card": "HiTechZone",
+      "cat": "insurance"
     },
     {
       "date": "2026-09-27",
@@ -3470,7 +79,15 @@
       "name": "סנסיו בע\"מ-פאיימי",
       "amount": 236.55,
       "card": "FlyCard",
-      "cat": "subscriptions"
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-09-26",
+      "month": "2026-09",
+      "name": "WOLT",
+      "amount": 127.08,
+      "card": "HiTechZone",
+      "cat": "restaurants"
     },
     {
       "date": "2026-09-25",
@@ -3479,6 +96,22 @@
       "amount": 41.15,
       "card": "FlyCard",
       "cat": "grocery"
+    },
+    {
+      "date": "2026-09-25",
+      "month": "2026-09",
+      "name": "מ. התחבורה - פנגו מוביט",
+      "amount": 11.5,
+      "card": "HiTechZone",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-09-25",
+      "month": "2026-09",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 36.4,
+      "card": "HiTechZone",
+      "cat": "energy"
     },
     {
       "date": "2026-09-24",
@@ -3495,6 +128,38 @@
       "amount": 1371.96,
       "card": "FlyCard",
       "cat": "transport"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 115.75,
+      "card": "HiTechZone",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "סעוד הראל- כללית",
+      "amount": 41.58,
+      "card": "HiTechZone",
+      "cat": "health"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "עיריית ת\"א -יפו ארנונה",
+      "amount": 505.45,
+      "card": "HiTechZone",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "שרותי בריאות כללית",
+      "amount": 106.71,
+      "card": "HiTechZone",
+      "cat": "health"
     },
     {
       "date": "2026-09-22",
@@ -3761,6 +426,14 @@
       "cat": "travel"
     },
     {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
+    },
+    {
       "date": "2026-09-17",
       "month": "2026-09",
       "name": "PASSPORTCARD FINANCIAL",
@@ -3783,6 +456,14 @@
       "amount": 423.09,
       "card": "FlyCard",
       "cat": "travel"
+    },
+    {
+      "date": "2026-09-16",
+      "month": "2026-09",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-09-15",
@@ -3889,6 +570,22 @@
       "cat": "travel"
     },
     {
+      "date": "2026-09-12",
+      "month": "2026-09",
+      "name": "סופר יודה אפליקציה",
+      "amount": 49.8,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-09-12",
+      "month": "2026-09",
+      "name": "AIRALO",
+      "amount": 104.88,
+      "card": "HiTechZone",
+      "cat": "tech"
+    },
+    {
       "date": "2026-09-11",
       "month": "2026-09",
       "name": "דלק קמעונאות אלונים",
@@ -3937,6 +634,14 @@
       "cat": "transport"
     },
     {
+      "date": "2026-09-11",
+      "month": "2026-09",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 72.48,
+      "card": "HiTechZone",
+      "cat": "energy"
+    },
+    {
       "date": "2026-09-10",
       "month": "2026-09",
       "name": "סיבוס פלאקסי",
@@ -3953,6 +658,15 @@
       "cat": "grocery"
     },
     {
+      "date": "2026-09-10",
+      "month": "2026-09",
+      "name": "בהצדעה",
+      "amount": 354.0,
+      "card": "Max",
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
+    },
+    {
       "date": "2026-09-09",
       "month": "2026-09",
       "name": "צמרת מימונים-מ-גלי דיזינגוף",
@@ -3961,28 +675,12 @@
       "cat": "fashion"
     },
     {
-      "date": "2026-08-08",
-      "month": "2026-08",
-      "name": "אל על אינטרנט בתשלומים-צמרת",
-      "amount": 699.18,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
       "date": "2026-09-08",
       "month": "2026-09",
       "name": "הכוסית-ורמוטריה מקומית",
       "amount": 84.0,
       "card": "FlyCard",
-      "cat": "events"
+      "cat": "other"
     },
     {
       "date": "2026-09-07",
@@ -4003,10 +701,18 @@
     {
       "date": "2026-09-07",
       "month": "2026-09",
-      "name": "BKG*HOTEL AT BOOKING.C",
-      "amount": -1721.54,
-      "card": "FlyCard",
-      "cat": "travel"
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 277.6,
+      "card": "HiTechZone",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-09-07",
+      "month": "2026-09",
+      "name": "שרותי בריאות כללית",
+      "amount": 52.32,
+      "card": "HiTechZone",
+      "cat": "health"
     },
     {
       "date": "2026-09-06",
@@ -4015,6 +721,14 @@
       "amount": 13.0,
       "card": "FlyCard",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-09-06",
+      "month": "2026-09",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 29.9,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-09-05",
@@ -4062,7 +776,15 @@
       "name": "CUE TLV",
       "amount": 252.0,
       "card": "FlyCard",
-      "cat": "events"
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-09-04",
+      "month": "2026-09",
+      "name": "סופר יודה ישעיהו פינת ירמיהו",
+      "amount": 40.27,
+      "card": "HiTechZone",
+      "cat": "grocery"
     },
     {
       "date": "2026-09-03",
@@ -4097,6 +819,14 @@
       "cat": "grocery"
     },
     {
+      "date": "2026-09-02",
+      "month": "2026-09",
+      "name": "LIME*RIDE BIVT",
+      "amount": 15.1,
+      "card": "HiTechZone",
+      "cat": "transport"
+    },
+    {
       "date": "2026-09-01",
       "month": "2026-09",
       "name": "מנדל משקאות תל אביב",
@@ -4113,12 +843,20 @@
       "cat": "restaurants"
     },
     {
+      "date": "2026-09-01",
+      "month": "2026-09",
+      "name": "דה פייסטרי בוקס",
+      "amount": 54.0,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
       "date": "2026-08-30",
       "month": "2026-08",
       "name": "bigpet",
       "amount": 165.0,
       "card": "FlyCard",
-      "cat": "pet"
+      "cat": "home"
     },
     {
       "date": "2026-08-30",
@@ -4127,6 +865,14 @@
       "amount": 11.9,
       "card": "FlyCard",
       "cat": "subscriptions"
+    },
+    {
+      "date": "2026-08-30",
+      "month": "2026-08",
+      "name": "מי אביבים הוראת קבע",
+      "amount": 181.25,
+      "card": "HiTechZone",
+      "cat": "energy"
     },
     {
       "date": "2026-08-29",
@@ -4145,35 +891,67 @@
       "cat": "subscriptions"
     },
     {
+      "date": "2026-08-29",
+      "month": "2026-08",
+      "name": "LIME*RIDE BIVT",
+      "amount": 21.6,
+      "card": "HiTechZone",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-08-28",
+      "month": "2026-08",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 20.0,
+      "card": "HiTechZone",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-08-27",
+      "month": "2026-08",
+      "name": "YES",
+      "amount": 149.7,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-08-27",
+      "month": "2026-08",
+      "name": "SANTI TLV",
+      "amount": 1230.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-08-27",
+      "month": "2026-08",
+      "name": "Wolt",
+      "amount": 29.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-08-27",
+      "month": "2026-08",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 114.98,
+      "card": "HiTechZone",
+      "cat": "insurance"
+    },
+    {
       "date": "2026-08-26",
       "month": "2026-08",
       "name": "סנסיו בע\"מ-פאיימי",
       "amount": 236.55,
       "card": "FlyCard",
-      "cat": "subscriptions"
+      "cat": "transfers"
     },
     {
-      "date": "2026-08-25",
+      "date": "2026-08-26",
       "month": "2026-08",
-      "name": "דמי כרטיס",
-      "amount": 0.0,
-      "card": "FlyCard",
-      "cat": "equipment"
-    },
-    {
-      "date": "2026-08-25",
-      "month": "2026-08",
-      "name": "אל על אינטרנט בתשלומים",
-      "amount": -616.31,
-      "card": "FlyCard",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-08-25",
-      "month": "2026-08",
-      "name": "אל על אינטרנט בתשלומים",
-      "amount": -616.28,
-      "card": "FlyCard",
+      "name": "AIRBNB * HMYMT8SS3K",
+      "amount": 4200.0,
+      "card": "HiTechZone",
       "cat": "travel"
     },
     {
@@ -4193,6 +971,22 @@
       "cat": "transfers"
     },
     {
+      "date": "2026-08-23",
+      "month": "2026-08",
+      "name": "סעוד הראל- כללית",
+      "amount": 41.3,
+      "card": "HiTechZone",
+      "cat": "health"
+    },
+    {
+      "date": "2026-08-23",
+      "month": "2026-08",
+      "name": "שרותי בריאות כללית",
+      "amount": 106.01,
+      "card": "HiTechZone",
+      "cat": "health"
+    },
+    {
       "date": "2026-08-22",
       "month": "2026-08",
       "name": "BKG*HOTEL AT BOOKING.C",
@@ -4209,12 +1003,52 @@
       "cat": "travel"
     },
     {
+      "date": "2026-08-22",
+      "month": "2026-08",
+      "name": "ג'ונו באצ'י",
+      "amount": 76.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-08-22",
+      "month": "2026-08",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 72.21,
+      "card": "HiTechZone",
+      "cat": "energy"
+    },
+    {
       "date": "2026-08-21",
       "month": "2026-08",
       "name": "רב חן ת\"א-אינטרנט",
       "amount": 9.0,
       "card": "FlyCard",
       "cat": "entertainment"
+    },
+    {
+      "date": "2026-08-21",
+      "month": "2026-08",
+      "name": "מרלן",
+      "amount": 296.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-08-21",
+      "month": "2026-08",
+      "name": "High tech",
+      "amount": 200.0,
+      "card": "HiTechZone",
+      "cat": "tech"
+    },
+    {
+      "date": "2026-08-20",
+      "month": "2026-08",
+      "name": "קפונה",
+      "amount": 360.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
     },
     {
       "date": "2026-08-19",
@@ -4249,12 +1083,85 @@
       "cat": "transport"
     },
     {
+      "date": "2026-08-18",
+      "month": "2026-08",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
+    },
+    {
       "date": "2026-08-17",
       "month": "2026-08",
       "name": "PAYBOX",
       "amount": 240.0,
       "card": "FlyCard",
       "cat": "transfers"
+    },
+    {
+      "date": "2026-08-16",
+      "month": "2026-08",
+      "name": "חברת החשמל לישראל בע\"מ",
+      "amount": 565.71,
+      "card": "HiTechZone",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-08-16",
+      "month": "2026-08",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "HiTechZone",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-08-16",
+      "month": "2026-08",
+      "name": "בהצדעה",
+      "amount": 89.0,
+      "card": "Max",
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
+    },
+    {
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "name": "מינימרקט חואשי",
+      "amount": 49.0,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "name": "מנו וינו דיזינגוף",
+      "amount": 109.9,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-08-12",
+      "month": "2026-08",
+      "name": "דיזנהום הכל לבית בע\"מ",
+      "amount": 59.0,
+      "card": "HiTechZone",
+      "cat": "home"
+    },
+    {
+      "date": "2026-08-12",
+      "month": "2026-08",
+      "name": "טוני בוצ'רי",
+      "amount": 127.1,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-08-11",
+      "month": "2026-08",
+      "name": "אוזריה",
+      "amount": 481.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
     },
     {
       "date": "2026-08-10",
@@ -4267,10 +1174,11 @@
     {
       "date": "2026-08-10",
       "month": "2026-08",
-      "name": "APPLE.COM/BILL",
-      "amount": -34.9,
-      "card": "FlyCard",
-      "cat": "subscriptions"
+      "name": "בהצדעה",
+      "amount": 354.0,
+      "card": "Max",
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
     },
     {
       "date": "2026-08-09",
@@ -4281,6 +1189,14 @@
       "cat": "subscriptions"
     },
     {
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "name": "פיצוציה הצפון הישן",
+      "amount": 5.0,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
       "date": "2026-08-08",
       "month": "2026-08",
       "name": "אל על אינטרנט בתשלומים-צמרת",
@@ -4289,260 +1205,20 @@
       "cat": "travel"
     },
     {
-      "date": "2025-12-09",
-      "month": "2025-12",
-      "name": "הפול בטוח חובה",
-      "amount": 335.5,
-      "card": "FlyCard",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "אם בי בורגר דיזינגוף בע''מ",
-      "amount": 58.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "סטורי אאוטלט בילו-גמא",
-      "amount": 99.9,
-      "card": "HiTechZone",
-      "cat": "fashion"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "ספורט אנד מור-בילו-צמרת",
-      "amount": 161.91,
-      "card": "HiTechZone",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-04-07",
-      "month": "2026-04",
-      "name": "בוטיק סנטרל ירמיהו",
-      "amount": 14.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-06",
-      "month": "2026-04",
-      "name": "לב רועי - מיפלו",
-      "amount": 120.0,
-      "card": "HiTechZone",
-      "cat": "entertainment"
-    },
-    {
-      "date": "2026-04-04",
-      "month": "2026-04",
-      "name": "SACHI",
-      "amount": 133.0,
-      "card": "HiTechZone",
-      "cat": "events"
-    },
-    {
-      "date": "2026-04-03",
-      "month": "2026-04",
-      "name": "עבדו הדייג",
-      "amount": 58.0,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-03",
-      "month": "2026-04",
-      "name": "מנו וינו דיזינגוף",
-      "amount": 54.9,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-04-03",
-      "month": "2026-04",
-      "name": "קפה דינצי",
-      "amount": 32.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-04-01",
-      "month": "2026-04",
-      "name": "טוני בוצ'רי",
-      "amount": 168.9,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-31",
-      "month": "2026-03",
-      "name": "צומת ספרים דיזינגוף סנטר ג'",
-      "amount": 156.8,
-      "card": "HiTechZone",
-      "cat": "kids"
-    },
-    {
-      "date": "2026-03-30",
-      "month": "2026-03",
-      "name": "בנץ ברדרס אבן גבירול",
-      "amount": 76.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-28",
-      "month": "2026-03",
-      "name": "ארומה חוף גורדון",
-      "amount": 33.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-27",
-      "month": "2026-03",
-      "name": "אוזריה",
-      "amount": 297.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-26",
-      "month": "2026-03",
-      "name": "חוד המחט",
-      "amount": 100.0,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-26",
-      "month": "2026-03",
-      "name": "NUMERO ESIM",
-      "amount": 80.58,
-      "card": "HiTechZone",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-03-22",
-      "month": "2026-03",
-      "name": "קפה מלבן כצנלסון",
-      "amount": 19.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-21",
-      "month": "2026-03",
-      "name": "דלק מנטה מחלף זיכרון יעקב-צמרת",
-      "amount": 99.94,
-      "card": "HiTechZone",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-03-21",
-      "month": "2026-03",
-      "name": "טראק במושבה",
-      "amount": 39.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-20",
-      "month": "2026-03",
-      "name": "שפע הברון בע\"מ",
-      "amount": 53.94,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-03-20",
-      "month": "2026-03",
-      "name": "סורסטו",
-      "amount": 52.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-19",
-      "month": "2026-03",
-      "name": "ABIE",
-      "amount": 150.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-18",
-      "month": "2026-03",
-      "name": "קפה דינצי",
-      "amount": 37.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-16",
-      "month": "2026-03",
-      "name": "EL AL",
-      "amount": 1066.45,
-      "card": "HiTechZone",
-      "cat": "travel"
-    },
-    {
-      "date": "2026-03-14",
-      "month": "2026-03",
-      "name": "תחנת דלק מיקה אילת",
-      "amount": 168.35,
-      "card": "HiTechZone",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-03-14",
-      "month": "2026-03",
-      "name": "ברביס ניהול מסעדות בע\"מ",
-      "amount": 201.6,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-13",
-      "month": "2026-03",
-      "name": "פדרו",
-      "amount": 225.78,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-13",
-      "month": "2026-03",
-      "name": "ארומה נביעות אילת",
-      "amount": 31.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-12",
-      "month": "2026-03",
-      "name": "ארומה עבדת",
-      "amount": 17.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-03-11",
-      "month": "2026-03",
-      "name": "ROODI",
-      "amount": 100.0,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
       "date": "2026-08-08",
       "month": "2026-08",
       "name": "דרך התבלינים",
       "amount": 139.08,
       "card": "HiTechZone",
       "cat": "grocery"
+    },
+    {
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "name": "צאקולי",
+      "amount": 363.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
     },
     {
       "date": "2026-08-06",
@@ -4575,6 +1251,14 @@
       "amount": 29.9,
       "card": "HiTechZone",
       "cat": "subscriptions"
+    },
+    {
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "name": "הייטקזון - מתנות ואתר",
+      "amount": 79.0,
+      "card": "FlyCard",
+      "cat": "other"
     },
     {
       "date": "2026-08-04",
@@ -4619,6 +1303,14 @@
     {
       "date": "2026-08-02",
       "month": "2026-08",
+      "name": "PAYBOX",
+      "amount": 300.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-08-02",
+      "month": "2026-08",
       "name": "מקס 10",
       "amount": 15.9,
       "card": "HiTechZone",
@@ -4643,10 +1335,18 @@
     {
       "date": "2026-07-31",
       "month": "2026-07",
+      "name": "PAYPAL *REVOLVE",
+      "amount": 359.65,
+      "card": "FlyCard",
+      "cat": "fashion"
+    },
+    {
+      "date": "2026-07-31",
+      "month": "2026-07",
       "name": "מ.מ.מ. שלדג בעמ",
       "amount": 148.0,
       "card": "HiTechZone",
-      "cat": "restaurants"
+      "cat": "other"
     },
     {
       "date": "2026-07-31",
@@ -4655,6 +1355,23 @@
       "amount": 19.0,
       "card": "HiTechZone",
       "cat": "home"
+    },
+    {
+      "date": "2026-07-31",
+      "month": "2026-07",
+      "name": "בהצדעה",
+      "amount": 62.0,
+      "card": "Max",
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
+    },
+    {
+      "date": "2026-07-30",
+      "month": "2026-07",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-07-30",
@@ -4671,6 +1388,14 @@
       "amount": 34.0,
       "card": "HiTechZone",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-07-29",
+      "month": "2026-07",
+      "name": "APPLE.COM/BILL",
+      "amount": 25.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-07-29",
@@ -4699,6 +1424,22 @@
     {
       "date": "2026-07-27",
       "month": "2026-07",
+      "name": "PAYPAL *REVOLVE",
+      "amount": 203.19,
+      "card": "FlyCard",
+      "cat": "fashion"
+    },
+    {
+      "date": "2026-07-27",
+      "month": "2026-07",
+      "name": "PAYBOX",
+      "amount": 230.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-07-27",
+      "month": "2026-07",
       "name": "ביטוח ישיר-חיים",
       "amount": 114.66,
       "card": "HiTechZone",
@@ -4711,6 +1452,38 @@
       "amount": 31.7,
       "card": "HiTechZone",
       "cat": "grocery"
+    },
+    {
+      "date": "2026-07-26",
+      "month": "2026-07",
+      "name": "סנסיו בע\"מ-פאיימי",
+      "amount": 236.55,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-07-26",
+      "month": "2026-07",
+      "name": "PAYBOX",
+      "amount": 100.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-07-25",
+      "month": "2026-07",
+      "name": "PAYPAL *AISGECOMMER",
+      "amount": 45.82,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-07-25",
+      "month": "2026-07",
+      "name": "PAYPAL *AISGECOMMER",
+      "amount": 84.9,
+      "card": "FlyCard",
+      "cat": "other"
     },
     {
       "date": "2026-07-25",
@@ -4750,7 +1523,7 @@
       "name": "bigpet",
       "amount": 40.0,
       "card": "HiTechZone",
-      "cat": "pet"
+      "cat": "home"
     },
     {
       "date": "2026-07-24",
@@ -4766,7 +1539,7 @@
       "name": "הכל בו לגן שרותי השקיה",
       "amount": 507.0,
       "card": "HiTechZone",
-      "cat": "other"
+      "cat": "home"
     },
     {
       "date": "2026-07-23",
@@ -4827,6 +1600,22 @@
     {
       "date": "2026-07-19",
       "month": "2026-07",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 285.71,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-07-19",
+      "month": "2026-07",
+      "name": "אילי סנטר",
+      "amount": 520.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-07-19",
+      "month": "2026-07",
       "name": "חברת פרטנר תקשורת בע\"מ",
       "amount": 30.16,
       "card": "HiTechZone",
@@ -4847,6 +1636,22 @@
       "amount": 22.0,
       "card": "HiTechZone",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-07-16",
+      "month": "2026-07",
+      "name": "Gett",
+      "amount": 68.6,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-07-16",
+      "month": "2026-07",
+      "name": "Gett",
+      "amount": 12.0,
+      "card": "FlyCard",
+      "cat": "transport"
     },
     {
       "date": "2026-07-16",
@@ -4953,20 +1758,21 @@
       "cat": "grocery"
     },
     {
+      "date": "2026-07-10",
+      "month": "2026-07",
+      "name": "בהצדעה",
+      "amount": 359.0,
+      "card": "Max",
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
+    },
+    {
       "date": "2026-07-09",
       "month": "2026-07",
       "name": "מטבח לילה",
       "amount": 365.0,
       "card": "HiTechZone",
       "cat": "restaurants"
-    },
-    {
-      "date": "2026-06-17",
-      "month": "2026-06",
-      "name": "הקסדה",
-      "amount": 515.0,
-      "card": "HiTechZone",
-      "cat": "transport"
     },
     {
       "date": "2026-07-08",
@@ -4985,12 +1791,28 @@
       "cat": "grocery"
     },
     {
+      "date": "2026-07-06",
+      "month": "2026-07",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 29.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-07-04",
+      "month": "2026-07",
+      "name": "קופת כרטיסים",
+      "amount": 158.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
       "date": "2026-07-04",
       "month": "2026-07",
       "name": "בארבי - מ.ש. הפקות בע\"מ",
       "amount": 29.0,
       "card": "HiTechZone",
-      "cat": "events"
+      "cat": "other"
     },
     {
       "date": "2026-07-04",
@@ -5011,6 +1833,22 @@
     {
       "date": "2026-07-03",
       "month": "2026-07",
+      "name": "Gett",
+      "amount": 85.3,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-07-03",
+      "month": "2026-07",
+      "name": "Gett",
+      "amount": 89.4,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-07-03",
+      "month": "2026-07",
       "name": "אווז מומנטס בעמ",
       "amount": 17.0,
       "card": "HiTechZone",
@@ -5022,7 +1860,7 @@
       "name": "גו אאוט כרטיסים",
       "amount": 252.0,
       "card": "HiTechZone",
-      "cat": "other"
+      "cat": "entertainment"
     },
     {
       "date": "2026-07-01",
@@ -5039,6 +1877,38 @@
       "amount": 61.77,
       "card": "HiTechZone",
       "cat": "home"
+    },
+    {
+      "date": "2026-06-30",
+      "month": "2026-06",
+      "name": "BIT",
+      "amount": 220.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-06-30",
+      "month": "2026-06",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-06-29",
+      "month": "2026-06",
+      "name": "YES",
+      "amount": 99.8,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-06-29",
+      "month": "2026-06",
+      "name": "APPLE.COM/BILL",
+      "amount": 25.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-06-29",
@@ -5059,6 +1929,22 @@
     {
       "date": "2026-06-28",
       "month": "2026-06",
+      "name": "מי אביבים הוראת קבע",
+      "amount": 165.93,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-06-28",
+      "month": "2026-06",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 20.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-06-28",
+      "month": "2026-06",
       "name": "פה זה טיב צילום בע\"מ",
       "amount": 35.0,
       "card": "HiTechZone",
@@ -5071,6 +1957,22 @@
       "amount": 13.0,
       "card": "HiTechZone",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-06-25",
+      "month": "2026-06",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 114.66,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-06-25",
+      "month": "2026-06",
+      "name": "מ. התחבורה - פנגו מוביט",
+      "amount": 8.0,
+      "card": "FlyCard",
+      "cat": "institutions"
     },
     {
       "date": "2026-06-25",
@@ -5091,10 +1993,34 @@
     {
       "date": "2026-06-24",
       "month": "2026-06",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 285.71,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-06-24",
+      "month": "2026-06",
       "name": "יום טוב קפה",
       "amount": 131.0,
       "card": "HiTechZone",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-06-23",
+      "month": "2026-06",
+      "name": "סעוד הראל- כללית",
+      "amount": 40.98,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-06-23",
+      "month": "2026-06",
+      "name": "שרותי בריאות כללית",
+      "amount": 105.71,
+      "card": "FlyCard",
+      "cat": "health"
     },
     {
       "date": "2026-06-22",
@@ -5121,6 +2047,30 @@
       "cat": "energy"
     },
     {
+      "date": "2026-06-19",
+      "month": "2026-06",
+      "name": "אילי סנטר",
+      "amount": 520.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-06-18",
+      "month": "2026-06",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-06-18",
+      "month": "2026-06",
+      "name": "חברת החשמל לישראל בע\"מ",
+      "amount": 532.44,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
       "date": "2026-06-18",
       "month": "2026-06",
       "name": "סופר אלונית -אלון צ.עופר",
@@ -5142,7 +2092,7 @@
       "name": "טאבון בלאס",
       "amount": 14.0,
       "card": "HiTechZone",
-      "cat": "restaurants"
+      "cat": "other"
     },
     {
       "date": "2026-06-18",
@@ -5155,18 +2105,26 @@
     {
       "date": "2026-06-17",
       "month": "2026-06",
+      "name": "הקסדה",
+      "amount": 515.0,
+      "card": "HiTechZone",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-06-17",
+      "month": "2026-06",
       "name": "פז אפליקצית-YELLOW",
       "amount": 68.3,
       "card": "HiTechZone",
       "cat": "energy"
     },
     {
-      "date": "2026-06-17",
+      "date": "2026-06-16",
       "month": "2026-06",
-      "name": "הקסדה",
-      "amount": 515.0,
-      "card": "HiTechZone",
-      "cat": "transport"
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-06-16",
@@ -5275,9 +2233,25 @@
     {
       "date": "2026-06-11",
       "month": "2026-06",
+      "name": "קרן מגי",
+      "amount": 50.0,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-06-11",
+      "month": "2026-06",
       "name": "אמה בייקרי",
       "amount": 15.0,
       "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-06-10",
+      "month": "2026-06",
+      "name": "סיבוס פלאקסי",
+      "amount": 4.55,
+      "card": "FlyCard",
       "cat": "restaurants"
     },
     {
@@ -5295,6 +2269,14 @@
       "amount": 13.0,
       "card": "HiTechZone",
       "cat": "grocery"
+    },
+    {
+      "date": "2026-06-07",
+      "month": "2026-06",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 29.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-06-06",
@@ -5329,6 +2311,22 @@
       "cat": "restaurants"
     },
     {
+      "date": "2026-06-05",
+      "month": "2026-06",
+      "name": "ביי-מי שוברי מתנה",
+      "amount": 90.0,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-06-04",
+      "month": "2026-06",
+      "name": "סופר יודה אפליקציה",
+      "amount": 132.53,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
       "date": "2026-06-04",
       "month": "2026-06",
       "name": "פינת הפרי והירק",
@@ -5358,7 +2356,7 @@
       "name": "LOULLIE GORDON",
       "amount": 60.0,
       "card": "HiTechZone",
-      "cat": "events"
+      "cat": "other"
     },
     {
       "date": "2026-06-04",
@@ -5366,7 +2364,47 @@
       "name": "LOULLIE GORDON",
       "amount": 5.0,
       "card": "HiTechZone",
-      "cat": "events"
+      "cat": "other"
+    },
+    {
+      "date": "2026-06-03",
+      "month": "2026-06",
+      "name": "שוק רוטשילד",
+      "amount": 14.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-06-03",
+      "month": "2026-06",
+      "name": "PAYBOX",
+      "amount": 40.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-06-03",
+      "month": "2026-06",
+      "name": "BIT",
+      "amount": 90.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-06-02",
+      "month": "2026-06",
+      "name": "סופר יודה אפליקציה",
+      "amount": 44.43,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-06-01",
+      "month": "2026-06",
+      "name": "סופר באבא",
+      "amount": 28.0,
+      "card": "FlyCard",
+      "cat": "grocery"
     },
     {
       "date": "2026-06-01",
@@ -5374,7 +2412,143 @@
       "name": "הכל בראש עיצוב שיער",
       "amount": 75.0,
       "card": "HiTechZone",
-      "cat": "beauty"
+      "cat": "other"
+    },
+    {
+      "date": "2026-05-31",
+      "month": "2026-05",
+      "name": "דיזי שופ",
+      "amount": 5.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-31",
+      "month": "2026-05",
+      "name": "ראלי וויס-מפעל הפיס",
+      "amount": 66.0,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-05-31",
+      "month": "2026-05",
+      "name": "טוני ווספה גבעתיים",
+      "amount": 14.28,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-30",
+      "month": "2026-05",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 76.69,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-05-30",
+      "month": "2026-05",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-29",
+      "month": "2026-05",
+      "name": "WHAT THE FICUS TLV",
+      "amount": 105.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-05-29",
+      "month": "2026-05",
+      "name": "BIT",
+      "amount": 20.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-05-29",
+      "month": "2026-05",
+      "name": "ראלי וויס-מפעל הפיס",
+      "amount": 36.0,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-05-29",
+      "month": "2026-05",
+      "name": "סופר יודה אפליקציה",
+      "amount": 10.25,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-28",
+      "month": "2026-05",
+      "name": "BIT",
+      "amount": 70.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-05-28",
+      "month": "2026-05",
+      "name": "חומוס אסלי",
+      "amount": 40.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-28",
+      "month": "2026-05",
+      "name": "צאקולי",
+      "amount": 22.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-28",
+      "month": "2026-05",
+      "name": "צאקולי",
+      "amount": 18.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-28",
+      "month": "2026-05",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 20.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-05-28",
+      "month": "2026-05",
+      "name": "APPLE.COM/BILL",
+      "amount": 25.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-27",
+      "month": "2026-05",
+      "name": "YES",
+      "amount": 99.8,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-27",
+      "month": "2026-05",
+      "name": "עיריית ת\"א -יפו ארנונה",
+      "amount": 499.51,
+      "card": "FlyCard",
+      "cat": "institutions"
     },
     {
       "date": "2026-05-27",
@@ -5385,6 +2559,302 @@
       "cat": "grocery"
     },
     {
+      "date": "2026-05-26",
+      "month": "2026-05",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 235.56,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-05-25",
+      "month": "2026-05",
+      "name": "מ. התחבורה - פנגו מוביט",
+      "amount": 16.0,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-05-25",
+      "month": "2026-05",
+      "name": "BIT",
+      "amount": 65.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-05-25",
+      "month": "2026-05",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 114.98,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-05-25",
+      "month": "2026-05",
+      "name": "BIRD* PENDING.BIRD.CO",
+      "amount": 14.8,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-05-25",
+      "month": "2026-05",
+      "name": "LIME*2 RIDES BIVT",
+      "amount": 27.4,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-05-25",
+      "month": "2026-05",
+      "name": "BIRD* PENDING.BIRD.CO",
+      "amount": 24.7,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-05-24",
+      "month": "2026-05",
+      "name": "התיאלנדית בסמטת סיני",
+      "amount": 253.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-24",
+      "month": "2026-05",
+      "name": "סעוד הראל- כללית",
+      "amount": 41.1,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-05-24",
+      "month": "2026-05",
+      "name": "שרותי בריאות כללית",
+      "amount": 106.01,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-05-24",
+      "month": "2026-05",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 277.85,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-05-23",
+      "month": "2026-05",
+      "name": "סופר באבא",
+      "amount": 8.9,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-23",
+      "month": "2026-05",
+      "name": "סופר יודה אפליקציה",
+      "amount": 111.91,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-22",
+      "month": "2026-05",
+      "name": "WOLT",
+      "amount": 154.8,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-22",
+      "month": "2026-05",
+      "name": "סופר באבא",
+      "amount": 7.2,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-21",
+      "month": "2026-05",
+      "name": "BIT",
+      "amount": 120.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-05-19",
+      "month": "2026-05",
+      "name": "BIT",
+      "amount": 80.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-05-19",
+      "month": "2026-05",
+      "name": "CLAUDE.AI SUBSCRIPTION",
+      "amount": 59.45,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-19",
+      "month": "2026-05",
+      "name": "אילי סנטר",
+      "amount": 520.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-05-18",
+      "month": "2026-05",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-17",
+      "month": "2026-05",
+      "name": "FAT COW",
+      "amount": 10.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-17",
+      "month": "2026-05",
+      "name": "אושר עד תל אביב",
+      "amount": 1326.28,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-17",
+      "month": "2026-05",
+      "name": "מפגש הפלאפל התימני",
+      "amount": 18.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-17",
+      "month": "2026-05",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-16",
+      "month": "2026-05",
+      "name": "סופר יודה אפליקציה",
+      "amount": 28.87,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-16",
+      "month": "2026-05",
+      "name": "אמה בייקרי",
+      "amount": 28.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-15",
+      "month": "2026-05",
+      "name": "WOLT",
+      "amount": 43.9,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-14",
+      "month": "2026-05",
+      "name": "העברה ב BIT בנה\"פ",
+      "amount": 900.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-05-14",
+      "month": "2026-05",
+      "name": "LIME*RIDE BIVT",
+      "amount": 9.3,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-05-14",
+      "month": "2026-05",
+      "name": "APPLE.COM/BILL",
+      "amount": 24.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-11",
+      "month": "2026-05",
+      "name": "קורן דוג ישראל",
+      "amount": 40.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-11",
+      "month": "2026-05",
+      "name": "בראנץ' קייטרינג",
+      "amount": 40.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-10",
+      "month": "2026-05",
+      "name": "סיבוס פלאקסי",
+      "amount": 242.9,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-05-09",
+      "month": "2026-05",
+      "name": "סופר באבא",
+      "amount": 8.9,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-09",
+      "month": "2026-05",
+      "name": "סופר יודה אפליקציה",
+      "amount": 71.36,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-09",
+      "month": "2026-05",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 74.62,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-05-09",
+      "month": "2026-05",
+      "name": "קוהי גרופ בע\"מ",
+      "amount": 125.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
       "date": "2026-05-09",
       "month": "2026-05",
       "name": "אוטלו גולף בע\"מ",
@@ -5393,12 +2863,60 @@
       "cat": "restaurants"
     },
     {
-      "date": "2026-04-17",
-      "month": "2026-04",
-      "name": "וודי אפוקסי יבוא ושיווק בע\"מ",
-      "amount": 285.0,
-      "card": "HiTechZone",
-      "cat": "equipment"
+      "date": "2026-05-08",
+      "month": "2026-05",
+      "name": "ש.א טאגור סנטר בע\"מ",
+      "amount": 102.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-05-08",
+      "month": "2026-05",
+      "name": "גוד פארם",
+      "amount": 68.0,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-05-07",
+      "month": "2026-05",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 29.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-05",
+      "month": "2026-05",
+      "name": "סופר יודה אפליקציה",
+      "amount": 74.76,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-05-05",
+      "month": "2026-05",
+      "name": "Gett",
+      "amount": 33.4,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-05-04",
+      "month": "2026-05",
+      "name": "ANTHROPIC",
+      "amount": 15.08,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-05-03",
+      "month": "2026-05",
+      "name": "BIT",
+      "amount": 900.0,
+      "card": "FlyCard",
+      "cat": "transfers"
     },
     {
       "date": "2026-05-03",
@@ -5407,6 +2925,78 @@
       "amount": 145.5,
       "card": "HiTechZone",
       "cat": "grocery"
+    },
+    {
+      "date": "2026-05-02",
+      "month": "2026-05",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 120.73,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-04-30",
+      "month": "2026-04",
+      "name": "דוכן גן שמואל",
+      "amount": 80.24,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-29",
+      "month": "2026-04",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-04-29",
+      "month": "2026-04",
+      "name": "אלון חוצה ישראל נען מזרח",
+      "amount": 122.7,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-04-29",
+      "month": "2026-04",
+      "name": "YES",
+      "amount": 99.8,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-04-29",
+      "month": "2026-04",
+      "name": "חניון רויאל גארדן אילת",
+      "amount": 105.0,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-04-28",
+      "month": "2026-04",
+      "name": "ג'וי מובייל מרכז שלום",
+      "amount": 90.0,
+      "card": "FlyCard",
+      "cat": "tech"
+    },
+    {
+      "date": "2026-04-28",
+      "month": "2026-04",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 19.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-04-28",
+      "month": "2026-04",
+      "name": "APPLE.COM/BILL",
+      "amount": 12.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
       "date": "2026-04-28",
@@ -5423,6 +3013,30 @@
       "amount": 75.1,
       "card": "HiTechZone",
       "cat": "grocery"
+    },
+    {
+      "date": "2026-04-27",
+      "month": "2026-04",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 113.67,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-04-27",
+      "month": "2026-04",
+      "name": "מי אביבים הוראת קבע",
+      "amount": 89.56,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-04-27",
+      "month": "2026-04",
+      "name": "פנגו חשבונית חודשית",
+      "amount": 37.88,
+      "card": "FlyCard",
+      "cat": "transport"
     },
     {
       "date": "2026-04-27",
@@ -5457,6 +3071,166 @@
       "cat": "energy"
     },
     {
+      "date": "2026-04-25",
+      "month": "2026-04",
+      "name": "WOLT",
+      "amount": 371.9,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-24",
+      "month": "2026-04",
+      "name": "קרוט",
+      "amount": 90.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-24",
+      "month": "2026-04",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 273.71,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-04-22",
+      "month": "2026-04",
+      "name": "BIT",
+      "amount": 70.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-04-21",
+      "month": "2026-04",
+      "name": "סופר יודה אפליקציה",
+      "amount": 17.85,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-20",
+      "month": "2026-04",
+      "name": "סעוד הראל- כללית",
+      "amount": 40.63,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-04-20",
+      "month": "2026-04",
+      "name": "שרותי בריאות כללית",
+      "amount": 104.79,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-04-19",
+      "month": "2026-04",
+      "name": "סופר יודה אפליקציה",
+      "amount": 9.99,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-19",
+      "month": "2026-04",
+      "name": "PAYBOX",
+      "amount": 1000.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-04-19",
+      "month": "2026-04",
+      "name": "CLAUDE.AI SUBSCRIPTION",
+      "amount": 61.14,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-04-19",
+      "month": "2026-04",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-04-19",
+      "month": "2026-04",
+      "name": "אילי סנטר",
+      "amount": 520.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-04-18",
+      "month": "2026-04",
+      "name": "WOLT",
+      "amount": 117.9,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-18",
+      "month": "2026-04",
+      "name": "סופר יודה אפליקציה",
+      "amount": 46.5,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-17",
+      "month": "2026-04",
+      "name": "LA SHUK RESTAURANT",
+      "amount": 76.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-17",
+      "month": "2026-04",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 79.89,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-04-17",
+      "month": "2026-04",
+      "name": "סופר יודה אפליקציה",
+      "amount": 96.88,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-17",
+      "month": "2026-04",
+      "name": "דיזנהום הכל לבית בע\"מ",
+      "amount": 39.5,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-04-17",
+      "month": "2026-04",
+      "name": "גרובשטיין- קום רות בע\"מ",
+      "amount": 80.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-17",
+      "month": "2026-04",
+      "name": "יעד פירזול 4891 בעמ\"",
+      "amount": 158.8,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
       "date": "2026-04-17",
       "month": "2026-04",
       "name": "וודי אפוקסי יבוא ושיווק בע\"מ",
@@ -5467,10 +3241,98 @@
     {
       "date": "2026-04-16",
       "month": "2026-04",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-04-16",
+      "month": "2026-04",
       "name": "קוקו נקו",
       "amount": 179.0,
       "card": "HiTechZone",
       "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-15",
+      "month": "2026-04",
+      "name": "חברת החשמל לישראל בע\"מ",
+      "amount": 486.64,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-04-14",
+      "month": "2026-04",
+      "name": "פיצה ברוקלין",
+      "amount": 26.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-14",
+      "month": "2026-04",
+      "name": "APPLE.COM/BILL",
+      "amount": 2.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-04-13",
+      "month": "2026-04",
+      "name": "קפה אחד העם",
+      "amount": 16.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-12",
+      "month": "2026-04",
+      "name": "איוונטר כרטיסים בע\"מ",
+      "amount": 160.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-04-11",
+      "month": "2026-04",
+      "name": "היי ביז בע\"מ",
+      "amount": 58.0,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-04-10",
+      "month": "2026-04",
+      "name": "WHAT THE FICUS TLV",
+      "amount": 85.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-04-10",
+      "month": "2026-04",
+      "name": "ג'י.די.בי מעוז אביב",
+      "amount": 140.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-10",
+      "month": "2026-04",
+      "name": "קרולינה למקה-גמא",
+      "amount": 299.9,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-04-10",
+      "month": "2026-04",
+      "name": "הום סנטר עשה זאת בעצמך",
+      "amount": 21.9,
+      "card": "FlyCard",
+      "cat": "home"
     },
     {
       "date": "2026-04-10",
@@ -5481,722 +3343,2064 @@
       "cat": "tech"
     },
     {
-      "date": "2026-09-30",
-      "month": "2026-09",
-      "name": "שומשום בר בריא",
-      "amount": 16.29,
+      "date": "2026-04-09",
+      "month": "2026-04",
+      "name": "TERMINAL X",
+      "amount": 169.7,
+      "card": "FlyCard",
+      "cat": "fashion"
+    },
+    {
+      "date": "2026-04-08",
+      "month": "2026-04",
+      "name": "סופר יודה אפליקציה",
+      "amount": 74.77,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "בר הבלבוי",
+      "amount": 270.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "גוד פארם",
+      "amount": 108.5,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "CARREFOUR כיכר דיזנגוף ת\"א-יציל",
+      "amount": 12.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "NUMERO ESIM",
+      "amount": 97.61,
+      "card": "FlyCard",
+      "cat": "tech"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "אם בי בורגר דיזינגוף בע''מ",
+      "amount": 58.0,
       "card": "HiTechZone",
       "cat": "restaurants"
     },
     {
-      "date": "2026-09-28",
-      "month": "2026-09",
-      "name": "YES",
-      "amount": 174.6,
-      "card": "HiTechZone",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-09-28",
-      "month": "2026-09",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 20.0,
-      "card": "HiTechZone",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-09-26",
-      "month": "2026-09",
-      "name": "WOLT",
-      "amount": 127.08,
-      "card": "HiTechZone",
-      "cat": "restaurants"
-    },
-    {
-      "date": "2026-09-25",
-      "month": "2026-09",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 11.5,
-      "card": "HiTechZone",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-09-25",
-      "month": "2026-09",
-      "name": "מ. התחבורה - פנגו מוביט",
-      "amount": 11.5,
-      "card": "HiTechZone",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-09-25",
-      "month": "2026-09",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 36.4,
-      "card": "HiTechZone",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-09-23",
-      "month": "2026-09",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 115.75,
-      "card": "HiTechZone",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-09-23",
-      "month": "2026-09",
-      "name": "סעוד הראל- כללית",
-      "amount": 41.58,
-      "card": "HiTechZone",
-      "cat": "health"
-    },
-    {
-      "date": "2026-09-23",
-      "month": "2026-09",
-      "name": "עיריית ת\"א -יפו ארנונה",
-      "amount": 505.45,
-      "card": "HiTechZone",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-09-23",
-      "month": "2026-09",
-      "name": "שרותי בריאות כללית",
-      "amount": 106.71,
-      "card": "HiTechZone",
-      "cat": "health"
-    },
-    {
-      "date": "2026-09-18",
-      "month": "2026-09",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 30.16,
-      "card": "HiTechZone",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-09-16",
-      "month": "2026-09",
-      "name": "HOT",
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "סטורי אאוטלט בילו-גמא",
       "amount": 99.9,
       "card": "HiTechZone",
+      "cat": "fashion"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "ספורט אנד מור-בילו-צמרת",
+      "amount": 161.91,
+      "card": "HiTechZone",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-04-07",
+      "month": "2026-04",
+      "name": "בוטיק סנטרל ירמיהו",
+      "amount": 14.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-04-06",
+      "month": "2026-04",
+      "name": "bigpet",
+      "amount": 165.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-04-06",
+      "month": "2026-04",
+      "name": "לב רועי - מיפלו",
+      "amount": 120.0,
+      "card": "HiTechZone",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-04-05",
+      "month": "2026-04",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.4,
+      "card": "FlyCard",
       "cat": "subscriptions"
     },
     {
-      "date": "2026-09-14",
-      "month": "2026-09",
-      "name": "דמי כרטיס בנק הפועלים מסטר",
-      "amount": 0.0,
+      "date": "2026-04-04",
+      "month": "2026-04",
+      "name": "SACHI",
+      "amount": 133.0,
       "card": "HiTechZone",
       "cat": "other"
     },
     {
-      "date": "2026-09-12",
-      "month": "2026-09",
+      "date": "2026-04-03",
+      "month": "2026-04",
       "name": "סופר יודה אפליקציה",
-      "amount": 49.8,
+      "amount": 73.59,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-04-03",
+      "month": "2026-04",
+      "name": "עבדו הדייג",
+      "amount": 58.0,
       "card": "HiTechZone",
       "cat": "grocery"
     },
     {
-      "date": "2026-09-12",
-      "month": "2026-09",
-      "name": "AIRALO",
-      "amount": 104.88,
-      "card": "HiTechZone",
-      "cat": "tech"
-    },
-    {
-      "date": "2026-09-11",
-      "month": "2026-09",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 72.48,
-      "card": "HiTechZone",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-09-07",
-      "month": "2026-09",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 277.6,
-      "card": "HiTechZone",
-      "cat": "energy"
-    },
-    {
-      "date": "2026-09-07",
-      "month": "2026-09",
-      "name": "שרותי בריאות כללית",
-      "amount": 52.32,
-      "card": "HiTechZone",
-      "cat": "health"
-    },
-    {
-      "date": "2026-09-06",
-      "month": "2026-09",
-      "name": "חברת פרטנר תקשורת בע\"מ",
-      "amount": 29.9,
-      "card": "HiTechZone",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-09-04",
-      "month": "2026-09",
-      "name": "סופר יודה ישעיהו פינת ירמיהו",
-      "amount": 40.27,
+      "date": "2026-04-03",
+      "month": "2026-04",
+      "name": "מנו וינו דיזינגוף",
+      "amount": 54.9,
       "card": "HiTechZone",
       "cat": "grocery"
     },
     {
-      "date": "2026-09-02",
-      "month": "2026-09",
-      "name": "LIME*RIDE BIVT",
-      "amount": 15.1,
-      "card": "HiTechZone",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-09-01",
-      "month": "2026-09",
-      "name": "דה פייסטרי בוקס",
-      "amount": 54.0,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-08-30",
-      "month": "2026-08",
-      "name": "מי אביבים הוראת קבע",
-      "amount": 181.25,
-      "card": "HiTechZone",
-      "cat": "institutions"
-    },
-    {
-      "date": "2026-08-29",
-      "month": "2026-08",
-      "name": "LIME*RIDE BIVT",
-      "amount": 21.6,
-      "card": "HiTechZone",
-      "cat": "transport"
-    },
-    {
-      "date": "2026-08-28",
-      "month": "2026-08",
-      "name": "הפניקס חיים ובריאות",
-      "amount": 20.0,
-      "card": "HiTechZone",
-      "cat": "insurance"
-    },
-    {
-      "date": "2026-08-27",
-      "month": "2026-08",
-      "name": "YES",
-      "amount": 149.7,
-      "card": "HiTechZone",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-08-27",
-      "month": "2026-08",
-      "name": "SANTI TLV",
-      "amount": 1230.0,
+      "date": "2026-04-03",
+      "month": "2026-04",
+      "name": "קפה דינצי",
+      "amount": 32.0,
       "card": "HiTechZone",
       "cat": "restaurants"
     },
     {
-      "date": "2026-08-27",
-      "month": "2026-08",
-      "name": "Wolt",
-      "amount": 29.0,
-      "card": "HiTechZone",
+      "date": "2026-04-02",
+      "month": "2026-04",
+      "name": "WOLT",
+      "amount": 149.9,
+      "card": "FlyCard",
       "cat": "restaurants"
     },
     {
-      "date": "2026-08-27",
-      "month": "2026-08",
-      "name": "ביטוח ישיר-חיים",
-      "amount": 114.98,
+      "date": "2026-04-01",
+      "month": "2026-04",
+      "name": "טוני בוצ'רי",
+      "amount": 168.9,
       "card": "HiTechZone",
-      "cat": "insurance"
+      "cat": "grocery"
     },
     {
-      "date": "2026-08-26",
-      "month": "2026-08",
-      "name": "AIRBNB * HMYMT8SS3K",
-      "amount": 4200.0,
-      "card": "HiTechZone",
-      "cat": "travel"
+      "date": "2026-03-31",
+      "month": "2026-03",
+      "name": "ANTHROPIC",
+      "amount": 16.11,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
-      "date": "2026-08-23",
-      "month": "2026-08",
-      "name": "סעוד הראל- כללית",
-      "amount": 41.3,
+      "date": "2026-03-31",
+      "month": "2026-03",
+      "name": "צומת ספרים דיזינגוף סנטר ג'",
+      "amount": 156.8,
       "card": "HiTechZone",
-      "cat": "health"
+      "cat": "other"
     },
     {
-      "date": "2026-08-23",
-      "month": "2026-08",
-      "name": "שרותי בריאות כללית",
-      "amount": 106.01,
-      "card": "HiTechZone",
-      "cat": "health"
+      "date": "2026-03-30",
+      "month": "2026-03",
+      "name": "ANTHROPIC",
+      "amount": 16.11,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
-      "date": "2026-08-22",
-      "month": "2026-08",
-      "name": "ג'ונו באצ'י",
+      "date": "2026-03-30",
+      "month": "2026-03",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-30",
+      "month": "2026-03",
+      "name": "בנץ ברדרס אבן גבירול",
       "amount": 76.0,
       "card": "HiTechZone",
       "cat": "restaurants"
     },
     {
-      "date": "2026-08-22",
-      "month": "2026-08",
-      "name": "פז אפליקצית-YELLOW",
-      "amount": 72.21,
-      "card": "HiTechZone",
-      "cat": "energy"
+      "date": "2026-03-29",
+      "month": "2026-03",
+      "name": "YES",
+      "amount": 99.8,
+      "card": "FlyCard",
+      "cat": "subscriptions"
     },
     {
-      "date": "2026-08-21",
-      "month": "2026-08",
-      "name": "מרלן",
-      "amount": 296.0,
+      "date": "2026-03-29",
+      "month": "2026-03",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 19.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-03-28",
+      "month": "2026-03",
+      "name": "סופר יודה אפליקציה",
+      "amount": 56.14,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-28",
+      "month": "2026-03",
+      "name": "APPLE.COM/BILL",
+      "amount": 12.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-28",
+      "month": "2026-03",
+      "name": "ארומה חוף גורדון",
+      "amount": 33.0,
       "card": "HiTechZone",
       "cat": "restaurants"
     },
     {
-      "date": "2026-08-21",
-      "month": "2026-08",
-      "name": "High tech",
-      "amount": 200.0,
+      "date": "2026-03-27",
+      "month": "2026-03",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 76.43,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-03-27",
+      "month": "2026-03",
+      "name": "אוזריה",
+      "amount": 297.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-26",
+      "month": "2026-03",
+      "name": "עיריית ת\"א -יפו ארנונה",
+      "amount": 499.96,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-03-26",
+      "month": "2026-03",
+      "name": "ANTHROPIC",
+      "amount": 16.03,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-26",
+      "month": "2026-03",
+      "name": "חוד המחט",
+      "amount": 100.0,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-26",
+      "month": "2026-03",
+      "name": "NUMERO ESIM",
+      "amount": 80.58,
       "card": "HiTechZone",
       "cat": "tech"
     },
     {
-      "date": "2026-08-20",
-      "month": "2026-08",
-      "name": "קפונה",
-      "amount": 360.0,
+      "date": "2026-03-25",
+      "month": "2026-03",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 113.23,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-03-25",
+      "month": "2026-03",
+      "name": "מ. התחבורה - פנגו מוביט",
+      "amount": 8.0,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-03-24",
+      "month": "2026-03",
+      "name": "סופר יודה אפליקציה",
+      "amount": 100.48,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-24",
+      "month": "2026-03",
+      "name": "בררת משפט טלאול",
+      "amount": 320.0,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-03-24",
+      "month": "2026-03",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 276.51,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-03-23",
+      "month": "2026-03",
+      "name": "סעוד הראל- כללית",
+      "amount": 40.47,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-03-23",
+      "month": "2026-03",
+      "name": "עמותת תובנה",
+      "amount": 85.0,
+      "card": "FlyCard",
+      "cat": "education"
+    },
+    {
+      "date": "2026-03-23",
+      "month": "2026-03",
+      "name": "שרותי בריאות כללית",
+      "amount": 104.39,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-03-22",
+      "month": "2026-03",
+      "name": "קפה מלבן כצנלסון",
+      "amount": 19.0,
       "card": "HiTechZone",
       "cat": "restaurants"
     },
     {
-      "date": "2026-08-18",
-      "month": "2026-08",
+      "date": "2026-03-21",
+      "month": "2026-03",
+      "name": "דלק מנטה מחלף זיכרון יעקב-צמרת",
+      "amount": 99.94,
+      "card": "HiTechZone",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-03-21",
+      "month": "2026-03",
+      "name": "טראק במושבה",
+      "amount": 39.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-20",
+      "month": "2026-03",
+      "name": "BIT",
+      "amount": 50.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-03-20",
+      "month": "2026-03",
+      "name": "שפע הברון בע\"מ",
+      "amount": 53.94,
+      "card": "HiTechZone",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-20",
+      "month": "2026-03",
+      "name": "סורסטו",
+      "amount": 52.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-19",
+      "month": "2026-03",
+      "name": "CLAUDE.AI SUBSCRIPTION",
+      "amount": 63.3,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-19",
+      "month": "2026-03",
+      "name": "אילי סנטר",
+      "amount": 520.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-03-19",
+      "month": "2026-03",
       "name": "חברת פרטנר תקשורת בע\"מ",
       "amount": 30.16,
-      "card": "HiTechZone",
+      "card": "FlyCard",
       "cat": "subscriptions"
     },
     {
-      "date": "2026-08-16",
-      "month": "2026-08",
-      "name": "חברת החשמל לישראל בע\"מ",
-      "amount": 565.71,
-      "card": "HiTechZone",
-      "cat": "home"
-    },
-    {
-      "date": "2026-08-16",
-      "month": "2026-08",
-      "name": "HOT",
-      "amount": 99.9,
-      "card": "HiTechZone",
-      "cat": "subscriptions"
-    },
-    {
-      "date": "2026-08-13",
-      "month": "2026-08",
-      "name": "מינימרקט חואשי",
-      "amount": 49.0,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-08-13",
-      "month": "2026-08",
-      "name": "מנו וינו דיזינגוף",
-      "amount": 109.9,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-08-12",
-      "month": "2026-08",
-      "name": "דיזנהום הכל לבית בע\"מ",
-      "amount": 59.0,
-      "card": "HiTechZone",
-      "cat": "home"
-    },
-    {
-      "date": "2026-08-12",
-      "month": "2026-08",
-      "name": "טוני בוצ'רי",
-      "amount": 127.1,
-      "card": "HiTechZone",
-      "cat": "grocery"
-    },
-    {
-      "date": "2026-08-12",
-      "month": "2026-08",
-      "name": "דמי כרטיס בנק הפועלים מסטר",
-      "amount": 0.0,
-      "card": "HiTechZone",
-      "cat": "other"
-    },
-    {
-      "date": "2026-08-11",
-      "month": "2026-08",
-      "name": "אוזריה",
-      "amount": 481.0,
+      "date": "2026-03-19",
+      "month": "2026-03",
+      "name": "ABIE",
+      "amount": 150.0,
       "card": "HiTechZone",
       "cat": "restaurants"
     },
     {
-      "date": "2026-08-09",
-      "month": "2026-08",
-      "name": "פיצוציה הצפון הישן",
-      "amount": 5.0,
-      "card": "HiTechZone",
+      "date": "2026-03-18",
+      "month": "2026-03",
+      "name": "סופר יודה אפליקציה",
+      "amount": 82.38,
+      "card": "FlyCard",
       "cat": "grocery"
     },
     {
-      "date": "2026-04-10",
-      "month": "2026-04",
+      "date": "2026-03-18",
+      "month": "2026-03",
+      "name": "קפה דינצי",
+      "amount": 37.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-16",
+      "month": "2026-03",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-16",
+      "month": "2026-03",
+      "name": "EL AL",
+      "amount": 1066.45,
+      "card": "HiTechZone",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-03-14",
+      "month": "2026-03",
+      "name": "תחנת דלק מיקה אילת",
+      "amount": 168.35,
+      "card": "HiTechZone",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-03-14",
+      "month": "2026-03",
+      "name": "ברביס ניהול מסעדות בע\"מ",
+      "amount": 201.6,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-14",
+      "month": "2026-03",
       "name": "בהצדעה",
       "amount": 247.0,
       "card": "Max",
-      "cat": "other"
+      "cat": "health",
+      "note": "תשלום 4 מתוך 6 (סה\"כ 2,129₪)"
     },
     {
-      "date": "2026-08-10",
-      "month": "2026-08",
-      "name": "בהצדעה",
-      "amount": 354.0,
-      "card": "Max",
-      "cat": "other"
+      "date": "2026-03-13",
+      "month": "2026-03",
+      "name": "פדרו",
+      "amount": 225.78,
+      "card": "HiTechZone",
+      "cat": "restaurants"
     },
     {
-      "date": "2026-08-10",
-      "month": "2026-08",
-      "name": "בהצדעה",
+      "date": "2026-03-13",
+      "month": "2026-03",
+      "name": "ארומה נביעות אילת",
+      "amount": 31.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-12",
+      "month": "2026-03",
+      "name": "לה סרדין",
+      "amount": 467.04,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-12",
+      "month": "2026-03",
+      "name": "מנו וינו דיזינגוף",
+      "amount": 109.9,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-12",
+      "month": "2026-03",
+      "name": "ארומה עבדת",
+      "amount": 17.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-11",
+      "month": "2026-03",
+      "name": "פיצה ברוקלין",
       "amount": 62.0,
-      "card": "Max",
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-11",
+      "month": "2026-03",
+      "name": "סיבוס פלאקסי",
+      "amount": 20.52,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-11",
+      "month": "2026-03",
+      "name": "קפה דינצי",
+      "amount": 15.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-11",
+      "month": "2026-03",
+      "name": "ROODI",
+      "amount": 100.0,
+      "card": "HiTechZone",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-10",
+      "month": "2026-03",
+      "name": "CARREFOUR CITY פנקס- יציל",
+      "amount": 112.11,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-09",
+      "month": "2026-03",
+      "name": "גוד פארם",
+      "amount": 154.8,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-03-09",
+      "month": "2026-03",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 32.86,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-07",
+      "month": "2026-03",
+      "name": "מנו וינו פנחס רוזן",
+      "amount": 109.9,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-07",
+      "month": "2026-03",
+      "name": "קרוט",
+      "amount": 106.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-06",
+      "month": "2026-03",
+      "name": "סופר יודה אפליקציה",
+      "amount": 66.42,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-06",
+      "month": "2026-03",
+      "name": "זט.אס.אינטרנשיונל אגינסי",
+      "amount": 436.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-03-06",
+      "month": "2026-03",
+      "name": "קלמנטינה פירות וירקות",
+      "amount": 15.0,
+      "card": "FlyCard",
       "cat": "other"
     },
     {
-      "date": "2026-07-10",
-      "month": "2026-07",
-      "name": "בהצדעה",
-      "amount": 359.0,
-      "card": "Max",
+      "date": "2026-03-06",
+      "month": "2026-03",
+      "name": "סטייל תכשיטים",
+      "amount": 30.0,
+      "card": "FlyCard",
+      "cat": "fashion"
+    },
+    {
+      "date": "2026-03-06",
+      "month": "2026-03",
+      "name": "מינימרקט קרן בע\"מ",
+      "amount": 69.26,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-06",
+      "month": "2026-03",
+      "name": "הפלאפל של ממר",
+      "amount": 18.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-03-05",
+      "month": "2026-03",
+      "name": "סופר יודה אפליקציה",
+      "amount": 62.09,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-03",
+      "month": "2026-03",
+      "name": "טוני בוצ'רי",
+      "amount": 14.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-03",
+      "month": "2026-03",
+      "name": "סופר יודה אפליקציה",
+      "amount": 20.1,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-02",
+      "month": "2026-03",
+      "name": "טוני בוצ'רי",
+      "amount": 43.6,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-03-01",
+      "month": "2026-03",
+      "name": "מי אביבים הוראת קבע",
+      "amount": 153.51,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-03-01",
+      "month": "2026-03",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-03-01",
+      "month": "2026-03",
+      "name": "אלמה מרקט דיזינגוף 253",
+      "amount": 48.75,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-28",
+      "month": "2026-02",
+      "name": "אמה בייקרי",
+      "amount": 48.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-28",
+      "month": "2026-02",
+      "name": "APPLE.COM/BILL",
+      "amount": 12.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-02-27",
+      "month": "2026-02",
+      "name": "סופר יודה אפליקציה",
+      "amount": 38.1,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-27",
+      "month": "2026-02",
+      "name": "סופר יודה אפליקציה",
+      "amount": 204.42,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-27",
+      "month": "2026-02",
+      "name": "מקדונלדס נמל תל אביב",
+      "amount": 24.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-27",
+      "month": "2026-02",
+      "name": "טוני בוצ'רי",
+      "amount": 145.7,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-27",
+      "month": "2026-02",
+      "name": "מנו וינו דיזינגוף",
+      "amount": 197.82,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-27",
+      "month": "2026-02",
+      "name": "קפה קיוסק",
+      "amount": 30.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-26",
+      "month": "2026-02",
+      "name": "bigpet",
+      "amount": 18.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-02-26",
+      "month": "2026-02",
+      "name": "הפניקס ביטוח",
+      "amount": 67.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-02-25",
+      "month": "2026-02",
+      "name": "מ. התחבורה - פנגו מוביט",
+      "amount": 11.5,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-02-25",
+      "month": "2026-02",
+      "name": "YES",
+      "amount": 99.8,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-02-25",
+      "month": "2026-02",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 19.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-02-24",
+      "month": "2026-02",
+      "name": "קרוט",
+      "amount": 73.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 71.19,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 113.02,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "סעוד הראל- כללית",
+      "amount": 40.39,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "שרותי בריאות כללית",
+      "amount": 104.19,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "מרקט משקאות TEKRAM",
+      "amount": 10.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "חניון אסותא",
+      "amount": 70.08,
+      "card": "FlyCard",
       "cat": "other"
     },
     {
-      "date": "2026-10-11",
-      "month": "2026-10",
-      "name": "בהצדעה",
-      "amount": 354.0,
-      "card": "Max",
+      "date": "2026-02-23",
+      "month": "2026-02",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 275.99,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-02-22",
+      "month": "2026-02",
+      "name": "קווי חופשה בע\"מ",
+      "amount": 1280.37,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-21",
+      "month": "2026-02",
+      "name": "מנו וינו דיזינגוף",
+      "amount": 170.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-20",
+      "month": "2026-02",
+      "name": "WHAT THE FICUS TLV",
+      "amount": 60.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-02-20",
+      "month": "2026-02",
+      "name": "טוני בוצ'רי",
+      "amount": 114.3,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-20",
+      "month": "2026-02",
+      "name": "קיוסק קקל",
+      "amount": 56.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-20",
+      "month": "2026-02",
+      "name": "אילי סנטר",
+      "amount": 520.0,
+      "card": "FlyCard",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-02-19",
+      "month": "2026-02",
+      "name": "LA SHUK A LA BAR",
+      "amount": 58.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-19",
+      "month": "2026-02",
+      "name": "שניט",
+      "amount": 34.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-19",
+      "month": "2026-02",
+      "name": "שניט",
+      "amount": 76.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-19",
+      "month": "2026-02",
+      "name": "CLAUDE.AI SUBSCRIPTION",
+      "amount": 63.85,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-02-19",
+      "month": "2026-02",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-02-18",
+      "month": "2026-02",
+      "name": "מנו וינו דיזינגוף",
+      "amount": 109.9,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-18",
+      "month": "2026-02",
+      "name": "PAYBOX",
+      "amount": 50.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-02-17",
+      "month": "2026-02",
+      "name": "בית קפה התחתית בע\"מ",
+      "amount": 91.0,
+      "card": "FlyCard",
       "cat": "other"
     },
     {
-      "date": "2026-09-10",
-      "month": "2026-09",
-      "name": "בהצדעה",
-      "amount": 354.0,
-      "card": "Max",
+      "date": "2026-02-16",
+      "month": "2026-02",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-02-15",
+      "month": "2026-02",
+      "name": "HATACO",
+      "amount": 138.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-15",
+      "month": "2026-02",
+      "name": "חברת החשמל לישראל בע\"מ",
+      "amount": 460.48,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-02-14",
+      "month": "2026-02",
+      "name": "סופר יודה אפליקציה",
+      "amount": 46.37,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-14",
+      "month": "2026-02",
+      "name": "קפה יודפת",
+      "amount": 47.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-13",
+      "month": "2026-02",
+      "name": "דיזנהום הכל לבית בע\"מ",
+      "amount": 35.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-02-12",
+      "month": "2026-02",
+      "name": "אחוזת החוף - חניון בני דן",
+      "amount": 80.0,
+      "card": "FlyCard",
       "cat": "other"
     },
     {
-      "date": "2026-09-10",
-      "month": "2026-09",
-      "name": "בהצדעה",
-      "amount": 89.0,
-      "card": "Max",
+      "date": "2026-02-12",
+      "month": "2026-02",
+      "name": "סופר יודה אפליקציה",
+      "amount": 90.08,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-11",
+      "month": "2026-02",
+      "name": "Gett",
+      "amount": 62.7,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-02-11",
+      "month": "2026-02",
+      "name": "קפה קיוסק",
+      "amount": 30.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-02-10",
+      "month": "2026-02",
+      "name": "גוד פארם בע\"מ",
+      "amount": 31.9,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-02-09",
+      "month": "2026-02",
+      "name": "BOLT.EUO2602090731",
+      "amount": 149.27,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-02-09",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 2.76,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-09",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 50.32,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-08",
+      "month": "2026-02",
+      "name": "BOLT.EUO2602081551",
+      "amount": 73.89,
+      "card": "FlyCard",
       "cat": "other"
+    },
+    {
+      "date": "2026-02-08",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 22.12,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-08",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 99.53,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-07",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 188.01,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-07",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 16.59,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-07",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 34.1,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-07",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 18.43,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 42.17,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 181.92,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 33.18,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "SUPERMERCADO PICASSO 2",
+      "amount": 7.47,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 170.68,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 29.42,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 11.0,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 194.35,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-06",
+      "month": "2026-02",
+      "name": "BAR CURTIS",
+      "amount": 90.06,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-02-05",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 127.64,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-05",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 18.96,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-05",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 10.94,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-05",
+      "month": "2026-02",
+      "name": "שרותי בריאות כללית",
+      "amount": 84.0,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-02-05",
+      "month": "2026-02",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 29.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-02-04",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 20.42,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-04",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 4.74,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-04",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 36.47,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-03",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 42.96,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-03",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 10.92,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-03",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 70.49,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-03",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 8.09,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-02",
+      "month": "2026-02",
+      "name": "קווי חופשה בע\"מ",
+      "amount": 141.88,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-02",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 58.36,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-02",
+      "month": "2026-02",
+      "name": "EL TALLER",
+      "amount": 14.08,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-02-01",
+      "month": "2026-02",
+      "name": "קווי חופשה בע\"מ",
+      "amount": 871.8,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-01",
+      "month": "2026-02",
+      "name": "BOLT.EUO2602010805",
+      "amount": 33.46,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-02-01",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 59.83,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-02-01",
+      "month": "2026-02",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 1846.75,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-31",
+      "month": "2026-01",
+      "name": "BOLT.EUO2601311406",
+      "amount": 36.47,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-01-31",
+      "month": "2026-01",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 369.35,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 19.13,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 128.16,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 184.68,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 66.0,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "PASSPORTCARD FINANCIAL",
+      "amount": 1502.57,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "AIRALO",
+      "amount": 69.32,
+      "card": "FlyCard",
+      "cat": "tech"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "CATALONIA PLAZA ESPANA",
+      "amount": 958.77,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "פספורטכארד ישראל סוכנות לביטוח כללי 2014",
+      "amount": 118.81,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-30",
+      "month": "2026-01",
+      "name": "APPLE.COM/BILL",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-01-29",
+      "month": "2026-01",
+      "name": "CARREFOUR CITY פנקס- יציל",
+      "amount": 152.7,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-29",
+      "month": "2026-01",
+      "name": "מנורה מבטחים-חיים/בריאות",
+      "amount": 276.77,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-01-29",
+      "month": "2026-01",
+      "name": "APPLE.COM/BILL",
+      "amount": 12.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-01-28",
+      "month": "2026-01",
+      "name": "סופרפארם ארלוזורוב 220",
+      "amount": 29.9,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-28",
+      "month": "2026-01",
+      "name": "שה ויוי",
+      "amount": 30.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-28",
+      "month": "2026-01",
+      "name": "הפניקס חיים ובריאות",
+      "amount": 19.0,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-01-27",
+      "month": "2026-01",
+      "name": "ישיר-ביטוח",
+      "amount": 297.56,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-01-27",
+      "month": "2026-01",
+      "name": "ביטוח ישיר-חיים",
+      "amount": 113.34,
+      "card": "FlyCard",
+      "cat": "insurance"
+    },
+    {
+      "date": "2026-01-27",
+      "month": "2026-01",
+      "name": "YES",
+      "amount": 99.8,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-01-26",
+      "month": "2026-01",
+      "name": "עיריית ת\"א -יפו ארנונה",
+      "amount": 485.78,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-01-25",
+      "month": "2026-01",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 67.12,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-01-25",
+      "month": "2026-01",
+      "name": "מ. התחבורה - פנגו מוביט",
+      "amount": 35.5,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-01-23",
+      "month": "2026-01",
+      "name": "lenuL לונל",
+      "amount": 398.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-23",
+      "month": "2026-01",
+      "name": "ג'נטלמן-דיזנגוף סנטר",
+      "amount": 200.0,
+      "card": "FlyCard",
+      "cat": "home"
+    },
+    {
+      "date": "2026-01-23",
+      "month": "2026-01",
+      "name": "SHORT STORY דיזנגוף 173 תל אביב-גמא",
+      "amount": 223.92,
+      "card": "FlyCard",
+      "cat": "fashion"
+    },
+    {
+      "date": "2026-01-23",
+      "month": "2026-01",
+      "name": "סביח פרישמן",
+      "amount": 101.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-23",
+      "month": "2026-01",
+      "name": "קפה בלפור",
+      "amount": 39.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "סעוד הראל- כללית",
+      "amount": 40.51,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "BIT",
+      "amount": 117.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "WH Smith Stansted",
+      "amount": 98.36,
+      "card": "FlyCard",
+      "cat": "equipment"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "Zettle_*Artist Cafe",
+      "amount": 177.69,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "שרותי בריאות כללית",
+      "amount": 104.49,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "MCDONALDS",
+      "amount": 2.15,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-22",
+      "month": "2026-01",
+      "name": "MCDONALDS",
+      "amount": 36.01,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-21",
+      "month": "2026-01",
+      "name": "TFL TRAVEL CH",
+      "amount": 38.63,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-21",
+      "month": "2026-01",
+      "name": "SQ *BLANK STREET UK LI",
+      "amount": 16.04,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-21",
+      "month": "2026-01",
+      "name": "MCDONALDS",
+      "amount": 15.52,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-20",
+      "month": "2026-01",
+      "name": "TFL TRAVEL CH",
+      "amount": 69.54,
+      "card": "FlyCard",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-01-20",
+      "month": "2026-01",
+      "name": "SAINSBURYS S/MKTS",
+      "amount": 239.61,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-20",
+      "month": "2026-01",
+      "name": "BOOTS THE CHEMISTS",
+      "amount": 48.72,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-20",
+      "month": "2026-01",
+      "name": "Chozen Noodle",
+      "amount": 55.26,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-20",
+      "month": "2026-01",
+      "name": "SPICE OF LIFE",
+      "amount": 62.85,
+      "card": "FlyCard",
+      "cat": "other"
+    },
+    {
+      "date": "2026-01-19",
+      "month": "2026-01",
+      "name": "The Devonshire",
+      "amount": 70.28,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-19",
+      "month": "2026-01",
+      "name": "AIRALO",
+      "amount": 38.6,
+      "card": "FlyCard",
+      "cat": "tech"
+    },
+    {
+      "date": "2026-01-19",
+      "month": "2026-01",
+      "name": "קפה קפה טרמינל 3 נתב\"ג בע",
+      "amount": 40.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-18",
+      "month": "2026-01",
+      "name": "ורמוטריה",
+      "amount": 343.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-18",
+      "month": "2026-01",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 30.16,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-01-17",
+      "month": "2026-01",
+      "name": "קפה אירופה",
+      "amount": 100.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-17",
+      "month": "2026-01",
+      "name": "דלק קמעונאות השחר",
+      "amount": 91.22,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-01-17",
+      "month": "2026-01",
+      "name": "דלק קמעונאות השחר",
+      "amount": 35.9,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-01-17",
+      "month": "2026-01",
+      "name": "מקדונלד'ס GOOGLE PAY/APPLE",
+      "amount": 84.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "mizumi",
+      "amount": 188.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "Gett",
+      "amount": 52.8,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "WOLT",
+      "amount": 67.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "WOLT",
+      "amount": 125.8,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "לבובסקי",
+      "amount": 86.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "HOT",
+      "amount": 99.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-01-16",
+      "month": "2026-01",
+      "name": "SUF",
+      "amount": 305.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-14",
+      "month": "2026-01",
+      "name": "מרכז לגביית קנסות",
+      "amount": 650.0,
+      "card": "FlyCard",
+      "cat": "institutions"
+    },
+    {
+      "date": "2026-01-14",
+      "month": "2026-01",
+      "name": "סופר יודה ישעיהו פינת ירמיהו",
+      "amount": 48.38,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-12",
+      "month": "2026-01",
+      "name": "א.א. כיף בע\"מ-ביצ'יקלטה",
+      "amount": 158.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-10",
+      "month": "2026-01",
+      "name": "LIME*2 RIDES BIVT",
+      "amount": 24.0,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-01-10",
+      "month": "2026-01",
+      "name": "סופר-פארם נמל-תל אביב 205",
+      "amount": 13.9,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-09",
+      "month": "2026-01",
+      "name": "סופר באבא",
+      "amount": 23.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-09",
+      "month": "2026-01",
+      "name": "סופר יודה אפליקציה",
+      "amount": 92.81,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-09",
+      "month": "2026-01",
+      "name": "איציק ורותי",
+      "amount": 45.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-09",
+      "month": "2026-01",
+      "name": "גוד פארם",
+      "amount": 11.9,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-09",
+      "month": "2026-01",
+      "name": "איי.אם.פי.אם",
+      "amount": 19.9,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-08",
+      "month": "2026-01",
+      "name": "ABIE",
+      "amount": 455.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-08",
+      "month": "2026-01",
+      "name": "Gett",
+      "amount": 47.5,
+      "card": "FlyCard",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-01-08",
+      "month": "2026-01",
+      "name": "העברה ב BIT בנה\"פ",
+      "amount": 2.1,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-01-07",
+      "month": "2026-01",
+      "name": "חומוס חמודות",
+      "amount": 20.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-06",
+      "month": "2026-01",
+      "name": "שרותי בריאות כללית",
+      "amount": 40.0,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-06",
+      "month": "2026-01",
+      "name": "גוד פארם בע\"מ",
+      "amount": 299.9,
+      "card": "FlyCard",
+      "cat": "health"
+    },
+    {
+      "date": "2026-01-05",
+      "month": "2026-01",
+      "name": "חברת פרטנר תקשורת בע\"מ",
+      "amount": 29.9,
+      "card": "FlyCard",
+      "cat": "subscriptions"
+    },
+    {
+      "date": "2026-01-04",
+      "month": "2026-01",
+      "name": "סופר יודה אפליקציה",
+      "amount": 105.67,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-03",
+      "month": "2026-01",
+      "name": "SMOKED ROOM",
+      "amount": 1898.95,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-03",
+      "month": "2026-01",
+      "name": "רולדין ויולה",
+      "amount": 12.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-03",
+      "month": "2026-01",
+      "name": "אצל מנש",
+      "amount": 42.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-03",
+      "month": "2026-01",
+      "name": "טיב טעם רשתות מזא\"ה",
+      "amount": 95.0,
+      "card": "FlyCard",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-01-03",
+      "month": "2026-01",
+      "name": "פז אפליקצית-YELLOW",
+      "amount": 67.08,
+      "card": "FlyCard",
+      "cat": "energy"
+    },
+    {
+      "date": "2026-01-02",
+      "month": "2026-01",
+      "name": "גוצ'ה רמת החייל",
+      "amount": 280.0,
+      "card": "FlyCard",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-01-01",
+      "month": "2026-01",
+      "name": "העברה ב BIT בנה\"פ",
+      "amount": 1000.0,
+      "card": "FlyCard",
+      "cat": "transfers"
+    },
+    {
+      "date": "2026-01-01",
+      "month": "2026-01",
+      "name": "Gett",
+      "amount": 51.0,
+      "card": "FlyCard",
+      "cat": "transport"
     }
   ],
-  "monthly_summary": {
-    "2025-12": {
-      "total": 8166.05,
-      "by_cat": {
-        "insurance": 3726.17,
-        "restaurants": 1154.0,
-        "events": 105.0,
-        "subscriptions": 288.65000000000003,
-        "institutions": 686.78,
-        "grocery": 532.59,
-        "other": 648.23,
-        "home": 477.59,
-        "health": 230.0,
-        "fashion": 150.9,
-        "energy": 72.44,
-        "transport": 93.7
-      },
-      "by_card": {
-        "FlyCard": 8166.05
-      },
-      "count": 52
-    },
-    "2026-01": {
-      "total": 12684.13,
-      "by_cat": {
-        "transport": 247.26999999999998,
-        "travel": 2388.7,
-        "tech": 107.91999999999999,
-        "hotel": 958.77,
-        "subscriptions": 368.55999999999995,
-        "grocery": 777.0699999999999,
-        "insurance": 706.67,
-        "health": 589.3199999999999,
-        "restaurants": 3291.45,
-        "institutions": 1135.78,
-        "energy": 261.32,
-        "equipment": 137.26,
-        "home": 200.0,
-        "fashion": 223.92,
-        "transfers": 117.0,
-        "other": 1110.27,
-        "events": 62.85
-      },
-      "by_card": {
-        "FlyCard": 12684.13
-      },
-      "count": 87
-    },
-    "2026-02": {
-      "total": 10454.97,
-      "by_cat": {
-        "transport": 330.82,
-        "travel": 5705.2,
-        "grocery": 1134.1599999999999,
-        "events": 195.14,
-        "restaurants": 614.0,
-        "subscriptions": 336.51,
-        "pet": 18.0,
-        "insurance": 475.01,
-        "equipment": 38.9,
-        "energy": 71.19,
-        "health": 260.48,
-        "other": 150.07999999999998,
-        "home": 555.48,
-        "entertainment": 520.0,
-        "transfers": 50.0
-      },
-      "by_card": {
-        "FlyCard": 10454.97
-      },
-      "count": 85
-    },
-    "2026-03": {
-      "total": 7540.4800000000005,
-      "by_cat": {
-        "tech": 128.82999999999998,
-        "subscriptions": 317.96000000000004,
-        "insurance": 408.74,
-        "grocery": 827.06,
-        "energy": 344.72,
-        "institutions": 819.96,
-        "transport": 8.0,
-        "equipment": 778.72,
-        "health": 144.86,
-        "education": 85.0,
-        "transfers": 50.0,
-        "entertainment": 520.0,
-        "restaurants": 1417.3799999999999,
-        "home": 436.0,
-        "fashion": 30.0,
-        "kids": 156.8,
-        "travel": 1066.45
-      },
-      "by_card": {
-        "FlyCard": 4536.040000000001,
-        "HiTechZone": 3004.44
-      },
-      "count": 59
-    },
-    "2026-04": {
-      "total": 9643.089999999998,
-      "by_cat": {
-        "grocery": 848.72,
-        "restaurants": 1649.6999999999998,
-        "health": 580.42,
-        "tech": 227.61,
-        "pet": 165.0,
-        "subscriptions": 349.09999999999997,
-        "energy": 454.77,
-        "other": 570.0,
-        "insurance": 406.38,
-        "institutions": 89.56,
-        "transport": 37.88,
-        "equipment": 531.1,
-        "transfers": 1070.0,
-        "entertainment": 801.91,
-        "home": 791.84,
-        "fashion": 936.1,
-        "events": 133.0
-      },
-      "by_card": {
-        "FlyCard": 6577.0999999999985,
-        "HiTechZone": 2818.9899999999993,
-        "Max": 247.0
-      },
-      "count": 75
-    },
-    "2026-05": {
-      "total": 5717.449999999999,
-      "by_cat": {
-        "grocery": 1927.9299999999998,
-        "entertainment": 661.5,
-        "restaurants": 1178.8799999999999,
-        "energy": 507.6,
-        "subscriptions": 381.90999999999997,
-        "home": 207.0,
-        "transfers": 1255.0,
-        "insurance": -2118.17,
-        "institutions": 499.51,
-        "transport": 86.1,
-        "equipment": 0.0,
-        "health": 215.11,
-        "other": 900.0,
-        "tech": 15.08
-      },
-      "by_card": {
-        "FlyCard": 5313.949999999999,
-        "HiTechZone": 403.5
-      },
-      "count": 68
-    },
-    "2026-06": {
-      "total": 8239.56,
-      "by_cat": {
-        "transfers": 350.0,
-        "subscriptions": 297.55999999999995,
-        "institutions": 165.93,
-        "insurance": 420.37,
-        "transport": 1118.4,
-        "equipment": 0.0,
-        "health": 163.09,
-        "entertainment": 1033.3999999999999,
-        "home": 1254.44,
-        "charity": 50.0,
-        "restaurants": 1016.55,
-        "other": 90.0,
-        "grocery": 1159.62,
-        "fashion": 880.9,
-        "energy": 99.3,
-        "events": 65.0,
-        "beauty": 75.0
-      },
-      "by_card": {
-        "FlyCard": 2804.5000000000005,
-        "HiTechZone": 5435.06
-      },
-      "count": 69
-    },
-    "2026-07": {
-      "total": 8281.449999999999,
-      "by_cat": {
-        "fashion": 562.8399999999999,
-        "subscriptions": 540.5500000000001,
-        "transfers": 330.0,
-        "equipment": 0.0,
-        "other": 1406.72,
-        "insurance": 420.37,
-        "entertainment": 520.0,
-        "transport": 617.12,
-        "restaurants": 1470.0,
-        "home": 140.71,
-        "health": 474.48999999999995,
-        "institutions": 515.13,
-        "grocery": 956.58,
-        "pet": 40.0,
-        "tech": 99.0,
-        "energy": 141.94,
-        "events": 29.0,
-        "travel": 17.0
-      },
-      "by_card": {
-        "FlyCard": 2546.82,
-        "HiTechZone": 5375.630000000001,
-        "Max": 359.0
-      },
-      "count": 68
-    },
-    "2026-08": {
-      "total": 22303.709999999995,
-      "by_cat": {
-        "restaurants": 3121.38,
-        "other": 495.0,
-        "transfers": 1640.0,
-        "travel": 8342.509999999998,
-        "pet": 165.0,
-        "subscriptions": 653.9099999999999,
-        "grocery": 783.37,
-        "equipment": 0.0,
-        "insurance": 421.5,
-        "entertainment": 529.0,
-        "transport": 4638.9800000000005,
-        "health": 340.31,
-        "energy": 150.89,
-        "home": 640.61,
-        "institutions": 181.25,
-        "tech": 200.0
-      },
-      "by_card": {
-        "FlyCard": 12235.189999999999,
-        "HiTechZone": 9652.519999999999,
-        "Max": 416.0
-      },
-      "count": 66
-    },
-    "2026-09": {
-      "total": 18069.190000000002,
-      "by_cat": {
-        "home": 0.0,
-        "grocery": 2671.19,
-        "subscriptions": 583.01,
-        "equipment": 0.0,
-        "insurance": 424.18,
-        "transport": 6536.42,
-        "travel": 3498.2199999999984,
-        "entertainment": 690.0,
-        "restaurants": 693.27,
-        "energy": 485.48,
-        "fashion": 897.4799999999999,
-        "events": 336.0,
-        "health": 200.60999999999999,
-        "institutions": 505.45,
-        "other": 443.0,
-        "tech": 104.88
-      },
-      "by_card": {
-        "FlyCard": 15632.920000000004,
-        "HiTechZone": 1993.2699999999998,
-        "Max": 443.0
-      },
-      "count": 109
-    },
-    "2026-10": {
-      "total": 384.0,
-      "by_cat": {
-        "restaurants": 30.0,
-        "other": 354.0
-      },
-      "by_card": {
-        "FlyCard": 30.0,
-        "Max": 354.0
-      },
-      "count": 2
-    }
-  },
   "months": [
-    "2025-12",
     "2026-01",
     "2026-02",
     "2026-03",
@@ -6207,5 +5411,233 @@
     "2026-08",
     "2026-09",
     "2026-10"
+  ],
+  "summary": {
+    "2026-01": {
+      "total": 13341.38,
+      "by_cat": {
+        "energy": 261.32,
+        "equipment": 98.36,
+        "fashion": 223.92,
+        "grocery": 777.07,
+        "health": 589.32,
+        "home": 200.0,
+        "institutions": 1171.28,
+        "insurance": 706.67,
+        "other": 99.32,
+        "restaurants": 5190.7,
+        "subscriptions": 284.56,
+        "tech": 107.92,
+        "transport": 175.3,
+        "travel": 3455.64
+      },
+      "by_card": {
+        "FlyCard": 13341.38
+      },
+      "count": 82
+    },
+    "2026-02": {
+      "total": 10366.07,
+      "by_cat": {
+        "energy": 531.67,
+        "entertainment": 520.0,
+        "grocery": 1134.16,
+        "health": 260.48,
+        "home": 113.0,
+        "institutions": 11.5,
+        "insurance": 475.01,
+        "other": 452.57,
+        "restaurants": 614.0,
+        "subscriptions": 336.51,
+        "transport": 211.97,
+        "travel": 5705.2
+      },
+      "by_card": {
+        "FlyCard": 10366.07
+      },
+      "count": 83
+    },
+    "2026-03": {
+      "total": 8098.4,
+      "by_cat": {
+        "education": 85.0,
+        "energy": 498.23,
+        "entertainment": 767.0,
+        "fashion": 30.0,
+        "grocery": 1049.07,
+        "health": 299.66,
+        "home": 436.0,
+        "institutions": 827.96,
+        "insurance": 408.74,
+        "other": 171.8,
+        "restaurants": 1966.94,
+        "subscriptions": 410.97,
+        "tech": 80.58,
+        "travel": 1066.45
+      },
+      "by_card": {
+        "FlyCard": 4846.96,
+        "HiTechZone": 3004.44,
+        "Max": 247.0
+      },
+      "count": 67
+    },
+    "2026-04": {
+      "total": 8079.99,
+      "by_cat": {
+        "energy": 1030.97,
+        "entertainment": 961.91,
+        "equipment": 285.0,
+        "fashion": 936.1,
+        "grocery": 848.72,
+        "health": 580.42,
+        "home": 470.2,
+        "insurance": 406.38,
+        "other": 296.0,
+        "restaurants": 1649.7,
+        "subscriptions": 349.1,
+        "tech": 227.61,
+        "transport": 37.88
+      },
+      "by_card": {
+        "FlyCard": 5546.0,
+        "HiTechZone": 2533.99
+      },
+      "count": 69
+    },
+    "2026-05": {
+      "total": 6093.45,
+      "by_cat": {
+        "energy": 507.6,
+        "entertainment": 559.5,
+        "grocery": 1927.93,
+        "health": 215.11,
+        "home": 207.0,
+        "institutions": 515.51,
+        "insurance": 412.83,
+        "other": 102.0,
+        "restaurants": 1178.88,
+        "subscriptions": 396.99,
+        "transport": 70.1
+      },
+      "by_card": {
+        "FlyCard": 5689.95,
+        "HiTechZone": 403.5
+      },
+      "count": 58
+    },
+    "2026-06": {
+      "total": 7374.56,
+      "by_cat": {
+        "energy": 797.67,
+        "entertainment": 1033.4,
+        "fashion": 880.9,
+        "grocery": 1159.62,
+        "health": 163.09,
+        "home": 722.0,
+        "institutions": 8.0,
+        "insurance": 420.37,
+        "other": 294.0,
+        "restaurants": 1002.55,
+        "subscriptions": 297.56,
+        "transport": 595.4
+      },
+      "by_card": {
+        "FlyCard": 2454.5,
+        "HiTechZone": 4920.06
+      },
+      "count": 64
+    },
+    "2026-07": {
+      "total": 7776.9,
+      "by_cat": {
+        "energy": 141.94,
+        "entertainment": 1351.0,
+        "fashion": 562.84,
+        "grocery": 956.58,
+        "health": 474.49,
+        "home": 687.71,
+        "institutions": 515.13,
+        "insurance": 420.37,
+        "other": 307.72,
+        "restaurants": 1322.0,
+        "subscriptions": 304.0,
+        "tech": 99.0,
+        "transport": 617.12,
+        "travel": 17.0
+      },
+      "by_card": {
+        "FlyCard": 1980.27,
+        "HiTechZone": 5375.63,
+        "Max": 421.0
+      },
+      "count": 65
+    },
+    "2026-08": {
+      "total": 21022.47,
+      "by_cat": {
+        "energy": 897.85,
+        "entertainment": 972.0,
+        "grocery": 783.37,
+        "health": 340.31,
+        "home": 239.9,
+        "insurance": 421.5,
+        "other": 79.0,
+        "restaurants": 3121.38,
+        "subscriptions": 452.26,
+        "tech": 200.0,
+        "transport": 4638.98,
+        "travel": 8875.92
+      },
+      "by_card": {
+        "FlyCard": 10926.95,
+        "HiTechZone": 9652.52,
+        "Max": 443.0
+      },
+      "count": 56
+    },
+    "2026-09": {
+      "total": 20122.68,
+      "by_cat": {
+        "energy": 485.48,
+        "entertainment": 1296.0,
+        "fashion": 897.48,
+        "grocery": 2671.19,
+        "health": 200.61,
+        "home": 669.0,
+        "institutions": 516.95,
+        "insurance": 424.18,
+        "other": 84.0,
+        "restaurants": 693.27,
+        "subscriptions": 346.46,
+        "tech": 104.88,
+        "transport": 6513.42,
+        "travel": 5219.76
+      },
+      "by_card": {
+        "FlyCard": 17786.91,
+        "HiTechZone": 1981.77,
+        "Max": 354.0
+      },
+      "count": 103
+    },
+    "2026-10": {
+      "total": 384.0,
+      "by_cat": {
+        "entertainment": 354.0,
+        "restaurants": 30.0
+      },
+      "by_card": {
+        "FlyCard": 30.0,
+        "Max": 354.0
+      },
+      "count": 2
+    }
+  },
+  "generated": "2026-10-18T19:26:08",
+  "sources": [
+    "FlyCard",
+    "HiTechZone",
+    "Max"
   ]
 }

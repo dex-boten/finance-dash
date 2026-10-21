@@ -1,0 +1,54 @@
+{
+  "monthly": {
+    "restaurants": 1200,
+    "grocery": 900,
+    "transport": 200,
+    "fashion": 300,
+    "entertainment": 400,
+    "health": 400,
+    "tech": 200,
+    "insurance": 700,
+    "institutions": 300,
+    "subscriptions": 1200,
+    "home": 500,
+    "energy": 300,
+    "travel": 0,
+    "other": 0,
+    "transfers": 0
+  },
+  "monthly_income": 15210,
+  "categories": {
+    "restaurants": { "he": "מסעדות", "emoji": "🍽️", "fixed": false },
+    "grocery":     { "he": "קניות סופר", "emoji": "🛒", "fixed": false },
+    "transport":   { "he": "תחבורה", "emoji": "🚗", "fixed": false },
+    "fashion":     { "he": "אופנה", "emoji": "👗", "fixed": false },
+    "entertainment":{ "he": "בידור", "emoji": "🎬", "fixed": false },
+    "health":      { "he": "בריאות", "emoji": "💊", "fixed": false },
+    "tech":        { "he": "טכנולוגיה", "emoji": "💻", "fixed": false },
+    "insurance":   { "he": "ביטוחים", "emoji": "🛡️", "fixed": true },
+    "institutions":{ "he": "מוסדות", "emoji": "🏛️", "fixed": true },
+    "subscriptions":{ "he": "מנויים", "emoji": "📱", "fixed": true },
+    "home":        { "he": "בית", "emoji": "🏠", "fixed": false },
+    "energy":      { "he": "חשמל ומים", "emoji": "⚡", "fixed": true },
+    "travel":      { "he": "נסיעות", "emoji": "✈️", "fixed": false },
+    "other":       { "he": "שונות", "emoji": "📦", "fixed": false }
+  },
+  "subscriptions_detail": [
+    { "name": "HOT Internet", "monthly": 99.90, "category": "internet",
+      "savings_tip": "Bezeq מציע 69₪/חודש — חיסכון של כ-360₪/שנה",
+      "savings_url": "https://www.bezeq.co.il/internet/" },
+    { "name": "Sting+ / HBO Max", "monthly": 149.70, "category": "tv", "savings_tip": null },
+    { "name": "פרטנר סלולר", "monthly": 29.90, "category": "mobile", "savings_tip": null },
+    { "name": "כללית (ביטוח בריאות)", "monthly": 185, "category": "health", "savings_tip": null },
+    { "name": "אילי סנטר", "monthly": 520, "category": "fitness",
+      "savings_tip": "520₪/חודש — בדוק אם יש חלופות זולות יותר",
+      "savings_url": null },
+    { "name": "Apple TV+ / iCloud", "monthly": 37.80, "category": "tech", "savings_tip": null },
+    { "name": "Claude.ai", "monthly": 63, "category": "ai", "savings_tip": null }
+  ],
+  "notes": {
+    "updated": "2026-10-18",
+    "october_partial": true,
+    "october_note": "אוקטובר — נתונים חלקיים (חיוב נסגר ב-10/11)"
+  }
+}
