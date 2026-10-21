@@ -357,9 +357,9 @@ button,a{font-family:inherit}
 
 <!-- ── MONTH NAV ROW (hidden on tabs 3+4) ── -->
 <div class="mnav" id="mnavRow">
-  <button class="mnav-btn" id="prevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
-  <div class="mnav-label" id="monthLabel" aria-live="polite">—</div>
   <button class="mnav-btn" id="nextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
+  <div class="mnav-label" id="monthLabel" aria-live="polite">—</div>
+  <button class="mnav-btn" id="prevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
 </div>
 
 <!-- ═══════════════════════════════════════════════ -->
@@ -666,7 +666,7 @@ function render() {
   const [yr, mo] = month.split('-').map(Number);
   document.getElementById('monthLabel').textContent = HE_MO[mo] + ' ' + yr;
   document.getElementById('prevBtn').disabled = curIdx === 0;
-  document.getElementById('nextBtn').disabled = curIdx === MONTHS.length-1;
+  document.getElementById('nextBtn').disabled = curIdx === MONTHS.length-1; // nextBtn on LEFT, prevBtn on RIGHT (RTL)
   if (curTab === 0) renderDash();
   if (curTab === 1) renderCats();
   if (curTab === 2) renderSubs();
