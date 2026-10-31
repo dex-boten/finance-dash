@@ -529,26 +529,57 @@ button,a{font-family:inherit}
 <!-- ══════════════════════════════════════════════════════ -->
 <script>
 
-// ── AUTH ──────────────────────────────────────────────────────
-const PASS = 'Shaked2026';
-document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
-function unlock(){
-  if(document.getElementById('pw').value===PASS){
-    document.getElementById('lock').style.display='none';
-    sessionStorage.setItem('fin_auth','1');
-  } else {
-    document.getElementById('le').textContent='סיסמה שגויה ❌';
-    document.getElementById('pw').value='';
+// ── AUTH (AES-256-GCM) ───────────────────────────────────────
+let _decryptedData = null;
+
+async function deriveKey(password, salt) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, hash: 'SHA-256', iterations: 100000 },
+    keyMaterial,
+    { name: 'AES-GCM', length: 256 },
+    false, ['decrypt']
+  );
+}
+
+function b64(s) { return Uint8Array.from(atob(s), c => c.charCodeAt(0)); }
+
+async function unlock() {
+  const pw = document.getElementById('pw').value;
+  const le = document.getElementById('le');
+  le.textContent = 'מפענח...';
+  try {
+    const enc = await fetch('data.enc').then(r => r.json());
+    const key = await deriveKey(pw, b64(enc.salt));
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(enc.iv) }, key, b64(enc.ct));
+    _decryptedData = JSON.parse(new TextDecoder().decode(plain));
+    document.getElementById('lock').style.display = 'none';
+    sessionStorage.setItem('fin_auth', pw);
+    init(_decryptedData);
+  } catch(e) {
+    le.textContent = 'סיסמה שגויה ❌';
+    document.getElementById('pw').value = '';
   }
 }
-function doLock(){
+
+function doLock() {
   sessionStorage.removeItem('fin_auth');
-  document.getElementById('lock').style.display='flex';
-  document.getElementById('pw').value='';
+  document.getElementById('lock').style.display = 'flex';
+  document.getElementById('pw').value = '';
+  _decryptedData = null;
 }
-if(sessionStorage.getItem('fin_auth')==='1'){
-  document.getElementById('lock').style.display='none';
-}
+
+document.getElementById('pw').addEventListener('keydown', e => { if(e.key === 'Enter') unlock(); });
+
+// Auto-unlock if password cached in session
+(async () => {
+  const cached = sessionStorage.getItem('fin_auth');
+  if (cached) {
+    document.getElementById('pw').value = cached;
+    await unlock();
+  }
+})();
 
 
 'use strict';
@@ -652,9 +683,10 @@ function f(n, dec=0) {
 function pct(n) { return Math.round(n) + '%'; }
 
 // ── INIT ─────────────────────────────────────────────────
-async function init() {
+async function init(data) {
+  if(!data){console.warn("init() called without data");return;}
   try {
-    DATA   = await (await fetch('data.json')).json();
+    DATA   = data; // pre-decrypted by AES-GCM auth
     TXNS   = DATA.transactions;
     SUM    = DATA.summary;
     MONTHS = DATA.months.filter(m => m >= '2026-01');
@@ -1105,7 +1137,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ── START ─────────────────────────────────────────────────
-init();
+// init() called after successful password decryption only
 </script>
 </body>
 </html>
