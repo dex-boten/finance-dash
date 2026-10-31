@@ -342,9 +342,34 @@ button,a{font-family:inherit}
   .cat-grid,.sub-cards,.rec-cards,.asset-list{padding:0 16px}
   .hero-amount{font-size:52px}
 }
+
+/* ── LOGIN ── */
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:16px}
+#lock .l-logo{font-size:48px;margin-bottom:4px}
+#lock .l-title{font-size:22px;font-weight:700;color:#fff;letter-spacing:1px}
+#lock .l-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:8px}
+#lock .l-form{display:flex;flex-direction:column;gap:10px;width:240px}
+#lock .l-input{padding:12px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:16px;text-align:center;outline:none}
+#lock .l-input:focus{border-color:#e94560}
+#lock .l-btn{padding:12px;border-radius:12px;background:#e94560;color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer}
+#lock .l-err{color:#ff6b6b;font-size:13px;text-align:center;min-height:18px}
+.lock-btn{position:fixed;bottom:20px;right:20px;background:#e94560;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+
 </style>
 </head>
 <body>
+<!-- LOGIN -->
+<div id="lock">
+  <div class="l-logo">💰</div>
+  <div class="l-title">Moneya</div>
+  <div class="l-sub">הכנס סיסמה</div>
+  <div class="l-form">
+    <input class="l-input" id="pw" type="password" placeholder="••••••••••" autocomplete="off">
+    <div class="l-err" id="le"></div>
+    <button class="l-btn" onclick="unlock()">כניסה 🔓</button>
+  </div>
+</div>
+
 
 <!-- ── HEADER ── -->
 <div class="hdr">
@@ -503,6 +528,29 @@ button,a{font-family:inherit}
 
 <!-- ══════════════════════════════════════════════════════ -->
 <script>
+
+// ── AUTH ──────────────────────────────────────────────────────
+const PASS = 'Shaked2026';
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+function unlock(){
+  if(document.getElementById('pw').value===PASS){
+    document.getElementById('lock').style.display='none';
+    sessionStorage.setItem('fin_auth','1');
+  } else {
+    document.getElementById('le').textContent='סיסמה שגויה ❌';
+    document.getElementById('pw').value='';
+  }
+}
+function doLock(){
+  sessionStorage.removeItem('fin_auth');
+  document.getElementById('lock').style.display='flex';
+  document.getElementById('pw').value='';
+}
+if(sessionStorage.getItem('fin_auth')==='1'){
+  document.getElementById('lock').style.display='none';
+}
+
+
 'use strict';
 
 // ── CONFIG ──────────────────────────────────────────────
