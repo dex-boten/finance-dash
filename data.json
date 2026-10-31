@@ -1,6 +1,592 @@
 {
   "transactions": [
     {
+      "date": "2025-12-09",
+      "month": "2025-12",
+      "name": "הפול בטוח חובה",
+      "amount": 335.5,
+      "card": "כאל *3371",
+      "cat": "insurance",
+      "note": "ביטוח חובה תשלום 10/12"
+    },
+    {
+      "date": "2026-08-08",
+      "month": "2026-08",
+      "name": "אל על אינטרנט",
+      "amount": 699.18,
+      "card": "כאל *3371",
+      "cat": "travel",
+      "note": "תשלום 2/2"
+    },
+    {
+      "date": "2026-09-09",
+      "month": "2026-09",
+      "name": "צמרת מימונים גלי דיזינגוף",
+      "amount": 349.9,
+      "card": "כאל *3371",
+      "cat": "shopping"
+    },
+    {
+      "date": "2026-09-11",
+      "month": "2026-09",
+      "name": "א.ל מוסכים",
+      "amount": 50.0,
+      "card": "כאל *3371",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-09-11",
+      "month": "2026-09",
+      "name": "BBW דיזינגוף סנטר",
+      "amount": 275.76,
+      "card": "כאל *3371",
+      "cat": "shopping"
+    },
+    {
+      "date": "2026-09-11",
+      "month": "2026-09",
+      "name": "מנדל משקאות",
+      "amount": 209.0,
+      "card": "כאל *3371",
+      "cat": "food"
+    },
+    {
+      "date": "2026-09-12",
+      "month": "2026-09",
+      "name": "ג.א.ר היינמן טרמינל 3",
+      "amount": 693.48,
+      "card": "כאל *3371",
+      "cat": "shopping",
+      "note": "Duty Free נתבג"
+    },
+    {
+      "date": "2026-09-12",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 34.44,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-13",
+      "month": "2026-09",
+      "name": "IndieCampers קרואטיה",
+      "amount": 186.37,
+      "card": "כאל *3371",
+      "cat": "travel",
+      "note": "השכרת רכב"
+    },
+    {
+      "date": "2026-09-13",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 212.03,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-13",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 70.28,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-13",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 146.53,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-14",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 16.69,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-14",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 63.25,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-14",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 109.0,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-14",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 14.07,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-15",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 81.73,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-15",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 423.09,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-16",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 263.77,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-17",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 27.99,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 29.44,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 59.09,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 73.0,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 14.46,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 374.1,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 390.35,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 173.73,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 93.71,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 139.53,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 37.54,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 92.11,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 20.86,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-19",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 40.32,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "IndieCampers קרואטיה",
+      "amount": 4889.99,
+      "card": "כאל *3371",
+      "cat": "travel",
+      "note": "השכרת רכב"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 138.69,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 7.65,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 88.85,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 63.23,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 5.21,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 12.51,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 55.62,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 269.77,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 17.38,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 104.11,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 6.78,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 27.81,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 107.76,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 296.33,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 8.65,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 77.81,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 17.4,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-22",
+      "month": "2026-09",
+      "name": "PassportCard קרואטיה",
+      "amount": 56.37,
+      "card": "כאל *3371",
+      "cat": "travel"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "IndieCampers קרואטיה",
+      "amount": 1371.96,
+      "card": "כאל *3371",
+      "cat": "travel",
+      "note": "השכרת רכב"
+    },
+    {
+      "date": "2026-09-24",
+      "month": "2026-09",
+      "name": "מנורה מבטחים",
+      "amount": 288.43,
+      "card": "כאל *3371",
+      "cat": "insurance",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-25",
+      "month": "2026-09",
+      "name": "טיב טעם בן יהודה",
+      "amount": 41.15,
+      "card": "כאל *3371",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-09-26",
+      "month": "2026-09",
+      "name": "סנסיו-פאיימי",
+      "amount": 236.55,
+      "card": "כאל *3371",
+      "cat": "home"
+    },
+    {
+      "date": "2026-09-27",
+      "month": "2026-09",
+      "name": "7 אקספרס יצחק שדה",
+      "amount": 11.0,
+      "card": "כאל *3371",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-09-30",
+      "month": "2026-09",
+      "name": "Apple iCloud",
+      "amount": 11.9,
+      "card": "כאל *3371",
+      "cat": "subscriptions",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-30",
+      "month": "2026-09",
+      "name": "MORE AND WINE קרליבך",
+      "amount": 432.98,
+      "card": "כאל *3371",
+      "cat": "food"
+    },
+    {
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "name": "המכולה ריהוט גן",
+      "amount": 669.0,
+      "card": "כאל *3371",
+      "cat": "home"
+    },
+    {
+      "date": "2026-10-02",
+      "month": "2026-10",
+      "name": "סחוט טרי שוק הכרמל",
+      "amount": 25.0,
+      "card": "כאל *3371",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-10-02",
+      "month": "2026-10",
+      "name": "בית הפטרוזיליה",
+      "amount": 76.0,
+      "card": "כאל *3371",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-10-02",
+      "month": "2026-10",
+      "name": "Gett",
+      "amount": 98.0,
+      "card": "כאל *3371",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-10-03",
+      "month": "2026-10",
+      "name": "AT PAPAS",
+      "amount": 112.0,
+      "card": "כאל *3371",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-10-03",
+      "month": "2026-10",
+      "name": "יהושע בפארק",
+      "amount": 38.0,
+      "card": "כאל *3371",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-10-06",
+      "month": "2026-10",
+      "name": "דור אלון חניון דיזינגוף",
+      "amount": 63.36,
+      "card": "כאל *3371",
+      "cat": "transport"
+    },
+    {
+      "date": "2026-10-06",
+      "month": "2026-10",
+      "name": "בסטה בר",
+      "amount": 283.0,
+      "card": "כאל *3371",
+      "cat": "restaurants"
+    },
+    {
+      "date": "2026-10-07",
+      "month": "2026-10",
+      "name": "פיצוציה הצפון הישן",
+      "amount": 6.0,
+      "card": "כאל *3371",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-10-08",
+      "month": "2026-10",
+      "name": "באולינג רמת גן",
+      "amount": 546.0,
+      "card": "כאל *3371",
+      "cat": "entertainment"
+    },
+    {
+      "date": "2026-10-08",
+      "month": "2026-10",
+      "name": "סודוך אפקה",
+      "amount": 327.0,
+      "card": "כאל *3371",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-10-29",
+      "month": "2026-10",
+      "name": "Sting+ (yes)",
+      "amount": 149.7,
+      "card": "אשראי",
+      "cat": "subscriptions",
+      "note": "Sting+ עם HBO Max | חשבונית 10/2026 | סכום לפי מנוי קבוע"
+    },
+    {
+      "date": "2026-10-19",
+      "month": "2026-10",
+      "name": "פרטנר",
+      "amount": 29.9,
+      "card": "אשראי",
+      "cat": "subscriptions",
+      "note": "קו נייד — תכנית בני משפחות | חשבונית 24166978 | חיוב 05.11"
+    },
+    {
       "date": "2026-10-11",
       "month": "2026-10",
       "name": "בהצדעה",
@@ -5398,6 +5984,102 @@
       "amount": 51.0,
       "card": "FlyCard",
       "cat": "transport"
+    },
+    {
+      "date": "2026-09-11",
+      "month": "2026-09",
+      "name": "פז YELLOW",
+      "amount": 72.48,
+      "card": "כאל *9443",
+      "cat": "fuel"
+    },
+    {
+      "date": "2026-09-12",
+      "month": "2026-09",
+      "name": "סופר יודה",
+      "amount": 49.8,
+      "card": "כאל *9443",
+      "cat": "grocery"
+    },
+    {
+      "date": "2026-09-18",
+      "month": "2026-09",
+      "name": "פרטנר",
+      "amount": 30.16,
+      "card": "כאל *9443",
+      "cat": "mobile",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "כללית שירותי בריאות",
+      "amount": 106.71,
+      "card": "כאל *9443",
+      "cat": "health",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "עיריית ת\"א ארנונה",
+      "amount": 505.45,
+      "card": "כאל *9443",
+      "cat": "housing",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "הראל-כללית",
+      "amount": 41.58,
+      "card": "כאל *9443",
+      "cat": "health",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "name": "ביטוח ישיר חיים",
+      "amount": 115.75,
+      "card": "כאל *9443",
+      "cat": "insurance",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-25",
+      "month": "2026-09",
+      "name": "פז YELLOW",
+      "amount": 36.4,
+      "card": "כאל *9443",
+      "cat": "fuel"
+    },
+    {
+      "date": "2026-09-25",
+      "month": "2026-09",
+      "name": "פנגו מוביט",
+      "amount": 11.5,
+      "card": "כאל *9443",
+      "cat": "transport",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-09-25",
+      "month": "2026-09",
+      "name": "פנגו מוביט 2",
+      "amount": 11.5,
+      "card": "כאל *9443",
+      "cat": "transport",
+      "note": "הוראת קבע"
+    },
+    {
+      "date": "2026-10-06",
+      "month": "2026-10",
+      "name": "פרטנר",
+      "amount": 29.9,
+      "card": "כאל *9443",
+      "cat": "mobile",
+      "note": "הוראת קבע"
     }
   ],
   "months": [
