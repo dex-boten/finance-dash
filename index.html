@@ -637,10 +637,17 @@ input { font-family:inherit }
 /* ═══════════════════════════════════════════
    RESPONSIVE ADJUSTMENTS
 ═══════════════════════════════════════════ */
+@media (max-width:767px) {
+  .hero-metrics { grid-template-columns:1fr 1fr; }
+  .hero-col:last-child { grid-column:1/-1;padding-top:12px;border-top:1px solid var(--border) }
+  .hero-col-value.hero-big { font-size:34px }
+  .hero-col-value.hero-muted { font-size:26px }
+  .hero-col-value { font-size:30px }
+}
 @media (max-width:380px) {
-  .hero-col-value.hero-big { font-size:38px }
-  .hero-col-value.hero-muted { font-size:24px }
-  .hero-col-value { font-size:36px }
+  .hero-col-value.hero-big { font-size:28px }
+  .hero-col-value.hero-muted { font-size:22px }
+  .hero-col-value { font-size:26px }
 }
 </style>
 </head>
