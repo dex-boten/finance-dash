@@ -233,17 +233,17 @@ input { font-family:inherit }
    MAIN CONTENT AREA
 ═══════════════════════════════════════════ */
 .main-content { flex:1;min-width:0 }
-.main-inner { padding:18px 14px }
+.main-inner { padding:12px 14px 6px }
 
 /* ═══════════════════════════════════════════
    PAGE HEADER
 ═══════════════════════════════════════════ */
 .page-hdr {
-  margin-bottom:20px;
+  margin-bottom:12px;
 }
 .page-title {
-  font-size:26px;font-weight:900;letter-spacing:-.6px;
-  line-height:1.1;
+  font-size:19px;font-weight:800;letter-spacing:-.3px;
+  line-height:1.1;color:var(--muted);
 }
 .page-sub { font-size:14px;color:var(--muted);margin-top:5px }
 
@@ -252,8 +252,8 @@ input { font-family:inherit }
 ═══════════════════════════════════════════ */
 .hero-card {
   background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);padding:24px 22px;
-  margin-bottom:14px;
+  border-radius:var(--r);padding:18px 16px;
+  margin-bottom:10px;
 }
 .hero-month-tag {
   font-size:11px;font-weight:700;color:var(--muted);
@@ -323,10 +323,10 @@ input { font-family:inherit }
 ═══════════════════════════════════════════ */
 .forecast-card {
   background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r-sm);padding:14px 16px;
+  border-radius:var(--r-sm);padding:11px 14px;
   display:flex;align-items:flex-start;gap:10px;
-  font-size:14px;line-height:1.65;color:var(--muted);
-  margin-bottom:14px;
+  font-size:13px;line-height:1.5;color:var(--muted);
+  margin-bottom:10px;
 }
 .forecast-card span { font-size:18px;flex-shrink:0;margin-top:1px }
 
@@ -334,8 +334,7 @@ input { font-family:inherit }
    STATS ROW
 ═══════════════════════════════════════════ */
 .stats-row {
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:9px;margin-bottom:22px;
+  display:none;
 }
 .stat-card {
   background:var(--surface);border:1px solid var(--border);
