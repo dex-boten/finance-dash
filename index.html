@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f1117">
 <title>Moneya — דשבורד פיננסי</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap" rel="stylesheet">
@@ -204,7 +205,7 @@ input { font-family:inherit }
   .mobile-header,.bottom-nav { display:none }
   .sidebar { display:flex !important }
   .main-content { flex:1;min-width:0 }
-  .main-inner { max-width:700px;margin:0 auto;padding:28px 28px }
+  .main-inner { max-width:100%;padding:28px 28px }
 }
 
 /* ═══════════════════════════════════════════
@@ -825,6 +826,188 @@ input { font-family:inherit }
 .empty-state-icon { font-size:40px;margin-bottom:12px }
 .empty-state-text { font-size:15px }
 
+
+/* ═══════════════════════════════════════════
+   SIDEBAR ARROW ROTATION
+═══════════════════════════════════════════ */
+.sb-arrow-icon {
+  transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+}
+#app.sidebar-collapsed .sb-arrow-icon {
+  transform: rotate(180deg);
+}
+#app.sidebar-collapsed .sb-label {
+  display: none !important;
+}
+#app.sidebar-collapsed .sb-logo-name,
+#app.sidebar-collapsed .sb-logo-sub {
+  display: none !important;
+}
+#app.sidebar-collapsed .sb-month-label {
+  display: none;
+}
+#app.sidebar-collapsed .mth-label {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════
+   HOME SPLIT LAYOUT
+═══════════════════════════════════════════ */
+.home-split {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 20px;
+  align-items: start;
+  min-height: calc(100vh - 120px);
+}
+@media (max-width: 1024px) {
+  .home-split { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   HOME PANELS
+═══════════════════════════════════════════ */
+.home-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.panel-hdr { margin-bottom: 4px }
+.panel-title { font-size:20px;font-weight:900;letter-spacing:-.5px;margin-bottom:3px }
+.panel-sub { font-size:12px;color:var(--muted) }
+
+/* ═══════════════════════════════════════════
+   KPI GRID (2×2)
+═══════════════════════════════════════════ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.kpi-card {
+  background: rgba(13,13,31,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px;
+  padding: 18px 16px;
+  border: 1px solid rgba(114,9,183,0.25);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+.kpi-card.kpi-expenses { border-color: rgba(247,37,133,0.35) }
+.kpi-card.kpi-income   { border-color: rgba(27,204,186,0.35) }
+.kpi-card.kpi-balance  { border-color: rgba(27,204,186,0.2) }
+.kpi-card.kpi-budget   { border-color: rgba(114,9,183,0.35) }
+.kpi-label { font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px }
+.kpi-value { font-size:24px;font-weight:900;letter-spacing:-1px;direction:ltr;display:block;margin-bottom:4px }
+.kpi-card.kpi-expenses .kpi-value { color: #F72585 }
+.kpi-card.kpi-income .kpi-value   { color: #1BCCBA }
+.kpi-card.kpi-balance .kpi-value.positive { color: #1BCCBA }
+.kpi-card.kpi-balance .kpi-value.negative { color: #F72585 }
+.kpi-card.kpi-budget .kpi-value   { color: #7209B7 }
+.kpi-delta { font-size:11px;color:var(--muted);margin-top:2px }
+.kpi-sub   { font-size:11px;color:var(--muted);margin-top:2px }
+
+/* ═══════════════════════════════════════════
+   MINI CATEGORY GRID (top 4, 2×2)
+═══════════════════════════════════════════ */
+.mini-cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.mini-cat {
+  background: rgba(13,13,31,0.5);
+  border: 1px solid rgba(114,9,183,0.2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+.mini-cat:hover { border-color: rgba(27,204,186,0.4) }
+.mini-cat-top { display:flex;align-items:center;gap:8px;margin-bottom:6px }
+.mini-cat-emoji { font-size:16px;flex-shrink:0 }
+.mini-cat-name { font-size:12px;font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap }
+.mini-cat-amount { font-size:15px;font-weight:800;direction:ltr;margin-bottom:6px }
+.mini-cat-bar-track { height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden }
+.mini-cat-bar-fill { height:3px;border-radius:2px;transition:width .4s }
+
+/* ═══════════════════════════════════════════
+   TREND CHART CARD
+═══════════════════════════════════════════ */
+.trend-card {
+  background: rgba(13,13,31,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(114,9,183,0.25);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+}
+.trend-hdr {
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;flex-wrap:wrap;gap:10px;
+}
+.trend-title { font-size:14px;font-weight:700;color:var(--text) }
+.trend-toggles { display:flex;gap:6px }
+.trend-toggle {
+  font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;
+  border:1px solid rgba(114,9,183,0.3);color:var(--muted);
+  background:transparent;cursor:pointer;transition:all .15s;
+}
+.trend-toggle.active {
+  background:rgba(114,9,183,0.2);border-color:rgba(114,9,183,0.6);color:#fff;
+}
+.trend-toggle[data-dataset="income"].active  { background:rgba(27,204,186,0.15);border-color:rgba(27,204,186,0.5) }
+.trend-toggle[data-dataset="expenses"].active { background:rgba(247,37,133,0.15);border-color:rgba(247,37,133,0.5) }
+.chart-wrap { height:200px;position:relative }
+
+/* ═══════════════════════════════════════════
+   ANOMALY SECTION
+═══════════════════════════════════════════ */
+.anomaly-section,.actions-section { display:flex;flex-direction:column;gap:8px }
+.anomaly-list,.action-list { display:flex;flex-direction:column;gap:8px }
+.anomaly-row,.action-row {
+  display:flex;align-items:center;gap:12px;padding:12px 14px;
+  background:rgba(13,13,31,0.5);border:1px solid rgba(114,9,183,0.2);
+  border-radius:12px;
+}
+.action-row { cursor:pointer;transition:border-color .15s }
+.action-row:hover { border-color:rgba(27,204,186,0.4) }
+.anomaly-emoji,.action-icon { font-size:18px;flex-shrink:0 }
+.anomaly-info,.action-info { flex:1;min-width:0 }
+.anomaly-name,.action-title { font-size:13px;font-weight:600;margin-bottom:2px }
+.anomaly-detail,.action-saving { font-size:11px;color:var(--muted) }
+.action-saving { color:var(--t-primary) }
+.anomaly-delta { font-size:15px;font-weight:800;flex-shrink:0 }
+.action-tag { font-size:16px;flex-shrink:0 }
+.anomaly-empty { font-size:12px;color:var(--muted);padding:12px 0;text-align:center }
+
+/* ═══════════════════════════════════════════
+   MONTH CTA BUTTON
+═══════════════════════════════════════════ */
+.month-cta-btn {
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--p-primary),var(--p-bright));
+  border-radius:12px;color:#fff;font-weight:700;font-size:14px;
+  cursor:pointer;border:none;transition:opacity .15s;
+  box-shadow: 0 4px 20px rgba(114,9,183,0.3);
+}
+.month-cta-btn:hover { opacity:.85 }
+
+/* Panel section header */
+.panel-sec-row {
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;
+}
+.glass-card {
+  background: rgba(13,13,31,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(114,9,183,0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
 /* ═══════════════════════════════════════════
    RESPONSIVE ADJUSTMENTS
 ═══════════════════════════════════════════ */
@@ -876,18 +1059,18 @@ input { font-family:inherit }
         </div>
       </div>
       <button class="sb-toggle" onclick="toggleSidebar()" title="Toggle sidebar">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="sb-arrow-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
     </div>
 
     <nav class="sb-nav" aria-label="ניווט ראשי">
-      <button class="sb-item active" id="snav-0" onclick="setSection(0)">
+      <button class="sb-item active" id="snav-0" onclick="setSection(0)" title="ראשי">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        סקירה
+        <span class="sb-label">ראשי</span>
       </button>
-      <button class="sb-item" id="snav-1" onclick="setSection(1)">
+      <button class="sb-item" id="snav-1" onclick="setSection(1)" title="הוצאות">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
-        קטגוריות
+        <span class="sb-label">הוצאות</span>
       </button>
       <button class="sb-item" id="snav-2" onclick="setSection(2)">
         <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -941,11 +1124,6 @@ input { font-family:inherit }
     <div class="top-bar" id="topBar">
       <div class="top-bar-title" id="topBarTitle">סקירה</div>
       <div class="top-bar-right">
-        <div class="tb-month" id="tbMonthWrap">
-          <button class="mth-btn" id="tbPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
-          <div class="mth-label" id="tbMonthLabel">—</div>
-          <button class="mth-btn" id="tbNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
-        </div>
         <div class="tb-notif" title="התראות">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
         </div>
@@ -955,97 +1133,109 @@ input { font-family:inherit }
     <div class="main-inner">
 
       <!-- ══════════════════════
-           SECTION 0: סקירה
+           SECTION 0: ראשי
       ══════════════════════ -->
       <section id="sec-0" class="section">
-        <div class="page-hdr">
-          <div class="page-title">סקירה</div>
-        </div>
 
         <div class="partial-banner hidden" id="partialBanner">
-          ⚠️ נתונים חלקיים — חיוב כאל נסגר ב-10 לחודש הבא
+          <span>⚠️</span>
+          <span id="partialBannerText">נתונים חלקיים</span>
         </div>
 
-        <!-- Hero Card -->
-        <div class="hero-card" id="heroCard">
-          <div class="hero-month-tag" id="heroMonthTag">— 2026</div>
+        <!-- SPLIT: 60% overview | 40% current month -->
+        <div class="home-split">
 
-          <div class="hero-metrics">
-            <!-- Col 1: Expenses (biggest) -->
-            <div class="hero-col">
-              <div class="hero-col-label">הוצאות</div>
-              <span class="hero-col-value hero-big c-text" id="heroExpenses">—</span>
+          <!-- ── LEFT (40%): Current Month Panel ── -->
+          <div class="home-panel panel-month">
+            <div class="panel-hdr">
+              <div class="panel-title" id="monthPanelTitle">— 2026</div>
+              <div class="panel-sub">חודש נוכחי</div>
             </div>
-            <!-- Col 2: Income -->
-            <div class="hero-col">
-              <div class="hero-col-label">הכנסה</div>
-              <span class="hero-col-value hero-muted" id="heroIncome">—</span>
+
+            <!-- 4 KPI blocks 2×2 -->
+            <div class="kpi-grid">
+              <div class="kpi-card kpi-expenses">
+                <div class="kpi-label">הוצאות</div>
+                <span class="kpi-value" id="kpiExpenses">—</span>
+                <div class="kpi-delta" id="kpiExpensesDelta"></div>
+              </div>
+              <div class="kpi-card kpi-income">
+                <div class="kpi-label">הכנסות</div>
+                <span class="kpi-value" id="kpiIncome">—</span>
+                <div class="kpi-delta" id="kpiIncomeDelta"></div>
+              </div>
+              <div class="kpi-card kpi-balance">
+                <div class="kpi-label">מאזן</div>
+                <span class="kpi-value" id="kpiBalance">—</span>
+                <div class="kpi-sub" id="kpiBalanceSub"></div>
+              </div>
+              <div class="kpi-card kpi-budget">
+                <div class="kpi-label">% תקציב</div>
+                <span class="kpi-value" id="kpiBudgetPct">—</span>
+                <div class="kpi-sub" id="kpiBudgetSub"></div>
+              </div>
             </div>
-            <!-- Col 3: Status -->
-            <div class="hero-col">
-              <div class="hero-col-label">סטטוס</div>
-              <div class="hero-status-badge over" id="heroStatusBadge">—</div>
+
+            <!-- Top 4 categories mini-grid -->
+            <div class="panel-sec-row">
+              <div class="sec-title">קטגוריות מובילות</div>
+              <button class="sec-action" onclick="setSection(1)">הכל →</button>
             </div>
+            <div class="mini-cat-grid" id="miniCatGrid"></div>
+
+            <!-- CTA -->
+            <button class="month-cta-btn" onclick="setSection(1)">פירוט חודשי מלא →</button>
           </div>
 
-          <div class="hero-sep"></div>
-
-          <!-- Budget status row -->
-          <div class="hero-bottom-row">
-            <div class="hero-bottom-text" id="heroBudgetText">—</div>
-            <div class="hero-bottom-pct" id="heroBudgetPct"></div>
-          </div>
-
-          <!-- Month progress bar -->
-          <div class="hero-bar-wrap" id="heroBarWrap">
-            <div class="hero-bar-track">
-              <div class="hero-bar-time" id="heroBarTime"></div>
-              <div class="hero-bar-spend" id="heroBarSpend"></div>
+          <!-- ── RIGHT (60%): Overview Panel ── -->
+          <div class="home-panel panel-overview">
+            <div class="panel-hdr">
+              <div class="panel-title">סקירה כללית</div>
+              <div class="panel-sub">מגמות ותובנות</div>
             </div>
-            <div class="hero-bar-legs">
-              <span id="heroBarLeft">—</span>
-              <span id="heroBarRight">—</span>
+
+            <!-- Trend Chart -->
+            <div class="trend-card">
+              <div class="trend-hdr">
+                <div class="trend-title">מגמות חודשיות</div>
+                <div class="trend-toggles">
+                  <button class="trend-toggle active" data-dataset="expenses" onclick="toggleTrendLine('expenses')">הוצאות</button>
+                  <button class="trend-toggle active" data-dataset="income" onclick="toggleTrendLine('income')">הכנסות</button>
+                  <button class="trend-toggle" data-dataset="budget" onclick="toggleTrendLine('budget')">תקציב</button>
+                </div>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="trendChart"></canvas>
+              </div>
             </div>
+
+            <!-- Anomalies -->
+            <div class="anomaly-section">
+              <div class="panel-sec-row">
+                <div class="sec-title">תנועות חריגות</div>
+              </div>
+              <div id="anomalyList" class="anomaly-list"></div>
+            </div>
+
+            <!-- Action Items -->
+            <div class="actions-section">
+              <div class="panel-sec-row">
+                <div class="sec-title">פעולות מומלצות</div>
+              </div>
+              <div id="actionList" class="action-list"></div>
+            </div>
+
           </div>
         </div>
-
-        <!-- Forecast (current month only) -->
-        <div class="forecast-card hidden" id="forecastCard">
-          <span>🔮</span>
-          <span id="forecastText"></span>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-v" id="sv0">—</div>
-            <div class="stat-l">עסקאות</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-v" id="sv1">—</div>
-            <div class="stat-l">הוצאה ממוצעת</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-v" id="sv2">—</div>
-            <div class="stat-l">vs תקציב</div>
-          </div>
-        </div>
-
-        <!-- Top categories preview -->
-        <div class="sec-row">
-          <div class="sec-title">קטגוריות</div>
-          <button class="sec-action" onclick="setSection(1)">ראה הכל ›</button>
-        </div>
-        <div class="cat-list" id="overviewCatList"></div>
 
       </section>
 
       <!-- ══════════════════════
-           SECTION 1: קטגוריות
+           SECTION 1: הוצאות
       ══════════════════════ -->
       <section id="sec-1" class="section hidden">
         <div class="page-hdr">
-          <div class="page-title">קטגוריות</div>
+          <div class="page-title">הוצאות</div>
           <div class="page-sub">לחץ על קטגוריה לרשימת עסקאות</div>
         </div>
         <div class="cat-list" id="allCatList"></div>
@@ -1130,13 +1320,13 @@ input { font-family:inherit }
 
   <!-- ── BOTTOM NAV (mobile) ── -->
   <nav class="bottom-nav" aria-label="ניווט">
-    <button class="bnav-btn active" id="bnav-0" onclick="setSection(0)" aria-label="סקירה">
+    <button class="bnav-btn active" id="bnav-0" onclick="setSection(0)" aria-label="ראשי">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      סקירה
+      ראשי
     </button>
-    <button class="bnav-btn" id="bnav-1" onclick="setSection(1)" aria-label="קטגוריות">
+    <button class="bnav-btn" id="bnav-1" onclick="setSection(1)" aria-label="הוצאות">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
-      קטגוריות
+      הוצאות
     </button>
     <button class="bnav-btn" id="bnav-2" onclick="setSection(2)" aria-label="מנויים">
       <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -1387,7 +1577,7 @@ function setSection(idx) {
   document.getElementById('sbMonthWrap').style.display    = showMonth ? '' : 'none';
   document.getElementById('mobileMonthWrap').style.display = showMonth ? '' : 'none';
   // Sync top bar title
-  const titles = ['סקירה','קטגוריות','מנויים','נכסים','המלצות'];
+  const titles = ['ראשי','הוצאות','מנויים','נכסים','המלצות'];
   const titleEl = document.getElementById('topBarTitle');
   if (titleEl) titleEl.textContent = titles[idx] || '';
   // Sync top bar month visibility
@@ -1430,13 +1620,268 @@ function render() {
   const [yr, mo] = month.split('-').map(Number);
   setMonthLabels(HE_MO[mo] + ' ' + yr);
   setMonthBtns();
-  if (curSection === 0) renderOverview();
+  if (curSection === 0) renderHome();
   if (curSection === 1) renderCategories();
   if (curSection === 2) renderSubs();
 }
 
 
-// ── SECTION 0: OVERVIEW ──────────────────────
+
+// ── SECTION 0: HOME (SPLIT) ──────────────────
+let trendChartInstance = null;
+let trendVisibility = { expenses: true, income: true, budget: false };
+
+function renderHome() {
+  const month = MONTHS[curIdx];
+  const prevMonth = MONTHS[curIdx - 1] || null;
+  const mdata = SUM[month] || {};
+  const bycat = mdata.by_cat || {};
+  const [yr, mo] = month.split('-').map(Number);
+
+  // Panel title
+  const panelTitle = document.getElementById('monthPanelTitle');
+  if (panelTitle) panelTitle.textContent = HE_MO[mo] + ' ' + yr;
+
+  // Smart partial banner
+  updatePartialBanner(month);
+
+  // ── KPI BLOCKS ──
+  const excCats = ['savings','transfers','housing'];
+  const realExpenses = mdata.total - excCats.reduce((s,c) => s+(bycat[c]||0), 0);
+
+  const incomeEntries = (DATA.income||[]).filter(e => e.month === month);
+  const monthIncome = incomeEntries.reduce((a,b) => a+(b.amount||0), 0);
+
+  const balance = monthIncome > 0 ? monthIncome - realExpenses : 0;
+  const budgetTotal = Object.values(BUDGETS).filter(x=>x>0).reduce((a,b)=>a+b,0);
+  const budgetPct = budgetTotal > 0 ? Math.round(realExpenses / budgetTotal * 100) : 0;
+
+  // Expenses
+  const expEl = document.getElementById('kpiExpenses');
+  if (expEl) expEl.textContent = '₪' + Math.round(realExpenses).toLocaleString('he-IL');
+
+  // Income
+  const incEl = document.getElementById('kpiIncome');
+  if (incEl) incEl.textContent = monthIncome > 0 ? '₪' + Math.round(monthIncome).toLocaleString('he-IL') : '—';
+
+  // Balance
+  const balEl = document.getElementById('kpiBalance');
+  if (balEl) {
+    if (monthIncome > 0) {
+      balEl.textContent = (balance >= 0 ? '+' : '') + '₪' + Math.round(balance).toLocaleString('he-IL');
+      balEl.className = 'kpi-value ' + (balance >= 0 ? 'positive' : 'negative');
+    } else {
+      balEl.textContent = '—';
+      balEl.className = 'kpi-value';
+    }
+  }
+  const balSub = document.getElementById('kpiBalanceSub');
+  if (balSub) balSub.textContent = monthIncome > 0 ? (balance >= 0 ? 'חיסכון' : 'חריגה') : '';
+
+  // Budget %
+  const bpEl = document.getElementById('kpiBudgetPct');
+  if (bpEl) bpEl.textContent = budgetPct > 0 ? budgetPct + '%' : '—';
+  const bpSub = document.getElementById('kpiBudgetSub');
+  if (bpSub) bpSub.textContent = budgetPct > 100 ? 'חריגה מתקציב' : budgetPct > 0 ? 'מהתקציב' : '';
+
+  // MoM delta for expenses
+  const deltaEl = document.getElementById('kpiExpensesDelta');
+  if (deltaEl && prevMonth && SUM[prevMonth]) {
+    const pb = SUM[prevMonth].by_cat || {};
+    const prevExp = SUM[prevMonth].total - excCats.reduce((s,c)=>s+(pb[c]||0),0);
+    if (prevExp > 0) {
+      const delta = ((realExpenses - prevExp) / prevExp * 100).toFixed(0);
+      deltaEl.textContent = (delta > 0 ? '↑ ' : '↓ ') + Math.abs(delta) + '% מחודש קודם';
+      deltaEl.style.color = delta > 0 ? '#F72585' : '#1BCCBA';
+    }
+  }
+
+  // ── MINI CATEGORY GRID ──
+  const miniGrid = document.getElementById('miniCatGrid');
+  if (miniGrid) {
+    const cats = Object.entries(bycat)
+      .filter(([c,v]) => !excCats.includes(c) && v > 0)
+      .sort((a,b) => b[1]-a[1])
+      .slice(0,4);
+    miniGrid.innerHTML = cats.map(([cat, amt]) => {
+      const meta = CAT[cat] || { he:cat, em:'📦' };
+      const budget = BUDGETS[cat] || 0;
+      const pct = budget > 0 ? Math.min(amt/budget*100, 100) : 0;
+      const barColor = pct > 100 ? '#F72585' : pct > 80 ? '#B5179E' : '#1BCCBA';
+      return '<div class="mini-cat" onclick="setSection(1)">' +
+        '<div class="mini-cat-top"><span class="mini-cat-emoji">' + meta.em + '</span>' +
+        '<span class="mini-cat-name">' + meta.he + '</span></div>' +
+        '<div class="mini-cat-amount">₪' + Math.round(amt).toLocaleString() + '</div>' +
+        (budget > 0 ? '<div class="mini-cat-bar-track"><div class="mini-cat-bar-fill" style="width:' + pct.toFixed(0) + '%;background:' + barColor + '"></div></div>' : '') +
+        '</div>';
+    }).join('');
+  }
+
+  // ── ANOMALIES ──
+  renderAnomalies(month, prevMonth);
+
+  // ── ACTION ITEMS (top 3 RECS) ──
+  const actionList = document.getElementById('actionList');
+  if (actionList) {
+    actionList.innerHTML = RECS.slice(0,3).map(r => {
+      const tagEmoji = r.badge==='quick'?'⚡':r.badge==='medium'?'🎯':'💪';
+      return '<div class="action-row">' +
+        '<div class="action-icon">' + r.icon + '</div>' +
+        '<div class="action-info">' +
+        '<div class="action-title">' + r.title + '</div>' +
+        '<div class="action-saving">חיסכון: ₪' + r.saving.toLocaleString() + ' / ' + r.period + '</div>' +
+        '</div>' +
+        '<div class="action-tag">' + tagEmoji + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  // ── TREND CHART ──
+  if (typeof Chart !== 'undefined') buildTrendChart();
+}
+
+function buildTrendChart() {
+  const ctx = document.getElementById('trendChart');
+  if (!ctx || !DATA) return;
+
+  const months = (MONTHS || []).filter(m => m >= '2026-01' && m <= '2026-12').sort();
+  const labels = months.map(m => { const [,mo] = m.split('-'); return HE_MO[parseInt(mo)]; });
+
+  const excCats = ['savings','transfers','housing'];
+  const expenses = months.map(m => {
+    const s = SUM[m];
+    if (!s) return null;
+    const exc = excCats.reduce((t,c) => t+(s.by_cat?.[c]||0), 0);
+    return Math.round(s.total - exc);
+  });
+
+  const income = months.map(m => {
+    const entries = (DATA.income||[]).filter(e => e.month === m);
+    const total = entries.reduce((a,b) => a+(b.amount||0), 0);
+    return total > 0 ? Math.round(total) : null;
+  });
+
+  const budgetTotal = Object.values(BUDGETS).filter(x=>x>0).reduce((a,b)=>a+b,0);
+  const budget = months.map(() => budgetTotal);
+
+  if (trendChartInstance) { trendChartInstance.destroy(); trendChartInstance = null; }
+
+  trendChartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label:'הוצאות', data:expenses, borderColor:'#F72585', backgroundColor:'rgba(247,37,133,0.08)',
+          tension:0.4, fill:true, borderWidth:2.5, pointBackgroundColor:'#F72585', pointRadius:3,
+          hidden:!trendVisibility.expenses },
+        { label:'הכנסות', data:income, borderColor:'#1BCCBA', backgroundColor:'rgba(27,204,186,0.08)',
+          tension:0.4, fill:true, borderWidth:2.5, pointBackgroundColor:'#1BCCBA', pointRadius:3,
+          hidden:!trendVisibility.income },
+        { label:'תקציב', data:budget, borderColor:'#7209B7', backgroundColor:'transparent',
+          tension:0, fill:false, borderWidth:1.5, borderDash:[6,3], pointRadius:0,
+          hidden:!trendVisibility.budget }
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(13,13,31,0.95)', titleColor:'rgba(255,255,255,0.7)',
+          bodyColor:'#fff', borderColor:'rgba(114,9,183,0.4)', borderWidth:1,
+          callbacks:{ label: ctx => ' ' + ctx.dataset.label + ': ₪' + (ctx.parsed.y||0).toLocaleString() }
+        }
+      },
+      scales:{
+        x:{ grid:{color:'rgba(255,255,255,0.05)',drawTicks:false}, border:{display:false},
+            ticks:{color:'rgba(255,255,255,0.4)',font:{size:10}} },
+        y:{ grid:{color:'rgba(255,255,255,0.05)',drawTicks:false}, border:{display:false},
+            ticks:{color:'rgba(255,255,255,0.4)',font:{size:10},callback:v=>'₪'+(v/1000).toFixed(0)+'k'} }
+      }
+    }
+  });
+}
+
+function toggleTrendLine(dataset) {
+  trendVisibility[dataset] = !trendVisibility[dataset];
+  if (trendChartInstance) {
+    const idx = {expenses:0,income:1,budget:2}[dataset];
+    if (idx !== undefined) {
+      trendChartInstance.getDatasetMeta(idx).hidden = !trendVisibility[dataset];
+      trendChartInstance.update();
+    }
+  }
+  document.querySelectorAll('.trend-toggle').forEach(btn => {
+    btn.classList.toggle('active', trendVisibility[btn.dataset.dataset] !== false);
+  });
+}
+
+function computeAnomalies(month, prevMonth, limit) {
+  limit = limit || 3;
+  if (!SUM[month] || !prevMonth || !SUM[prevMonth]) return [];
+  const cur = SUM[month].by_cat || {};
+  const prev = SUM[prevMonth].by_cat || {};
+  const skip = ['transfers','savings','housing'];
+  const result = [];
+  for (const cat of Object.keys(cur)) {
+    if (skip.includes(cat)) continue;
+    const curAmt = cur[cat] || 0;
+    const prevAmt = prev[cat] || 0;
+    if (prevAmt < 100 || curAmt < 50) continue;
+    const delta = (curAmt - prevAmt) / prevAmt;
+    if (Math.abs(delta) > 0.25) result.push({ cat, curAmt, prevAmt, delta });
+  }
+  return result.sort((a,b) => Math.abs(b.delta)-Math.abs(a.delta)).slice(0,limit);
+}
+
+function renderAnomalies(month, prevMonth) {
+  const list = document.getElementById('anomalyList');
+  if (!list) return;
+  const anomalies = computeAnomalies(month, prevMonth);
+  if (!anomalies.length) {
+    list.innerHTML = '<div class="anomaly-empty">אין חריגות משמעותיות ✅</div>';
+    return;
+  }
+  list.innerHTML = anomalies.map(a => {
+    const meta = CAT[a.cat] || { he:a.cat, em:'📦' };
+    const isUp = a.delta > 0;
+    const pct = Math.round(Math.abs(a.delta)*100);
+    const color = isUp ? '#F72585' : '#1BCCBA';
+    const arrow = isUp ? '↑' : '↓';
+    return '<div class="anomaly-row">' +
+      '<span class="anomaly-emoji">' + meta.em + '</span>' +
+      '<div class="anomaly-info">' +
+      '<div class="anomaly-name">' + meta.he + '</div>' +
+      '<div class="anomaly-detail">₪' + Math.round(a.curAmt).toLocaleString() + ' vs ₪' + Math.round(a.prevAmt).toLocaleString() + ' קודם</div>' +
+      '</div>' +
+      '<div class="anomaly-delta" style="color:' + color + '">' + arrow + pct + '%</div>' +
+      '</div>';
+  }).join('');
+}
+
+function updatePartialBanner(month) {
+  const banner = document.getElementById('partialBanner');
+  const bannerText = document.getElementById('partialBannerText');
+  if (!banner || !bannerText) return;
+  const monthDate = new Date(month + '-01');
+  const oct2026 = new Date('2026-10-01');
+  const byCard = SUM[month]?.by_card || {};
+  const sources = Object.keys(byCard);
+  const missing = [];
+  if (monthDate >= oct2026) {
+    if (!sources.some(s => s.includes('עו"ש') || s.includes('בנק'))) missing.push('נתוני בנק');
+    if (!sources.some(s => s.includes('כאל'))) missing.push('כאל');
+  }
+  if (missing.length > 0) {
+    bannerText.textContent = 'נתונים חלקיים — חסר: ' + missing.join(', ');
+    banner.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+  }
+}
+
+// ── SECTION 0: OVERVIEW (legacy, kept for compat) ──────────────────────
 function renderOverview() {
   const month  = MONTHS[curIdx];
   const [yr, mo] = month.split('-').map(Number);
