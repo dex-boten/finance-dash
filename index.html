@@ -1004,12 +1004,14 @@ input { font-family:inherit }
 .anomaly-section,.actions-section { display:flex;flex-direction:column;gap:8px }
 .anomaly-list,.action-list { display:flex;flex-direction:column;gap:8px }
 .anomaly-row,.action-row {
-  display:flex;align-items:center;gap:12px;padding:12px 14px;
-  background:rgba(13,13,31,0.5);border:1px solid rgba(114,9,183,0.2);
-  border-radius:12px;
+  display:flex;align-items:center;gap:14px;
+  padding:20px 18px;
+  background:#1a1a38;  /* SOLID — no transparency */
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
 }
 .action-row { cursor:pointer;transition:border-color .15s }
-.action-row:hover { border-color:rgba(27,204,186,0.4) }
+.action-row:hover { border-color:rgba(27,204,186,0.3) }
 .anomaly-emoji,.action-icon { font-size:18px;flex-shrink:0 }
 .anomaly-info,.action-info { flex:1;min-width:0 }
 .anomaly-name,.action-title { font-size:13px;font-weight:600;margin-bottom:2px }
@@ -1046,35 +1048,40 @@ input { font-family:inherit }
 }
 .card-stack {
   position: relative;
-  height: 90px;
+  /* height set dynamically by JS */
 }
 .stack-card {
   position: absolute;
   inset-inline-start: 0;
   inset-inline-end: 0;
   top: 0;
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s, z-index 0s;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), filter 0.35s;
   cursor: pointer;
-  will-change: transform, opacity;
+  will-change: transform;
 }
-/* Stack layers by data-stack attribute */
+/* Front card — full size, full visibility */
 .stack-card[data-stack="0"] {
-  transform: translateY(0) scale(1);
-  opacity: 1; z-index: 10; pointer-events: all;
+  transform: scale(1) translateY(0);
+  z-index: 10; pointer-events: all;
+  filter: none;
 }
+/* Behind cards peek from below — SOLID, no opacity */
 .stack-card[data-stack="1"] {
-  transform: translateY(-8px) scale(0.96);
-  opacity: 0.7; z-index: 9; pointer-events: none;
+  transform: scale(0.95) translateY(10px);
+  z-index: 9; pointer-events: none;
+  filter: brightness(0.6);
 }
 .stack-card[data-stack="2"] {
-  transform: translateY(-14px) scale(0.92);
-  opacity: 0.45; z-index: 8; pointer-events: none;
+  transform: scale(0.90) translateY(18px);
+  z-index: 8; pointer-events: none;
+  filter: brightness(0.4);
 }
 .stack-card[data-stack="3"],
-.stack-card[data-stack="4"],
-.stack-card[data-stack="5"] {
-  transform: translateY(-18px) scale(0.88);
-  opacity: 0; z-index: 7; pointer-events: none;
+.stack-card[data-stack="4"] {
+  transform: scale(0.86) translateY(24px);
+  z-index: 7; pointer-events: none;
+  filter: brightness(0.2);
+  visibility: hidden;
 }
 .stack-footer {
   display: flex;
@@ -1952,7 +1959,8 @@ function initStack(stackId, dotsId, items, renderFn) {
   updateStackDots(stackId, dotsId);
   requestAnimationFrame(() => {
     const front = container.querySelector('.stack-card[data-stack="0"]');
-    if (front) container.style.height = (front.offsetHeight + 20) + 'px';
+    const extraForPeek = Math.min(items.length - 1, 2) * 10;
+    if (front) container.style.height = (front.offsetHeight + extraForPeek + 8) + 'px';
   });
 }
 
