@@ -245,8 +245,9 @@ input { font-family:inherit }
 }
 .sb-toggle svg { stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round }
 .sb-toggle:hover { background:rgba(114,9,183,0.45);color:#fff }
-#app.sidebar-collapsed .sb-header { justify-content:center;padding:16px 8px }
-#app.sidebar-collapsed .sb-toggle { width:36px;height:36px }
+#app.sidebar-collapsed .sb-header { flex-direction:column;align-items:center;gap:10px;padding:16px 8px }
+#app.sidebar-collapsed .sb-logo { justify-content:center }
+#app.sidebar-collapsed .sb-toggle { width:34px;height:34px }
 
 .sb-nav {
   flex:1;padding:12px 10px;
@@ -1129,9 +1130,9 @@ input { font-family:inherit }
   <main class="main-content">
     <div class="top-bar" id="topBar">
       <div class="tb-month-nav" id="topMonthWrap">
-        <button class="mth-btn" id="topPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">‹</button>
+        <button class="mth-btn" id="topNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
         <div class="top-month-label" id="topMonthLabel">—</div>
-        <button class="mth-btn" id="topNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">›</button>
+        <button class="mth-btn" id="topPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
       </div>
       <div class="top-bar-right">
         <div class="tb-notif" title="התראות">
