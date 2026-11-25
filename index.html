@@ -345,6 +345,8 @@ input { font-family:inherit }
   }
 }
 .top-bar-title { font-size:18px; font-weight:800; letter-spacing:-.4px }
+.tb-month-nav { display:flex;align-items:center;gap:8px;direction:ltr }
+.top-month-label { font-size:16px;font-weight:800;letter-spacing:-.3px;min-width:120px;text-align:center }
 .top-bar-right { display:flex; align-items:center; gap:14px; direction:ltr }
 .tb-month { display:flex; align-items:center; gap:6px }
 .tb-notif {
@@ -855,13 +857,23 @@ input { font-family:inherit }
 ═══════════════════════════════════════════ */
 .home-split {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 20px;
+  grid-template-columns: 3fr auto 2fr;
+  gap: 0;
   align-items: start;
   min-height: calc(100vh - 120px);
+  column-gap: 24px;
 }
 @media (max-width: 1024px) {
   .home-split { grid-template-columns: 1fr; }
+  .home-divider { display: none; }
+}
+
+/* Divider between panels */
+.home-divider {
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(114,9,183,0.4) 20%, rgba(27,204,186,0.3) 80%, transparent 100%);
+  align-self: stretch;
+  margin: 0 4px;
 }
 
 /* ═══════════════════════════════════════════
@@ -1086,15 +1098,7 @@ input { font-family:inherit }
       </button>
     </nav>
 
-    <!-- Month nav in sidebar -->
-    <div class="sb-month" id="sbMonthWrap">
-      <div class="sb-month-label">חודש</div>
-      <div class="sb-month-nav">
-        <button class="mth-btn" id="sbNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
-        <div class="mth-label" id="sbMonthLabel">—</div>
-        <button class="mth-btn" id="sbPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
-      </div>
-    </div>
+    <!-- Month nav removed from sidebar — now in top bar -->
 
     <div class="sb-footer">
       <button class="sb-lock-btn" onclick="doLock()">
@@ -1122,7 +1126,11 @@ input { font-family:inherit }
   <!-- ── MAIN CONTENT ── -->
   <main class="main-content">
     <div class="top-bar" id="topBar">
-      <div class="top-bar-title" id="topBarTitle">סקירה</div>
+      <div class="tb-month-nav" id="topMonthWrap">
+        <button class="mth-btn" id="topPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
+        <div class="top-month-label" id="topMonthLabel">—</div>
+        <button class="mth-btn" id="topNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
+      </div>
       <div class="top-bar-right">
         <div class="tb-notif" title="התראות">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
@@ -1145,7 +1153,50 @@ input { font-family:inherit }
         <!-- SPLIT: 60% overview | 40% current month -->
         <div class="home-split">
 
-          <!-- ── LEFT (40%): Current Month Panel ── -->
+          <!-- ── RIGHT (60%): Overview Panel — appears first in HTML → right in RTL ── -->
+          <div class="home-panel panel-overview">
+            <div class="panel-hdr">
+              <div class="panel-title">סקירה כללית</div>
+              <div class="panel-sub">מגמות ותובנות</div>
+            </div>
+
+            <!-- Trend Chart -->
+            <div class="trend-card">
+              <div class="trend-hdr">
+                <div class="trend-title">מגמות חודשיות</div>
+                <div class="trend-toggles">
+                  <button class="trend-toggle active" data-dataset="expenses" onclick="toggleTrendLine('expenses')">הוצאות</button>
+                  <button class="trend-toggle active" data-dataset="income" onclick="toggleTrendLine('income')">הכנסות</button>
+                  <button class="trend-toggle" data-dataset="budget" onclick="toggleTrendLine('budget')">תקציב</button>
+                </div>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="trendChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Anomalies -->
+            <div class="anomaly-section">
+              <div class="panel-sec-row">
+                <div class="sec-title">תנועות חריגות</div>
+              </div>
+              <div id="anomalyList" class="anomaly-list"></div>
+            </div>
+
+            <!-- Action Items -->
+            <div class="actions-section">
+              <div class="panel-sec-row">
+                <div class="sec-title">פעולות מומלצות</div>
+              </div>
+              <div id="actionList" class="action-list"></div>
+            </div>
+
+          </div>
+
+          <!-- ── DIVIDER ── -->
+          <div class="home-divider"></div>
+
+          <!-- ── LEFT (40%): Current Month Panel — appears second → left in RTL ── -->
           <div class="home-panel panel-month">
             <div class="panel-hdr">
               <div class="panel-title" id="monthPanelTitle">— 2026</div>
@@ -1187,45 +1238,6 @@ input { font-family:inherit }
             <button class="month-cta-btn" onclick="setSection(1)">פירוט חודשי מלא →</button>
           </div>
 
-          <!-- ── RIGHT (60%): Overview Panel ── -->
-          <div class="home-panel panel-overview">
-            <div class="panel-hdr">
-              <div class="panel-title">סקירה כללית</div>
-              <div class="panel-sub">מגמות ותובנות</div>
-            </div>
-
-            <!-- Trend Chart -->
-            <div class="trend-card">
-              <div class="trend-hdr">
-                <div class="trend-title">מגמות חודשיות</div>
-                <div class="trend-toggles">
-                  <button class="trend-toggle active" data-dataset="expenses" onclick="toggleTrendLine('expenses')">הוצאות</button>
-                  <button class="trend-toggle active" data-dataset="income" onclick="toggleTrendLine('income')">הכנסות</button>
-                  <button class="trend-toggle" data-dataset="budget" onclick="toggleTrendLine('budget')">תקציב</button>
-                </div>
-              </div>
-              <div class="chart-wrap">
-                <canvas id="trendChart"></canvas>
-              </div>
-            </div>
-
-            <!-- Anomalies -->
-            <div class="anomaly-section">
-              <div class="panel-sec-row">
-                <div class="sec-title">תנועות חריגות</div>
-              </div>
-              <div id="anomalyList" class="anomaly-list"></div>
-            </div>
-
-            <!-- Action Items -->
-            <div class="actions-section">
-              <div class="panel-sec-row">
-                <div class="sec-title">פעולות מומלצות</div>
-              </div>
-              <div id="actionList" class="action-list"></div>
-            </div>
-
-          </div>
         </div>
 
       </section>
@@ -1574,15 +1586,14 @@ function setSection(idx) {
   }
   // Month nav visibility: show for sections 0,1,2; hide for 3,4
   const showMonth = idx <= 2;
-  document.getElementById('sbMonthWrap').style.display    = showMonth ? '' : 'none';
   document.getElementById('mobileMonthWrap').style.display = showMonth ? '' : 'none';
   // Sync top bar title
   const titles = ['ראשי','הוצאות','מנויים','נכסים','המלצות'];
   const titleEl = document.getElementById('topBarTitle');
   if (titleEl) titleEl.textContent = titles[idx] || '';
   // Sync top bar month visibility
-  const tbMonthWrap = document.getElementById('tbMonthWrap');
-  if (tbMonthWrap) tbMonthWrap.style.display = showMonth ? '' : 'none';
+  const topMonthWrap = document.getElementById('topMonthWrap');
+  if (topMonthWrap) topMonthWrap.style.display = showMonth ? '' : 'none';
   render();
   window.scrollTo(0,0);
 }
@@ -1593,23 +1604,26 @@ function changeMonth(delta) {
 }
 
 function setMonthLabels(labelText) {
-  document.getElementById('sbMonthLabel').textContent  = labelText;
-  document.getElementById('mMonthLabel').textContent   = labelText;
-  const tbLbl = document.getElementById('tbMonthLabel');
-  if (tbLbl) tbLbl.textContent = labelText;
+  const sbLbl = document.getElementById('sbMonthLabel');
+  if (sbLbl) sbLbl.textContent = labelText;
+  document.getElementById('mMonthLabel').textContent = labelText;
+  const topLbl = document.getElementById('topMonthLabel');
+  if (topLbl) topLbl.textContent = labelText;
 }
 
 function setMonthBtns() {
   const isFirst = curIdx === 0;
   const isLast  = curIdx === MONTHS.length-1;
-  document.getElementById('sbPrevBtn').disabled = isFirst;
-  document.getElementById('mPrevBtn').disabled  = isFirst;
-  document.getElementById('sbNextBtn').disabled = isLast;
-  document.getElementById('mNextBtn').disabled  = isLast;
-  const tbPrev = document.getElementById('tbPrevBtn');
-  const tbNext = document.getElementById('tbNextBtn');
-  if (tbPrev) tbPrev.disabled = isFirst;
-  if (tbNext) tbNext.disabled = isLast;
+  const sbPrev = document.getElementById('sbPrevBtn');
+  if (sbPrev) sbPrev.disabled = isFirst;
+  document.getElementById('mPrevBtn').disabled = isFirst;
+  const sbNext = document.getElementById('sbNextBtn');
+  if (sbNext) sbNext.disabled = isLast;
+  document.getElementById('mNextBtn').disabled = isLast;
+  const topPrev = document.getElementById('topPrevBtn');
+  const topNext = document.getElementById('topNextBtn');
+  if (topPrev) topPrev.disabled = isFirst;
+  if (topNext) topNext.disabled = isLast;
 }
 
 
