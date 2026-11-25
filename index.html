@@ -904,23 +904,50 @@ input { font-family:inherit }
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 14px;
-  padding: 18px 16px;
-  border: 1px solid rgba(114,9,183,0.25);
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(114,9,183,0.2);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
 }
-.kpi-card.kpi-expenses { border-color: rgba(247,37,133,0.35) }
-.kpi-card.kpi-income   { border-color: rgba(27,204,186,0.35) }
-.kpi-card.kpi-balance  { border-color: rgba(27,204,186,0.2) }
-.kpi-card.kpi-budget   { border-color: rgba(114,9,183,0.35) }
-.kpi-label { font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px }
-.kpi-value { font-size:24px;font-weight:900;letter-spacing:-1px;direction:ltr;display:block;margin-bottom:4px }
-.kpi-card.kpi-expenses .kpi-value { color: #F72585 }
-.kpi-card.kpi-income .kpi-value   { color: #1BCCBA }
-.kpi-card.kpi-balance .kpi-value.positive { color: #1BCCBA }
-.kpi-card.kpi-balance .kpi-value.negative { color: #F72585 }
-.kpi-card.kpi-budget .kpi-value   { color: #7209B7 }
-.kpi-delta { font-size:11px;color:var(--muted);margin-top:2px }
-.kpi-sub   { font-size:11px;color:var(--muted);margin-top:2px }
+/* Colored left accent stripe */
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  inset-inline-end: 0;
+  width: 3px;
+  border-radius: 0 14px 14px 0;
+}
+.kpi-card.kpi-expenses::before { background: #F72585 }
+.kpi-card.kpi-income::before   { background: #1BCCBA }
+.kpi-card.kpi-balance::before  { background: #1BCCBA }
+.kpi-card.kpi-balance.negative-balance::before { background: #F72585 }
+.kpi-card.kpi-budget::before   { background: #7209B7 }
+
+/* Label — readable, top of card */
+.kpi-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2px;
+}
+/* Value — large, white, readable */
+.kpi-value {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  direction: ltr;
+  display: block;
+  color: #ffffff;
+  line-height: 1;
+}
+/* Delta and sub — small, semantic color */
+.kpi-delta { font-size:12px;color:var(--muted) }
+.kpi-sub   { font-size:12px;color:var(--muted) }
 
 /* ═══════════════════════════════════════════
    MINI CATEGORY GRID (top 4, 2×2)
@@ -1683,10 +1710,12 @@ function renderHome() {
 
   // Balance
   const balEl = document.getElementById('kpiBalance');
+  const balCard = balEl?.closest('.kpi-card');
   if (balEl) {
     if (monthIncome > 0) {
       balEl.textContent = (balance >= 0 ? '+' : '') + '₪' + Math.round(balance).toLocaleString('he-IL');
-      balEl.className = 'kpi-value ' + (balance >= 0 ? 'positive' : 'negative');
+      balEl.className = 'kpi-value';
+      if (balCard) balCard.classList.toggle('negative-balance', balance < 0);
     } else {
       balEl.textContent = '—';
       balEl.className = 'kpi-value';
