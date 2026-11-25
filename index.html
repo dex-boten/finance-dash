@@ -239,12 +239,14 @@ input { font-family:inherit }
 /* Sidebar toggle button */
 .sb-toggle {
   width:32px;height:32px;border-radius:8px;
-  background:rgba(114,9,183,0.15);border:1px solid rgba(114,9,183,0.3);
-  color:var(--muted);display:flex;align-items:center;justify-content:center;
+  background:rgba(114,9,183,0.25);border:1px solid rgba(114,9,183,0.5);
+  color:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;
   flex-shrink:0;cursor:pointer;transition:background .15s;
 }
-.sb-toggle svg { stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round }
-.sb-toggle:hover { background:rgba(114,9,183,0.3);color:var(--text) }
+.sb-toggle svg { stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round }
+.sb-toggle:hover { background:rgba(114,9,183,0.45);color:#fff }
+#app.sidebar-collapsed .sb-header { justify-content:center;padding:16px 8px }
+#app.sidebar-collapsed .sb-toggle { width:36px;height:36px }
 
 .sb-nav {
   flex:1;padding:12px 10px;
@@ -857,7 +859,7 @@ input { font-family:inherit }
 ═══════════════════════════════════════════ */
 .home-split {
   display: grid;
-  grid-template-columns: 3fr auto 2fr;
+  grid-template-columns: 1fr auto 1fr;
   gap: 0;
   align-items: start;
   min-height: calc(100vh - 120px);
@@ -1084,26 +1086,26 @@ input { font-family:inherit }
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
         <span class="sb-label">הוצאות</span>
       </button>
-      <button class="sb-item" id="snav-2" onclick="setSection(2)">
+      <button class="sb-item" id="snav-2" onclick="setSection(2)" title="מנויים">
         <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        מנויים
+        <span class="sb-label">מנויים</span>
       </button>
-      <button class="sb-item" id="snav-3" onclick="setSection(3)">
+      <button class="sb-item" id="snav-3" onclick="setSection(3)" title="נכסים">
         <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        נכסים
+        <span class="sb-label">נכסים</span>
       </button>
-      <button class="sb-item" id="snav-4" onclick="setSection(4)">
+      <button class="sb-item" id="snav-4" onclick="setSection(4)" title="המלצות">
         <svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26A7 7 0 0112 2z"/></svg>
-        המלצות
+        <span class="sb-label">המלצות</span>
       </button>
     </nav>
 
     <!-- Month nav removed from sidebar — now in top bar -->
 
     <div class="sb-footer">
-      <button class="sb-lock-btn" onclick="doLock()">
+      <button class="sb-lock-btn" onclick="doLock()" title="נעל">
         <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        נעל
+        <span class="sb-label">נעל</span>
       </button>
     </div>
   </aside>
@@ -1127,9 +1129,9 @@ input { font-family:inherit }
   <main class="main-content">
     <div class="top-bar" id="topBar">
       <div class="tb-month-nav" id="topMonthWrap">
-        <button class="mth-btn" id="topPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">›</button>
+        <button class="mth-btn" id="topPrevBtn" onclick="changeMonth(-1)" aria-label="חודש קודם">‹</button>
         <div class="top-month-label" id="topMonthLabel">—</div>
-        <button class="mth-btn" id="topNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">‹</button>
+        <button class="mth-btn" id="topNextBtn" onclick="changeMonth(1)" aria-label="חודש הבא">›</button>
       </div>
       <div class="top-bar-right">
         <div class="tb-notif" title="התראות">
