@@ -1036,6 +1036,72 @@ input { font-family:inherit }
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:10px;
 }
+
+/* ═══════════════════════════════════════════
+   STACKED CARD CAROUSEL
+═══════════════════════════════════════════ */
+.card-stack-wrap {
+  position: relative;
+  height: 90px; /* adjusts to tallest card */
+}
+.card-stack {
+  position: relative;
+  height: 90px;
+}
+.stack-card {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  top: 0;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s, z-index 0s;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+/* Stack layers by data-stack attribute */
+.stack-card[data-stack="0"] {
+  transform: translateY(0) scale(1);
+  opacity: 1; z-index: 10; pointer-events: all;
+}
+.stack-card[data-stack="1"] {
+  transform: translateY(-8px) scale(0.96);
+  opacity: 0.7; z-index: 9; pointer-events: none;
+}
+.stack-card[data-stack="2"] {
+  transform: translateY(-14px) scale(0.92);
+  opacity: 0.45; z-index: 8; pointer-events: none;
+}
+.stack-card[data-stack="3"],
+.stack-card[data-stack="4"],
+.stack-card[data-stack="5"] {
+  transform: translateY(-18px) scale(0.88);
+  opacity: 0; z-index: 7; pointer-events: none;
+}
+.stack-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 0 2px;
+}
+.stack-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.stack-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: background 0.2s, transform 0.2s;
+}
+.stack-dot.active {
+  background: rgba(255,255,255,0.7);
+  transform: scale(1.3);
+}
+.stack-tap-hint {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+}
 .glass-card {
   background: rgba(13,13,31,0.6);
   backdrop-filter: blur(20px);
@@ -1200,20 +1266,28 @@ input { font-family:inherit }
               </div>
             </div>
 
-            <!-- Anomalies -->
+            <!-- Anomalies Stack -->
             <div class="anomaly-section">
               <div class="panel-sec-row">
                 <div class="sec-title">תנועות חריגות</div>
+                <div class="stack-dots" id="anomalyDots"></div>
               </div>
-              <div id="anomalyList" class="anomaly-list"></div>
+              <div class="card-stack" id="anomalyStack"></div>
+              <div class="stack-footer">
+                <div class="stack-tap-hint">לחץ להחלפה</div>
+              </div>
             </div>
 
-            <!-- Action Items -->
+            <!-- Action Items Stack -->
             <div class="actions-section">
               <div class="panel-sec-row">
                 <div class="sec-title">פעולות מומלצות</div>
+                <div class="stack-dots" id="actionDots"></div>
               </div>
-              <div id="actionList" class="action-list"></div>
+              <div class="card-stack" id="actionStack"></div>
+              <div class="stack-footer">
+                <div class="stack-tap-hint">לחץ להחלפה</div>
+              </div>
             </div>
 
           </div>
@@ -1762,10 +1836,9 @@ function renderHome() {
   // ── ANOMALIES ──
   renderAnomalies(month, prevMonth);
 
-  // ── ACTION ITEMS (top 3 RECS) ──
-  const actionList = document.getElementById('actionList');
-  if (actionList) {
-    actionList.innerHTML = RECS.slice(0,3).map(r => {
+  // ── ACTION ITEMS STACK ──
+  if (document.getElementById('actionStack')) {
+    initStack('actionStack', 'actionDots', RECS.slice(0,4), r => {
       const tagEmoji = r.badge==='quick'?'⚡':r.badge==='medium'?'🎯':'💪';
       return '<div class="action-row">' +
         '<div class="action-icon">' + r.icon + '</div>' +
@@ -1775,7 +1848,7 @@ function renderHome() {
         '</div>' +
         '<div class="action-tag">' + tagEmoji + '</div>' +
         '</div>';
-    }).join('');
+    });
   }
 
   // ── TREND CHART ──
@@ -1859,6 +1932,53 @@ function toggleTrendLine(dataset) {
   });
 }
 
+
+// ── CARD STACK CAROUSEL ──────────────────────
+const _stacks = {};
+
+function initStack(stackId, dotsId, items, renderFn) {
+  _stacks[stackId] = { items, idx: 0 };
+  const container = document.getElementById(stackId);
+  if (!container) return;
+  container.innerHTML = '';
+  items.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'stack-card';
+    el.dataset.stack = i;
+    el.innerHTML = renderFn(item);
+    el.addEventListener('click', () => advanceStack(stackId, dotsId));
+    container.appendChild(el);
+  });
+  updateStackDots(stackId, dotsId);
+  requestAnimationFrame(() => {
+    const front = container.querySelector('.stack-card[data-stack="0"]');
+    if (front) container.style.height = (front.offsetHeight + 20) + 'px';
+  });
+}
+
+function advanceStack(stackId, dotsId) {
+  const s = _stacks[stackId];
+  if (!s || s.items.length <= 1) return;
+  s.idx = (s.idx + 1) % s.items.length;
+  const container = document.getElementById(stackId);
+  if (!container) return;
+  container.querySelectorAll('.stack-card').forEach((el, i) => {
+    const relIdx = (i - s.idx + s.items.length) % s.items.length;
+    el.dataset.stack = relIdx;
+    el.style.pointerEvents = relIdx === 0 ? 'all' : 'none';
+  });
+  updateStackDots(stackId, dotsId);
+}
+
+function updateStackDots(stackId, dotsId) {
+  const s = _stacks[stackId];
+  const dotsEl = document.getElementById(dotsId);
+  if (!dotsEl || !s) return;
+  dotsEl.innerHTML = s.items.map((_, i) =>
+    '<div class="stack-dot' + (i === s.idx ? ' active' : '') + '"></div>'
+  ).join('');
+}
+
 function computeAnomalies(month, prevMonth, limit) {
   limit = limit || 3;
   if (!SUM[month] || !prevMonth || !SUM[prevMonth]) return [];
@@ -1878,28 +1998,29 @@ function computeAnomalies(month, prevMonth, limit) {
 }
 
 function renderAnomalies(month, prevMonth) {
-  const list = document.getElementById('anomalyList');
-  if (!list) return;
   const anomalies = computeAnomalies(month, prevMonth);
+  const stack = document.getElementById('anomalyStack');
+  if (!stack) return;
   if (!anomalies.length) {
-    list.innerHTML = '<div class="anomaly-empty">אין חריגות משמעותיות ✅</div>';
+    stack.style.height = '60px';
+    stack.innerHTML = '<div class="anomaly-row" style="position:static"><span class="anomaly-emoji">✅</span><div class="anomaly-info"><div class="anomaly-name">אין חריגות משמעותיות</div></div></div>';
     return;
   }
-  list.innerHTML = anomalies.map(a => {
+  initStack('anomalyStack', 'anomalyDots', anomalies, a => {
     const meta = CAT[a.cat] || { he:a.cat, em:'📦' };
     const isUp = a.delta > 0;
     const pct = Math.round(Math.abs(a.delta)*100);
     const color = isUp ? '#F72585' : '#1BCCBA';
-    const arrow = isUp ? '↑' : '↓';
+    const arrow = isUp ? '▲' : '▼';
     return '<div class="anomaly-row">' +
       '<span class="anomaly-emoji">' + meta.em + '</span>' +
       '<div class="anomaly-info">' +
       '<div class="anomaly-name">' + meta.he + '</div>' +
       '<div class="anomaly-detail">₪' + Math.round(a.curAmt).toLocaleString() + ' vs ₪' + Math.round(a.prevAmt).toLocaleString() + ' קודם</div>' +
       '</div>' +
-      '<div class="anomaly-delta" style="color:' + color + '">' + arrow + pct + '%</div>' +
+      '<div class="anomaly-delta" style="color:' + color + '">' + arrow + ' ' + pct + '%</div>' +
       '</div>';
-  }).join('');
+  });
 }
 
 function updatePartialBanner(month) {
