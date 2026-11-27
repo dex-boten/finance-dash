@@ -906,21 +906,32 @@ input { font-family:inherit }
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-radius: 16px;
-  padding: 16px;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  position: relative;
+  overflow: hidden;
+  min-height: 110px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;  /* right-align all */
-  gap: 6px;
+  justify-content: flex-end;
+  padding: 14px 16px 12px;
   text-align: right;
 }
+/* Sparkline canvas — absolute, left side */
+.kpi-spark {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 55%; height: 100%;
+  opacity: 0.65;
+  pointer-events: none;
+}
 .kpi-icon {
-  width: 36px; height: 36px;
-  border-radius: 10px;
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 40px; height: 40px;
+  border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  align-self: flex-start;  /* icon stays top-left */
+  font-size: 20px;
 }
 .kpi-card.kpi-expenses .kpi-icon { background: rgba(247,37,133,0.2) }
 .kpi-card.kpi-income .kpi-icon   { background: rgba(27,204,186,0.2) }
@@ -935,20 +946,22 @@ input { font-family:inherit }
   justify-content: flex-end;
 }
 .kpi-label {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: rgba(255,255,255,0.55);
   text-transform: uppercase;
-  letter-spacing: .07em;
-  white-space: nowrap;
+  letter-spacing: .09em;
+  margin-bottom: 2px;
 }
 .kpi-value {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
   direction: ltr;
-  color: rgba(255,255,255,0.95);
+  display: block;
+  color: #fff;
   line-height: 1;
+  margin-bottom: 6px;
 }
 /* Delta pill/badge */
 .kpi-delta {
@@ -1351,35 +1364,31 @@ input { font-family:inherit }
             <!-- 4 KPI blocks 2×2 -->
             <div class="kpi-grid">
               <div class="kpi-card kpi-expenses">
+                <canvas class="kpi-spark" id="sparkExpenses"></canvas>
                 <div class="kpi-icon">💸</div>
-                <div class="kpi-row">
-                  <span class="kpi-value" id="kpiExpenses">—</span>
-                  <div class="kpi-label">הוצאות</div>
-                </div>
+                <div class="kpi-label">הוצאות</div>
+                <span class="kpi-value" id="kpiExpenses">—</span>
                 <div class="kpi-delta" id="kpiExpensesDelta"></div>
               </div>
               <div class="kpi-card kpi-income">
+                <canvas class="kpi-spark" id="sparkIncome"></canvas>
                 <div class="kpi-icon">💰</div>
-                <div class="kpi-row">
-                  <span class="kpi-value" id="kpiIncome">—</span>
-                  <div class="kpi-label">הכנסות</div>
-                </div>
+                <div class="kpi-label">הכנסות</div>
+                <span class="kpi-value" id="kpiIncome">—</span>
                 <div class="kpi-delta" id="kpiIncomeDelta"></div>
               </div>
               <div class="kpi-card kpi-balance">
+                <canvas class="kpi-spark" id="sparkBalance"></canvas>
                 <div class="kpi-icon">⚖️</div>
-                <div class="kpi-row">
-                  <span class="kpi-value" id="kpiBalance">—</span>
-                  <div class="kpi-label">מאזן</div>
-                </div>
+                <div class="kpi-label">מאזן</div>
+                <span class="kpi-value" id="kpiBalance">—</span>
                 <div class="kpi-sub" id="kpiBalanceSub"></div>
               </div>
               <div class="kpi-card kpi-budget">
+                <canvas class="kpi-spark" id="sparkBudget"></canvas>
                 <div class="kpi-icon">🎯</div>
-                <div class="kpi-row">
-                  <span class="kpi-value" id="kpiBudgetPct">—</span>
-                  <div class="kpi-label">% תקציב</div>
-                </div>
+                <div class="kpi-label">% תקציב</div>
+                <span class="kpi-value" id="kpiBudgetPct">—</span>
                 <div class="kpi-sub" id="kpiBudgetSub"></div>
               </div>
             </div>
@@ -1912,7 +1921,10 @@ function renderHome() {
   }
 
   // ── TREND CHART ──
-  if (typeof Chart !== 'undefined') buildTrendChart();
+  if (typeof Chart !== 'undefined') {
+    buildTrendChart();
+    requestAnimationFrame(buildAllKpiSparklines);
+  }
 }
 
 function buildTrendChart() {
@@ -1993,6 +2005,77 @@ function toggleTrendLine(dataset) {
 }
 
 
+
+// ── KPI SPARKLINES (SLOPurple style) ────────────────────
+const _kpiSparkInstances = {};
+
+function buildKpiSparkline(canvasId, data, color) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || !data || !data.length) return;
+
+  if (_kpiSparkInstances[canvasId]) {
+    _kpiSparkInstances[canvasId].destroy();
+  }
+
+  const ctx = canvas.getContext('2d');
+  const grad = ctx.createLinearGradient(0, 0, 0, canvas.offsetHeight || 110);
+  grad.addColorStop(0, color.replace('1)', '0.4)'));
+  grad.addColorStop(1, color.replace('1)', '0.0)'));
+
+  _kpiSparkInstances[canvasId] = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: data.map((_, i) => i),
+      datasets: [{
+        data,
+        borderColor: color,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      animation: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: { x: { display: false }, y: { display: false } },
+      layout: { padding: 0 }
+    }
+  });
+}
+
+function buildAllKpiSparklines() {
+  if (typeof Chart === 'undefined' || !SUM || !MONTHS) return;
+  const excCats = ['savings','transfers','housing'];
+  const months6 = MONTHS.slice(-6);
+
+  const expData = months6.map(m => {
+    const s = SUM[m];
+    if (!s) return 0;
+    return Math.max(0, s.total - excCats.reduce((t,c) => t+(s.by_cat?.[c]||0), 0));
+  });
+
+  const incData = months6.map(m => {
+    return (DATA.income||[]).filter(e => e.month === m).reduce((a,b)=>a+(b.amount||0),0);
+  });
+
+  const balData = months6.map((m,i) => incData[i] > 0 ? incData[i] - expData[i] : 0);
+  const budgetTotal = Object.values(BUDGETS).filter(x=>x>0).reduce((a,b)=>a+b,0);
+  const budgData = months6.map(m => {
+    const s = SUM[m];
+    if (!s || budgetTotal <= 0) return 0;
+    const exc = excCats.reduce((t,c) => t+(s.by_cat?.[c]||0), 0);
+    return Math.round((s.total - exc) / budgetTotal * 100);
+  });
+
+  buildKpiSparkline('sparkExpenses', expData, 'rgba(247,37,133,1)');
+  buildKpiSparkline('sparkIncome',   incData, 'rgba(27,204,186,1)');
+  buildKpiSparkline('sparkBalance',  balData, 'rgba(27,204,186,1)');
+  buildKpiSparkline('sparkBudget',   budgData,'rgba(114,9,183,1)');
+}
 // ── CARD STACK CAROUSEL ──────────────────────
 const _stacks = {};
 
