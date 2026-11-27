@@ -245,9 +245,11 @@ input { font-family:inherit }
 }
 .sb-toggle svg { stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round }
 .sb-toggle:hover { background:rgba(114,9,183,0.45);color:#fff }
-#app.sidebar-collapsed .sb-header { flex-direction:column;align-items:center;gap:10px;padding:16px 8px }
-#app.sidebar-collapsed .sb-logo { justify-content:center }
-#app.sidebar-collapsed .sb-toggle { width:34px;height:34px }
+#app.sidebar-collapsed .sb-header { flex-direction:column;align-items:center;gap:0;padding:12px 8px }
+#app.sidebar-collapsed .sb-logo { justify-content:center;cursor:pointer }
+#app.sidebar-collapsed .sb-toggle { display:none }
+#app.sidebar-collapsed .sb-logo { cursor:pointer; }
+#app.sidebar-collapsed .sb-logo:hover .sb-logo-icon { transform:scale(1.1); transition:transform .15s }
 
 .sb-nav {
   flex:1;padding:12px 10px;
@@ -899,49 +901,70 @@ input { font-family:inherit }
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-/* Apple-style glass KPI card */
 .kpi-card {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.07);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-radius: 16px;
-  padding: 20px 18px;
+  padding: 16px;
   border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
+  align-items: flex-end;  /* right-align all */
+  gap: 6px;
+  text-align: right;
+}
+.kpi-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  align-self: flex-start;  /* icon stays top-left */
+}
+.kpi-card.kpi-expenses .kpi-icon { background: rgba(247,37,133,0.2) }
+.kpi-card.kpi-income .kpi-icon   { background: rgba(27,204,186,0.2) }
+.kpi-card.kpi-balance .kpi-icon  { background: rgba(27,204,186,0.15) }
+.kpi-card.kpi-budget .kpi-icon   { background: rgba(114,9,183,0.2) }
+/* Label + Value on same visual line via inline-flex row */
+.kpi-row {
+  display: flex;
+  align-items: baseline;
   gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
-/* Label — prominent, white */
 .kpi-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  white-space: nowrap;
 }
-/* Value — readable, not too heavy */
 .kpi-value {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
   direction: ltr;
-  display: block;
   color: rgba(255,255,255,0.95);
   line-height: 1;
 }
-/* Delta — clearer */
+/* Delta pill/badge */
 .kpi-delta {
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
 }
-.kpi-delta.up   { color: #F72585 }
-.kpi-delta.down { color: #1BCCBA }
+.kpi-delta.up   { background: rgba(247,37,133,0.15); color: #F72585; border: 1px solid rgba(247,37,133,0.3) }
+.kpi-delta.down { background: rgba(27,204,186,0.15);  color: #1BCCBA;  border: 1px solid rgba(27,204,186,0.3) }
 .kpi-sub {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
 }
 
 /* ═══════════════════════════════════════════
@@ -949,8 +972,8 @@ input { font-family:inherit }
 ═══════════════════════════════════════════ */
 .mini-cat-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
 }
 .mini-cat {
   background: rgba(13,13,31,0.5);
@@ -1005,10 +1028,11 @@ input { font-family:inherit }
 .anomaly-list,.action-list { display:flex;flex-direction:column;gap:8px }
 .anomaly-row,.action-row {
   display:flex;align-items:center;gap:10px;
-  padding:10px 14px;
+  padding:14px 16px;
   background:#2a2a50;
   border:1px solid rgba(255,255,255,0.12);
-  border-radius:12px;
+  border-radius:14px;
+  min-height: 70px;
 }
 .anomaly-name,.action-title { font-size:13px;font-weight:600;margin-bottom:1px }
 .anomaly-detail,.action-saving { font-size:11px }
@@ -1027,12 +1051,12 @@ input { font-family:inherit }
    MONTH CTA BUTTON
 ═══════════════════════════════════════════ */
 .month-cta-btn {
-  width:100%;padding:12px 16px;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;
   background:#ffffff;
   border:none;
   border-radius:12px;color:#0a0a1f;font-weight:700;font-size:14px;
   cursor:pointer;transition:opacity .15s;
-  display:flex;align-items:center;justify-content:space-between;
 }
 .month-cta-btn:hover { opacity:.88 }
 .month-cta-btn:hover { opacity:.85 }
@@ -1052,7 +1076,8 @@ input { font-family:inherit }
 }
 .card-stack {
   position: relative;
-  /* height set dynamically by JS */
+  max-width: 320px;  /* narrower = more square shape */
+  margin: 0 auto;    /* center in panel */
 }
 .stack-card {
   position: absolute;
@@ -1173,7 +1198,7 @@ input { font-family:inherit }
   <aside class="sidebar" id="sidebar">
 
     <div class="sb-header">
-      <div class="sb-logo">
+      <div class="sb-logo" id="sbLogo" onclick="if(document.getElementById('app').classList.contains('sidebar-collapsed'))toggleSidebar()">
         <div class="sb-logo-icon">💰</div>
         <div>
           <div class="sb-logo-name">Moneya</div>
@@ -1327,26 +1352,34 @@ input { font-family:inherit }
             <div class="kpi-grid">
               <div class="kpi-card kpi-expenses">
                 <div class="kpi-icon">💸</div>
-                <div class="kpi-label">הוצאות</div>
-                <span class="kpi-value" id="kpiExpenses">—</span>
+                <div class="kpi-row">
+                  <span class="kpi-value" id="kpiExpenses">—</span>
+                  <div class="kpi-label">הוצאות</div>
+                </div>
                 <div class="kpi-delta" id="kpiExpensesDelta"></div>
               </div>
               <div class="kpi-card kpi-income">
                 <div class="kpi-icon">💰</div>
-                <div class="kpi-label">הכנסות</div>
-                <span class="kpi-value" id="kpiIncome">—</span>
+                <div class="kpi-row">
+                  <span class="kpi-value" id="kpiIncome">—</span>
+                  <div class="kpi-label">הכנסות</div>
+                </div>
                 <div class="kpi-delta" id="kpiIncomeDelta"></div>
               </div>
               <div class="kpi-card kpi-balance">
                 <div class="kpi-icon">⚖️</div>
-                <div class="kpi-label">מאזן</div>
-                <span class="kpi-value" id="kpiBalance">—</span>
+                <div class="kpi-row">
+                  <span class="kpi-value" id="kpiBalance">—</span>
+                  <div class="kpi-label">מאזן</div>
+                </div>
                 <div class="kpi-sub" id="kpiBalanceSub"></div>
               </div>
               <div class="kpi-card kpi-budget">
                 <div class="kpi-icon">🎯</div>
-                <div class="kpi-label">% תקציב</div>
-                <span class="kpi-value" id="kpiBudgetPct">—</span>
+                <div class="kpi-row">
+                  <span class="kpi-value" id="kpiBudgetPct">—</span>
+                  <div class="kpi-label">% תקציב</div>
+                </div>
                 <div class="kpi-sub" id="kpiBudgetSub"></div>
               </div>
             </div>
@@ -1359,7 +1392,9 @@ input { font-family:inherit }
             <div class="mini-cat-grid" id="miniCatGrid"></div>
 
             <!-- CTA -->
-            <button class="month-cta-btn" onclick="setSection(1)"><span>← פירוט חודשי מלא</span></button>
+            <div style="text-align:center;margin-top:12px">
+              <button class="month-cta-btn" onclick="setSection(1)">הכל <span>←</span></button>
+            </div>
           </div>
 
         </div>
@@ -1843,7 +1878,7 @@ function renderHome() {
     const cats = Object.entries(bycat)
       .filter(([c,v]) => !excCats.includes(c) && v > 0)
       .sort((a,b) => b[1]-a[1])
-      .slice(0,4);
+      .slice(0,3);
     miniGrid.innerHTML = cats.map(([cat, amt]) => {
       const meta = CAT[cat] || { he:cat, em:'📦' };
       const budget = BUDGETS[cat] || 0;
