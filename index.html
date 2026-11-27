@@ -979,6 +979,11 @@ input { font-family:inherit }
   font-size: 11px;
   color: rgba(255,255,255,0.35);
 }
+.kpi-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: flex-end; text-align: right;
+}
 
 /* ═══════════════════════════════════════════
    MINI CATEGORY GRID (top 4, 2×2)
@@ -1089,41 +1094,31 @@ input { font-family:inherit }
 }
 .card-stack {
   position: relative;
-  max-width: 320px;  /* narrower = more square shape */
-  margin: 0 auto;    /* center in panel */
+  overflow: hidden;
 }
 .stack-card {
   position: absolute;
   inset-inline-start: 0;
   inset-inline-end: 0;
   top: 0;
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), filter 0.35s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
   will-change: transform;
 }
-/* Front card — full size, full visibility */
+/* Single visible card, others hidden off to the side */
 .stack-card[data-stack="0"] {
-  transform: scale(1) translateY(0);
+  transform: translateX(0); opacity: 1;
   z-index: 10; pointer-events: all;
-  filter: none;
 }
-/* Behind cards peek from below — SOLID, no opacity */
 .stack-card[data-stack="1"] {
-  transform: scale(0.95) translateY(10px);
+  transform: translateX(-110%); opacity: 0;
   z-index: 9; pointer-events: none;
-  filter: brightness(0.6);
 }
-.stack-card[data-stack="2"] {
-  transform: scale(0.90) translateY(18px);
-  z-index: 8; pointer-events: none;
-  filter: brightness(0.4);
-}
+.stack-card[data-stack="2"],
 .stack-card[data-stack="3"],
 .stack-card[data-stack="4"] {
-  transform: scale(0.86) translateY(24px);
-  z-index: 7; pointer-events: none;
-  filter: brightness(0.2);
-  visibility: hidden;
+  transform: translateX(-220%); opacity: 0;
+  z-index: 8; pointer-events: none;
 }
 .stack-footer {
   display: flex;
@@ -1366,30 +1361,38 @@ input { font-family:inherit }
               <div class="kpi-card kpi-expenses">
                 <canvas class="kpi-spark" id="sparkExpenses"></canvas>
                 <div class="kpi-icon">💸</div>
-                <div class="kpi-label">הוצאות</div>
-                <span class="kpi-value" id="kpiExpenses">—</span>
-                <div class="kpi-delta" id="kpiExpensesDelta"></div>
+                <div class="kpi-content">
+                  <div class="kpi-label">הוצאות</div>
+                  <span class="kpi-value" id="kpiExpenses">—</span>
+                  <div class="kpi-delta" id="kpiExpensesDelta"></div>
+                </div>
               </div>
               <div class="kpi-card kpi-income">
                 <canvas class="kpi-spark" id="sparkIncome"></canvas>
                 <div class="kpi-icon">💰</div>
-                <div class="kpi-label">הכנסות</div>
-                <span class="kpi-value" id="kpiIncome">—</span>
-                <div class="kpi-delta" id="kpiIncomeDelta"></div>
+                <div class="kpi-content">
+                  <div class="kpi-label">הכנסות</div>
+                  <span class="kpi-value" id="kpiIncome">—</span>
+                  <div class="kpi-delta" id="kpiIncomeDelta"></div>
+                </div>
               </div>
               <div class="kpi-card kpi-balance">
                 <canvas class="kpi-spark" id="sparkBalance"></canvas>
                 <div class="kpi-icon">⚖️</div>
-                <div class="kpi-label">מאזן</div>
-                <span class="kpi-value" id="kpiBalance">—</span>
-                <div class="kpi-sub" id="kpiBalanceSub"></div>
+                <div class="kpi-content">
+                  <div class="kpi-label">מאזן</div>
+                  <span class="kpi-value" id="kpiBalance">—</span>
+                  <div class="kpi-sub" id="kpiBalanceSub"></div>
+                </div>
               </div>
               <div class="kpi-card kpi-budget">
                 <canvas class="kpi-spark" id="sparkBudget"></canvas>
                 <div class="kpi-icon">🎯</div>
-                <div class="kpi-label">% תקציב</div>
-                <span class="kpi-value" id="kpiBudgetPct">—</span>
-                <div class="kpi-sub" id="kpiBudgetSub"></div>
+                <div class="kpi-content">
+                  <div class="kpi-label">% תקציב</div>
+                  <span class="kpi-value" id="kpiBudgetPct">—</span>
+                  <div class="kpi-sub" id="kpiBudgetSub"></div>
+                </div>
               </div>
             </div>
 
@@ -1887,7 +1890,7 @@ function renderHome() {
     const cats = Object.entries(bycat)
       .filter(([c,v]) => !excCats.includes(c) && v > 0)
       .sort((a,b) => b[1]-a[1])
-      .slice(0,3);
+      .slice(0,6);
     miniGrid.innerHTML = cats.map(([cat, amt]) => {
       const meta = CAT[cat] || { he:cat, em:'📦' };
       const budget = BUDGETS[cat] || 0;
