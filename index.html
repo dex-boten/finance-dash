@@ -1004,12 +1004,14 @@ input { font-family:inherit }
 .anomaly-section,.actions-section { display:flex;flex-direction:column;gap:8px }
 .anomaly-list,.action-list { display:flex;flex-direction:column;gap:8px }
 .anomaly-row,.action-row {
-  display:flex;align-items:center;gap:12px;
-  padding:14px 16px;
-  background:#2a2a50;  /* Brighter solid */
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;
+  background:#2a2a50;
   border:1px solid rgba(255,255,255,0.12);
-  border-radius:14px;
+  border-radius:12px;
 }
+.anomaly-name,.action-title { font-size:13px;font-weight:600;margin-bottom:1px }
+.anomaly-detail,.action-saving { font-size:11px }
 .action-row { cursor:pointer;transition:border-color .15s }
 .action-row:hover { border-color:rgba(27,204,186,0.3) }
 .anomaly-emoji,.action-icon { font-size:18px;flex-shrink:0 }
@@ -1026,13 +1028,13 @@ input { font-family:inherit }
 ═══════════════════════════════════════════ */
 .month-cta-btn {
   width:100%;padding:12px 16px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:12px;color:rgba(255,255,255,0.9);font-weight:600;font-size:14px;
-  cursor:pointer;transition:background .15s;
+  background:#ffffff;
+  border:none;
+  border-radius:12px;color:#0a0a1f;font-weight:700;font-size:14px;
+  cursor:pointer;transition:opacity .15s;
   display:flex;align-items:center;justify-content:space-between;
 }
-.month-cta-btn:hover { background:rgba(255,255,255,0.14) }
+.month-cta-btn:hover { opacity:.88 }
 .month-cta-btn:hover { opacity:.85 }
 
 /* Panel section header */
